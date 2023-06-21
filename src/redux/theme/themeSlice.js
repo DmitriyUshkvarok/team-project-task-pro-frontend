@@ -6,18 +6,12 @@ const themeSlice = createSlice({
     themeColor: 'dark',
   },
   reducers: {
-    toggleTheme: (state) => {
-      if (state.themeColor === 'light') {
-        state.themeColor = 'violet';
-      } else if (state.themeColor === 'violet') {
-        state.themeColor = 'dark';
-      } else {
-        state.themeColor = 'light';
-      }
+    setTheme: (state, action) => {
+      state.themeColor = action.payload;
     },
   },
 });
 
-export const { toggleTheme } = themeSlice.actions;
+export const { setTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;

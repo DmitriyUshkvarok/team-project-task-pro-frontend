@@ -1,4 +1,6 @@
 :root {
+  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+
   --transition: 0.4s;
 
   --poppinsFont: 'Poppins';
@@ -36,27 +38,7 @@ body.menu-open {
   overflow: hidden;
 }
 
-body[data-theme='dark'] {
-
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
-
-  --accentColor: #BEDBB0;
-  --headerColor: #161616;
-  --blackColor: #151515;
-  --sidebarColor: #121212;
-  --helpColor: #1F1F1F;
-  --whiteColor: #FFFFFF;
-  --lowColor: #8FA1D0;
-  --mediumColor: #E09CB5;
-  --gefaultScreenColor: #E6E6E6;
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-}
-
 body[data-theme='light'] {
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
-
   --accentColor: #BEDBB0;
   --headerColor: #FCFCFC;
   --blackColor: #151515;
@@ -71,9 +53,22 @@ body[data-theme='light'] {
   --opacityWhite2: rgba(255, 255, 255, 0.5);
 }
 
-body[data-theme='Violet'] {
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+body[data-theme='dark'] {
+  --accentColor: #BEDBB0;
+  --headerColor: #161616;
+  --blackColor: #151515;
+  --sidebarColor: #121212;
+  --helpColor: #1F1F1F;
+  --whiteColor: #FFFFFF;
+  --lowColor: #8FA1D0;
+  --mediumColor: #E09CB5;
+  --gefaultScreenColor: #E6E6E6;
 
+  --opacityWhite: rgba(255, 255, 255, 0.3);
+  --opacityWhite2: rgba(255, 255, 255, 0.5);
+}
+
+body[data-theme='Violet'] {
   --accentColor: #5255BC;
   --headerColor: #FFFFFF;
   --blackColor: #151515;
@@ -87,6 +82,7 @@ body[data-theme='Violet'] {
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
 }
+
 
 h1,
 h2,
