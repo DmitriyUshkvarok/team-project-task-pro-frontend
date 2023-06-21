@@ -14,7 +14,10 @@ import {
   BtnRegister,
   StyleErrorMessage,
   Error,
+  Link,
 } from './RegistrationForm.styled';
+
+import { NavLink } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -48,6 +51,14 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
     >
       <FormRegistration>
+        <Link>
+          <NavLink to="/auth/register" style={{ color: '#ffffff' }}>
+            Registration
+          </NavLink>
+          <NavLink to="/auth/login" style={{ color: '#ffffff4d' }}>
+            Log In
+          </NavLink>
+        </Link>
         <FeedbackFormGroup>
           <InputForm type="text" name="name" placeholder="Enter your name" />
           <StyleErrorMessage name="name">
@@ -69,9 +80,12 @@ const RegistrationForm = () => {
             />
             <ToggleShowPasword onClick={togglePasswordVisibility}>
               {showPassword ? (
-                <BsEyeSlash color="var(--border-color)" />
+                <BsEyeSlash
+                  color="#ffffff4d"
+                  style={{ width: 18, height: 18 }}
+                />
               ) : (
-                <BsEye color="var(--border-color)" />
+                <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
               )}
             </ToggleShowPasword>
           </PasswordWrapper>
