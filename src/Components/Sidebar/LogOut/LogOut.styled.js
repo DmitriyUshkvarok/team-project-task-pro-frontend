@@ -10,13 +10,13 @@ export const Container = styled.div`
 `;
 
 export const BtnLogOut = styled.button`
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
+  font-family: var(--poppinsFont);
 
-  color: #ffffff;
+  font-weight: var(--fontWeight500);
+  font-size: var(--fontSize14);
+  line-height: 1.5em;
+
+  color: var(--whiteColor);
   background-color: transparent;
 
   cursor: pointer;

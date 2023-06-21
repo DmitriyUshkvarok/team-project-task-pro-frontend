@@ -14,8 +14,8 @@ export const MainContainer = styled.div`
 
 export const Container = styled.div`
   padding: 14px;
-  background: #1f1f1f;
-  border-radius: 8px;
+  background: var(--helpColor);
+  border-radius: var(--borderRadius8);
   @media screen and (min-width: 1280px) {
     padding: 20px;
   }
@@ -23,24 +23,23 @@ export const Container = styled.div`
 
 export const Desc = styled.p`
   margin-top: 14px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
+  font-family: var(--poppinsFont);
+
+  font-size: var(--fontSize12);
+  line-height: 1.33em;
 
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: var(--whiteColor);
 
   @media screen and (max-width: 768px) {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: var(--fontSize14);
+    line-height: 1.43em;
   }
 `;
 
 export const AccentSpan = styled.span`
-  color: #bedbb0;
+  color: var(--accentColor);
 `;
 
 export const WrapContent = styled.div`
@@ -56,17 +55,17 @@ export const BtnNeedHelp = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: white;
+  color: var(--whiteColor);
 `;
 
 export const DescContent = styled.p`
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 18px;
+  font-family: var(--poppinsFont);
+
+  font-weight: var(--fontWeight500);
+  font-size: var(--fontSize12);
+  line-height: 1.5em;
 
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: var(--whiteColor);
 `;

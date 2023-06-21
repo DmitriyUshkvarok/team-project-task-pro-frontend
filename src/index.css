@@ -1,17 +1,23 @@
 :root {
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
-  --accentColor: #BEDBB0;
+  --accentColor: #bedbb0;
   --darkColor: #161616;
   --blackColor: #151515;
   --blackColor2: #121212;
-  --helpColor: #1F1F1F;
-  --whiteColor: #FFFFFF;
-  --lowColor: #8FA1D0;
-  --mediumColor: #E09CB5;
+  --helpColor: #1f1f1f;
+  --whiteColor: #ffffff;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
+  --activeItemBoard: rgba(31, 31, 31, 1);
+  --borderBottom: rgba(255, 255, 255, 0.1);
   --transition: 0.4s;
 
   --poppinsFont: 'Poppins';
@@ -24,6 +30,7 @@
   --fontSize14: 14px;
   --fontSize16: 16px;
   --fontSize18: 18px;
+  --fontSize20: 20px;
   --fontSize40: 40px;
 
   --fontWeight700: 700;
