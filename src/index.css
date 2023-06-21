@@ -1,17 +1,4 @@
 :root {
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
-
-  --accentColor: #BEDBB0;
-  --darkColor: #161616;
-  --blackColor: #151515;
-  --blackColor2: #121212;
-  --helpColor: #1F1F1F;
-  --whiteColor: #FFFFFF;
-  --lowColor: #8FA1D0;
-  --mediumColor: #E09CB5;
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
   --transition: 0.4s;
 
   --poppinsFont: 'Poppins';
@@ -31,6 +18,7 @@
   --fontWeight500: 500;
 }
 
+
 #root {
   padding: 0;
 }
@@ -45,6 +33,58 @@ body {
 
 body.menu-open {
   overflow: hidden;
+}
+
+body[data-theme='dark'] {
+
+  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+
+  --accentColor: #BEDBB0;
+  --headerColor: #161616;
+  --blackColor: #151515;
+  --sidebarColor: #121212;
+  --helpColor: #1F1F1F;
+  --whiteColor: #FFFFFF;
+  --lowColor: #8FA1D0;
+  --mediumColor: #E09CB5;
+  --gefaultScreenColor: #E6E6E6;
+
+  --opacityWhite: rgba(255, 255, 255, 0.3);
+  --opacityWhite2: rgba(255, 255, 255, 0.5);
+}
+
+body[data-theme='light'] {
+  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+
+  --accentColor: #BEDBB0;
+  --headerColor: #FCFCFC;
+  --blackColor: #151515;
+  --sidebarColor: #FFFFFF;
+  --helpColor: #F6F6F7;
+  --whiteColor: #FFFFFF;
+  --lowColor: #8FA1D0;
+  --mediumColor: #E09CB5;
+  --gefaultScreenColor: #E6E6E6;
+
+  --opacityWhite: rgba(255, 255, 255, 0.3);
+  --opacityWhite2: rgba(255, 255, 255, 0.5);
+}
+
+body[data-theme='Violet'] {
+  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+
+  --accentColor: #5255BC;
+  --headerColor: #FFFFFF;
+  --blackColor: #151515;
+  --sidebarColor: #5255BC;
+  --helpColor: rgba(236, 237, 253, 0.4);
+  --whiteColor: #FFFFFF;
+  --lowColor: #8FA1D0;
+  --mediumColor: #E09CB5;
+  --gefaultScreenColor: #E6E6E6;
+
+  --opacityWhite: rgba(255, 255, 255, 0.3);
+  --opacityWhite2: rgba(255, 255, 255, 0.5);
 }
 
 h1,

@@ -10,9 +10,12 @@ import {
   REGISTER,
 } from 'redux-persist';
 
+import themeReducer from './theme/themeSlice';
+
 const store = configureStore({
   reducer: {
     auth: persisteAuthReducer,
+    theme: themeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

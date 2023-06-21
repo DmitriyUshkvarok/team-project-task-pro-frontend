@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../Sidebar/Sidebar';
+import ThemeSelect from '../ThemeSelect/ThemeSelect';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -26,6 +27,8 @@ function App() {
         <p>Loading...</p>
       ) : (
         <Suspense fallback={<p>Loading...</p>}>
+          <Sidebar />
+          <ThemeSelect />
           <Container>
             <Routes>
               <Route path="/" element={<WelcomePage />}></Route>
