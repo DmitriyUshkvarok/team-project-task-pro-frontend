@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persisteAuthReducer } from './auth/authSlice';
+import { profileApi } from './profileApi/profileApi';
 import {
   persistStore,
   FLUSH,
@@ -16,13 +17,14 @@ const store = configureStore({
   reducer: {
     auth: persisteAuthReducer,
     theme: themeReducer,
+    [profileApi.reducerPath]: profileApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(),
+    }).concat(profileApi.middleware),
 });
 
 export const persistor = persistStore(store);
