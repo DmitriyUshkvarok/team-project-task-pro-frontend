@@ -12,7 +12,7 @@ export const ItemBoard = styled.li`
   justify-content: space-between;
   padding: 22px 14px;
   background-color: ${({ isSelected }) =>
-    isSelected ? 'var(--activeItemBoard)' : 'transparent'};
+    isSelected ? 'var(--activeItemBorder)' : 'transparent'};
   ::after {
     position: absolute;
     top: 0;

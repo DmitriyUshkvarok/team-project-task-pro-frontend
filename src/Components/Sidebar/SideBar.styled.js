@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 100vh;
   padding: 14px 0;
   text-align: start;
-  background-color: rgba(22, 22, 22, 1);
+  background-color: var(--sidebarColor);
   transition: left var(--transition) ease-in-out;
   overflow-y: auto;
 
