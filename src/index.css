@@ -1,5 +1,9 @@
 :root {
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
@@ -21,7 +25,6 @@
   --fontWeight500: 500;
 }
 
-
 #root {
   padding: 0;
 }
@@ -39,50 +42,55 @@ body.menu-open {
 }
 
 body[data-theme='light'] {
-  --accentColor: #BEDBB0;
-  --headerColor: #FCFCFC;
+  --accentColor: #bedbb0;
+  --headerColor: #fcfcfc;
   --blackColor: #151515;
-  --sidebarColor: #FFFFFF;
-  --helpColor: #F6F6F7;
-  --whiteColor: #FFFFFF;
-  --lowColor: #8FA1D0;
-  --mediumColor: #E09CB5;
-  --gefaultScreenColor: #E6E6E6;
+  --sidebarColor: #ffffff;
+  --helpColor: #f6f6f7;
+  --whiteColor: #161616;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
+  --gefaultScreenColor: #e6e6e6;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
+
+  --activeItemBorder: rgba(246, 246, 247, 1);
 }
 
 body[data-theme='dark'] {
-  --accentColor: #BEDBB0;
+  --accentColor: #bedbb0;
   --headerColor: #161616;
   --blackColor: #151515;
   --sidebarColor: #121212;
-  --helpColor: #1F1F1F;
-  --whiteColor: #FFFFFF;
-  --lowColor: #8FA1D0;
-  --mediumColor: #E09CB5;
-  --gefaultScreenColor: #E6E6E6;
+  --helpColor: #1f1f1f;
+  --whiteColor: #ffffff;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
+  --gefaultScreenColor: #e6e6e6;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
+
+  --activeItemBorder: rgba(31, 31, 31, 1);
 }
 
 body[data-theme='Violet'] {
-  --accentColor: #5255BC;
-  --headerColor: #FFFFFF;
+  --accentColor: #5255bc;
+  --headerColor: #ffffff;
   --blackColor: #151515;
-  --sidebarColor: #5255BC;
+  --sidebarColor: #5255bc;
   --helpColor: rgba(236, 237, 253, 0.4);
-  --whiteColor: #FFFFFF;
-  --lowColor: #8FA1D0;
-  --mediumColor: #E09CB5;
-  --gefaultScreenColor: #E6E6E6;
+  --whiteColor: #ffffff;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
+  --gefaultScreenColor: #e6e6e6;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
-}
 
+  --activeItemBorder: rgba(255, 255, 255, 0.5);
+}
 
 h1,
 h2,
