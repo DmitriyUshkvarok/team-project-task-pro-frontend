@@ -11,17 +11,16 @@ export const Container = styled.div`
 
 export const Desc = styled.p`
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--borderBottom);
 
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
+  font-family: var(--poppinsFont);
+
+  font-size: var(--fontSize12);
+  line-height: 1.5em;
 
   letter-spacing: -0.02em;
 
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--opacityWhite2);
 `;
 
 export const WrapTitleContent = styled.div`
@@ -29,28 +28,27 @@ export const WrapTitleContent = styled.div`
   gap: 77px;
 
   padding-bottom: 17px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--borderBottom);
 
   margin-top: 14px;
 `;
 
 export const Title = styled.h2`
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+  font-size: var(--fontSize14);
+  line-height: 1.5em;
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: var(--whiteColor);
 `;
 
 export const BtnCreateBoard = styled.button`
   width: 46px;
   height: 36px;
-  background: #bedbb0;
+  background: var(--accentColor);
   border-radius: 6px;
   border: none;
-  font-size: 20px;
+  font-size: var(--fontSize20);
   cursor: pointer;
 `;

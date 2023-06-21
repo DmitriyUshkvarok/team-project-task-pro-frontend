@@ -12,7 +12,7 @@ export const ItemBoard = styled.li`
   justify-content: space-between;
   padding: 22px 14px;
   background-color: ${({ isSelected }) =>
-    isSelected ? 'rgba(31, 31, 31, 1)' : 'transparent'};
+    isSelected ? 'var(--activeItemBoard)' : 'transparent'};
   ::after {
     position: absolute;
     top: 0;
@@ -20,7 +20,7 @@ export const ItemBoard = styled.li`
     bottom: 0;
     width: 4px;
     content: '';
-    background: #bedbb0;
+    background: var(--accentColor);
     border-radius: 4px 0px 0px 4px;
     display: ${({ isSelected }) => (isSelected ? 'block' : 'none')};
   }
@@ -38,24 +38,24 @@ export const IconProject = styled.span`
   display: block;
   width: 18px;
   height: 18px;
-  background-color: white;
+  background-color: var(--whiteColor);
 `;
 
 export const TitleBoard = styled.p`
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
+  font-family: var(--poppinsFont);
+
+  font-weight: var(--fontWeight500);
+  font-size: var(--fontSize14);
+  line-height: 1.43em;
 
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: var(--whiteColor);
 `;
 
 export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
   gap: 12px;
 
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--opacityWhite2);
 `;
