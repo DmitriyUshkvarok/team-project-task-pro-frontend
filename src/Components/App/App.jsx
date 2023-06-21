@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
+import Sidebar from '../Sidebar/Sidebar';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
