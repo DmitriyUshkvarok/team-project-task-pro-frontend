@@ -20,11 +20,11 @@ export const FormLogin = styled(Form)`
     height: 332px;
     padding: 40px;
   }
-
 `;
 
 export const FeedbackFormGroup = styled.div`
   width: 100%;
+  margin-bottom: 14px;
 `;
 
 export const PasswordWrapper = styled.div`
@@ -49,7 +49,6 @@ export const InputEmail = styled(Field)`
   color: var(--whiteColor);
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
-  margin-bottom: 14px;
 
   @media screen and (min-width: 375px) {
     width: 285px;
@@ -75,7 +74,6 @@ export const InputPassword = styled(Field)`
   color: var(--whiteColor);
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
-  margin-bottom: 24px;
 
   @media screen and (min-width: 375px) {
     width: 285px;
@@ -100,6 +98,7 @@ export const Error = styled.div`
 
 export const Btnwrapper = styled.div`
   width: 100%;
+  margin-top: 24px;
 `;
 
 export const BtnLogIn = styled.button`
