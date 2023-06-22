@@ -1,6 +1,6 @@
 import { Wrap, ContainerIcon, LogoText, IconStyled } from './Logo.styled';
 
-import url from '../../../icons/sprite/icons.svg';
+import url from '../../../images/icons/sprite/icons.svg';
 
 const Logo = () => {
   return (
