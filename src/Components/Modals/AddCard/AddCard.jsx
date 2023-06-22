@@ -2,13 +2,16 @@ import React from 'react';
 import * as yup from 'yup';
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 
 const ModalAddCard = () => {
+  const today = new Date(); // Отримуємо поточну дату
+
   const initialValues = {
     title: '',
     description: '',
     labelColor: '',
-    deadline: null,
+    deadline: today, // Встановлюємо поточну дату як значення за замовчуванням
   };
 
   const schema = yup.object({
@@ -20,9 +23,8 @@ const ModalAddCard = () => {
 
   const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2));
-
-    //***DISPATCH */
-    //****** не забути закрити форму після відправки */
+    // ***DISPATCH */
+    // ****** не забути закрити форму після відправки */
   };
 
   return (
@@ -77,12 +79,14 @@ const ModalAddCard = () => {
             <div>
               <p className="asd"> Deadline</p>
               <DatePicker
+                defaultValue={dayjs(today)}
                 name="deadline"
                 onChange={(date) => setFieldValue('deadline', date)}
                 disablePast
                 views={['month', 'day']}
                 // open={true}
                 textField={(props) => <TextField {...props} />}
+                // value={today}
                 InputProps={{ sx: { '& .MuiSvgIcon-root': { color: 'blue' } } }}
                 // PopperProps={{ sx: popperSx }}
               />
