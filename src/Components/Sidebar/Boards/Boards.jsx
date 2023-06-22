@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import url from '../../../icons/sprite/icons.svg';
+import url from '../../../images/icons/sprite/icons.svg';
 import {
   ListBoard,
   ItemBoard,

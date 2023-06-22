@@ -4,7 +4,7 @@ import authOperation from '../../../redux/auth/authOperation';
 
 import { Container, BtnLogOut, IconLogOut } from './LogOut.styled';
 
-import url from '../../../icons/sprite/icons.svg';
+import url from '../../../images/icons/sprite/icons.svg';
 
 const LogOut = () => {
   const dispatch = useDispatch();
