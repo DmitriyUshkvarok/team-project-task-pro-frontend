@@ -6,7 +6,7 @@ import {
   BtnCreateBoard,
 } from './CreateBoard.styled';
 
-import url from '../../../icons/sprite/icons.svg';
+import url from '../../../images/icons/sprite/icons.svg';
 
 const CreateBoards = () => {
   return (
