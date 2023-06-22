@@ -16,6 +16,7 @@
   --fontSize16: 16px;
   --fontSize18: 18px;
   --fontSize20: 20px;
+  --fontSize28: 28px;
   --fontSize40: 40px;
 
   --fontWeight700: 700;
@@ -37,6 +38,7 @@ body {
 
 body.menu-open {
   overflow: hidden;
+  
 }
 
 body[data-theme='light'] {
@@ -48,7 +50,7 @@ body[data-theme='light'] {
   --whiteColor: #161616;
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
-  --gefaultScreenColor: #e6e6e6;
+  --defaultScreenColor: #e6e6e6;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
