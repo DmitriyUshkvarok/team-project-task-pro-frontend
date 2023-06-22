@@ -94,6 +94,7 @@ export const Button = styled.button`
   border-radius: var(--borderRadius8);
 
   background-color: var(--accentColor);
+  border: 0px;
 
   font-size: var(--fontSize14);
   font-weight: var(--fontWeight500);
@@ -104,4 +105,9 @@ export const Button = styled.button`
   @media screen and (min-width: 768px) {
     width: 302px;
   }
+`;
+
+export const StyleErrorMessage = styled(ErrorMessage)`
+  color: red;
+  font-size: var(--fontSize10);
 `;

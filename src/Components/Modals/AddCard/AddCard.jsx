@@ -13,6 +13,7 @@ import {
   StyledLabel,
   RadioBtn,
   Button,
+  StyleErrorMessage,
 } from './AddCard.styled';
 
 const ModalAddCard = () => {
@@ -56,7 +57,7 @@ const ModalAddCard = () => {
                 type="text"
                 placeholder="Title"
               />
-              <ErrorMessage name="title" component="div" />
+              <StyleErrorMessage name="title" component="div" />
             </div>
 
             <div>
@@ -65,9 +66,12 @@ const ModalAddCard = () => {
                 id="description"
                 name="description"
                 type="text"
+                onChange={(event) =>
+                  setFieldValue('description', event.target.value)
+                }
                 placeholder="Description"
               />
-              <ErrorMessage name="description" component="div" />
+              <StyleErrorMessage name="description" component="div" />
             </div>
 
             <div>
@@ -89,7 +93,7 @@ const ModalAddCard = () => {
                     value="Without priority"
                   />
                 </label>
-                <ErrorMessage name="labelColor" component="div" />
+                <StyleErrorMessage name="labelColor" component="div" />
               </RadioBtn>
             </div>
 
@@ -118,7 +122,7 @@ const ModalAddCard = () => {
                 }}
                 renderInput={(params) => <TextField {...params} />}
               />
-              <ErrorMessage name="deadline" component="div" />
+              <StyleErrorMessage name="deadline" component="div" />
             </div>
 
             <Button type="submit">+Add</Button>
