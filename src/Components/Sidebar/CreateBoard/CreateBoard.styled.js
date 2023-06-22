@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Desc = styled.p`
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--borderBottom);
+  border-bottom: 1px solid var(--borderBottomColor);
 
   font-family: var(--poppinsFont);
 
@@ -28,7 +28,7 @@ export const WrapTitleContent = styled.div`
   gap: 77px;
 
   padding-bottom: 17px;
-  border-bottom: 1px solid var(--borderBottom);
+  border-bottom: 1px solid var(--borderBottomColor);
 
   margin-top: 14px;
 `;
