@@ -1,5 +1,10 @@
 :root {
   --blackColor: #151515;
+  --logoColor: #161616;
+  --contentColor: #161616;
+  --linkColor: #161616;
+  --linkHoverColor: #fff;
+  --backgroundLinkColor: #161616;
   --gradientFonColor: linear-gradient(180deg,
       rgba(196, 196, 196, 0) 25%,
       #bedbb0 92.19%);
