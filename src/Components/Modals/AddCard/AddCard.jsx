@@ -1,17 +1,28 @@
 import React from 'react';
 import * as yup from 'yup';
+import TextField from '@mui/material/TextField';
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 
+import {
+  AddCardModal,
+  Title,
+  InputTitle,
+  InputDescription,
+  StyledLabel,
+  RadioBtn,
+  Button,
+} from './AddCard.styled';
+
 const ModalAddCard = () => {
-  const today = new Date(); // Отримуємо поточну дату
+  const today = new Date();
 
   const initialValues = {
     title: '',
     description: '',
     labelColor: '',
-    deadline: today, // Встановлюємо поточну дату як значення за замовчуванням
+    deadline: today,
   };
 
   const schema = yup.object({
@@ -28,8 +39,8 @@ const ModalAddCard = () => {
   };
 
   return (
-    <>
-      <p>Add card</p>
+    <AddCardModal>
+      <Title>Add card</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -39,12 +50,18 @@ const ModalAddCard = () => {
         {({ setFieldValue }) => (
           <Form>
             <div>
-              <Field id="title" name="title" type="text" placeholder="Title" />
+              <InputTitle
+                id="title"
+                name="title"
+                type="text"
+                placeholder="Title"
+              />
               <ErrorMessage name="title" component="div" />
             </div>
 
             <div>
-              <Field
+              <InputDescription
+                as="textarea"
                 id="description"
                 name="description"
                 type="text"
@@ -54,8 +71,8 @@ const ModalAddCard = () => {
             </div>
 
             <div>
-              <p id="labelColor">Label color</p>
-              <div role="group" aria-labelledby="my-radio-group">
+              <StyledLabel id="labelColor">Label color</StyledLabel>
+              <RadioBtn role="group" aria-labelledby="my-radio-group">
                 <label>
                   <Field type="radio" name="labelColor" value="Low" />
                 </label>
@@ -73,11 +90,11 @@ const ModalAddCard = () => {
                   />
                 </label>
                 <ErrorMessage name="labelColor" component="div" />
-              </div>
+              </RadioBtn>
             </div>
 
             <div>
-              <p className="asd"> Deadline</p>
+              <StyledLabel> Deadline</StyledLabel>
               <DatePicker
                 defaultValue={dayjs(today)}
                 name="deadline"
@@ -85,19 +102,30 @@ const ModalAddCard = () => {
                 disablePast
                 views={['month', 'day']}
                 // open={true}
-                textField={(props) => <TextField {...props} />}
-                // value={today}
-                InputProps={{ sx: { '& .MuiSvgIcon-root': { color: 'blue' } } }}
-                // PopperProps={{ sx: popperSx }}
+
+                PopperProps={{
+                  sx: {
+                    '&.MuiPickersCalendarHeader-labelContainer': {
+                      color: 'red',
+                    },
+                    '&.MuiPickersPopper-root': {
+                      border: '4px solid red',
+                    },
+                    '&.MuiInputBase': {
+                      color: 'red',
+                    },
+                  },
+                }}
+                renderInput={(params) => <TextField {...params} />}
               />
               <ErrorMessage name="deadline" component="div" />
             </div>
 
-            <button type="submit">+Add</button>
+            <Button type="submit">+Add</Button>
           </Form>
         )}
       </Formik>
-    </>
+    </AddCardModal>
   );
 };
 
