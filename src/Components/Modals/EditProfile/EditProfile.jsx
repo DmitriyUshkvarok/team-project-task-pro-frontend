@@ -29,7 +29,13 @@ const initialValues = {
 
 const schema = yup.object().shape({
   name: yup.string().min(4).max(20),
-  email: yup.string(),
+  email: yup
+    .string()
+    .email('Invalid email')
+    .test('email-format', 'Invalid email format', (value) => {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(value);
+    }),
   password: yup.string().min(10).max(20),
 });
 
@@ -116,13 +122,13 @@ const EditProfile = () => {
           update
         </button>
         <label htmlFor="inputFile"></label>
-        {/* <input
+        <input
           name="avatarURL"
           type="file"
           accept="image/*"
           id="inputFile"
           onChange={handleAvatarChange}
-        /> */}
+        />
       </div>
       <Formik
         initialValues={initialValues}
