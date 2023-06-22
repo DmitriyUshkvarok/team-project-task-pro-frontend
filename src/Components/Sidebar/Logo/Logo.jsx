@@ -1,4 +1,4 @@
-import { Wrap, ContainerIcon, LogoText } from './Logo.styled';
+import { Wrap, ContainerIcon, LogoText, IconStyled } from './Logo.styled';
 
 import url from '../../../icons/sprite/icons.svg';
 
@@ -6,9 +6,9 @@ const Logo = () => {
   return (
     <Wrap>
       <ContainerIcon>
-        <svg width="16" height="16">
+        <IconStyled width="16" height="16">
           <use xlinkHref={`${url}#icon-Vector-1`} />
-        </svg>
+        </IconStyled>
       </ContainerIcon>
 
       <LogoText href="#">Task Pro</LogoText>

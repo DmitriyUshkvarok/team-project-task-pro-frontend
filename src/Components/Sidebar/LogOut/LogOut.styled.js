@@ -27,3 +27,7 @@ export const BtnLogOut = styled.button`
 
   cursor: pointer;
 `;
+
+export const IconLogOut = styled.svg`
+  stroke: var(--iconSideBarLogOutColor);
+`;

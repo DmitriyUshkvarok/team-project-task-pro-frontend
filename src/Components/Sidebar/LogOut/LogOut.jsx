@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 import authOperation from '../../../redux/auth/authOperation';
 
-import { Container, BtnLogOut } from './LogOut.styled';
+import { Container, BtnLogOut, IconLogOut } from './LogOut.styled';
 
 import url from '../../../icons/sprite/icons.svg';
 
@@ -32,9 +32,9 @@ const LogOut = () => {
   return (
     <Container>
       <BtnLogOut onClick={handleClickLogOut} type="buttom">
-        <svg width="32" height="32">
+        <IconLogOut width="32" height="32">
           <use xlinkHref={`${url}#icon-login`} />
-        </svg>
+        </IconLogOut>
         <span> Log out</span>
       </BtnLogOut>
     </Container>

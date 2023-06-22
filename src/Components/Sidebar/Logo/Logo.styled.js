@@ -21,6 +21,10 @@ export const ContainerIcon = styled.span`
   border-radius: var(--borderRadius8);
 `;
 
+export const IconStyled = styled.svg`
+  fill: var(--logoIconColor);
+`;
+
 export const LogoText = styled.a`
   font-family: var(--poppinsFont);
 
