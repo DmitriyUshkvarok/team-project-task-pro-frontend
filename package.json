@@ -12,10 +12,18 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/lab": "^5.0.0-alpha.134",
+    "@mui/material": "^5.13.5",
+    "@mui/styled-engine": "^5.13.2",
+    "@mui/system": "^5.13.5",
+    "@mui/x-date-pickers": "^5.0.13",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "date-fns": "^2.30.0",
+    "dayjs": "^1.11.8",
     "formik": "^2.4.2",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
