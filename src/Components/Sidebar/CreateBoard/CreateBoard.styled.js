@@ -44,9 +44,13 @@ export const Title = styled.h2`
 `;
 
 export const BtnCreateBoard = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 46px;
   height: 36px;
-  background: var(--accentColor);
+  background: var(--accentColorSideBar);
   border-radius: 6px;
   border: none;
   font-size: var(--fontSize20);

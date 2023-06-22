@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import url from '../../../icons/sprite/icons.svg';
 import {
   ListBoard,
   ItemBoard,
@@ -7,6 +7,8 @@ import {
   IconProject,
   TitleBoard,
   WrapIcons,
+  BtnIcon,
+  IconStyled,
 } from './Boards.styled';
 
 const Boards = () => {
@@ -39,8 +41,17 @@ const Boards = () => {
           </WrapTitle>
 
           <WrapIcons isSelected={selectedItem === index}>
-            <span>e</span>
-            <span>d</span>
+            <BtnIcon type="buttom">
+              <IconStyled width="16" height="16">
+                <use xlinkHref={`${url}#icon-pencil-01`} />
+              </IconStyled>
+            </BtnIcon>
+
+            <BtnIcon type="buttom">
+              <IconStyled width="16" height="16">
+                <use xlinkHref={`${url}#icon-trash-04`} />
+              </IconStyled>
+            </BtnIcon>
           </WrapIcons>
         </ItemBoard>
       ))}

@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
+import Logo from './Logo/Logo';
 import CreateBoards from './CreateBoard/CreateBoards';
 import Boards from './Boards/Boards';
 import CustomerSupport from './CustomerSupport/CustomerSupport';
 import LogOut from './LogOut/LogOut';
-import { Container, Logo } from './SideBar.styled';
+import { Container } from './SideBar.styled';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -46,7 +47,7 @@ const Sidebar = () => {
 
   return (
     <Container isOpen={isOpen} isSticky={isSticky} ref={sidebarRef}>
-      <Logo href="#">Task Pro</Logo>
+      <Logo />
       <CreateBoards />
       <Boards />
       <CustomerSupport />
