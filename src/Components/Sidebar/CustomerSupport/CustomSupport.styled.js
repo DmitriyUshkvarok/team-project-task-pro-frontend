@@ -14,9 +14,9 @@ export const MainContainer = styled.div`
 
 export const Container = styled.div`
   padding: 14px;
-  background: var(--helpColor);
+  background-color: var(--helpColor);
   border-radius: var(--borderRadius8);
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     padding: 20px;
   }
 `;

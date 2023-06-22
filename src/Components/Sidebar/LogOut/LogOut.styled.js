@@ -10,6 +10,12 @@ export const Container = styled.div`
 `;
 
 export const BtnLogOut = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border: none;
+
   font-family: var(--poppinsFont);
 
   font-weight: var(--fontWeight500);

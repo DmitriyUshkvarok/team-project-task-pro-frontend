@@ -26,21 +26,3 @@ export const Container = styled.div`
       padding: 24px 0;
     `}
 `;
-
-export const Logo = styled.a`
-  padding-left: 14px;
-
-  font-family: var(--poppinsFont);
-
-  font-weight: var(--fontWeight600);
-  font-size: var(--fontSize16);
-  line-height: 1.5em;
-
-  letter-spacing: -0.04em;
-
-  color: var(--whiteColor);
-
-  @media screen and (min-width: 1280px) {
-    padding-left: 24px;
-  }
-`;

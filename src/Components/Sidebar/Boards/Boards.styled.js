@@ -10,6 +10,7 @@ export const ItemBoard = styled.li`
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 22px 14px;
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--activeItemBorder)' : 'transparent'};
@@ -20,7 +21,7 @@ export const ItemBoard = styled.li`
     bottom: 0;
     width: 4px;
     content: '';
-    background: var(--accentColor);
+    background: var(--accentColorForElementSideBar);
     border-radius: 4px 0px 0px 4px;
     display: ${({ isSelected }) => (isSelected ? 'block' : 'none')};
   }
@@ -55,7 +56,13 @@ export const TitleBoard = styled.p`
 
 export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
-  gap: 12px;
-
-  color: var(--opacityWhite2);
+  gap: 8px;
 `;
+
+export const BtnIcon = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+export const IconStyled = styled.svg``;
