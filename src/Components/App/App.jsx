@@ -7,8 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
+import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
-import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import ModalAddCard from '../Modals/AddCard/AddCard';
@@ -31,8 +31,8 @@ function App() {
           <p>Loading...</p>
         ) : (
           <Suspense fallback={<p>Loading...</p>}>
+            <Header />
             <Sidebar />
-            <ThemeSelect />
             <ModalAddCard />
             <Container>
               <Routes>
