@@ -7,11 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
-import Header from '../Header/Header';
-import Sidebar from '../Sidebar/Sidebar';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import ModalAddCard from '../Modals/AddCard/AddCard';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -31,9 +28,6 @@ function App() {
           <p>Loading...</p>
         ) : (
           <Suspense fallback={<p>Loading...</p>}>
-            <Header />
-            <Sidebar />
-            <ModalAddCard />
             <Container>
               <Routes>
                 <Route path="/" element={<WelcomePage />}></Route>

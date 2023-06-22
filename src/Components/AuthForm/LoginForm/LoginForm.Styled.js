@@ -29,8 +29,7 @@ export const FeedbackFormGroup = styled.div`
   position: relative;
 `;
 
-export const PasswordWrapper = styled.div`
-`;
+export const PasswordWrapper = styled.div``;
 
 export const ToggleShowPasword = styled.span`
   position: absolute;
