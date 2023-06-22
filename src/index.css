@@ -1,4 +1,5 @@
 :root {
+  --blackColor: #151515;
   --gradientFonColor: linear-gradient(180deg,
       rgba(196, 196, 196, 0) 25%,
       #bedbb0 92.19%);
@@ -38,13 +39,12 @@ body {
 
 body.menu-open {
   overflow: hidden;
-  
+
 }
 
 body[data-theme='light'] {
   --accentColor: #bedbb0;
   --headerColor: #fcfcfc;
-  --blackColor: #151515;
   --sidebarColor: #ffffff;
   --helpColor: #f6f6f7;
   --whiteColor: #161616;
@@ -70,7 +70,6 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
   --accentColor: #bedbb0;
   --headerColor: #161616;
-  --blackColor: #151515;
   --sidebarColor: #121212;
   --helpColor: #1f1f1f;
   --whiteColor: #ffffff;
@@ -97,7 +96,6 @@ body[data-theme='dark'] {
 body[data-theme='violet'] {
   --accentColor: #5255bc;
   --headerColor: #ffffff;
-  --blackColor: #151515;
   --sidebarColor: #5255bc;
   --helpColor: rgba(236, 237, 253, 0.4);
   --whiteColor: #ffffff;
