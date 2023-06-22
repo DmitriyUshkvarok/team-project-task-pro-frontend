@@ -1,104 +1,98 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { ErrorMessage, Formik, Form, Field } from 'formik';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const ModalAddCard = () => {
-  const formik = useFormik({
-    initialValues: {
-      title: '',
-      description: '',
-      labelColor: '',
-      deadline: null,
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
-  const handleDateChange = (date) => {
-    formik.setFieldValue('deadline', date);
+  const initialValues = {
+    title: '',
+    description: '',
+    labelColor: '',
+    deadline: null,
   };
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const schema = yup.object({
+    title: yup.string().required('Title is required').max(30),
+    description: yup.string().required('Description is required'),
+    labelColor: yup.string().required('Label color is required'),
+    deadline: yup.date().required('Deadline is required'),
+  });
+
+  const handleSubmit = async (values) => {
+    alert(JSON.stringify(values, null, 2));
+
+    //***DISPATCH */
+    //****** не забути закрити форму після відправки */
+  };
 
   return (
     <>
       <p>Add card</p>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.title}
-          />
-        </div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={schema}
+        autoComplete="off"
+      >
+        {({ setFieldValue }) => (
+          <Form>
+            <div>
+              <Field id="title" name="title" type="text" placeholder="Title" />
+              <ErrorMessage name="title" component="div" />
+            </div>
 
-        <div>
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.description}
-          />
-        </div>
+            <div>
+              <Field
+                id="description"
+                name="description"
+                type="text"
+                placeholder="Description"
+              />
+              <ErrorMessage name="description" component="div" />
+            </div>
 
-        <div>
-          <p>Label color</p>
-          <label>
-            <input
-              type="radio"
-              name="labelColor"
-              value="Low"
-              checked={formik.values.labelColor === 'Low'}
-              onChange={formik.handleChange}
-            />
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="labelColor"
-              value="Medium"
-              checked={formik.values.labelColor === 'Medium'}
-              onChange={formik.handleChange}
-            />
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="labelColor"
-              value="High"
-              checked={formik.values.labelColor === 'High'}
-              onChange={formik.handleChange}
-            />
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="labelColor"
-              value="Without priority"
-              checked={formik.values.labelColor === 'Without priority'}
-              onChange={formik.handleChange}
-            />
-          </label>
-        </div>
+            <div>
+              <p id="labelColor">Label color</p>
+              <div role="group" aria-labelledby="my-radio-group">
+                <label>
+                  <Field type="radio" name="labelColor" value="Low" />
+                </label>
+                <label>
+                  <Field type="radio" name="labelColor" value="Medium" />
+                </label>
+                <label>
+                  <Field type="radio" name="labelColor" value="High" />
+                </label>
+                <label>
+                  <Field
+                    type="radio"
+                    name="labelColor"
+                    value="Without priority"
+                  />
+                </label>
+                <ErrorMessage name="labelColor" component="div" />
+              </div>
+            </div>
 
-        <div>
-          <p>Deadline</p>
-          <DatePicker
-            value={formik.values.deadline}
-            onChange={handleDateChange}
-            disablePast
-          />
-        </div>
+            <div>
+              <p className="asd"> Deadline</p>
+              <DatePicker
+                name="deadline"
+                onChange={(date) => setFieldValue('deadline', date)}
+                disablePast
+                views={['month', 'day']}
+                // open={true}
+                textField={(props) => <TextField {...props} />}
+                InputProps={{ sx: { '& .MuiSvgIcon-root': { color: 'blue' } } }}
+                // PopperProps={{ sx: popperSx }}
+              />
+              <ErrorMessage name="deadline" component="div" />
+            </div>
 
-        <button type="submit">+Add</button>
-      </form>
+            <button type="submit">+Add</button>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };
