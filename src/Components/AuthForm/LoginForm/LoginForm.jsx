@@ -10,12 +10,15 @@ import {
   ToggleShowPasword,
   StyleErrorMessage,
   Error,
+  Link,
 } from './LoginForm.Styled';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import authOperation from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
+
+import { NavLink } from 'react-router-dom';
 
 const initialValues = {
   email: '',
@@ -47,8 +50,20 @@ function LogInForm() {
       onSubmit={handleSubmit}
     >
       <FormLogin>
+        <Link>
+          <NavLink to="/auth/register" style={{ color: '#ffffff4d' }}>
+            Registration
+          </NavLink>
+          <NavLink to="/auth/login" style={{ color: '#ffffff' }}>
+            Log In
+          </NavLink>
+        </Link>
         <FeedbackFormGroup>
-          <InputEmail type="email" name="email" placeholder="email" />
+          <InputEmail
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+          />
           <StyleErrorMessage name="email">
             {(msg) => <Error>{msg}</Error>}
           </StyleErrorMessage>
@@ -58,13 +73,16 @@ function LogInForm() {
             <InputPassword
               type={showPassword ? 'text' : 'password'}
               name="password"
-              placeholder="password"
+              placeholder="Confirm a password"
             />
             <ToggleShowPasword onClick={togglePasswordVisibility}>
               {showPassword ? (
-                <BsEyeSlash color="var(--border-color)" />
+                <BsEyeSlash
+                  color="#ffffff4d"
+                  style={{ width: 18, height: 18 }}
+                />
               ) : (
-                <BsEye color="var(--border-color)" />
+                <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
               )}
             </ToggleShowPasword>
           </PasswordWrapper>
@@ -73,7 +91,7 @@ function LogInForm() {
           </StyleErrorMessage>
         </FeedbackFormGroup>
         <Btnwrapper>
-          <BtnLogIn type="submit">Log In</BtnLogIn>
+          <BtnLogIn type="submit">Log In Now</BtnLogIn>
         </Btnwrapper>
       </FormLogin>
     </FormikStyle>
