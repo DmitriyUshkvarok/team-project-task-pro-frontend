@@ -10,6 +10,7 @@ export const FormLogin = styled(Form)`
   justify-content: center;
   flex-direction: column;
   background-color: var(--blackColor);
+  border-radius: 8px;
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -25,10 +26,10 @@ export const FormLogin = styled(Form)`
 export const FeedbackFormGroup = styled.div`
   width: 100%;
   margin-bottom: 14px;
+  position: relative;
 `;
 
 export const PasswordWrapper = styled.div`
-  position: relative;
 `;
 
 export const ToggleShowPasword = styled.span`
@@ -42,7 +43,7 @@ export const InputEmail = styled(Field)`
   padding: 14px 18px;
   width: 100%;
   height: 49px;
-  border: 1px solid var(--accentColor);
+  border: 1px solid #bedbb0;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
   background-color: var(--blackColor);
@@ -67,7 +68,7 @@ export const InputPassword = styled(Field)`
   padding: 14px 18px;
   width: 100%;
   height: 49px;
-  border: 1px solid var(--accentColor);
+  border: 1px solid #bedbb0;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
   background-color: var(--blackColor);
@@ -90,10 +91,12 @@ export const InputPassword = styled(Field)`
 
 export const StyleErrorMessage = styled(ErrorMessage)``;
 
-export const Error = styled.div`
-  position: fixed;
+export const Error = styled.p`
+  position: absolute;
+  width: 100%;
   color: red;
-  font-size: 12px;
+  font-size: 10px;
+  margin-top: 1px;
 `;
 
 export const Btnwrapper = styled.div`
@@ -104,7 +107,7 @@ export const Btnwrapper = styled.div`
 export const BtnLogIn = styled.button`
   width: 100%;
   height: 49px;
-  background-color: var(--accentColor);
+  background-color: #bedbb0;
   border-radius: 8px;
   cursor: pointer;
   color: var(--blackColor);
