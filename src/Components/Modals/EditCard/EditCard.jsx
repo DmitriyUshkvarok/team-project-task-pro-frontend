@@ -41,7 +41,8 @@ const ModalEditCard = ({ titel, description, labelColor, deadline }) => {
 
   return (
     <AddCardModal>
-      <Title>Add card</Title>
+      <button>close</button>
+      <Title>Edit card</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
