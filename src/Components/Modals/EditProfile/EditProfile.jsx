@@ -17,6 +17,8 @@ import {
   BtnUpdate,
   StyleErrorMessage,
   Error,
+  Edit,
+  EditTitle,
 } from './EditProfile.styled';
 
 const initialValues = {
@@ -81,9 +83,11 @@ const EditProfile = () => {
     resetForm();
   };
   return (
-    <div>
-      <button>close</button>
-      <h3>Edit profile</h3>
+    <Edit>
+      <button style={{ position: 'absolute', top: '14px', right: '14px' }}>
+        close
+      </button>
+      <EditTitle>Edit profile</EditTitle>
       <div>
         <img
           src={
@@ -92,16 +96,33 @@ const EditProfile = () => {
               : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541'
           }
           alt="user avatar"
+          style={{
+            position: 'absolute',
+            top: '75px',
+            right: '166px',
+            width: '86px',
+            height: '86px',
+          }}
         />
-        <button onClick={handleUpdateAvatar}>update</button>
+        <button
+          onClick={handleUpdateAvatar}
+          style={{
+            position: 'absolute',
+            top: '137px',
+            right: '195px',
+            // width: '195px',
+          }}
+        >
+          update
+        </button>
         <label htmlFor="inputFile"></label>
-        <input
+        {/* <input
           name="avatarURL"
           type="file"
           accept="image/*"
           id="inputFile"
           onChange={handleAvatarChange}
-        />
+        /> */}
       </div>
       <Formik
         initialValues={initialValues}
@@ -142,9 +163,12 @@ const EditProfile = () => {
               />
               <ToggleShowPasword onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <BsEyeSlash color="var(--border-color)" />
+                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
                 ) : (
-                  <BsEye color="var(--border-color)" />
+                  <BsEyeSlash
+                    color="#ffffff4d"
+                    style={{ width: 18, height: 18 }}
+                  />
                 )}
               </ToggleShowPasword>
             </PasswordWrapper>
@@ -157,7 +181,7 @@ const EditProfile = () => {
           </Btnwrapper>
         </FormUpdateUser>
       </Formik>
-    </div>
+    </Edit>
   );
 };
 
