@@ -1,68 +1,35 @@
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setTheme } from '../../redux/theme/themeSlice';
-// import { useEffect } from 'react';
-// import {
-//   ThemeSelectWrapper,
-//   ThemeSelects,
-//   OptionStyled,
-// } from './ThemeSelect.styled';
-
-// const ThemeSelect = () => {
-//   const dispatch = useDispatch();
-//   const themeColor = useSelector((state) => state.theme.themeColor);
-
-//   useEffect(() => {
-//     document.body.setAttribute('data-theme', themeColor);
-//   }, [themeColor]);
-
-//   const handleThemeToggle = (e) => {
-//     const selectedTheme = e.target.value;
-//     dispatch(setTheme(selectedTheme));
-//   };
-//   return (
-//     <div>
-//       <ThemeSelectWrapper>
-//         <ThemeSelects value={themeColor} onChange={handleThemeToggle}>
-//           <OptionStyled value="light">Light</OptionStyled>
-//           <OptionStyled value="dark">Dark</OptionStyled>
-//           <OptionStyled value="violet">Violet</OptionStyled>
-//         </ThemeSelects>
-//       </ThemeSelectWrapper>
-//     </div>
-//   );
-// };
-
-// export default ThemeSelect;
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setTheme } from '../../redux/theme/themeSlice';
+import Select from 'react-select';
+import { useEffect } from 'react';
+import { customStyles } from './ThemeSelect.styled';
+
+const themeOptions = [
+  { value: 'light', label: 'Light' },
+  { value: 'dark', label: 'Dark' },
+  { value: 'violet', label: 'Violet' },
+];
 
 const ThemeSelect = () => {
   const dispatch = useDispatch();
-  const [isSelectOpen, setIsSelectOpen] = useState(false);
-  const [selectedTheme, setSelectedTheme] = useState('dark'); // Изначально выбранное значение
+  const themeColor = useSelector((state) => state.theme.themeColor);
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', selectedTheme);
-  }, [selectedTheme]);
+    document.body.setAttribute('data-theme', themeColor);
+  }, [themeColor]);
 
-  const handleThemeToggle = (theme) => {
-    dispatch(setTheme(theme));
-    setSelectedTheme(theme);
-    setIsSelectOpen(false);
+  const handleThemeToggle = (selectedOption) => {
+    const selectedTheme = selectedOption.value;
+    dispatch(setTheme(selectedTheme));
   };
-
   return (
-    <div>
-      <div onClick={() => setIsSelectOpen(!isSelectOpen)}>Theme</div>
-      {isSelectOpen && (
-        <ul>
-          <li onClick={() => handleThemeToggle('light')}>Light</li>
-          <li onClick={() => handleThemeToggle('dark')}>Dark</li>
-          <li onClick={() => handleThemeToggle('violet')}>Violet</li>
-        </ul>
-      )}
-    </div>
+    <Select
+      value={themeOptions.find((option) => option.value === themeColor)}
+      isSearchable={false}
+      onChange={handleThemeToggle}
+      options={themeOptions}
+      styles={customStyles}
+    />
   );
 };
 
