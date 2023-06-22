@@ -94,7 +94,7 @@ const RegistrationForm = () => {
           </StyleErrorMessage>
         </FeedbackFormGroup>
         <Btnwrapper>
-          <BtnRegister type="submit">Registration</BtnRegister>
+          <BtnRegister type="submit">Register Now</BtnRegister>
         </Btnwrapper>
       </FormRegistration>
     </Formik>

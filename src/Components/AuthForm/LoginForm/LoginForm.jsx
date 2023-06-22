@@ -91,7 +91,7 @@ function LogInForm() {
           </StyleErrorMessage>
         </FeedbackFormGroup>
         <Btnwrapper>
-          <BtnLogIn type="submit">Log In</BtnLogIn>
+          <BtnLogIn type="submit">Log In Now</BtnLogIn>
         </Btnwrapper>
       </FormLogin>
     </FormikStyle>
