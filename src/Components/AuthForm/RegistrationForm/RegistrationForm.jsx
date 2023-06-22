@@ -17,7 +17,7 @@ import {
   Link,
 } from './RegistrationForm.styled';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -40,71 +40,89 @@ const schema = yup.object().shape({
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(authOperation.register(values));
+  const handleSubmit = async (values, { resetForm }) => {
+    setIsLoading(true);
+    try {
+      await dispatch(authOperation.register(values));
+      navigate('/home');
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+
     resetForm();
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
-      <FormRegistration>
-        <Link>
-          <NavLink to="/auth/register" style={{ color: '#ffffff' }}>
-            Registration
-          </NavLink>
-          <NavLink to="/auth/login" style={{ color: '#ffffff4d' }}>
-            Log In
-          </NavLink>
-        </Link>
-        <FeedbackFormGroup>
-          <InputForm type="text" name="name" placeholder="Enter your name" />
-          <StyleErrorMessage name="name">
-            {(msg) => <Error>{msg}</Error>}
-          </StyleErrorMessage>
-        </FeedbackFormGroup>
-        <FeedbackFormGroup>
-          <InputForm type="email" name="email" placeholder="Enter your email" />
-          <StyleErrorMessage name="email">
-            {(msg) => <Error>{msg}</Error>}
-          </StyleErrorMessage>
-        </FeedbackFormGroup>
-        <FeedbackFormGroup>
-          <PasswordWrapper>
+    <>
+      {isLoading && <p>Loading...</p>}
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <FormRegistration>
+          <Link>
+            <NavLink to="/auth/register" style={{ color: '#ffffff' }}>
+              Registration
+            </NavLink>
+            <NavLink to="/auth/login" style={{ color: '#ffffff4d' }}>
+              Log In
+            </NavLink>
+          </Link>
+          <FeedbackFormGroup>
+            <InputForm type="text" name="name" placeholder="Enter your name" />
+            <StyleErrorMessage name="name">
+              {(msg) => <Error>{msg}</Error>}
+            </StyleErrorMessage>
+          </FeedbackFormGroup>
+          <FeedbackFormGroup>
             <InputForm
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              placeholder="Create a password"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
             />
-            <ToggleShowPasword onClick={togglePasswordVisibility}>
-              {showPassword ? (
-                <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
-              ) : (
-                <BsEyeSlash
-                  color="#ffffff4d"
-                  style={{ width: 18, height: 18 }}
-                />
-              )}
-            </ToggleShowPasword>
-          </PasswordWrapper>
-          <StyleErrorMessage name="password">
-            {(msg) => <Error>{msg}</Error>}
-          </StyleErrorMessage>
-        </FeedbackFormGroup>
-        <Btnwrapper>
-          <BtnRegister type="submit">Register Now</BtnRegister>
-        </Btnwrapper>
-      </FormRegistration>
-    </Formik>
+            <StyleErrorMessage name="email">
+              {(msg) => <Error>{msg}</Error>}
+            </StyleErrorMessage>
+          </FeedbackFormGroup>
+          <FeedbackFormGroup>
+            <PasswordWrapper>
+              <InputForm
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Create a password"
+              />
+              <ToggleShowPasword onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <BsEyeSlash
+                    color="#ffffff4d"
+                    style={{ width: 18, height: 18 }}
+                  />
+                ) : (
+                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
+                )}
+              </ToggleShowPasword>
+            </PasswordWrapper>
+            <StyleErrorMessage name="password">
+              {(msg) => <Error>{msg}</Error>}
+            </StyleErrorMessage>
+          </FeedbackFormGroup>
+          <Btnwrapper>
+            <BtnRegister type="submit">Register Now</BtnRegister>
+          </Btnwrapper>
+        </FormRegistration>
+      </Formik>
+    </>
   );
 };
 

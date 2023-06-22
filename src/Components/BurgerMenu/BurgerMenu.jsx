@@ -1,5 +1,5 @@
 import SideBar from '../Sidebar/Sidebar';
-import url from '../../icons/sprite/icons.svg';
+import url from '../../images/icons/sprite/icons.svg';
 import { Button, Svg } from './BurgerMenu.styled';
 import { useState } from 'react';
 
