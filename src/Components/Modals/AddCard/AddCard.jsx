@@ -1,6 +1,8 @@
 import React from 'react';
 import * as yup from 'yup';
 import TextField from '@mui/material/TextField';
+import '@mui/lab/DatePicker';
+
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
@@ -109,15 +111,47 @@ const ModalAddCard = () => {
 
                 PopperProps={{
                   sx: {
-                    '&.MuiPickersCalendarHeader-labelContainer': {
-                      color: 'red',
+                    '.css-1yllih9-MuiPaper-root-MuiPickersPopper-paper': {
+                      backgroundColor: 'var(--calendarBackground)',
                     },
-                    '&.MuiPickersPopper-root': {
-                      border: '4px solid red',
+                    '.css-nk89i7-MuiPickersCalendarHeader-root': {
+                      display: 'flex',
+                      justifyContent: 'center',
+                      marginRight: 0,
+                      positon: 'relative',
                     },
-                    '&.MuiInputBase': {
-                      color: 'red',
+                    '.css-10fao8b-MuiPickersCalendarHeader-labelContainer': {
+                      marginRight: 0,
+                      color: 'var(--whiteColor)',
+                      fontSize: 'var(--fontSize14)',
+                      fontFamily: 'Poppins',
+                      lineHeight: '18px',
+                      letterSpacing: '-0.28px',
                     },
+                    '.css-9reuh9-MuiPickersArrowSwitcher-root ': {
+                      position: 'absolute',
+                      top: '15px',
+                      left: 0,
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      width: '100%',
+                    },
+
+                    '.css-i4bv87-MuiSvgIcon-root': {
+                      fill: 'var(--accentColor)',
+                    },
+                    '.css-raiqh1-MuiTypography-root-MuiDayPicker-weekDayLabel':
+                      {
+                        color: 'var(--whiteColor)',
+                      },
+                    '.css-bkrceb-MuiButtonBase-root-MuiPickersDay-root': {
+                      backgroundColor: 'transparent',
+                      color: 'var(--whiteColor)',
+                    },
+                    '.css-195y93z-MuiButtonBase-root-MuiPickersDay-root.Mui-selected':
+                      {
+                        backgroundColor: 'var(--accentColor)',
+                      },
                   },
                 }}
                 renderInput={(params) => <TextField {...params} />}
