@@ -9,8 +9,8 @@ import {
 } from './CustomSupport.styled';
 import styled from 'styled-components';
 
-import plant from '../../../icons/iconsPng/plant.png';
-import url from '../../../icons/sprite/icons.svg';
+import plant from '../../../images/icons/iconsPng/plant.png';
+import url from '../../../images/icons/sprite/icons.svg';
 
 const IconStyled = styled.svg`
   stroke: var(--iconSideBarColor);

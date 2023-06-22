@@ -26,7 +26,14 @@ const initialValues = {
 };
 
 const schema = yup.object().shape({
-  email: yup.string().required(),
+  email: yup
+    .string()
+    .email('Invalid email')
+    .test('email-format', 'Invalid email format', (value) => {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(value);
+    })
+    .required(),
   password: yup.string().min(10).max(20).required(),
 });
 
@@ -77,12 +84,12 @@ function LogInForm() {
             />
             <ToggleShowPasword onClick={togglePasswordVisibility}>
               {showPassword ? (
+                <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
+              ) : (
                 <BsEyeSlash
                   color="#ffffff4d"
                   style={{ width: 18, height: 18 }}
                 />
-              ) : (
-                <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
               )}
             </ToggleShowPasword>
           </PasswordWrapper>
