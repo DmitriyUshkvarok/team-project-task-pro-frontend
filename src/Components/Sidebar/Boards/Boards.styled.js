@@ -65,4 +65,6 @@ export const BtnIcon = styled.button`
   cursor: pointer;
 `;
 
-export const IconStyled = styled.svg``;
+export const IconStyled = styled.svg`
+  stroke: var(--iconSideBarBoardColor);
+`;
