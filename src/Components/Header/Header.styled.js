@@ -17,9 +17,9 @@ export const Head = styled.header`
   padding: 18px 32px;
   animation: ${slideIn} 0.5s ease-out;
 
-
   @media screen and (min-width: 768px) {
     height: 68px;
+  }
 `;
 export const Navigation = styled.nav`
   display: flex;
@@ -29,6 +29,7 @@ export const Navigation = styled.nav`
 export const BoxMenu = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 export const UserInfo = styled.div`
   display: flex;
@@ -43,6 +44,9 @@ export const UserText = styled.p`
   color: var(--logoHeaderColor);
   &:hover {
     color: var(--accentColor);
+    filter: drop-shadow(0 0 20px var(--accentColor))
+      drop-shadow(0 0 30px var(--accentColor));
+    transition: var(--transition);
   }
 `;
 export const UserImg = styled.img`

@@ -4,8 +4,8 @@ import Header from '../../Components/Header/Header';
 const HomePage = () => {
   return (
     <div>
-      <Sidebar />
       <Header />
+      <Sidebar />
     </div>
   );
 };

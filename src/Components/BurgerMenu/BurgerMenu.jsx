@@ -13,7 +13,7 @@ const BurgerMenu = () => {
   return (
     <div>
       <Button onClick={toggleSidebar}>
-        <Svg width={24} height={24}>
+        <Svg>
           <use xlinkHref={`${url}#icon-menu-01`} />
         </Svg>
       </Button>
