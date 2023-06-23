@@ -34,13 +34,16 @@ const ModalAddCard = ({ column }) => {
     priority: '',
     deadline: '',
     status: 'in progress',
-    column: '787878',
+    column: '60c8c6bbf0c9a15f7c41979a',
   };
 
   const schema = yup.object({
     title: yup.string().required('Title is required').max(30),
     description: yup.string().required('Description is required'),
-    priority: yup.string().required('Priority color is required'),
+    priority: yup
+      .string()
+      .required('Priority is required')
+      .oneOf(['low', 'medium', 'high', 'without']),
     deadline: yup.date().required('Deadline is required'),
     status: yup.string().required(),
     column: yup.string().required(),
@@ -140,19 +143,19 @@ const ModalAddCard = ({ column }) => {
                 <RadioButtonLabel htmlFor="high"></RadioButtonLabel>
               </Item>
 
-              <Item value="without priority">
+              <Item value="without">
                 <RadioButton
                   type="radio"
-                  id="without priority"
+                  id="without"
                   name="priority"
                   onChange={(event) => {
                     handleSelectChange(event);
                     setFieldValue('priority', event.target.value);
                   }}
-                  value="without priority"
-                  checked={select === 'without priority'}
+                  value="without"
+                  checked={select === 'without'}
                 />
-                <RadioButtonLabel htmlFor="without priority"></RadioButtonLabel>
+                <RadioButtonLabel htmlFor="without"></RadioButtonLabel>
               </Item>
             </RadioBtn>
             <StyleErrorMessage name="priority" component="div" />
