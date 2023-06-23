@@ -2,16 +2,16 @@ import styled from 'styled-components';
 import { ErrorMessage, Field } from 'formik';
 
 export const CloseButton = styled.button`
-position: absolute;
-top: 14px;
-right: 14px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
   width: 18px;
   height: 18px;
   background-color: transparent;
   border: none;
   fill: #000;
   display: flex;
-  align-items: center:
+  align-items: center;
   justify-content: center;
   color: #fff;
   cursor: pointer;
