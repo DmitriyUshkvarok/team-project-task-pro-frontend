@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const theme = useSelector(authSelector.getTheme);
+  console.log(theme);
+
+  useEffect(() => {
+    if (!theme) {
+      console.log('Iam here');
+      document.body.setAttribute('data-theme', 'light');
+    } else {
+      document.body.setAttribute('data-theme', theme);
+    }
+  }, [theme]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
