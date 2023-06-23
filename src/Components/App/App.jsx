@@ -31,7 +31,6 @@ function App() {
         ) : (
           <Suspense fallback={<p>Loading...</p>}>
             <Container>
-              <ModalAddCard />
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route
