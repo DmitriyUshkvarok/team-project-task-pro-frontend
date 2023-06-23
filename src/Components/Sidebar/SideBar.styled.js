@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   position: fixed;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+  left: ${({ isOpen, isClose }) => (isOpen && !isClose ? '0' : '-100%')};
   width: 225px;
   height: 100vh;
   padding: 14px 0;

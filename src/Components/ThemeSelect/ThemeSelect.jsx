@@ -1,35 +1,50 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import { setTheme } from '../../redux/theme/themeSlice';
-import Select from 'react-select';
-import { useEffect } from 'react';
-import { customStyles } from './ThemeSelect.styled';
+import {
+  ThemeSelectWrapper,
+  ThemeTitle,
+  MainContainer,
+  ListThema,
+  ItemThema,
+} from './ThemeSelect.styled';
 
-const themeOptions = [
-  { value: 'light', label: 'Light' },
-  { value: 'dark', label: 'Dark' },
-  { value: 'violet', label: 'Violet' },
+const themes = [
+  { name: 'Light', value: 'light' },
+  { name: 'Dark', value: 'dark' },
+  { name: 'Violet', value: 'violet' },
 ];
 
 const ThemeSelect = () => {
   const dispatch = useDispatch();
-  const themeColor = useSelector((state) => state.theme.themeColor);
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('dark');
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', themeColor);
-  }, [themeColor]);
+    document.body.setAttribute('data-theme', selectedTheme);
+  }, [selectedTheme]);
 
-  const handleThemeToggle = (selectedOption) => {
-    const selectedTheme = selectedOption.value;
-    dispatch(setTheme(selectedTheme));
+  const handleThemeToggle = (theme) => {
+    dispatch(setTheme(theme));
+    setSelectedTheme(theme);
+    setIsSelectOpen(false);
   };
+
   return (
-    <Select
-      value={themeOptions.find((option) => option.value === themeColor)}
-      isSearchable={false}
-      onChange={handleThemeToggle}
-      options={themeOptions}
-      styles={customStyles}
-    />
+    <MainContainer isOpen={isSelectOpen}>
+      <ThemeSelectWrapper onClick={() => setIsSelectOpen(!isSelectOpen)}>
+        <ThemeTitle>Theme</ThemeTitle>
+        <MdKeyboardArrowDown size={16} color="var(--logoHeaderColor)" />
+      </ThemeSelectWrapper>
+      <ListThema isOpen={isSelectOpen}>
+        {themes.map(({ value, name }) => (
+          <ItemThema key={value} onClick={() => handleThemeToggle(value)}>
+            {name}
+          </ItemThema>
+        ))}
+      </ListThema>
+    </MainContainer>
   );
 };
 
