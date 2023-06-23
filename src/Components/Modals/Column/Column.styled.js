@@ -6,6 +6,7 @@ import {
 } from 'formik';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -16,7 +17,7 @@ export const Container = styled.div`
   border-radius: var(--borderRadius8);
   border: 1px solid rgba(190, 219, 176, 0.5);
 
-  background-color: var(--blackColor);
+  background-color: var(--headerColor);
 
   padding: 24px;
 `;
@@ -45,7 +46,15 @@ export const FormFieldTitle = styled.label`
 `;
 
 export const ErrorMessage = styled(FormikError)`
+  position: absolute;
+  margin-top: 5px;
+
   color: red;
+
+  font-size: 10px;
+
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
 `;
 
 export const FieldTitle = styled(FormikField)`
