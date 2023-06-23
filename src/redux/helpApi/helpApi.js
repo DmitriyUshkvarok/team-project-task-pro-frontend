@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const helpApi = createApi({
   reducerPath: 'helpApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://task-pro-app.onrender.com/api/',
+    baseUrl: 'https://task-pro-app.onrender.com/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -13,9 +13,6 @@ export const helpApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getHelp: builder.query({
-      query: () => 'help/',
-    }),
     postComment: builder.mutation({
       query: ({ comment, email }) => ({
         url: 'help/',
@@ -26,4 +23,4 @@ export const helpApi = createApi({
   }),
 });
 
-export const { useGetHelpQuery, usePostCommentMutation } = helpApi;
+export const { usePostCommentMutation } = helpApi;
