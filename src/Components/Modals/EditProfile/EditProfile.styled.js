@@ -19,11 +19,12 @@ export const InputForm = styled(Field)`
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
   background-color: var(--headerColor);
-  color: var(--whiteColor);
-
+  color: var(--logoHeaderColor);
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
+
+  outline: none;
 
   @media screen and (min-width: 375px) {
     width: 287px;
@@ -58,6 +59,8 @@ export const BtnUpdate = styled.button`
   color: var(--blackColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
+  border: none;
+  transition: var(--transition);
 
   @media screen and (min-width: 375px) {
     width: 287px;
@@ -86,8 +89,8 @@ export const Error = styled.p`
 export const Edit = styled.div`
   position: absolute;
 
-  left: 35%; //редактировать!!!!!!!!!!!!!!
-  top: 50px; //редактировать!!!!!!!!!!!!!!
+  left: 42%; //редактировать!!!!!!!!!!!!!!
+  top: 42%; //редактировать!!!!!!!!!!!!!!
 
   display: flex;
   flex-direction: column;
@@ -96,6 +99,7 @@ export const Edit = styled.div`
   padding: 24px;
   background-color: var(--headerColor);
   border-radius: 8px;
+  z-index: 1200;
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -108,7 +112,7 @@ export const Edit = styled.div`
   }
 `;
 export const EditTitle = styled.h3`
-  color: var(--whiteColor);
+  color: var(--logoHeaderColor);
 
   text-align: start;
 
