@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   position: relative;
+
+  max-height: ${(props) => (props.isOpen ? '200px' : '0')};
+  transition: max-height 0.3s;
 `;
 
 export const ThemeSelectWrapper = styled.div`
@@ -12,36 +15,41 @@ export const ThemeSelectWrapper = styled.div`
   cursor: pointer;
 `;
 export const ThemeTitle = styled.p`
-  font-size: 14px;
-  font-family: Poppins;
-  font-weight: 500;
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+  color: var(--logoHeaderColor);
 `;
 
 export const ListThema = styled.ul`
   position: absolute;
-  border: 1px solid black;
+  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  transform: translateY(${(props) => (props.isOpen ? '0' : '-10px')});
+  transition: opacity 0.1s, transform 0.3s;
+  pointer-events: ${(props) => (props.isOpen ? 'visible' : 'none')};
+
   display: inline-flex;
   padding: 18px 44px 18px 18px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  border-radius: 8px;
+  border-radius: var(--borderRadius8);
   border: 1px solid #bedbb0;
-  background: #151515;
+  background: var(--headerColor);
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   color: white;
   gap: 8px;
   top: 19px;
   left: 0px;
-  width: 100px;
-  height: 100px;
 `;
 
 export const ItemThema = styled.li`
   cursor: pointer;
+  color: var(--logoHeaderColor);
+  transition: color var(--transition);
   :hover {
-    color: green;
+    color: var(--accentColor);
   }
 `;

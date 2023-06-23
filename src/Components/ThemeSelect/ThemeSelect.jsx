@@ -10,6 +10,12 @@ import {
   ItemThema,
 } from './ThemeSelect.styled';
 
+const themes = [
+  { name: 'Light', value: 'light' },
+  { name: 'Dark', value: 'dark' },
+  { name: 'Violet', value: 'violet' },
+];
+
 const ThemeSelect = () => {
   const dispatch = useDispatch();
   const [isSelectOpen, setIsSelectOpen] = useState(false);
@@ -26,21 +32,18 @@ const ThemeSelect = () => {
   };
 
   return (
-    <MainContainer>
+    <MainContainer isOpen={isSelectOpen}>
       <ThemeSelectWrapper onClick={() => setIsSelectOpen(!isSelectOpen)}>
-        <ThemeTitle>Theme</ThemeTitle> <MdKeyboardArrowDown size={16} />
+        <ThemeTitle>Theme</ThemeTitle>
+        <MdKeyboardArrowDown size={16} color="var(--logoHeaderColor)" />
       </ThemeSelectWrapper>
-      {isSelectOpen && (
-        <ListThema>
-          <ItemThema onClick={() => handleThemeToggle('light')}>
-            Light
+      <ListThema isOpen={isSelectOpen}>
+        {themes.map(({ value, name }) => (
+          <ItemThema key={value} onClick={() => handleThemeToggle(value)}>
+            {name}
           </ItemThema>
-          <ItemThema onClick={() => handleThemeToggle('dark')}>Dark</ItemThema>
-          <ItemThema onClick={() => handleThemeToggle('violet')}>
-            Violet
-          </ItemThema>
-        </ListThema>
-      )}
+        ))}
+      </ListThema>
     </MainContainer>
   );
 };
