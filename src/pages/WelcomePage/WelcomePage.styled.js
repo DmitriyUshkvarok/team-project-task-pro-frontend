@@ -2,9 +2,13 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const StyleSectionWelcomePage = styled.section`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   width: 473px;
-  height: 438px;
+  height: 100vh;
   flex-shrink: 0;
   margin: 0 auto;
 
@@ -19,7 +23,7 @@ export const StyleSectionWelcomePage = styled.section`
   }
 
   @media screen and (max-width: 374px) {
-    max-width: 100%
+    max-width: 100%;
   }
 `;
 
@@ -38,7 +42,7 @@ export const Logo = styled.p`
   gap: 14px;
   margin-bottom: 24px;
 
-  color: #161616;
+  color: var(--logoColor:);
   font-size: var(--fontSize40);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight600);
@@ -60,8 +64,8 @@ export const ImgLogo = styled.img`
   }
 
   @media screen and (max-width: 374px) {
-    max-width: 100%
-    max-height: 100%
+    max-width: 100%;
+    max-height: 100%;
   }
 
 `;
@@ -76,9 +80,8 @@ export const ImgIcon = styled.svg`
   }
 
   @media screen and (max-width: 374px) {
-    max-width: 100%
+    max-width: 100%;
   }
-
 `;
 
 export const Content = styled.p`
@@ -88,7 +91,7 @@ export const Content = styled.p`
   flex-shrink: 0;
   margin-bottom: 48px;
 
-  color: #161616;
+  color: var(--contentColor);
   text-align: center;
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
@@ -99,9 +102,8 @@ export const Content = styled.p`
     width: 335px;
   }
   @media screen and (max-width: 374px) {
-    max-width: 100%
+    max-width: 100%;
   }
-
 `;
 export const Link = styled(NavLink)`
   display: flex;
@@ -111,25 +113,27 @@ export const Link = styled(NavLink)`
   justify-content: center;
   align-items: center;
 
-  color: #161616;
+  color: var(--linkColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+  border-radius: 8px;
+  transition-property: background, color;
+  transition-duration: var(--transition);
+
+  &:hover {
+    background: var(--backgroundLinkColor);
+
+    color: var(--linkHoverColor);
+    text-align: center;
+  }
 
   @media screen and (max-width: 767px) {
     width: 335px;
   }
 
   @media screen and (max-width: 374px) {
-    max-width: 100%
-  }
-
-  &:hover {
-    border-radius: 8px;
-    background: #161616;
-
-    color: #fff;
-    text-align: center;
+    max-width: 100%;
   }
 `;

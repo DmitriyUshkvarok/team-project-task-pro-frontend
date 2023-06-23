@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 import authOperation from '../../../redux/auth/authOperation';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import { Container, BtnLogOut, IconLogOut } from './LogOut.styled';
 
@@ -8,6 +10,8 @@ import url from '../../../images/icons/sprite/icons.svg';
 
 const LogOut = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClickLogOut = () => {
     Notiflix.Confirm.init({
@@ -22,8 +26,16 @@ const LogOut = () => {
       'Are you sure you want to log out?',
       'Yes',
       'No',
-      () => {
-        dispatch(authOperation.logOut());
+      async () => {
+        setIsLoading(true);
+        try {
+          dispatch(authOperation.logOut());
+          navigate('/welcome');
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
+        }
       },
       () => {}
     );
@@ -31,6 +43,7 @@ const LogOut = () => {
 
   return (
     <Container>
+      {isLoading && <p>Loading...</p>}
       <BtnLogOut onClick={handleClickLogOut} type="buttom">
         <IconLogOut width="32" height="32">
           <use xlinkHref={`${url}#icon-login`} />
