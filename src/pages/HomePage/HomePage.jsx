@@ -9,12 +9,16 @@ const HomePage = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
     <div>
       <Header openSideBar={toggleSidebar} />
       <Sidebar isSidebarOpen={isSidebarOpen} />
 
-      <div onClick={toggleSidebar}>
+      <div onClick={closeSidebar}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem minus
           soluta natus nostrum libero necessitatibus laboriosam veniam amet,
