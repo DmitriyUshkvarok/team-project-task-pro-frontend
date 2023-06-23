@@ -9,6 +9,7 @@ import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import ModalEditCard from '../Modals/EditCard/EditCard';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -29,6 +30,7 @@ function App() {
         ) : (
           <Suspense fallback={<p>Loading...</p>}>
             <Container>
+              <ModalEditCard />
               <Routes>
                 <Route path="/" element={<WelcomePage />}></Route>
                 <Route path="welcome" element={<WelcomePage />} />
