@@ -12,6 +12,7 @@ const initialState = {
     isLoggedIn: false,
     isRefreshing: false,
     id: null,
+    theme: 'light',
   },
 };
 
@@ -56,6 +57,9 @@ const authSlice = createSlice({
       })
       .addCase(authOperation.refreshCurrentUser.rejected, (state) => {
         state.isRefreshing = false;
+      })
+      .addCase(authOperation.updateTheme.fulfilled, (state, action) => {
+        state.user.theme = action.payload.theme;
       });
   },
 });

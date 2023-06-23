@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-
+import url from '../../../images/icons/sprite/icons.svg';
+import CloseButton from '../CloseButton/CloseButton';
 import {
   Container,
   FormTitle,
@@ -12,17 +13,15 @@ import {
   ContainerIcon,
 } from './Column.styled';
 
-import url from '../../../images/icons/sprite/icons.svg';
-
-const Column = (props) => {
+const Column = ({ columnTitle }) => {
   const handleSubmit = () => {};
 
   return (
     <>
       <Container>
-        {/* <button>close</button> */}
+        <CloseButton />
 
-        <FormTitle>{props.name}</FormTitle>
+        <FormTitle>{columnTitle}</FormTitle>
 
         <Formik
           initialValues={{
