@@ -128,7 +128,7 @@ export const RadioBtn = styled.div`
 
 export const Item = styled.div`
   border: 2px solid;
-  max-width: 17px;
+  width: 16px;
   max-height: 16px;
   border-radius: 50%;
   margin-left: 8px;
@@ -198,11 +198,8 @@ export const RadioButton = styled(Field)`
     }
   }
   &:checked + ${RadioButtonLabel}:before {
-    top: 50%;
-    left: 50%;
-    transform: translate(50, 50);
-    width: 13px;
-    height: 13px;
+    max-width: 14px;
+    min-height: 13px;
     border: solid 3px black;
   }
 `;
