@@ -1,35 +1,47 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import { setTheme } from '../../redux/theme/themeSlice';
-import Select from 'react-select';
-import { useEffect } from 'react';
-import { customStyles } from './ThemeSelect.styled';
-
-const themeOptions = [
-  { value: 'light', label: 'Light' },
-  { value: 'dark', label: 'Dark' },
-  { value: 'violet', label: 'Violet' },
-];
+import {
+  ThemeSelectWrapper,
+  ThemeTitle,
+  MainContainer,
+  ListThema,
+  ItemThema,
+} from './ThemeSelect.styled';
 
 const ThemeSelect = () => {
   const dispatch = useDispatch();
-  const themeColor = useSelector((state) => state.theme.themeColor);
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('dark');
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', themeColor);
-  }, [themeColor]);
+    document.body.setAttribute('data-theme', selectedTheme);
+  }, [selectedTheme]);
 
-  const handleThemeToggle = (selectedOption) => {
-    const selectedTheme = selectedOption.value;
-    dispatch(setTheme(selectedTheme));
+  const handleThemeToggle = (theme) => {
+    dispatch(setTheme(theme));
+    setSelectedTheme(theme);
+    setIsSelectOpen(false);
   };
+
   return (
-    <Select
-      value={themeOptions.find((option) => option.value === themeColor)}
-      isSearchable={false}
-      onChange={handleThemeToggle}
-      options={themeOptions}
-      styles={customStyles}
-    />
+    <MainContainer>
+      <ThemeSelectWrapper onClick={() => setIsSelectOpen(!isSelectOpen)}>
+        <ThemeTitle>Theme</ThemeTitle> <MdKeyboardArrowDown size={16} />
+      </ThemeSelectWrapper>
+      {isSelectOpen && (
+        <ListThema>
+          <ItemThema onClick={() => handleThemeToggle('light')}>
+            Light
+          </ItemThema>
+          <ItemThema onClick={() => handleThemeToggle('dark')}>Dark</ItemThema>
+          <ItemThema onClick={() => handleThemeToggle('violet')}>
+            Violet
+          </ItemThema>
+        </ListThema>
+      )}
+    </MainContainer>
   );
 };
 
