@@ -34,7 +34,7 @@ export const ListThema = styled.ul`
   color: white;
   gap: 8px;
   top: 19px;
-  left: 400px;
+  left: 0px;
   width: 100px;
   height: 100px;
 `;
