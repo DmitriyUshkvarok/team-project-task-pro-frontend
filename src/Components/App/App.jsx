@@ -9,7 +9,6 @@ import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import Column from '../Modals/Column/Column';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -24,7 +23,6 @@ function App() {
 
   return (
     <>
-      <Column columnTitle="Add column" />
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         {isRefreshing ? (
           <p>Loading...</p>
