@@ -1,8 +1,10 @@
 :root {
   --blackColor: #151515;
-  --gradientFonColor: linear-gradient(180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
@@ -39,7 +41,6 @@ body {
 
 body.menu-open {
   overflow: hidden;
-
 }
 
 body[data-theme='light'] {
@@ -77,7 +78,7 @@ body[data-theme='dark'] {
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --gefaultScreenColor: #e6e6e6;
-  --calendarBackground: #1F1F1F;
+  --calendarBackground: #1f1f1f;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
