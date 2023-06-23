@@ -131,7 +131,7 @@ export const Item = styled.div`
   width: 16px;
   max-height: 16px;
   border-radius: 50%;
-  margin-left: 8px;
+  margin-right: 8px;
   background-color: ${(props) => {
     if (props.value === 'low') {
       return '#8FA1D0';
@@ -198,7 +198,7 @@ export const RadioButton = styled(Field)`
     }
   }
   &:checked + ${RadioButtonLabel}:before {
-    max-width: 14px;
+    min-width: 13px;
     min-height: 13px;
     border: solid 3px black;
   }
