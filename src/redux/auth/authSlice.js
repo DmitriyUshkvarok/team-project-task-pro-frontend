@@ -12,7 +12,7 @@ const initialState = {
     isLoggedIn: false,
     isRefreshing: false,
     id: null,
-    theme: 'light',
+    theme: '',
   },
 };
 
@@ -43,9 +43,10 @@ const authSlice = createSlice({
           email: null,
           avatarURL: null,
           id: null,
+          theme: '',
+          token: null,
+          isLoggedIn: false,
         };
-        state.token = null;
-        state.isLoggedIn = false;
       })
       .addCase(authOperation.refreshCurrentUser.pending, (state) => {
         state.isRefreshing = true;
@@ -60,6 +61,7 @@ const authSlice = createSlice({
       })
       .addCase(authOperation.updateTheme.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
+        state.token = action.payload.token;
       });
   },
 });
