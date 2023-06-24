@@ -12,6 +12,8 @@ const getid = (state) => state.auth.user.id;
 
 const getTheme = (state) => state.auth?.user?.theme;
 
+const getAvatar = (state) => state.auth.user.avatarURL;
+
 const authSelector = {
   getIsLoggedIn,
   getIsRefreshing,
@@ -20,6 +22,7 @@ const authSelector = {
   selectToken,
   getid,
   getTheme,
+  getAvatar,
 };
 
 export default authSelector;
