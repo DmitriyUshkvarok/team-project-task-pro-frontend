@@ -46,7 +46,7 @@ function LogInForm() {
   const handleSubmit = async (values, { resetForm }) => {
     setIsLoading(true);
     try {
-      await dispatch(authOperation.logIn(values));
+      dispatch(authOperation.logIn(values));
       navigate('/home');
       resetForm();
     } catch (error) {

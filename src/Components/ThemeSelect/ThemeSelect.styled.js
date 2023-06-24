@@ -20,6 +20,9 @@ export const ThemeTitle = styled.p`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
   color: var(--logoHeaderColor);
+  :hover {
+    color: var(--accentColor);
+  }
 `;
 
 export const ListThema = styled.ul`
@@ -43,6 +46,7 @@ export const ListThema = styled.ul`
   gap: 8px;
   top: 19px;
   left: 0px;
+  z-index: 1000;
 `;
 
 export const ItemThema = styled.li`

@@ -71,6 +71,7 @@ body[data-theme='light'] {
   --iconSideBarColor: #151515;
   --iconSideBarLogOutColor: #bedbb0;
   --iconSideBarBoardColor: rgba(22, 22, 22, 0.5);
+  --headerPageColor: #f6f6f7;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
@@ -94,6 +95,7 @@ body[data-theme='dark'] {
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
+  --headerPageColor: #1f1f1f;
   --logoHeaderColor: #fff;
   --logoFonColor: rgba(31, 31, 31, 1);
   --logoIconColor: #ffffff;
@@ -122,6 +124,7 @@ body[data-theme='violet'] {
 
   --accentColorSideBar: rgba(184, 188, 253, 1);
   --accentColorForElementSideBar: #ffffff;
+  --headerPageColor: #ecedfd;
   --logoHeaderColor: #161616;
   --logoFonColor: rgba(236, 237, 253, 1);
   --logoIconColor: #5255bc;
