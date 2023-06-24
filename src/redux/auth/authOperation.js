@@ -12,26 +12,23 @@ const clearAuth = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-const register = createAsyncThunk(
-  'auth/register',
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await axios.post('users/register', credentials);
-      if (data.status === 'success') {
-        thunkAPI.dispatch(logIn(credentials));
-        setAuth(data.token);
-      }
-      return data;
-    } catch (error) {
-      handleAuthError(error);
-    }
+const register = createAsyncThunk('auth/register', async (credentials) => {
+  try {
+    const { data } = await axios.post('users/register', credentials);
+
+    setAuth(data.token);
+
+    return data;
+  } catch (error) {
+    handleAuthError(error);
   }
-);
+});
 
 const logIn = createAsyncThunk('auth/login', async (credentials) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     setAuth(data.token);
+
     return data;
   } catch (error) {
     handleAuthError(error);
@@ -68,10 +65,20 @@ const refreshCurrentUser = createAsyncThunk(
   }
 );
 
+const updateTheme = createAsyncThunk('user/setTheme', async (newTheme) => {
+  try {
+    const { data } = await axios.patch('/users', { theme: newTheme });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const authOperation = {
   register,
   logIn,
   logOut,
   refreshCurrentUser,
+  updateTheme,
 };
 export default authOperation;

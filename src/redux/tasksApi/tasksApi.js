@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const helpApi = createApi({
-  reducerPath: 'helpApi',
+export const tasksApi = createApi({
+  reducerPath: 'tasksApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://task-pro-app.onrender.com/api',
+    baseUrl: 'https://task-pro-app.onrender.com/api/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -12,15 +12,17 @@ export const helpApi = createApi({
       return headers;
     },
   }),
-  endpoints: (builder) => ({
-    postComment: builder.mutation({
-      query: ({ comment, email }) => ({
-        url: 'help/',
+  tagTypes: ['Profile'],
+  endpoints: (build) => ({
+    createTask: build.mutation({
+      query: (formData) => ({
+        url: `/tasks`,
         method: 'POST',
-        body: { comment, email },
+        body: formData,
       }),
+      invalidatesTags: ['Profile'],
     }),
   }),
 });
 
-export const { usePostCommentMutation } = helpApi;
+export const { useCreateTaskMutation } = tasksApi;

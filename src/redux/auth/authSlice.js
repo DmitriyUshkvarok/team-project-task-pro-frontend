@@ -8,11 +8,12 @@ const initialState = {
     name: null,
     email: null,
     avatarURL: null,
-    token: null,
-    isLoggedIn: false,
-    isRefreshing: false,
     id: null,
+    theme: '',
   },
+  token: null,
+  isLoggedIn: false,
+  isRefreshing: false,
 };
 
 const authPersistConfig = {
@@ -32,17 +33,14 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(authOperation.logIn.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user.theme = action.payload.theme;
+        state.user.name = action.payload.name;
+        state.user.avatarURL = action.payload.avatarURL;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
       .addCase(authOperation.logOut.fulfilled, (state) => {
-        state.user = {
-          name: null,
-          email: null,
-          avatarURL: null,
-          id: null,
-        };
+        state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
@@ -56,6 +54,10 @@ const authSlice = createSlice({
       })
       .addCase(authOperation.refreshCurrentUser.rejected, (state) => {
         state.isRefreshing = false;
+      })
+      .addCase(authOperation.updateTheme.fulfilled, (state, action) => {
+        state.user.theme = action.payload.theme;
+        state.token = action.payload.token;
       });
   },
 });

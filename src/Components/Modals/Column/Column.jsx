@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-
+import CloseButton from '../CloseButton/CloseButton';
+import ButtonModal from '../ButtonModal/ButtonModal';
 import {
   Container,
   FormTitle,
@@ -8,21 +9,17 @@ import {
   ErrorMessage,
   Form,
   FieldTitle,
-  Button,
-  ContainerIcon,
 } from './Column.styled';
 
-import url from '../../../images/icons/sprite/icons.svg';
-
-const Column = (props) => {
+const Column = ({ columnTitle }) => {
   const handleSubmit = () => {};
 
   return (
     <>
       <Container>
-        {/* <button>close</button> */}
+        <CloseButton />
 
-        <FormTitle>{props.name}</FormTitle>
+        <FormTitle>{columnTitle}</FormTitle>
 
         <Formik
           initialValues={{
@@ -43,14 +40,7 @@ const Column = (props) => {
               />
               <ErrorMessage name="title" component="p" />
             </FormFieldTitle>
-            <Button type="submit">
-              <ContainerIcon>
-                <svg width="14" height="14">
-                  <use xlinkHref={`${url}#icon-plus`} />
-                </svg>
-              </ContainerIcon>
-              Add
-            </Button>
+            <ButtonModal buttonName="Add" />
           </Form>
         </Formik>
       </Container>

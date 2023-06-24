@@ -1,17 +1,20 @@
-import * as yup from 'yup';
-import { Formik, Form } from 'formik';
-// import icons from '../../../images/icons/sprite/icons.svg';
+import React from 'react';
+import { usePostCommentMutation } from '../../../redux/helpApi/helpApi';
 
+import * as yup from 'yup';
+import { Formik, Form, ErrorMessage, Field } from 'formik';
+import icons from '../../../images/icons/sprite/icons.svg';
+import url from '../../../images/icons/sprite/icons.svg';
 import {
   CloseButton,
   NeedHelpContainer,
   Title,
-  InputEmail,
-  InputComment,
   Button,
   Wrapper,
   StyleErrorMessage,
   Error,
+  InputComment,
+  InputEmail,
 } from './NeedHelp.styled';
 
 import { closeModal } from '../../../redux/modal/modalSlice';
@@ -22,8 +25,14 @@ const initialValues = {
   comment: '',
 };
 
-const schema = yup.object({
-  email: yup.string().email().required('Email is required'),
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Invalid email')
+    .test('email-format', 'Invalid email format', (value) => {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(value);
+    }),
   comment: yup.string().required('Comment is required'),
 });
 
@@ -56,25 +65,22 @@ const NeedHelpModal = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
           </Wrapper>
+            <Wrapper>
+              <InputComment
+                name="comment"
+                placeholder="Comment"
+                component="textarea"
+              />
 
-          <Wrapper>
-            <InputComment
-              as="textarea"
-              id="comment"
-              name="comment"
-              type="text"
-              placeholder="Comment"
-            />
-            <StyleErrorMessage name="comment">
-              {(msg) => <Error>{msg}</Error>}
-            </StyleErrorMessage>
-          </Wrapper>
+              <StyleErrorMessage name="comment">
+                {(msg) => <Error>{msg}</Error>}
+              </StyleErrorMessage>
+            </Wrapper>
 
-          <Button type="submit">Send</Button>
-        </Form>
-      </Formik>
-    </NeedHelpContainer>
+            <Button type="submit">Send</Button>
+          </Form>
+        </Formik>
+      </NeedHelpContainer>
+    </>
   );
 };
-
-export default NeedHelpModal;
