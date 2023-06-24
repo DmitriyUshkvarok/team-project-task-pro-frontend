@@ -141,8 +141,7 @@ body[data-theme='dark'] {
   --accentWave18: rgba(184, 188, 253, 0.172857) rgba(184, 188, 253, 0.172857);
   --accentWave19: rgba(184, 188, 253, 0.1455555) rgba(184, 188, 253, 0.1455555);
   --accentWave20: rgba(184, 188, 253, 0.1455555) rgba(184, 188, 253, 0.1455555);
-  --backgrountloader:  rgba(31, 31, 31, 1);
-  ;
+  --backgrountloader: rgba(31, 31, 31, 1);
 }
 
 body[data-theme='violet'] {
@@ -190,7 +189,7 @@ body[data-theme='violet'] {
   --accentWave18: rgba(190, 219, 176, 0.172857) rgba(190, 219, 176, 0.172857);
   --accentWave19: rgba(190, 219, 176, 0.1455555) rgba(190, 219, 176, 0.1455555);
   --accentWave20: rgba(190, 219, 176, 0.1455555) rgba(190, 219, 176, 0.1455555);
-  --backgrountviolet: rgba(255, 255, 255, 1);
+  --backgrountloader: rgba(255, 255, 255, 1);
 }
 
 h1,
