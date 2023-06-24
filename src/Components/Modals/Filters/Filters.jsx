@@ -1,53 +1,52 @@
-import { FiltersContainer, LabelContainer } from './Filters.styled';
+import {
+  FiltersContainer,
+  LabelContainer,
+  ModalTitle,
+  Container,
+  Span,
+} from './Filters.styled';
+import CloseButton from '../CloseButton/CloseButton';
+import BackgroundImageMini from '../BackgroundImageMini/BackgroundImageMini';
 
 const Filters = () => {
   return (
     <>
       <FiltersContainer>
-        <p>Filters</p>
-        <p>Background</p>
+        <CloseButton />
+        <ModalTitle>Filters</ModalTitle>
+        <BackgroundImageMini />
 
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+        <Container>
+          <p id="filtersRadioButton">Label color</p>
+          <a href="#">Show all</a>
+        </Container>
 
-        <p>Label color</p>
-        <a href="#">Show all</a>
-
-        <LabelContainer>
+        <LabelContainer role="group" aria-labelledby="my-radio-group">
           <label>
             <input
               type="radio"
-              value="Without priority"
-              name="FiltersRadioButton"
+              value="without priority"
+              name="filtersRadioButton"
             />
+            <Span value="priority" />
             Without priority
           </label>
+
           <label>
-            <input type="radio" value="Low" name="FiltersRadioButton" />
+            <input type="radio" value="low" name="filtersRadioButton" />
+            <Span value="low" />
             Low
           </label>
+
           <label>
-            <input type="radio" value="Medium" name="FiltersRadioButton" />
+            <input type="radio" value="medium" name="filtersRadioButton" />
+            <Span value="medium" />
             Medium
           </label>
+
           <label>
-            <input type="radio" value="High" name="FiltersRadioButton" />
+            <input type="radio" value="high" name="filtersRadioButton" />
+            <Span value="high" />
             High
           </label>
         </LabelContainer>

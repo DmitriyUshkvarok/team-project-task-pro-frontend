@@ -10,7 +10,6 @@ import authSelector from '../../redux/auth/authSelector';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import Filters from '../Modals/Filters/Filters';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -31,7 +30,6 @@ function App() {
           <p>Loading...</p>
         ) : (
           <Suspense fallback={<p>Loading...</p>}>
-            <Filters />
             <Container>
               <Routes>
                 <Route path="/" element={<HomePage />} />
