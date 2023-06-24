@@ -11,14 +11,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
-
-//
-
-import { useState } from 'react';
-import Modal from '../Modals/Modal';
-
-//
-
+import Modal from '../Modals/Modal/Modal';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -27,23 +20,18 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(authSelector.getIsRefreshing);
+  const { isOpen } = useSelector((store) => store.modal);
+  console.log(isOpen);
 
   useEffect(() => {
     dispatch(authOperation.refreshCurrentUser());
   }, [dispatch]);
 
-  //
-  const [showModal, setShowModal] = useState(true);
-
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
-  //
 
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        {showModal && <Modal onClose={toggleModal} />}
+        {isOpen && <Modal />}
         {isRefreshing ? (
           <p>Loading...</p>
         ) : (
