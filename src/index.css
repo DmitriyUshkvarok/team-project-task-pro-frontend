@@ -1,8 +1,10 @@
 :root {
   --blackColor: #151515;
-  --gradientFonColor: linear-gradient(180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
@@ -39,7 +41,6 @@ body {
 
 body.menu-open {
   overflow: hidden;
-
 }
 
 body[data-theme='light'] {
@@ -66,6 +67,32 @@ body[data-theme='light'] {
 
   --activeItemBorder: rgba(246, 246, 247, 1);
   --borderBottomColor: rgba(22, 22, 22, 0.1);
+  --accentWave1: rgba(184, 188, 253, 1) rgba(184, 188, 253, 1);
+  --accentWave2: rgba(184, 188, 253, 0.905714) rgba(184, 188, 253, 0.905714);
+  --accentWave3: rgba(184, 188, 253, 0.85714) rgba(184, 188, 253, 0.85714);
+  --accentWave4: rgba(184, 188, 253, 0.809523) rgba(184, 188, 253, 0.809523);
+  --accentWave5: rgba(184, 188, 253, 0.761904) rgba(184, 188, 253, 0.761904);
+  --accentWave6: rgba(184, 188, 253, 0.714285) rgba(184, 188, 253, 0.714285);
+  --accentWave7: rgba(184, 188, 253, 0.655555) rgba(184, 188, 253, 0.655555);
+  --accentWave8: rgba(184, 188, 253, 0.62) rgba(184, 188, 253, 0.62);
+  --accentWave9: rgba(184, 188, 253, 0.571428) rgba(184, 188, 253, 0.571428);
+  --accentWave10: rgba(184, 188, 253, 0.523809) rgba(184, 188, 253, 0.523809);
+  --accentWave11: rgba(184, 188, 253, 0.4761904) rgba(184, 188, 253, 0.4761904);
+  --accentWave12: rgba(184, 188, 253, 0.4285714) rgba(184, 188, 253, 0.4285714);
+  --accentWave13: rgba(184, 188, 253, 0.38095) rgba(184, 188, 253, 0.38095);
+  --accentWave14: rgba(184, 188, 253, 0.3333333333)
+    rgba(184, 188, 253, 0.3333333333);
+  --accentWave15: rgba(184, 188, 253, 0.285714) rgba(184, 188, 253, 0.285714);
+  --accentWave16: rgba(184, 188, 253, 0.2390852) rgba(184, 188, 253, 0.2390852);
+  --accentWave17: rgba(184, 188, 253, 0.2) rgba(184, 188, 253, 0.2);
+  --accentWave18: rgba(184, 188, 253, 0.172857) rgba(184, 188, 253, 0.172857);
+  --accentWave19: rgba(184, 188, 253, 0.1455555) rgba(184, 188, 253, 0.1455555);
+  --accentWave20: rgba(184, 188, 253, 0.1455555) rgba(184, 188, 253, 0.1455555);
+  --backgrountloader: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 }
 
 body[data-theme='dark'] {
@@ -77,7 +104,7 @@ body[data-theme='dark'] {
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --gefaultScreenColor: #e6e6e6;
-  --calendarBackground: #1F1F1F;
+  --calendarBackground: #1f1f1f;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -93,6 +120,29 @@ body[data-theme='dark'] {
 
   --activeItemBorder: rgba(31, 31, 31, 1);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
+  --accentWave1: rgba(184, 188, 253, 1) rgba(184, 188, 253, 1);
+  --accentWave2: rgba(184, 188, 253, 0.905714) rgba(184, 188, 253, 0.905714);
+  --accentWave3: rgba(184, 188, 253, 0.85714) rgba(184, 188, 253, 0.85714);
+  --accentWave4: rgba(184, 188, 253, 0.809523) rgba(184, 188, 253, 0.809523);
+  --accentWave5: rgba(184, 188, 253, 0.761904) rgba(184, 188, 253, 0.761904);
+  --accentWave6: rgba(184, 188, 253, 0.714285) rgba(184, 188, 253, 0.714285);
+  --accentWave7: rgba(184, 188, 253, 0.655555) rgba(184, 188, 253, 0.655555);
+  --accentWave8: rgba(184, 188, 253, 0.62) rgba(184, 188, 253, 0.62);
+  --accentWave9: rgba(184, 188, 253, 0.571428) rgba(184, 188, 253, 0.571428);
+  --accentWave10: rgba(184, 188, 253, 0.523809) rgba(184, 188, 253, 0.523809);
+  --accentWave11: rgba(184, 188, 253, 0.4761904) rgba(184, 188, 253, 0.4761904);
+  --accentWave12: rgba(184, 188, 253, 0.4285714) rgba(184, 188, 253, 0.4285714);
+  --accentWave13: rgba(184, 188, 253, 0.38095) rgba(184, 188, 253, 0.38095);
+  --accentWave14: rgba(184, 188, 253, 0.3333333333)
+    rgba(184, 188, 253, 0.3333333333);
+  --accentWave15: rgba(184, 188, 253, 0.285714) rgba(184, 188, 253, 0.285714);
+  --accentWave16: rgba(184, 188, 253, 0.2390852) rgba(184, 188, 253, 0.2390852);
+  --accentWave17: rgba(184, 188, 253, 0.2) rgba(184, 188, 253, 0.2);
+  --accentWave18: rgba(184, 188, 253, 0.172857) rgba(184, 188, 253, 0.172857);
+  --accentWave19: rgba(184, 188, 253, 0.1455555) rgba(184, 188, 253, 0.1455555);
+  --accentWave20: rgba(184, 188, 253, 0.1455555) rgba(184, 188, 253, 0.1455555);
+  --backgrountloader:  rgba(31, 31, 31, 1);
+  ;
 }
 
 body[data-theme='violet'] {
@@ -119,6 +169,28 @@ body[data-theme='violet'] {
 
   --activeItemBorder: rgba(255, 255, 255, 0.5);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
+  --accentWave1: rgba(190, 219, 176, 1) rgba(190, 219, 176, 1);
+  --accentWave2: rgba(190, 219, 176, 0.905714) rgba(190, 219, 176, 0.905714);
+  --accentWave3: rgba(190, 219, 176, 0.85714) rgba(190, 219, 176, 0.85714);
+  --accentWave4: rgba(190, 219, 176, 0.809523) rgba(190, 219, 176, 0.809523);
+  --accentWave5: rgba(190, 219, 176, 0.761904) rgba(190, 219, 176, 0.761904);
+  --accentWave6: rgba(190, 219, 176, 0.714285) rgba(190, 219, 176, 0.714285);
+  --accentWave7: rgba(190, 219, 176, 0.655555) rgba(190, 219, 176, 0.655555);
+  --accentWave8: rgba(190, 219, 176, 0.62) rgba(190, 219, 176, 0.62);
+  --accentWave9: rgba(190, 219, 176, 0.571428) rgba(190, 219, 176, 0.571428);
+  --accentWave10: rgba(190, 219, 176, 0.523809) rgba(190, 219, 176, 0.523809);
+  --accentWave11: rgba(190, 219, 176, 0.4761904) rgba(190, 219, 176, 0.4761904);
+  --accentWave12: rgba(190, 219, 176, 0.4285714) rgba(190, 219, 176, 0.4285714);
+  --accentWave13: rgba(190, 219, 176, 0.38095) rgba(190, 219, 176, 0.38095);
+  --accentWave14: rgba(190, 219, 176, , 0.3333333333)
+    rgba(190, 219, 176, 0.3333333333);
+  --accentWave15: rgba(190, 219, 176, 0.285714) rgba(190, 219, 176, 0.285714);
+  --accentWave16: rgba(190, 219, 176, 0.2390852) rgba(190, 219, 176, 0.2390852);
+  --accentWave17: rgba(190, 219, 176, 0.2) rgba(190, 219, 176, 0.2);
+  --accentWave18: rgba(190, 219, 176, 0.172857) rgba(190, 219, 176, 0.172857);
+  --accentWave19: rgba(190, 219, 176, 0.1455555) rgba(190, 219, 176, 0.1455555);
+  --accentWave20: rgba(190, 219, 176, 0.1455555) rgba(190, 219, 176, 0.1455555);
+  --backgrountviolet: rgba(255, 255, 255, 1);
 }
 
 h1,
