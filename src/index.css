@@ -70,6 +70,7 @@ body[data-theme='light'] {
 
   --activeItemBorder: rgba(246, 246, 247, 1);
   --borderBottomColor: rgba(22, 22, 22, 0.1);
+  --borderTopColor: rgba(22, 22, 22, 0.8);
 }
 
 body[data-theme='dark'] {
@@ -97,6 +98,7 @@ body[data-theme='dark'] {
 
   --activeItemBorder: rgba(31, 31, 31, 1);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
+  --borderTopColor: rgba(255, 255, 255, 0.8);
 }
 
 body[data-theme='violet'] {
@@ -123,6 +125,7 @@ body[data-theme='violet'] {
 
   --activeItemBorder: rgba(255, 255, 255, 0.5);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
+  --borderTopColor: rgba(22, 22, 22, 0.8);
 }
 
 h1,

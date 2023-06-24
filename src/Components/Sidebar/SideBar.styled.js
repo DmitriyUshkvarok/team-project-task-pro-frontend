@@ -11,6 +11,7 @@ export const Container = styled.div`
   background-color: var(--sidebarColor);
   transition: left var(--transition) ease-in-out;
   overflow-y: auto;
+  z-index: 1;
 
   @media screen and (min-width: 768px) {
     width: 260px;
