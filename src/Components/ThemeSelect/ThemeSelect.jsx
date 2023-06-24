@@ -20,16 +20,16 @@ const themes = [
 const ThemeSelect = () => {
   const dispatch = useDispatch();
   const [isSelectOpen, setIsSelectOpen] = useState(false);
-  // const [selectedTheme, setSelectedTheme] = useState('dark');
+  const [selectedTheme, setSelectedTheme] = useState('dark');
 
-  // useEffect(() => {
-  //   document.body.setAttribute('data-theme', selectedTheme);
-  // }, [selectedTheme]);
+  useEffect(() => {
+    document.body.setAttribute('data-theme', selectedTheme);
+  }, [selectedTheme]);
 
   const handleThemeToggle = (theme) => {
-    // dispatch(setTheme(theme));
+    dispatch(setTheme(theme));
     dispatch(authOperation.updateTheme(theme));
-    // setSelectedTheme(theme);
+    setSelectedTheme(theme);
     setIsSelectOpen(false);
   };
 

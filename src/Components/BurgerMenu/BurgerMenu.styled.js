@@ -17,6 +17,6 @@ export const Svg = styled.svg`
   stroke: var(--logoHeaderColor);
 
   &:hover {
-    color: var(--accentColor);
+    stroke: var(--accentColor);
   }
 `;
