@@ -21,12 +21,10 @@ function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(authSelector.getIsRefreshing);
   const { isOpen } = useSelector((store) => store.modal);
-  console.log(isOpen);
 
   useEffect(() => {
     dispatch(authOperation.refreshCurrentUser());
   }, [dispatch]);
-
 
   return (
     <>

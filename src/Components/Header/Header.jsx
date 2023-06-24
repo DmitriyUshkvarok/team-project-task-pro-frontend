@@ -5,7 +5,6 @@ import { Head, Navigation, BoxMenu, UserInfo, UserText } from './Header.styled';
 import { openModal } from '../../redux/modal/modalSlice.js';
 
 import { useDispatch } from 'react-redux';
-import Modal from '../Modals/Modal/Modal';
 
 const Header = ({ openSideBar }) => {
   const dispatch = useDispatch();

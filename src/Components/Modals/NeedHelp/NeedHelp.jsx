@@ -14,6 +14,9 @@ import {
   Error,
 } from './NeedHelp.styled';
 
+import { closeModal } from '../../../redux/modal/modalSlice';
+import { useDispatch } from 'react-redux';
+
 const initialValues = {
   email: '',
   comment: '',
@@ -25,9 +28,10 @@ const schema = yup.object({
 });
 
 const NeedHelpModal = () => {
+   const dispatch = useDispatch();
   return (
     <NeedHelpContainer>
-      <CloseButton>
+      <CloseButton onClick={() => dispatch(closeModal())}>
         x
         <svg fill="#000">
           <use href="icons#icon-x-close"></use>

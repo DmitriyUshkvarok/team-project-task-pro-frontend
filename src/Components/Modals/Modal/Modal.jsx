@@ -8,18 +8,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../../redux/modal/modalSlice.js';
 
 import EditProfile from '../../Modals/EditProfile/EditProfile.jsx';
+import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
+
 
 const Modal = () => {
   
   const { componentName } = useSelector((store) => store.modal);
-  console.log(componentName);
 
-  const componentsLoopUp = { editprofile: EditProfile };
+  const componentsLoopUp = {
+    editprofile: EditProfile,
+    needhelpmodal: NeedHelpModal,
+  };
   let renderComponent;
 
   if (componentName) {
     const SelectComponent = componentsLoopUp[componentName];
-    console.log(SelectComponent);
     if (SelectComponent) {
       renderComponent = <SelectComponent />;
     }
