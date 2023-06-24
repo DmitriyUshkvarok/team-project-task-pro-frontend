@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
+
 import { BoardPage } from '../BoardPage/BoardPage';
 import { ContainerHome } from './HomePage.styled';
 

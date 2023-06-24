@@ -10,6 +10,7 @@ import authSelector from '../../redux/auth/authSelector';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -32,7 +33,6 @@ function App() {
           <Suspense fallback={<p>Loading...</p>}>
             <Container>
               <Routes>
-                <Route path="/" element={<HomePage />} />
                 <Route
                   path="/"
                   element={
@@ -42,8 +42,21 @@ function App() {
                     />
                   }
                 />
-                <Route path="/welcome" element={<WelcomePage />} />
-                <Route path="/auth/:id" element={<AuthPage />} />
+                <Route
+                  path="/welcome"
+                  element={
+                    <RestictedRoute
+                      redirectTo="/"
+                      component={<WelcomePage />}
+                    />
+                  }
+                />
+                <Route
+                  path="/auth/:id"
+                  element={
+                    <RestictedRoute redirectTo="/" component={<AuthPage />} />
+                  }
+                />
                 <Route path="*" element={<HomePage />} />
               </Routes>
             </Container>
