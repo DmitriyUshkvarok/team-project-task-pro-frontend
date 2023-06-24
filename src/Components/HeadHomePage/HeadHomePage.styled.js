@@ -4,11 +4,13 @@ export const HeadHomeBox = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 32px;
+  background-color: var(--headerPageColor);
 `;
 export const HeadTitle = styled.h4`
   font-family: var(--poppinsFont);
   font-size: var(--fontSize18);
   font-weight: var(--fontWeight500);
+  color: var(--logoHeaderColor);
   :hover {
     color: var(--accentColor);
   }
@@ -19,7 +21,7 @@ export const HeadBoxFilter = styled.div`
   cursor: pointer;
 `;
 export const IconFilter = styled.svg`
-  stroke: var(--whiteColor);
+  stroke: var(--logoHeaderColor);
   opacity: 80%;
   :hover {
     stroke: var(--accentColor);
@@ -30,7 +32,7 @@ export const ButtonFilter = styled.button`
   margin-left: 8px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
-  color: var(--whiteColor);
+  color: var(--logoHeaderColor);
   opacity: 80%;
   border: none;
   cursor: pointer;
