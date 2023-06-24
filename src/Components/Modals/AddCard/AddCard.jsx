@@ -1,47 +1,74 @@
+import React, { useState } from 'react';
 import * as yup from 'yup';
 import TextField from '@mui/material/TextField';
-import '@mui/lab/DatePicker';
-
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
+import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
 
 import {
   AddCardModal,
   Title,
   InputTitle,
   InputDescription,
-  StyledLabel,
+  StyledPriority,
+  StyledLabelDeadline,
   RadioBtn,
   Button,
   StyleErrorMessage,
+  Item,
+  RadioButton,
+  RadioButtonLabel,
 } from './AddCard.styled';
 
-const ModalAddCard = () => {
+const ModalAddCard = ({ column }) => {
+  const [select, setSelect] = useState(null);
+
   const today = new Date();
+
+  const [createTask] = useCreateTaskMutation();
 
   const initialValues = {
     title: '',
     description: '',
-    labelColor: '',
-    deadline: today,
+    priority: '',
+    deadline: '',
+    status: 'in progress',
+    column: '60c8c6bbf0c9a15f7c41979a',
   };
 
   const schema = yup.object({
     title: yup.string().required('Title is required').max(30),
     description: yup.string().required('Description is required'),
-    labelColor: yup.string().required('Label color is required'),
+    priority: yup
+      .string()
+      .required('Priority is required')
+      .oneOf(['low', 'medium', 'high', 'without']),
     deadline: yup.date().required('Deadline is required'),
+    status: yup.string().required(),
+    column: yup.string().required(),
   });
+
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    setSelect(value);
+  };
 
   const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2));
-    // ***DISPATCH */
+
+    try {
+      await createTask(values);
+    } catch (error) {
+      console.log(error);
+    }
+    // ***DISPATCH на ЗМІНУ */
     // ****** не забути закрити форму після відправки */
   };
 
   return (
     <AddCardModal>
+      {/* <button>close</button> */}
       <Title>Add card</Title>
       <Formik
         initialValues={initialValues}
@@ -51,112 +78,113 @@ const ModalAddCard = () => {
       >
         {({ setFieldValue }) => (
           <Form>
-            <div>
-              <InputTitle
-                id="title"
-                name="title"
-                type="text"
-                placeholder="Title"
-              />
-              <StyleErrorMessage name="title" component="div" />
-            </div>
+            <InputTitle
+              id="title"
+              name="title"
+              type="text"
+              placeholder="Title"
+            />
+            <StyleErrorMessage name="title" component="div" />
 
-            <div>
-              <InputDescription
-                as="textarea"
-                id="description"
-                name="description"
-                type="text"
-                onChange={(event) =>
-                  setFieldValue('description', event.target.value)
-                }
-                placeholder="Description"
-              />
-              <StyleErrorMessage name="description" component="div" />
-            </div>
+            <InputDescription
+              as="textarea"
+              id="description"
+              name="description"
+              type="text"
+              onChange={(event) =>
+                setFieldValue('description', event.target.value)
+              }
+              placeholder="Description"
+            />
+            <StyleErrorMessage name="description" component="div" />
 
-            <div>
-              <StyledLabel id="labelColor">Label color</StyledLabel>
-              <RadioBtn role="group" aria-labelledby="my-radio-group">
-                <label>
-                  <Field type="radio" name="labelColor" value="Low" />
-                </label>
-                <label>
-                  <Field type="radio" name="labelColor" value="Medium" />
-                </label>
-                <label>
-                  <Field type="radio" name="labelColor" value="High" />
-                </label>
-                <label>
-                  <Field
-                    type="radio"
-                    name="labelColor"
-                    value="Without priority"
-                  />
-                </label>
-                <StyleErrorMessage name="labelColor" component="div" />
-              </RadioBtn>
-            </div>
+            <StyledPriority id="priority">Label color</StyledPriority>
+            <RadioBtn role="group" aria-labelledby="my-radio-group">
+              <Item value="low">
+                <RadioButton
+                  value="low"
+                  type="radio"
+                  id="low"
+                  name="priority"
+                  onChange={(event) => {
+                    handleSelectChange(event);
+                    setFieldValue('priority', event.target.value);
+                  }}
+                  checked={select === 'low'}
+                />
+                <RadioButtonLabel htmlFor="low"></RadioButtonLabel>
+              </Item>
+              <Item value="medium">
+                <RadioButton
+                  type="radio"
+                  id="medium"
+                  name="priority"
+                  onChange={(event) => {
+                    handleSelectChange(event);
+                    setFieldValue('priority', event.target.value);
+                  }}
+                  checked={select === 'medium'}
+                  value="medium"
+                />
+                <RadioButtonLabel htmlFor="medium"></RadioButtonLabel>
+              </Item>
+              <Item value="high">
+                <RadioButton
+                  type="radio"
+                  id="high"
+                  name="priority"
+                  onChange={(event) => {
+                    handleSelectChange(event);
+                    setFieldValue('priority', event.target.value);
+                  }}
+                  checked={select === 'high'}
+                  value="high"
+                />
+                <RadioButtonLabel htmlFor="high"></RadioButtonLabel>
+              </Item>
 
-            <div>
-              <StyledLabel> Deadline</StyledLabel>
-              <DatePicker
-                defaultValue={dayjs(today)}
-                name="deadline"
-                onChange={(date) => setFieldValue('deadline', date)}
-                disablePast
-                views={['month', 'day']}
-                // open={true}
+              <Item value="without">
+                <RadioButton
+                  type="radio"
+                  id="without"
+                  name="priority"
+                  onChange={(event) => {
+                    handleSelectChange(event);
+                    setFieldValue('priority', event.target.value);
+                  }}
+                  value="without"
+                  checked={select === 'without'}
+                />
+                <RadioButtonLabel htmlFor="without"></RadioButtonLabel>
+              </Item>
+            </RadioBtn>
+            <StyleErrorMessage name="priority" component="div" />
 
-                PopperProps={{
-                  sx: {
-                    '.css-1yllih9-MuiPaper-root-MuiPickersPopper-paper': {
-                      backgroundColor: 'var(--calendarBackground)',
-                    },
-                    '.css-nk89i7-MuiPickersCalendarHeader-root': {
-                      display: 'flex',
-                      justifyContent: 'center',
-                      marginRight: 0,
-                      positon: 'relative',
-                    },
-                    '.css-10fao8b-MuiPickersCalendarHeader-labelContainer': {
-                      marginRight: 0,
-                      color: 'var(--whiteColor)',
-                      fontSize: 'var(--fontSize14)',
-                      fontFamily: 'Poppins',
-                      lineHeight: '18px',
-                      letterSpacing: '-0.28px',
-                    },
-                    '.css-9reuh9-MuiPickersArrowSwitcher-root ': {
-                      position: 'absolute',
-                      top: '15px',
-                      left: 0,
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      width: '100%',
-                    },
+            <StyledLabelDeadline> Deadline</StyledLabelDeadline>
+            <DatePicker
+              defaultValue={dayjs(today)}
+              name="deadline"
+              onChange={(date) => setFieldValue('deadline', date)}
+              disablePast
+              views={['month', 'day']}
+              // open={true}
 
-                    '.css-i4bv87-MuiSvgIcon-root': {
-                      fill: 'var(--accentColor)',
-                    },
-                    '.css-raiqh1-MuiTypography-root-MuiDayPicker-weekDayLabel':
-                      {
-                        color: 'var(--whiteColor)',
-                      },
-                    '.css-bkrceb-MuiButtonBase-root-MuiPickersDay-root': {
-                      backgroundColor: 'transparent',
-                      color: 'var(--whiteColor)',
-                    },
-                    '.css-195y93z-MuiButtonBase-root-MuiPickersDay-root.Mui-selected':
-                      {
-                        backgroundColor: 'var(--accentColor)',
-                      },
-                  },
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-              <StyleErrorMessage name="deadline" component="div" />
-            </div>
+              // PopperProps={{
+              //   sx: {
+              //     '&.MuiPickersCalendarHeader-labelContainer': {
+              //       color: 'red',
+              //     },
+              //     '&.MuiPickersPopper-root': {
+              //       border: '4px solid red',
+              //     },
+              //     '&.MuiInputBase': {
+              //       color: 'red',
+              //     },
+              //   },
+              // }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+            <StyleErrorMessage name="deadline" component="div" />
 
             <Button type="submit">+Add</Button>
           </Form>

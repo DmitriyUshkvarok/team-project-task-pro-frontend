@@ -10,10 +10,7 @@ const selectToken = (state) => state.auth.token;
 
 const getid = (state) => state.auth.user.id;
 
-const getTheme = (state) => {
-  console.log(state);
-  return state.auth?.user?.theme;
-};
+const getTheme = (state) => state.auth?.user?.theme;
 
 const authSelector = {
   getIsLoggedIn,

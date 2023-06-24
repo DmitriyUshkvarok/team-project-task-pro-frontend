@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import url from '../../../images/icons/sprite/icons.svg';
 import CloseButton from '../CloseButton/CloseButton';
+import ButtonModal from '../ButtonModal/ButtonModal';
 import {
   Container,
   FormTitle,
@@ -9,8 +9,6 @@ import {
   ErrorMessage,
   Form,
   FieldTitle,
-  Button,
-  ContainerIcon,
 } from './Column.styled';
 
 const Column = ({ columnTitle }) => {
@@ -42,14 +40,7 @@ const Column = ({ columnTitle }) => {
               />
               <ErrorMessage name="title" component="p" />
             </FormFieldTitle>
-            <Button type="submit">
-              <ContainerIcon>
-                <svg width="14" height="14">
-                  <use xlinkHref={`${url}#icon-plus`} />
-                </svg>
-              </ContainerIcon>
-              Add
-            </Button>
+            <ButtonModal buttonName="Add" />
           </Form>
         </Formik>
       </Container>
