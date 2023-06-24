@@ -26,6 +26,8 @@ export const NeedHelpContainer = styled.div`
   padding: 24px;
   font-family: var(--poppinsFont);
   color: var(--whiteColor);
+  margin: 0 auto;
+  margin-top: 50px;
 
   @media screen and (min-width: 768px) {
     width: 400px;
