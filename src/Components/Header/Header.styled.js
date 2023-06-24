@@ -28,7 +28,6 @@ export const Navigation = styled.nav`
 `;
 export const BoxMenu = styled.div`
   display: flex;
-  align-items: center;
 `;
 export const UserInfo = styled.div`
   display: flex;

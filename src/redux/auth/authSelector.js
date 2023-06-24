@@ -10,6 +10,8 @@ const selectToken = (state) => state.auth.token;
 
 const getid = (state) => state.auth.user.id;
 
+const getTheme = (state) => state.auth?.user?.theme;
+
 const authSelector = {
   getIsLoggedIn,
   getIsRefreshing,
@@ -17,6 +19,7 @@ const authSelector = {
   getEmail,
   selectToken,
   getid,
+  getTheme,
 };
 
 export default authSelector;

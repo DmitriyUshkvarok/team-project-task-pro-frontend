@@ -21,6 +21,10 @@ import {
   EditTitle,
 } from './EditProfile.styled';
 
+import { createPortal } from 'react-dom';
+
+const modalRoot = document.querySelector('#modal-root');
+
 const initialValues = {
   name: '',
   email: '',
@@ -88,9 +92,16 @@ const EditProfile = () => {
     }
     resetForm();
   };
-  return (
+  return createPortal(
     <Edit>
-      <button style={{ position: 'absolute', top: '14px', right: '14px' }}>
+      <button
+        style={{
+          position: 'absolute',
+          top: '14px',
+          right: '14px',
+          cursor: 'pointer',
+        }}
+      >
         close
       </button>
       <EditTitle>Edit profile</EditTitle>
@@ -116,7 +127,7 @@ const EditProfile = () => {
             position: 'absolute',
             top: '137px',
             right: '195px',
-            // width: '195px',
+            cursor: 'pointer',
           }}
         >
           update
@@ -187,7 +198,8 @@ const EditProfile = () => {
           </Btnwrapper>
         </FormUpdateUser>
       </Formik>
-    </Edit>
+    </Edit>,
+    modalRoot
   );
 };
 

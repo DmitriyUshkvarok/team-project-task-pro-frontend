@@ -1,66 +1,55 @@
-import Select from 'react-select';
 import styled from 'styled-components';
 
-export const StyledSelect = styled(Select)``;
+export const MainContainer = styled.div`
+  position: relative;
 
-export const customStyles = {
-  indicatorSeparator: (provided) => ({
-    ...provided,
-    display: 'none',
-    border: 'none',
-    outline: 'none',
-  }),
-  control: (provided, state) => ({
-    ...provided,
-    backgroundColor: 'transparent',
-    border: 'none',
-    outline: 'none',
-    '&:hover': {
-      backgroundColor: 'transparent',
-      color: 'var(--accentColor)',
-      outline: 'none',
-      cursor: 'pointer',
-      border: 'none',
-    },
-    '&:focus': {
-      border: 'none',
-      boxShadow: 'none',
-    },
-    color: 'var(--logoHeaderColor)',
-    /* другие стили для контейнера селекта */
-  }),
-  menu: (provided, state) => ({
-    ...provided,
-    backgroundColor: 'var(--headerColor)',
-    width: '100px',
-    border: '1px solid var(--accentColor)',
-    outline: 'none',
-    textAlign: 'left',
-    cursor: 'pointer',
-    overflow: 'hidden',
-    borderRadius: '8px',
-    '&:hover': {
-      backgroundColor: 'transparent',
-      color: 'var(--accentColor)',
-    },
-    '&:focus': {
-      border: 'none',
-      outline: 'none',
-    },
-    color: 'var(--logoHeaderColor)',
-  }),
-  option: (provided) => ({
-    ...provided,
-    color: 'var(--logoHeaderColor)',
-    fontWeight: 'var(--fontWeight500)',
-    border: 'none',
-    outline: 'none',
-    backgroundColor: 'var(--headerColor)',
-    '&:hover': {
-      color: 'var(--accentColor)',
-      outline: 'none',
-      cursor: 'pointer',
-      border: 'none',
-    },
-  }),
-};
+  max-height: ${(props) => (props.isOpen ? '200px' : '0')};
+  transition: max-height 0.3s;
+`;
+
+export const ThemeSelectWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+`;
+export const ThemeTitle = styled.p`
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+  letter-spacing: -0.28px;
+  color: var(--logoHeaderColor);
+`;
+
+export const ListThema = styled.ul`
+  position: absolute;
+  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  transform: translateY(${(props) => (props.isOpen ? '0' : '-10px')});
+  transition: opacity 0.1s, transform 0.3s;
+  pointer-events: ${(props) => (props.isOpen ? 'visible' : 'none')};
+
+  display: inline-flex;
+  padding: 18px 44px 18px 18px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--borderRadius8);
+  border: 1px solid #bedbb0;
+  background: var(--headerColor);
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  color: white;
+  gap: 8px;
+  top: 19px;
+  left: 0px;
+`;
+
+export const ItemThema = styled.li`
+  cursor: pointer;
+  color: var(--logoHeaderColor);
+  transition: color var(--transition);
+  :hover {
+    color: var(--accentColor);
+  }
+`;

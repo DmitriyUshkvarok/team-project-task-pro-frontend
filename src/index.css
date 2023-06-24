@@ -44,7 +44,6 @@ body {
 
 body.menu-open {
   overflow: hidden;
-
 }
 
 body[data-theme='light'] {
@@ -82,7 +81,7 @@ body[data-theme='dark'] {
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --gefaultScreenColor: #e6e6e6;
-  --calendarBackground: #1F1F1F;
+  --calendarBackground: #1f1f1f;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;

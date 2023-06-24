@@ -68,10 +68,20 @@ const refreshCurrentUser = createAsyncThunk(
   }
 );
 
+const updateTheme = createAsyncThunk('user/setTheme', async (newTheme) => {
+  try {
+    const { data } = await axios.patch('/users', { theme: newTheme });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const authOperation = {
   register,
   logIn,
   logOut,
   refreshCurrentUser,
+  updateTheme,
 };
 export default authOperation;

@@ -9,6 +9,7 @@ export const FormRegistration = styled(Form)`
   flex-direction: column;
   background-color: var(--blackColor);
   border-radius: 8px;
+  margin: 188px 508px;
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -36,9 +37,12 @@ export const InputForm = styled(Field)`
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
   background-color: var(--blackColor);
-  color: var(--whiteColor);
+  color: #ffffff;
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
+
+  outline: none;
+
   @media screen and (min-width: 375px) {
     width: 285px;
   }
@@ -72,6 +76,8 @@ export const BtnRegister = styled.button`
   color: var(--blackColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
+  border: none;
+  transition: var(--transition);
 
   @media screen and (min-width: 375px) {
     width: 285px;
@@ -79,6 +85,9 @@ export const BtnRegister = styled.button`
 
   @media screen and (min-width: 768px) {
     width: 342px;
+  }
+  &:focus {
+    outline: none;
   }
 
   &:hover {
