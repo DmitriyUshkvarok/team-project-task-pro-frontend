@@ -11,6 +11,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
+
+//
+
+import { useState } from 'react';
+import Modal from '../Modals/Modal';
+
+//
+
+
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -23,9 +32,18 @@ function App() {
     dispatch(authOperation.refreshCurrentUser());
   }, [dispatch]);
 
+  //
+  const [showModal, setShowModal] = useState(true);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  //
+
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
+        {showModal && <Modal onClose={toggleModal} />}
         {isRefreshing ? (
           <p>Loading...</p>
         ) : (
