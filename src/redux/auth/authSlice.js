@@ -8,12 +8,12 @@ const initialState = {
     name: null,
     email: null,
     avatarURL: null,
-    token: null,
-    isLoggedIn: false,
-    isRefreshing: false,
     id: null,
     theme: '',
   },
+  token: null,
+  isLoggedIn: false,
+  isRefreshing: false,
 };
 
 const authPersistConfig = {
@@ -38,15 +38,9 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(authOperation.logOut.fulfilled, (state) => {
-        state.user = {
-          name: null,
-          email: null,
-          avatarURL: null,
-          id: null,
-          theme: '',
-          token: null,
-          isLoggedIn: false,
-        };
+        state.user = { name: null, email: null };
+        state.token = null;
+        state.isLoggedIn = false;
       })
       .addCase(authOperation.refreshCurrentUser.pending, (state) => {
         state.isRefreshing = true;
