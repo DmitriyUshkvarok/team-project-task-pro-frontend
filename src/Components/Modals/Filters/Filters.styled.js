@@ -1,42 +1,32 @@
 import styled from 'styled-components';
 
+export const FiltersContainer = styled.div`
+  width: 300px;
+  height: 367px;
+
+  padding: 24px;
+  background-color: var(--headerColor);
+
+  border-radius: 8px;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+`;
+
 export const LabelContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
+  align-items: center;
+  gap: 8px;
 
-export const Label = styled.label``;
+  label {
+    color: var(--iconSideBarBoardColor);
+    font-size: var(--fontSize12);
+    font-family: Poppins;
+    letter-spacing: var(--letterSpacing);
 
-export const Input = styled.input`
-  display: none;
-`;
+    cursor: pointer;
+  }
 
-export const Fake = styled.span`
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid black;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    width: 9px;
-    height: 9px;
-    background-color: green;
-    border-radius: 50%;
-    opacity: 0;
-    transition: 0.2s;
+  input {
+    cursor: pointer;
   }
 `;
-
-.Input: checked + .Fake::before{
-    opacity: 1;
-}
-
-export const Text = styled.span``;
