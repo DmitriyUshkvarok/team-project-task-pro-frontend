@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
-import { format } from 'date-fns';
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
+
+import { formattedDateForBtn } from '../../../services/formatingDate.js';
 
 import {
   AddCardModal,
@@ -21,6 +23,8 @@ import {
   ButtonDate,
   CalendarContainer,
   LabelDiv,
+  ChevronDown,
+  BtnName,
 } from './AddCard.styled';
 
 const ModalAddCard = ({ boardId, columnId }) => {
@@ -33,22 +37,6 @@ const ModalAddCard = ({ boardId, columnId }) => {
   useEffect(() => {
     setFormattedDate(formattedDateForBtn(date));
   }, [date]);
-
-  const isToday = (date) => {
-    const today = new Date();
-    return (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    );
-  };
-
-  const formattedDateForBtn = (date) => {
-    if (isToday(date)) {
-      return 'Today, ' + format(date, 'MMMM dd');
-    }
-    return format(date, 'MMMM dd');
-  };
 
   const initialValues = {
     title: '',
@@ -184,7 +172,12 @@ const ModalAddCard = ({ boardId, columnId }) => {
             </LabelDiv>
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
             <CalendarContainer>
-              <ButtonDate type="button">{formattedDate}</ButtonDate>
+              <ButtonDate type="button">
+                <BtnName>
+                  {formattedDate}
+                  <ChevronDown />
+                </BtnName>
+              </ButtonDate>
 
               <DatePicker
                 selected={date}

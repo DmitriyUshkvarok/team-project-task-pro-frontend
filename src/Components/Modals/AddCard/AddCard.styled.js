@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { ErrorMessage, Formik, Form, Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
+import { FaChevronDown } from 'react-icons/fa';
 
 export const AddCardModal = styled.div`
   width: 335px;
@@ -207,4 +208,13 @@ export const ButtonDate = styled.button`
   padding: 0px;
   float: left;
   position: absolute;
+`;
+
+export const ChevronDown = styled(FaChevronDown)`
+  margin-top: 1px;
+`;
+export const BtnName = styled.span`
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
 `;
