@@ -28,6 +28,7 @@ export const Navigation = styled.nav`
 `;
 export const BoxMenu = styled.div`
   display: flex;
+  align-items: baseline;
 `;
 export const UserInfo = styled.div`
   display: flex;

@@ -126,3 +126,8 @@ export const EditTitle = styled.h3`
 
   margin-bottom: 117px;
 `;
+export const BtnClose = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;

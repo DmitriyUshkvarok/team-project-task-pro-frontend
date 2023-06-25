@@ -5,7 +5,7 @@ export const NeedHelpContainer = styled.div`
   position: relative;
   width: 335px;
   height: 355px;
-  background-color: var(--blackColor);
+  background-color: var(--modalBGC);
   border-radius: var(--borderRadius8);
   padding: 24px;
   font-family: var(--poppinsFont);
@@ -24,7 +24,7 @@ export const Title = styled.h2`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
   margin-bottom: 24px;
-  color: #fff;
+  color: var(--titleColor);
   text-align: left;
 `;
 
@@ -79,6 +79,7 @@ export const Button = styled.button`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
   margin-top: 24px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 352px;
