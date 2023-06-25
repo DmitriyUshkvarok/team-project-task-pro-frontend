@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
 import url from '../../../images/icons/sprite/icons.svg';
 import {
@@ -22,41 +23,35 @@ const Boards = () => {
       prevSelectedItem === index ? null : index
     );
   };
-  // const boards = [
-  //   'Board 1',
-  //   'Board 2',
-  //   'Board 1',
-  //   'Board 2',
-  //   'Board 1',
-  //   'Board 2',
-  // ];
+
   return (
     <ListBoard>
-      {boards.map(({ _id, title }, index) => (
-        <ItemBoard
-          key={_id}
-          isSelected={selectedItem === index}
-          onClick={() => handleItemClick(index)}
-        >
-          <WrapTitle>
-            <IconProject />
-            <TitleBoard>{title}</TitleBoard>
-          </WrapTitle>
+      {boards?.map(({ _id, title }, index) => (
+        <Link to={`/${_id}?title=${title}`} key={_id}>
+          <ItemBoard
+            isSelected={selectedItem === index}
+            onClick={() => handleItemClick(index)}
+          >
+            <WrapTitle>
+              <IconProject />
+              <TitleBoard>{title}</TitleBoard>
+            </WrapTitle>
 
-          <WrapIcons isSelected={selectedItem === index}>
-            <BtnIcon type="buttom">
-              <IconStyled width="16" height="16">
-                <use xlinkHref={`${url}#icon-pencil-01`} />
-              </IconStyled>
-            </BtnIcon>
+            <WrapIcons isSelected={selectedItem === index}>
+              <BtnIcon type="buttom">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-pencil-01`} />
+                </IconStyled>
+              </BtnIcon>
 
-            <BtnIcon type="buttom">
-              <IconStyled width="16" height="16">
-                <use xlinkHref={`${url}#icon-trash-04`} />
-              </IconStyled>
-            </BtnIcon>
-          </WrapIcons>
-        </ItemBoard>
+              <BtnIcon type="buttom">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-trash-04`} />
+                </IconStyled>
+              </BtnIcon>
+            </WrapIcons>
+          </ItemBoard>
+        </Link>
       ))}
     </ListBoard>
   );

@@ -13,11 +13,14 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 import Modal from '../Modals/Modal/Modal';
 
+import BoardPage from '../../pages/BoardPage/BoardPage';
+
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+// const BoardPage = lazy(() => import('../../pages/BoardPage/BoardPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -46,7 +49,9 @@ function App() {
                       component={<HomePage />}
                     />
                   }
-                />
+                >
+                  <Route path=":boardId" element={<BoardPage />} />
+                </Route>
                 <Route
                   path="/welcome"
                   element={
