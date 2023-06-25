@@ -1,16 +1,18 @@
-import { ModalCard } from './ModalBoard.styled';
 import CloseButton from '../CloseButton/CloseButton';
 import ModalFormTitle from '../ModalFormTitle/ModalFormTitle';
 import ModalBoardIcons from '../ModalBoardIcons/ModalBoardIcons';
+import BackgroundImageMini from '../BackgroundImageMini/BackgroundImageMini';
+import { ModalCard, Title } from './ModalBoard.styled';
 
 const ModalBoard = ({ modalTitle, buttonName }) => {
   return (
     <>
       <ModalCard>
         <CloseButton />
-        <h2>{modalTitle}</h2>
+        <Title>{modalTitle}</Title>
         <ModalFormTitle buttonName={buttonName}>
           <ModalBoardIcons />
+          <BackgroundImageMini />
         </ModalFormTitle>
       </ModalCard>
     </>

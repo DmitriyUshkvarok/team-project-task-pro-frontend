@@ -20,15 +20,21 @@ export const FiltersContainer = styled.div`
     font-family: var(--poppinsFont);
     font-weight: var(--fontWeight500);
     letter-spacing: var(--letterSpacing28);
-    padding-bottom: 14px;
+    margin-bottom: 14px;
+    margin-top: 24px;
   }
 
-  a {
+  button {
+    display: inline-block;
     color: var(--iconSideBarBoardColor);
     font-size: var(--fontSize12);
     font-family: var(--poppinsFont);
     letter-spacing: var(--letterSpacing24);
     text-decoration: underline;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 0;
   }
 `;
 
@@ -46,6 +52,8 @@ export const ModalTitle = styled.h2`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+
+  border-top: 1px solid var(--borderBottomColor);
 `;
 
 export const Span = styled.span`

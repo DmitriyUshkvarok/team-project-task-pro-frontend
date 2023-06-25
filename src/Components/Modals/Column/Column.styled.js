@@ -10,7 +10,8 @@ export const Container = styled.div`
   height: 221px;
 
   border-radius: var(--borderRadius8);
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  border: var(--modalBorder);
+  box-shadow: var(--boxShadow);
 
   background-color: var(--headerColor);
 
