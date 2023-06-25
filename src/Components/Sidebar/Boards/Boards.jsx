@@ -40,8 +40,8 @@ const Boards = () => {
           onClick={() => handleItemClick(index)}
         >
           <WrapTitle>
-            <IconProject />
-            <TitleBoard>{board}</TitleBoard>
+            <IconProject isSelected={selectedItem === index}/>
+            <TitleBoard isSelected={selectedItem === index}>{board}</TitleBoard>
           </WrapTitle>
 
           <WrapIcons isSelected={selectedItem === index}>
