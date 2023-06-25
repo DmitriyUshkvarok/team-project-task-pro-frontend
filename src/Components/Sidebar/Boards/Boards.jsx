@@ -49,13 +49,13 @@ const Boards = () => {
             </WrapTitle>
 
             <WrapIcons isSelected={selectedItem === index}>
-              <BtnIcon type="button">
+              <BtnIcon type="buttom">
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-pencil-01`} />
                 </IconStyled>
               </BtnIcon>
 
-              <BtnIcon type="button">
+              <BtnIcon type="buttom">
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-trash-04`} />
                 </IconStyled>
