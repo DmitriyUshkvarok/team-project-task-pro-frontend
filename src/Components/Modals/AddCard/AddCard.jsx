@@ -28,6 +28,8 @@ const ModalAddCard = ({ boardId, columnId }) => {
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
+  const [createTask] = useCreateTaskMutation();
+
   useEffect(() => {
     setFormattedDate(formattedDateForBtn(date));
   }, [date]);
@@ -47,8 +49,6 @@ const ModalAddCard = ({ boardId, columnId }) => {
     }
     return format(date, 'MMMM dd');
   };
-
-  const [createTask] = useCreateTaskMutation();
 
   const initialValues = {
     title: '',
@@ -83,7 +83,6 @@ const ModalAddCard = ({ boardId, columnId }) => {
     } catch (error) {
       console.log(error);
     }
-    // ***DISPATCH на ЗМІНУ */
     // ****** не забути закрити форму після відправки */
   };
 
@@ -185,7 +184,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
             </LabelDiv>
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
             <CalendarContainer>
-              <ButtonDate>{formattedDate}</ButtonDate>
+              <ButtonDate type="button">{formattedDate}</ButtonDate>
 
               <DatePicker
                 selected={date}
