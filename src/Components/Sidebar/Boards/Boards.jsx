@@ -44,20 +44,21 @@ const Boards = () => {
             <TitleBoard isSelected={selectedItem === index}>{board}</TitleBoard>
           </WrapTitle>
 
-          <WrapIcons isSelected={selectedItem === index}>
-            <BtnIcon type="button">
-              <IconStyled width="16" height="16">
-                <use xlinkHref={`${url}#icon-pencil-01`} />
-              </IconStyled>
-            </BtnIcon>
+            <WrapIcons isSelected={selectedItem === index}>
+              <BtnIcon type="buttom">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-pencil-01`} />
+                </IconStyled>
+              </BtnIcon>
 
-            <BtnIcon type="button">
-              <IconStyled width="16" height="16">
-                <use xlinkHref={`${url}#icon-trash-04`} />
-              </IconStyled>
-            </BtnIcon>
-          </WrapIcons>
-        </ItemBoard>
+              <BtnIcon type="buttom">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-trash-04`} />
+                </IconStyled>
+              </BtnIcon>
+            </WrapIcons>
+          </ItemBoard>
+        </Link>
       ))}
     </ListBoard>
   );
