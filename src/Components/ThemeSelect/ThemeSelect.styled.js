@@ -19,7 +19,7 @@ export const ThemeTitle = styled.p`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
-  color: var(--logoHeaderColor);
+  color: var(--secondaryItemsColor);
   :hover {
     color: var(--accentColor);
   }
@@ -39,10 +39,10 @@ export const ListThema = styled.ul`
   align-items: center;
 
   border-radius: var(--borderRadius8);
-  border: 1px solid #bedbb0;
-  background: var(--headerColor);
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
-  color: white;
+  border: 1px solid var(--accentColor);
+  background: var(----themeBgColor);
+  box-shadow: 0px 4px 16px 0px var(--themeBoxShadow);
+
   gap: 8px;
   top: 19px;
   left: 0px;
@@ -51,7 +51,7 @@ export const ListThema = styled.ul`
 
 export const ItemThema = styled.li`
   cursor: pointer;
-  color: var(--logoHeaderColor);
+  color: var(--primaryItemsColor);
   transition: color var(--transition);
   :hover {
     color: var(--accentColor);

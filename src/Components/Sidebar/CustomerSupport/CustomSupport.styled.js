@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 
 export const Container = styled.div`
   padding: 14px;
-  background-color: var(--helpColor);
+  background-color: var(--customerSupportBgColor);
   border-radius: var(--borderRadius8);
   @media screen and (min-width: 768px) {
     padding: 20px;
@@ -25,12 +25,12 @@ export const Desc = styled.p`
   margin-top: 14px;
   font-family: var(--poppinsFont);
 
-  font-size: var(--fontSize12);
+  font-size: var(--fontSize14);
   line-height: 1.33em;
 
   letter-spacing: -0.02em;
 
-  color: var(--whiteColor);
+  color: var(--primarySidebarColor);
 
   @media screen and (max-width: 768px) {
     font-size: var(--fontSize14);
@@ -55,7 +55,7 @@ export const BtnNeedHelp = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: var(--whiteColor);
+  color: var(--primarySidebarColor);
 `;
 
 export const DescContent = styled.p`
@@ -65,7 +65,12 @@ export const DescContent = styled.p`
   font-size: var(--fontSize12);
   line-height: 1.5em;
 
-  letter-spacing: -0.02em;
+  letter-spacing: -0.24px;
 
-  color: var(--whiteColor);
+  color: var(--primarySidebarColor);
+`;
+
+export const IconStyled = styled.svg`
+  stroke: var(--primarySidebarColor);
+  fill: transparent;
 `;

@@ -4,10 +4,10 @@ import {
   FeedbackFormGroup,
   InputEmail,
   InputPassword,
-  Btnwrapper,
+  BtnWrapper,
   BtnLogIn,
   PasswordWrapper,
-  ToggleShowPasword,
+  ToggleShowPassword,
   StyleErrorMessage,
   Error,
   Link,
@@ -92,7 +92,7 @@ function LogInForm() {
                 name="password"
                 placeholder="Confirm a password"
               />
-              <ToggleShowPasword onClick={togglePasswordVisibility}>
+              <ToggleShowPassword onClick={togglePasswordVisibility}>
                 {showPassword ? (
                   <BsEyeSlash
                     color="#ffffff4d"
@@ -101,15 +101,15 @@ function LogInForm() {
                 ) : (
                   <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
                 )}
-              </ToggleShowPasword>
+              </ToggleShowPassword>
             </PasswordWrapper>
             <StyleErrorMessage name="password">
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
           </FeedbackFormGroup>
-          <Btnwrapper>
+          <BtnWrapper>
             <BtnLogIn type="submit">Log In Now</BtnLogIn>
-          </Btnwrapper>
+          </BtnWrapper>
         </FormLogin>
       </FormikStyle>
     </>

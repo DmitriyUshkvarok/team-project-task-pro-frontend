@@ -13,8 +13,8 @@ import {
   FeedbackFormGroup,
   PasswordWrapper,
   InputForm,
-  ToggleShowPasword,
-  Btnwrapper,
+  ToggleShowPassword,
+  BtnWrapper,
   BtnUpdate,
   StyleErrorMessage,
   Error,
@@ -185,7 +185,7 @@ const EditProfile = () => {
                 placeholder="Edit password"
                 autoComplete="off"
               />
-              <ToggleShowPasword onClick={togglePasswordVisibility}>
+              <ToggleShowPassword onClick={togglePasswordVisibility}>
                 {showPassword ? (
                   <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
                 ) : (
@@ -194,15 +194,15 @@ const EditProfile = () => {
                     style={{ width: 18, height: 18 }}
                   />
                 )}
-              </ToggleShowPasword>
+              </ToggleShowPassword>
             </PasswordWrapper>
             <StyleErrorMessage name="password">
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
           </FeedbackFormGroup>
-          <Btnwrapper>
+          <BtnWrapper>
             <BtnUpdate type="submit">Send</BtnUpdate>
-          </Btnwrapper>
+          </BtnWrapper>
         </FormUpdateUser>
       </Formik>
     </Edit>

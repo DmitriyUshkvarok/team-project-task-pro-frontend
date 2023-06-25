@@ -9,8 +9,8 @@ import {
   FeedbackFormGroup,
   PasswordWrapper,
   InputForm,
-  ToggleShowPasword,
-  Btnwrapper,
+  ToggleShowPassword,
+  BtnWrapper,
   BtnRegister,
   StyleErrorMessage,
   Error,
@@ -100,7 +100,7 @@ const RegistrationForm = () => {
                 name="password"
                 placeholder="Create a password"
               />
-              <ToggleShowPasword onClick={togglePasswordVisibility}>
+              <ToggleShowPassword onClick={togglePasswordVisibility}>
                 {showPassword ? (
                   <BsEyeSlash
                     color="#ffffff4d"
@@ -109,15 +109,15 @@ const RegistrationForm = () => {
                 ) : (
                   <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
                 )}
-              </ToggleShowPasword>
+              </ToggleShowPassword>
             </PasswordWrapper>
             <StyleErrorMessage name="password">
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
           </FeedbackFormGroup>
-          <Btnwrapper>
+          <BtnWrapper>
             <BtnRegister type="submit">Register Now</BtnRegister>
-          </Btnwrapper>
+          </BtnWrapper>
         </FormRegistration>
       </Formik>
     </>
