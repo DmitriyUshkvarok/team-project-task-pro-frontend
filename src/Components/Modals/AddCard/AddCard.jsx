@@ -41,6 +41,8 @@ const ModalAddCard = ({ boardId, columnId }) => {
     );
   };
 
+  console.log(isToday);
+
   const formattedDateForBtn = (date) => {
     if (isToday(date)) {
       console.log(`11111`);
@@ -55,7 +57,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
     title: '',
     description: '',
     priority: '',
-    deadline: '',
+    deadline: date,
     status: 'in progress',
     column: '60c8c6bbf0c9a15f7c41979a',
   };
