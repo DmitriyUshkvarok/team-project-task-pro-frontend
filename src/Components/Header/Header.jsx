@@ -1,8 +1,18 @@
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import EditProfile from '../Modals/EditProfile/EditProfile';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
-import { Head, Navigation, BoxMenu, UserInfo, UserText } from './Header.styled';
+import {
+  Head,
+  Navigation,
+  BoxMenu,
+  UserInfo,
+  UserText,
+  UserIcon,
+} from './Header.styled';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import authSelector from '../../redux/auth/authSelector';
+import userDefault from '../../images/icons/iconsPng/user_default.png';
 
 import { openModal } from '../../redux/modal/modalSlice.js';
 
@@ -12,7 +22,12 @@ const Header = ({ openSideBar }) => {
   const dispatch = useDispatch();
 
   const name = useSelector(authSelector.getName);
-  const userAvatar = useSelector(authSelector.getAvatar);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
 
   return (
     <Head>
@@ -25,8 +40,14 @@ const Header = ({ openSideBar }) => {
             onClick={() => dispatch(openModal({ name: 'editprofile' }))}
           >
             <UserText>{name}</UserText>
-            <img src={userAvatar} alt="user name" />
+            <UserIcon
+              src={userDefault}
+              alt="user_icon"
+              width={32}
+              height={32}
+            />
           </UserInfo>
+          {isModalOpen && <EditProfile />}
         </BoxMenu>
       </Navigation>
     </Head>

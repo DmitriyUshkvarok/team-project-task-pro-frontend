@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import userDefault from '../../../images/icons/iconsPng/user_default.png';
 import { useState } from 'react';
 import {
   useUpdateUserMutation,
