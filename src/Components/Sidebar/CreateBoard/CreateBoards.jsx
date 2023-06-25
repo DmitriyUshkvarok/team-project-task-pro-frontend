@@ -22,10 +22,10 @@ const CreateBoards = () => {
       <Desc>My boards</Desc>
       <WrapTitleContent>
         <Title>Create a new board</Title>
-        <BtnCreateBoard type="buttom">
+        <BtnCreateBoard onClick={handleOpenModal} type="button">
           <svg width="20" height="20">
             <use xlinkHref={`${url}#icon-plus`} />
-          </IconStyled>
+          </svg>
         </BtnCreateBoard>
       </WrapTitleContent>
     </Container>
