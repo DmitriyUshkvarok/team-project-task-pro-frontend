@@ -23,8 +23,7 @@ const CreateBoards = () => {
       <Desc>My boards</Desc>
       <WrapTitleContent>
         <Title>Create a new board</Title>
-
-        <BtnCreateBoard onClick={handleOpenModal} type="buttom">
+        <BtnCreateBoard onClick={handleOpenModal} type="button">
           <IconStyled width="20" height="20">
             <use xlinkHref={`${url}#icon-plus`} />
           </IconStyled>
