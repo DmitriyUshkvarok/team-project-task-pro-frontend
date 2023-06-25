@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
-
+import { useGetFetchBoardsQuery } from '../../../redux/boardApi/boardApi';
 import url from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import {
