@@ -56,7 +56,7 @@ function App() {
                   <RestictedRoute redirectTo="/" component={<AuthPage />} />
                 }
               />
-              <Route path="*" element={<HomePage />} />
+              <Route path="*" element={<WelcomePage />} />
             </Routes>
           </Container>
         </Suspense>
