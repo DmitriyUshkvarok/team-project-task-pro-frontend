@@ -41,11 +41,8 @@ const ModalAddCard = ({ boardId, columnId }) => {
     );
   };
 
-  console.log(isToday);
-
   const formattedDateForBtn = (date) => {
     if (isToday(date)) {
-      console.log(`11111`);
       return 'Today, ' + format(date, 'MMMM dd');
     }
     return format(date, 'MMMM dd');
