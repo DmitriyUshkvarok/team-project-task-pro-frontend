@@ -40,7 +40,7 @@ export const UserText = styled.p`
   font-size: var(--fontSize14);
   margin-left: 14px;
   cursor: pointer;
-  color: var(--logoHeaderColor);
+  color: var(--primaryItemsColor);
   &:hover {
     color: var(--accentColor);
   }

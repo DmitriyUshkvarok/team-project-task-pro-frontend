@@ -6,6 +6,7 @@ import {
   WrapContent,
   DescContent,
   BtnNeedHelp,
+  IconStyled
 } from './CustomSupport.styled';
 import styled from 'styled-components';
 
@@ -17,10 +18,7 @@ import { useState } from 'react';
 import { openModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 
-const IconStyled = styled.svg`
-  stroke: var(--iconSideBarColor);
-  fill: transparent;
-`;
+
 
 const CustomerSupport = () => {
   const dispatch = useDispatch();

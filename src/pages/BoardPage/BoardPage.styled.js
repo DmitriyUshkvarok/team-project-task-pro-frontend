@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Board = styled.div`
   @media screen and (min-width: 320px) {
-    background-color: var(--helpColor);
+    background-color: var(--helpBlockColor);
     width: 320px;
     padding-bottom: 24px;
   }

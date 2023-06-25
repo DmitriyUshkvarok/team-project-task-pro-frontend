@@ -34,7 +34,7 @@ const LogOut = () => {
 
   return (
     <Container>
-      <BtnLogOut onClick={handleClickLogOut} type="buttom">
+      <BtnLogOut onClick={handleClickLogOut} type="button">
         <IconLogOut width="32" height="32">
           <use xlinkHref={`${url}#icon-login`} />
         </IconLogOut>

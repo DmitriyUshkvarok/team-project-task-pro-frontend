@@ -39,14 +39,14 @@ export const InputForm = styled(Field)`
   }
 `;
 
-export const ToggleShowPasword = styled.span`
+export const ToggleShowPassword = styled.span`
   position: absolute;
   top: 16px;
   right: 18px;
   height: 18px;
 `;
 
-export const Btnwrapper = styled.div`
+export const BtnWrapper = styled.div`
   margin-top: 24px;
 `;
 
@@ -56,7 +56,7 @@ export const BtnUpdate = styled.button`
   background-color: var(--accentColor);
   border-radius: 8px;
   cursor: pointer;
-  color: var(--blackColor);
+  color: var(--whiteColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   border: none;

@@ -14,7 +14,7 @@ export const Button = styled.button`
   }
 `;
 export const Svg = styled.svg`
-  stroke: var(--logoHeaderColor);
+  stroke: var(--primaryItemsColor);
 
   &:hover {
     stroke: var(--accentColor);

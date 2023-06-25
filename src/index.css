@@ -1,20 +1,17 @@
 :root {
-  --blackColor: #151515;
   --logoColor: #161616;
-  --contentColor: #161616;
-  --linkColor: #161616;
-  --linkHoverColor: #fff;
-  --backgroundLinkColor: #161616;
-  --iconBoardColor: #16161680;
-  --gradientFonColor: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
+  --primaryTextColor: #161616;
+  --activeTextColor: #fff;
+  --bgActiveBtnColor: #161616;
+  --bgAccentBtnColor: #bedbb0;
+  --bgFormColor: #151515;
+  --bgInputColor: #1f1f1f;
+
+  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
 
   --transition: 0.4s;
 
-  --poppinsFont: 'Poppins';
+  --poppinsFont: "Poppins";
 
   --borderRadius8: 8px;
 
@@ -53,24 +50,53 @@ body.menu-open {
   overflow: hidden;
 }
 
-body[data-theme='light'] {
+body[data-theme="light"] {
   --accentColor: #bedbb0;
+
+  /**Header*/
   --headerColor: #fcfcfc;
+  --primaryItemsColor: #161616;
+  --secondaryItemsColor: #161616cc;
+
+  --themeBgColor: #FCFCFC;
+  --themeBorderColor: #BEDBB0;
+  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+
+  /**Sidebar*/
+  --logoFonColor: #1f1f1f;
+  --logoIconColor: #ffffff;
+  --accentBoardColor: #bedbb0;
+  --primarySidebarColor: #161616;
+  --secondarySidebarColor: #16161680;
+  --borderSidebarColor: #1616161a;
+  --iconPlusColor: #121212;
+  --iconPlusBgColor: #bedbb0;
+  --primarySidebarBgColor: #ffffff;
+  --secondarySidebarBgColor: #f6f6f7;
+  --customerSupportBgColor: #f6f6f7;
+  --iconLogOutColor: #bedbb0;
+
+
+  /**after del*/
+  --logoHeaderColor: red;
+
   --sidebarColor: #ffffff;
-  --helpColor: #f6f6f7;
+  /**-*/
+  --helpBlockColor: #f6f6f7;
+  /**-*/
   --whiteColor: #161616;
+  /**-*/
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --defaultScreenColor: #e6e6e6;
   --modalBGC: #fcfcfc;
   --IconCloseColor: #161616;
   --titleColor: #161616;
+  --iconBoardColor: #16161680;
 
-  --accentColorSideBar: #bedbb0;
+  --accentColorSideBar: red;
   --accentColorForElementSideBar: #bedbb0;
-  --logoFonColor: rgba(31, 31, 31, 1);
-  --logoHeaderColor: #161616;
-  --logoIconColor: #ffffff;
+
   --iconSideBarColor: #151515;
   --iconSideBarLogOutColor: #bedbb0;
   --iconSideBarBoardColor: rgba(22, 22, 22, 0.5);
@@ -85,19 +111,45 @@ body[data-theme='light'] {
   --borderTopColor: rgba(22, 22, 22, 0.8);
 }
 
-body[data-theme='dark'] {
+body[data-theme="dark"] {
   --accentColor: #bedbb0;
+
+  /**Header*/
   --headerColor: #161616;
+  --primaryItemsColor: #ffffff;
+  --secondaryItemsColor: #ffffffcc;
+
+  --themeBgColor: #151515;
+  --themeBorderColor: #BEDBB0;
+  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+
+  /**Sidebar*/
+  --logoFonColor: #1f1f1f;
+  --logoIconColor: #ffffff;
+  --accentBoardColor: #bedbb0;
+  --primarySidebarColor: #ffffff;
+  --secondarySidebarColor: #ffffff80;
+  --borderSidebarColor: #ffffff1a;
+  --iconPlusColor: #121212;
+  --iconPlusBgColor: #bedbb0;
+  --primarySidebarBgColor: #121212;
+  --secondarySidebarBgColor: #1f1f1f;
+  --customerSupportBgColor: #1f1f1f;
+  --iconLogOutColor: #bedbb0;
+
+  /**after del*/
+
   --sidebarColor: #121212;
-  --helpColor: #1f1f1f;
+  --helpBlockColor: #1f1f1f;
   --whiteColor: #ffffff;
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
-  --gefaultScreenColor: #e6e6e6;
+  --defaultScreenColor: #e6e6e6;
   --calendarBackground: #1f1f1f;
   --modalBGC: #151515;
   --IconCloseColor: #ffffff;
   --titleColor: #ffffff;
+  --iconBoardColor: #ffffff80;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -118,18 +170,45 @@ body[data-theme='dark'] {
   --borderTopColor: rgba(255, 255, 255, 0.8);
 }
 
-body[data-theme='violet'] {
+body[data-theme="violet"] {
   --accentColor: #5255bc;
+
+  /**Header*/
   --headerColor: #ffffff;
+  --primaryItemsColor: #161616;
+  --secondaryItemsColor: #161616cc;
+
+  --themeBgColor: #FCFCFC;
+  --themeBorderColor: #ECEDFD;
+  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+  
+
+  /**Sidebar*/
+  --logoFonColor: #ecedfd;
+  --logoIconColor: #ffffff;
+  --accentBoardColor: #ffffff;
+  --primarySidebarColor: #ffffff;
+  --secondarySidebarColor: #ffffff80;
+  --borderSidebarColor: #ffffff1a;
+  --iconPlusColor: #ffffff;
+  --iconPlusBgColor: #b8bcfd;
+  --primarySidebarBgColor: #5255bc;
+  --secondarySidebarBgColor: rgba(255, 255, 255, 0.5);
+  --customerSupportBgColor: rgba(236, 237, 253, 0.4);
+  --iconLogOutColor: #FFFFFF;
+
+  /**after del*/
+
   --sidebarColor: #5255bc;
-  --helpColor: rgba(236, 237, 253, 0.4);
+  --helpBlockColor: rgba(236, 237, 253, 0.4);
   --whiteColor: #ffffff;
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
-  --gefaultScreenColor: #e6e6e6;
+  --defaultScreenColor: #e6e6e6;
   --modalBGC: #fcfcfc;
   --IconCloseColor: #161616;
   --titleColor: #161616;
+  --iconBoardColor: #16161680;
 
   --accentColorSideBar: rgba(184, 188, 253, 1);
   --accentColorForElementSideBar: #ffffff;
