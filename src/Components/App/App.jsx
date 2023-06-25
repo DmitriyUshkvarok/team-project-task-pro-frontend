@@ -10,6 +10,9 @@ import authSelector from '../../redux/auth/authSelector';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+
+import Modal from '../Modals/Modal/Modal';
+
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
@@ -19,6 +22,7 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(authSelector.getIsRefreshing);
+  const { isOpen } = useSelector((store) => store.modal);
 
   useEffect(() => {
     dispatch(authOperation.refreshCurrentUser());
@@ -27,6 +31,7 @@ function App() {
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
+        {isOpen && <Modal />}
         {isRefreshing ? (
           <p>Loading...</p>
         ) : (

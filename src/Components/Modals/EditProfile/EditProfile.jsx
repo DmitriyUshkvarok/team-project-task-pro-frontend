@@ -21,9 +21,8 @@ import {
   EditTitle,
 } from './EditProfile.styled';
 
-import { createPortal } from 'react-dom';
-
-const modalRoot = document.querySelector('#modal-root');
+import { closeModal } from '../../../redux/modal/modalSlice';
+import { useDispatch } from 'react-redux';
 
 const initialValues = {
   name: '',
@@ -50,6 +49,7 @@ const EditProfile = () => {
   const { data: currentUser } = useGetCurrentUserQuery();
   const [updateUser] = useUpdateUserMutation();
   const [updateAvatar] = useChangeProfileAvatarMutation();
+  const dispatch = useDispatch();
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -92,9 +92,10 @@ const EditProfile = () => {
     }
     resetForm();
   };
-  return createPortal(
+  return (
     <Edit>
       <button
+        onClick={() => dispatch(closeModal())}
         style={{
           position: 'absolute',
           top: '14px',
@@ -198,8 +199,7 @@ const EditProfile = () => {
           </Btnwrapper>
         </FormUpdateUser>
       </Formik>
-    </Edit>,
-    modalRoot
+    </Edit>
   );
 };
 
