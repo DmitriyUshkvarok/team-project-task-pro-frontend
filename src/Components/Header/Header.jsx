@@ -9,7 +9,6 @@ import { openModal } from '../../redux/modal/modalSlice.js';
 import { useDispatch } from 'react-redux';
 
 const Header = ({ openSideBar }) => {
-
   const dispatch = useDispatch();
 
   const name = useSelector(authSelector.getName);
@@ -21,14 +20,12 @@ const Header = ({ openSideBar }) => {
         <BurgerMenu openSideBar={openSideBar} />
         <BoxMenu>
           <ThemeSelect />
+
           <UserInfo
             onClick={() => dispatch(openModal({ name: 'editprofile' }))}
           >
-            <UserText>Name</UserText>
-          <UserInfo>
             <UserText>{name}</UserText>
             <img src={userAvatar} alt="user name" />
-
           </UserInfo>
         </BoxMenu>
       </Navigation>
