@@ -8,7 +8,7 @@
 
 .react-datepicker {
   background: var(--calendarBackground);
-  border-radius: 8px;
+  border-radius: var(--borderRadius8);
   border: none;
   padding: 18px;
 }
@@ -61,13 +61,10 @@
 }
 
 .react-datepicker__day {
-  color: #fff;
+  color: var(--sidebarColor);
   font-size: var(--fontSize14);
-
   line-height: 18px;
-
   font-family: var(--poppinsFont);
-
   letter-spacing: var(--letterSpacing28);
   margin: 0px;
 }

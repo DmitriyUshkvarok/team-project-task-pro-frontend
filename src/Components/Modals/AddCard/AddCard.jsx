@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
-import * as yup from 'yup';
 import { Formik, Form } from 'formik';
+import * as yup from 'yup';
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
