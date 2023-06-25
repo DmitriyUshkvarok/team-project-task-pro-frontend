@@ -112,7 +112,7 @@ const EditProfile = () => {
           src={
             currentUser && currentUser.avatarURL
               ? currentUser.avatarURL
-              : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541'
+              : userDefault
           }
           alt="user avatar"
           style={{

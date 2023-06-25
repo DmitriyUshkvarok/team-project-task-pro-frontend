@@ -17,9 +17,9 @@ export const Head = styled.header`
   padding: 18px 32px;
   animation: ${slideIn} 0.5s ease-out;
 
-
   @media screen and (min-width: 768px) {
     height: 68px;
+  }
 `;
 export const Navigation = styled.nav`
   display: flex;
