@@ -37,7 +37,7 @@ const ThemeSelect = () => {
     <MainContainer isOpen={isSelectOpen}>
       <ThemeSelectWrapper onClick={() => setIsSelectOpen(!isSelectOpen)}>
         <ThemeTitle>Theme</ThemeTitle>
-        <MdKeyboardArrowDown size={16} color="var(--logoHeaderColor)" />
+        <MdKeyboardArrowDown size={16} color="var(--secondaryItemsColor)" />
       </ThemeSelectWrapper>
       <ListThema isOpen={isSelectOpen}>
         {themes.map(({ value, name }) => (

@@ -90,7 +90,7 @@ export const Content = styled.p`
   flex-shrink: 0;
   margin-bottom: 48px;
 
-  color: var(--contentColor);
+  color: var(--primaryTextColor);
   text-align: center;
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
@@ -112,7 +112,7 @@ export const Link = styled(NavLink)`
   justify-content: center;
   align-items: center;
 
-  color: var(--linkColor);
+  color: var(--primaryTextColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -122,9 +122,9 @@ export const Link = styled(NavLink)`
   transition-duration: var(--transition);
 
   &:hover {
-    background: var(--backgroundLinkColor);
+    background: var(--bgActiveBtnColor);
 
-    color: var(--linkHoverColor);
+    color: var(--activeTextColor);
     text-align: center;
   }
 
