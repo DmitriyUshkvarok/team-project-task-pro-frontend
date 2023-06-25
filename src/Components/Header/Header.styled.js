@@ -39,12 +39,14 @@ export const UserText = styled.p`
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize14);
   margin-left: 14px;
+  cursor: pointer;
   color: var(--logoHeaderColor);
   &:hover {
     color: var(--accentColor);
   }
 `;
-export const UserImg = styled.img`
-  background-color: var(--blackColor);
+export const UserIcon = styled.img`
+  background-color: var(--headerPageColor);
   border-radius: 8px;
+  cursor: pointer;
 `;

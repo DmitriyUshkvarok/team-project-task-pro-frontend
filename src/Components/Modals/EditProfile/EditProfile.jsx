@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import userDefault from '../../../images/icons/iconsPng/user_default.png';
 import { useState } from 'react';
 import {
   useUpdateUserMutation,
@@ -46,6 +47,7 @@ const schema = yup.object().shape({
 const EditProfile = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const { data: currentUser } = useGetCurrentUserQuery();
   const [updateUser] = useUpdateUserMutation();
@@ -55,6 +57,10 @@ const EditProfile = () => {
     const file = event.target.files[0];
     setSelectedAvatar(file);
   };
+
+  if (!modalRoot) {
+    return null;
+  }
 
   const handleUpdateAvatar = async () => {
     try {
@@ -92,115 +98,121 @@ const EditProfile = () => {
     }
     resetForm();
   };
-  return createPortal(
-    <Edit>
-      <button
-        style={{
-          position: 'absolute',
-          top: '14px',
-          right: '14px',
-          cursor: 'pointer',
-        }}
-      >
-        close
-      </button>
-      <EditTitle>Edit profile</EditTitle>
-      <div>
-        <img
-          src={
-            currentUser && currentUser.avatarURL
-              ? currentUser.avatarURL
-              : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541'
-          }
-          alt="user avatar"
-          style={{
-            position: 'absolute',
-            top: '75px',
-            right: '166px',
-            width: '86px',
-            height: '86px',
-          }}
-        />
-        <button
-          onClick={handleUpdateAvatar}
-          style={{
-            position: 'absolute',
-            top: '137px',
-            right: '195px',
-            cursor: 'pointer',
-          }}
-        >
-          update
-        </button>
-        <label htmlFor="inputFile"></label>
-        <input
-          name="avatarURL"
-          type="file"
-          accept="image/*"
-          id="inputFile"
-          onChange={handleAvatarChange}
-        />
-      </div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={handleUpdateUser}
-        autoComplete="off"
-      >
-        <FormUpdateUser>
-          <FeedbackFormGroup>
-            <InputForm
-              type="text"
-              name="name"
-              placeholder="Edit name"
-              autoComplete="off"
+  return isModalOpen
+    ? createPortal(
+        <Edit>
+          <button
+            style={{
+              position: 'absolute',
+              top: '14px',
+              right: '14px',
+              cursor: 'pointer',
+            }}
+            onClick={() => setIsModalOpen(false)}
+          >
+            close
+          </button>
+          <EditTitle>Edit profile</EditTitle>
+          <div>
+            <img
+              src={
+                currentUser && currentUser.avatarURL
+                  ? currentUser.avatarURL
+                  : userDefault
+              }
+              alt="user avatar"
+              style={{
+                position: 'absolute',
+                top: '75px',
+                right: '166px',
+                width: '68px',
+                height: '68px',
+              }}
             />
-            <StyleErrorMessage name="name">
-              {(msg) => <Error>{msg}</Error>}
-            </StyleErrorMessage>
-          </FeedbackFormGroup>
-          <FeedbackFormGroup>
-            <InputForm
-              type="email"
-              name="email"
-              placeholder="Edit email"
-              autoComplete="off"
+            <button
+              onClick={handleUpdateAvatar}
+              style={{
+                position: 'absolute',
+                top: '137px',
+                right: '195px',
+                cursor: 'pointer',
+              }}
+            >
+              update
+            </button>
+            <label htmlFor="inputFile"></label>
+            <input
+              name="avatarURL"
+              type="file"
+              accept="image/*"
+              id="inputFile"
+              onChange={handleAvatarChange}
             />
-            <StyleErrorMessage name="email">
-              {(msg) => <Error>{msg}</Error>}
-            </StyleErrorMessage>
-          </FeedbackFormGroup>
-          <FeedbackFormGroup>
-            <PasswordWrapper>
-              <InputForm
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                placeholder="Edit password"
-                autoComplete="off"
-              />
-              <ToggleShowPasword onClick={togglePasswordVisibility}>
-                {showPassword ? (
-                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
-                ) : (
-                  <BsEyeSlash
-                    color="#ffffff4d"
-                    style={{ width: 18, height: 18 }}
+          </div>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={schema}
+            onSubmit={handleUpdateUser}
+            autoComplete="off"
+          >
+            <FormUpdateUser>
+              <FeedbackFormGroup>
+                <InputForm
+                  type="text"
+                  name="name"
+                  placeholder="Edit name"
+                  autoComplete="off"
+                />
+                <StyleErrorMessage name="name">
+                  {(msg) => <Error>{msg}</Error>}
+                </StyleErrorMessage>
+              </FeedbackFormGroup>
+              <FeedbackFormGroup>
+                <InputForm
+                  type="email"
+                  name="email"
+                  placeholder="Edit email"
+                  autoComplete="off"
+                />
+                <StyleErrorMessage name="email">
+                  {(msg) => <Error>{msg}</Error>}
+                </StyleErrorMessage>
+              </FeedbackFormGroup>
+              <FeedbackFormGroup>
+                <PasswordWrapper>
+                  <InputForm
+                    type={showPassword ? 'text' : 'password'}
+                    name="password"
+                    placeholder="Edit password"
+                    autoComplete="off"
                   />
-                )}
-              </ToggleShowPasword>
-            </PasswordWrapper>
-            <StyleErrorMessage name="password">
-              {(msg) => <Error>{msg}</Error>}
-            </StyleErrorMessage>
-          </FeedbackFormGroup>
-          <Btnwrapper>
-            <BtnUpdate type="submit">Send</BtnUpdate>
-          </Btnwrapper>
-        </FormUpdateUser>
-      </Formik>
-    </Edit>,
-    modalRoot
-  );
+                  <ToggleShowPasword onClick={togglePasswordVisibility}>
+                    {showPassword ? (
+                      <BsEye
+                        color="#ffffff4d"
+                        style={{ width: 18, height: 18 }}
+                      />
+                    ) : (
+                      <BsEyeSlash
+                        color="#ffffff4d"
+                        style={{ width: 18, height: 18 }}
+                      />
+                    )}
+                  </ToggleShowPasword>
+                </PasswordWrapper>
+                <StyleErrorMessage name="password">
+                  {(msg) => <Error>{msg}</Error>}
+                </StyleErrorMessage>
+              </FeedbackFormGroup>
+              <Btnwrapper>
+                <BtnUpdate type="submit">Send</BtnUpdate>
+              </Btnwrapper>
+            </FormUpdateUser>
+          </Formik>
+        </Edit>,
+        modalRoot
+      )
+    : null;
 };
 
 export default EditProfile;
