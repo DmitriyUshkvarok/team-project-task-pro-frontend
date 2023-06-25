@@ -1,10 +1,9 @@
-import React from 'react';
-import { usePostCommentMutation } from '../../../redux/helpApi/helpApi';
+// import { usePostCommentMutation } from '../../../redux/helpApi/helpApi';
 
 import * as yup from 'yup';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
-import icons from '../../../images/icons/sprite/icons.svg';
-import url from '../../../images/icons/sprite/icons.svg';
+// import icons from '../../../images/icons/sprite/icons.svg';
+// import url from '../../../images/icons/sprite/icons.svg';
 import {
   CloseButton,
   NeedHelpContainer,
@@ -37,7 +36,7 @@ const schema = yup.object().shape({
 });
 
 const NeedHelpModal = () => {
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <NeedHelpContainer>
       <CloseButton onClick={() => dispatch(closeModal())}>
@@ -65,22 +64,23 @@ const NeedHelpModal = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
           </Wrapper>
-            <Wrapper>
-              <InputComment
-                name="comment"
-                placeholder="Comment"
-                component="textarea"
-              />
+          <Wrapper>
+            <InputComment
+              name="comment"
+              placeholder="Comment"
+              component="textarea"
+            />
 
-              <StyleErrorMessage name="comment">
-                {(msg) => <Error>{msg}</Error>}
-              </StyleErrorMessage>
-            </Wrapper>
+            <StyleErrorMessage name="comment">
+              {(msg) => <Error>{msg}</Error>}
+            </StyleErrorMessage>
+          </Wrapper>
 
-            <Button type="submit">Send</Button>
-          </Form>
-        </Formik>
-      </NeedHelpContainer>
-    </>
+          <Button type="submit">Send</Button>
+        </Form>
+      </Formik>
+    </NeedHelpContainer>
   );
 };
+
+export default NeedHelpModal;
