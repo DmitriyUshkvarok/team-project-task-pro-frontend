@@ -3,7 +3,7 @@ import { ErrorMessage, Formik, Form, Field } from 'formik';
 
 export const AddCardModal = styled.div`
   width: 335px;
-  height: 522px;
+
   background-color: var(--blackColor);
   border-radius: var(--borderRadius8);
   padding: 24px;
@@ -30,6 +30,7 @@ export const Title = styled.h2`
 
 export const InputTitle = styled(Field)`
   width: 287px;
+  height: 49px;
   padding: 14px 18px;
 
   background-color: inherit;
@@ -50,7 +51,7 @@ export const InputTitle = styled(Field)`
 export const InputDescription = styled(Field)`
   width: 287px;
   height: 154px;
-  padding: 14px 18px 30px;
+  padding: 14px 18px;
 
   background-color: inherit;
   border-radius: var(--borderRadius8);
@@ -97,6 +98,7 @@ export const StyledLabelDeadline = styled.p`
 
 export const Button = styled.button`
   width: 287px;
+  height: 49px;
   padding: 10px 0px;
   border-radius: var(--borderRadius8);
 
@@ -188,7 +190,9 @@ export const LabelContainer = styled.div`
 `;
 
 export const CalendarContainer = styled.div`
-  position: relative;
+  text-align: left;
+`;
+export const LabelDiv = styled.div`
   text-align: left;
 `;
 

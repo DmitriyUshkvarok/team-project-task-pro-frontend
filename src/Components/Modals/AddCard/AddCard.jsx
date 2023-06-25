@@ -20,6 +20,7 @@ import {
   LabelContainer,
   ButtonDate,
   CalendarContainer,
+  LabelDiv,
 } from './AddCard.styled';
 
 const ModalAddCard = ({ boardId, columnId }) => {
@@ -118,71 +119,71 @@ const ModalAddCard = ({ boardId, columnId }) => {
               placeholder="Description"
             />
             <StyleErrorMessage name="description" component="div" />
+            <LabelDiv>
+              <StyledPriority id="priority">Label color</StyledPriority>
+              <LabelContainer role="group" aria-labelledby="my-radio-group">
+                <label htmlFor="low">
+                  <input
+                    value="low"
+                    type="radio"
+                    id="low"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    checked={select === 'low'}
+                  />
+                  <Span value="low" />
+                </label>
 
-            <StyledPriority id="priority">Label color</StyledPriority>
-            <LabelContainer role="group" aria-labelledby="my-radio-group">
-              <label htmlFor="low">
-                <input
-                  value="low"
-                  type="radio"
-                  id="low"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  checked={select === 'low'}
-                />
-                <Span value="low" />
-              </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="medium"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    checked={select === 'medium'}
+                    value="medium"
+                  />
+                  <Span value="medium" />
+                </label>
 
-              <label>
-                <input
-                  type="radio"
-                  id="medium"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  checked={select === 'medium'}
-                  value="medium"
-                />
-                <Span value="medium" />
-              </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="high"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    checked={select === 'high'}
+                    value="high"
+                  />
+                  <Span value="high" />
+                </label>
 
-              <label>
-                <input
-                  type="radio"
-                  id="high"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  checked={select === 'high'}
-                  value="high"
-                />
-                <Span value="high" />
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  id="without"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  value="without"
-                  checked={select === 'without'}
-                />
-                <Span value="without" />
-              </label>
-            </LabelContainer>
-            <StyleErrorMessage name="priority" component="div" />
-
+                <label>
+                  <input
+                    type="radio"
+                    id="without"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    value="without"
+                    checked={select === 'without'}
+                  />
+                  <Span value="without" />
+                </label>
+              </LabelContainer>
+              <StyleErrorMessage name="priority" component="div" />
+            </LabelDiv>
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
             <CalendarContainer>
               <ButtonDate>{formattedDate}</ButtonDate>
@@ -197,9 +198,8 @@ const ModalAddCard = ({ boardId, columnId }) => {
                 }}
               />
               <StyleErrorMessage name="deadline" component="div" />
-
-              <Button type="submit">+Add</Button>
             </CalendarContainer>
+            <Button type="submit">Add</Button>
           </Form>
         )}
       </Formik>
