@@ -3,7 +3,7 @@ import { persisteAuthReducer } from './auth/authSlice';
 import { profileApi } from './profileApi/profileApi';
 import { tasksApi } from './tasksApi/tasksApi';
 import { helpApi } from './helpApi/helpApi';
-import { boardsApi } from './boadrApi/boardApi';
+import { boardsApi } from './boardApi/boardApi';
 import {
   persistStore,
   FLUSH,
