@@ -18,7 +18,6 @@ import RestictedRoute from '../RestictedRoute/RestictedRoute';
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
-// const BoardPage = lazy(() => import('../../pages/BoardPage/BoardPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -31,47 +30,42 @@ function App() {
 
   return (
     <>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        {isOpen && <Modal />}
-        {isRefreshing ? (
-          <p>Loading...</p>
-        ) : (
-          <Suspense fallback={<p>Loading...</p>}>
-            <Container>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<HomePage />}
-                    />
-                  }
-                >
-                  <Route path=":boardId" element={<BoardPage />} />
-                </Route>
-                <Route
-                  path="/welcome"
-                  element={
-                    <RestictedRoute
-                      redirectTo="/"
-                      component={<WelcomePage />}
-                    />
-                  }
-                />
-                <Route
-                  path="/auth/:id"
-                  element={
-                    <RestictedRoute redirectTo="/" component={<AuthPage />} />
-                  }
-                />
-                <Route path="*" element={<HomePage />} />
-              </Routes>
-            </Container>
-          </Suspense>
-        )}
-        <ToastContainer />
-      </LocalizationProvider>
+      {isOpen && <Modal />}
+      {isRefreshing ? (
+        <p>Loading...</p>
+      ) : (
+        <Suspense fallback={<p>Loading...</p>}>
+          <Container>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute
+                    redirectTo="/welcome"
+                    component={<HomePage />}
+                  />
+                }
+              >
+                <Route path=":boardId" element={<BoardPage />} />
+              </Route>
+              <Route
+                path="/welcome"
+                element={
+                  <RestictedRoute redirectTo="/" component={<WelcomePage />} />
+                }
+              />
+              <Route
+                path="/auth/:id"
+                element={
+                  <RestictedRoute redirectTo="/" component={<AuthPage />} />
+                }
+              />
+              <Route path="*" element={<WelcomePage />} />
+            </Routes>
+          </Container>
+        </Suspense>
+      )}
+      <ToastContainer />
     </>
   );
 }
