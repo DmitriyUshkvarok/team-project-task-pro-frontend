@@ -33,34 +33,31 @@ const Boards = () => {
 
   return (
     <ListBoard>
-      {boards?.map(({ _id, title, iconId }, index) => (
-        <Link to={`/${_id}/${title}`} key={_id}>
-          <ItemBoard
-            isSelected={selectedItem === index}
-            onClick={() => handleItemClick(index, _id)}
-          >
-            <WrapTitle>
-              <IconStyled width="18" height="18">
-                <use xlinkHref={findIconsUser(iconId)} />
+      {boards.map((board, index) => (
+        <ItemBoard
+          key={index}
+          isSelected={selectedItem === index}
+          onClick={() => handleItemClick(index)}
+        >
+          <WrapTitle>
+            <IconProject />
+            <TitleBoard>{board}</TitleBoard>
+          </WrapTitle>
+
+          <WrapIcons isSelected={selectedItem === index}>
+            <BtnIcon type="buttom">
+              <IconStyled width="16" height="16">
+                <use xlinkHref={`${url}#icon-pencil-01`} />
               </IconStyled>
-              <TitleBoard>{title}</TitleBoard>
-            </WrapTitle>
+            </BtnIcon>
 
-            <WrapIcons isSelected={selectedItem === index}>
-              <BtnIcon type="button">
-                <IconStyled width="16" height="16">
-                  <use xlinkHref={`${url}#icon-pencil-01`} />
-                </IconStyled>
-              </BtnIcon>
-
-              <BtnIcon type="button">
-                <IconStyled width="16" height="16">
-                  <use xlinkHref={`${url}#icon-trash-04`} />
-                </IconStyled>
-              </BtnIcon>
-            </WrapIcons>
-          </ItemBoard>
-        </Link>
+            <BtnIcon type="buttom">
+              <IconStyled width="16" height="16">
+                <use xlinkHref={`${url}#icon-trash-04`} />
+              </IconStyled>
+            </BtnIcon>
+          </WrapIcons>
+        </ItemBoard>
       ))}
     </ListBoard>
   );
