@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetFetchBoardsQuery } from '../../../redux/boardApi/boardApi';
+
+import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
+
 import url from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import {
@@ -33,16 +35,18 @@ const Boards = () => {
 
   return (
     <ListBoard>
-      {boards.map((board, index) => (
-        <ItemBoard
-          key={index}
-          isSelected={selectedItem === index}
-          onClick={() => handleItemClick(index)}
-        >
-          <WrapTitle>
-            <IconProject isSelected={selectedItem === index}/>
-            <TitleBoard isSelected={selectedItem === index}>{board}</TitleBoard>
-          </WrapTitle>
+      {boards?.map(({ _id, title, iconId }, index) => (
+        <Link to={`/${_id}/${title}`} key={_id}>
+          <ItemBoard
+            isSelected={selectedItem === index}
+            onClick={() => handleItemClick(index, _id)}
+          >
+            <WrapTitle>
+              <IconStyled width="18" height="18">
+                <use xlinkHref={findIconsUser(iconId)} />
+              </IconStyled>
+              <TitleBoard>{title}</TitleBoard>
+            </WrapTitle>
 
             <WrapIcons isSelected={selectedItem === index}>
               <BtnIcon type="button">
