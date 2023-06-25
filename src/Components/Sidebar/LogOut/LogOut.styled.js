@@ -19,15 +19,14 @@ export const BtnLogOut = styled.button`
   font-family: var(--poppinsFont);
 
   font-weight: var(--fontWeight500);
-  font-size: var(--fontSize14);
-  line-height: 1.5em;
+  font-size: var(--fontSize16);
 
-  color: var(--whiteColor);
+  color: var(--primarySidebarColor);
   background-color: transparent;
 
   cursor: pointer;
 `;
 
 export const IconLogOut = styled.svg`
-  stroke: var(--iconSideBarLogOutColor);
+  stroke: var(--iconLogOutColor);
 `;

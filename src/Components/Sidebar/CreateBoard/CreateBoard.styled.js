@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Desc = styled.p`
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--borderBottomColor);
+  border-bottom: 1px solid var(--borderSidebarColor);
 
   font-family: var(--poppinsFont);
 
@@ -20,7 +20,7 @@ export const Desc = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: var(--opacityWhite2);
+  color: var(--secondarySidebarColor);
 `;
 
 export const WrapTitleContent = styled.div`
@@ -28,7 +28,7 @@ export const WrapTitleContent = styled.div`
   gap: 77px;
 
   padding-bottom: 17px;
-  border-bottom: 1px solid var(--borderBottomColor);
+  border-bottom: 1px solid var(--borderSidebarColor);
 
   margin-top: 14px;
 `;
@@ -38,9 +38,9 @@ export const Title = styled.h2`
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize14);
   line-height: 1.5em;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.28px;
 
-  color: var(--whiteColor);
+  color: var(--primarySidebarColor);
 `;
 
 export const BtnCreateBoard = styled.button`
@@ -50,9 +50,13 @@ export const BtnCreateBoard = styled.button`
 
   width: 46px;
   height: 36px;
-  background: var(--accentColorSideBar);
+  background: var(--iconPlusBgColor);
   border-radius: 6px;
   border: none;
   font-size: var(--fontSize20);
   cursor: pointer;
+`;
+
+export const IconStyled = styled.svg`
+  stroke: var(--iconPlusColor);
 `;
