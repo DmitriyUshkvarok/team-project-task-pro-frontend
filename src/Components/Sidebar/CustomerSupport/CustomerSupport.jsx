@@ -12,7 +12,7 @@ import styled from 'styled-components';
 import plant from '../../../images/icons/iconsPng/plant.png';
 import url from '../../../images/icons/sprite/icons.svg';
 import { useState } from 'react';
-import Backdrop from '../../Modals/Backdrop/Backdrop';
+// import Backdrop from '../../Modals/Backdrop/Backdrop';
 
 import { openModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,6 @@ const IconStyled = styled.svg`
 `;
 
 const CustomerSupport = () => {
-
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [helpModal, setHelpModal] = useState(false);
@@ -34,9 +33,6 @@ const CustomerSupport = () => {
     console.log('click');
   };
 
-  const handleClose = () => {
-    setVisible((prev) => !prev);
-  };
   return (
     <MainContainer>
       <Container>
@@ -55,12 +51,12 @@ const CustomerSupport = () => {
             <DescContent onClick={handleClick}>Need help?</DescContent>
           </BtnNeedHelp>
         </WrapContent>
-        <Backdrop
+        {/* <Backdrop
           handleClose={handleClose}
           handleClick={handleClick}
           helpModal={helpModal}
           visible={visible}
-        />
+        /> */}
       </Container>
     </MainContainer>
   );
