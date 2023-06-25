@@ -17,7 +17,7 @@ import {
   Link,
 } from './RegistrationForm.styled';
 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -40,7 +40,6 @@ const schema = yup.object().shape({
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,7 +51,6 @@ const RegistrationForm = () => {
     setIsLoading(true);
     try {
       await dispatch(authOperation.register(values));
-      navigate('/home');
     } catch (error) {
       console.log(error);
     } finally {

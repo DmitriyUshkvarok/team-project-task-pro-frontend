@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import * as yup from 'yup';
-import TextField from '@mui/material/TextField';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs from 'dayjs';
+import * as yup from 'yup';
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css';
+
+import { formattedDateForBtn } from '../../../services/formatingDate.js';
 
 import {
   AddCardModal,
@@ -13,26 +16,33 @@ import {
   InputDescription,
   StyledPriority,
   StyledLabelDeadline,
-  RadioBtn,
   Button,
   StyleErrorMessage,
-  Item,
-  RadioButton,
-  RadioButtonLabel,
+  Span,
+  LabelContainer,
+  ButtonDate,
+  CalendarContainer,
+  LabelDiv,
+  ChevronDown,
+  BtnName,
 } from './AddCard.styled';
 
-const ModalAddCard = ({ column }) => {
+const ModalAddCard = ({ boardId, columnId }) => {
+  const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
-
-  const today = new Date();
+  const [formattedDate, setFormattedDate] = useState('');
 
   const [createTask] = useCreateTaskMutation();
+
+  useEffect(() => {
+    setFormattedDate(formattedDateForBtn(date));
+  }, [date]);
 
   const initialValues = {
     title: '',
     description: '',
     priority: '',
-    deadline: '',
+    deadline: date,
     status: 'in progress',
     column: '60c8c6bbf0c9a15f7c41979a',
   };
@@ -54,15 +64,13 @@ const ModalAddCard = ({ column }) => {
     setSelect(value);
   };
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values, boardId, columnId) => {
     alert(JSON.stringify(values, null, 2));
-
     try {
-      await createTask(values);
+      await createTask(values, boardId, columnId);
     } catch (error) {
       console.log(error);
     }
-    // ***DISPATCH на ЗМІНУ */
     // ****** не забути закрити форму після відправки */
   };
 
@@ -97,96 +105,92 @@ const ModalAddCard = ({ column }) => {
               placeholder="Description"
             />
             <StyleErrorMessage name="description" component="div" />
+            <LabelDiv>
+              <StyledPriority id="priority">Label color</StyledPriority>
+              <LabelContainer role="group" aria-labelledby="my-radio-group">
+                <label htmlFor="low">
+                  <input
+                    value="low"
+                    type="radio"
+                    id="low"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    checked={select === 'low'}
+                  />
+                  <Span value="low" />
+                </label>
 
-            <StyledPriority id="priority">Label color</StyledPriority>
-            <RadioBtn role="group" aria-labelledby="my-radio-group">
-              <Item value="low">
-                <RadioButton
-                  value="low"
-                  type="radio"
-                  id="low"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  checked={select === 'low'}
-                />
-                <RadioButtonLabel htmlFor="low"></RadioButtonLabel>
-              </Item>
-              <Item value="medium">
-                <RadioButton
-                  type="radio"
-                  id="medium"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  checked={select === 'medium'}
-                  value="medium"
-                />
-                <RadioButtonLabel htmlFor="medium"></RadioButtonLabel>
-              </Item>
-              <Item value="high">
-                <RadioButton
-                  type="radio"
-                  id="high"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  checked={select === 'high'}
-                  value="high"
-                />
-                <RadioButtonLabel htmlFor="high"></RadioButtonLabel>
-              </Item>
+                <label>
+                  <input
+                    type="radio"
+                    id="medium"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    checked={select === 'medium'}
+                    value="medium"
+                  />
+                  <Span value="medium" />
+                </label>
 
-              <Item value="without">
-                <RadioButton
-                  type="radio"
-                  id="without"
-                  name="priority"
-                  onChange={(event) => {
-                    handleSelectChange(event);
-                    setFieldValue('priority', event.target.value);
-                  }}
-                  value="without"
-                  checked={select === 'without'}
-                />
-                <RadioButtonLabel htmlFor="without"></RadioButtonLabel>
-              </Item>
-            </RadioBtn>
-            <StyleErrorMessage name="priority" component="div" />
+                <label>
+                  <input
+                    type="radio"
+                    id="high"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    checked={select === 'high'}
+                    value="high"
+                  />
+                  <Span value="high" />
+                </label>
 
+                <label>
+                  <input
+                    type="radio"
+                    id="without"
+                    name="priority"
+                    onChange={(event) => {
+                      handleSelectChange(event);
+                      setFieldValue('priority', event.target.value);
+                    }}
+                    value="without"
+                    checked={select === 'without'}
+                  />
+                  <Span value="without" />
+                </label>
+              </LabelContainer>
+              <StyleErrorMessage name="priority" component="div" />
+            </LabelDiv>
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
-            <DatePicker
-              defaultValue={dayjs(today)}
-              name="deadline"
-              onChange={(date) => setFieldValue('deadline', date)}
-              disablePast
-              views={['month', 'day']}
-              // open={true}
+            <CalendarContainer>
+              <ButtonDate type="button">
+                <BtnName>
+                  {formattedDate}
+                  <ChevronDown />
+                </BtnName>
+              </ButtonDate>
 
-              // PopperProps={{
-              //   sx: {
-              //     '&.MuiPickersCalendarHeader-labelContainer': {
-              //       color: 'red',
-              //     },
-              //     '&.MuiPickersPopper-root': {
-              //       border: '4px solid red',
-              //     },
-              //     '&.MuiInputBase': {
-              //       color: 'red',
-              //     },
-              //   },
-              // }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-            <StyleErrorMessage name="deadline" component="div" />
-
-            <Button type="submit">+Add</Button>
+              <DatePicker
+                selected={date}
+                minDate={new Date()}
+                calendarStartDay={1}
+                onChange={(selectedDate) => {
+                  setFieldValue('deadline', selectedDate);
+                  setDate(selectedDate);
+                }}
+              />
+              <StyleErrorMessage name="deadline" component="div" />
+            </CalendarContainer>
+            <Button type="submit">Add</Button>
           </Form>
         )}
       </Formik>
