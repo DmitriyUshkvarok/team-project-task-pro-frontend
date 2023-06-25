@@ -190,6 +190,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
               <DatePicker
                 selected={date}
                 minDate={new Date()}
+                calendarStartDay={1}
                 onChange={(selectedDate) => {
                   setFieldValue('deadline', selectedDate);
                   setDate(selectedDate);
