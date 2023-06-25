@@ -120,18 +120,12 @@ export const StyleErrorMessage = styled(ErrorMessage)`
   font-size: var(--fontSize10);
 `;
 
-export const RadioBtn = styled.div`
-  display: flex;
-  text-align: left;
-  margin-bottom: 14px;
-`;
-
-export const Item = styled.div`
-  border: 2px solid;
-  width: 16px;
-  max-height: 16px;
+export const Span = styled.span`
+  display: inline-block;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  margin-right: 8px;
+
   background-color: ${(props) => {
     if (props.value === 'low') {
       return '#8FA1D0';
@@ -140,66 +134,55 @@ export const Item = styled.div`
     } else if (props.value === 'high') {
       return '#BEDBB0';
     } else {
-      return '#ffffff4d';
+      return 'rgba(255,255,255,0.3)';
     }
   }};
-  border-color: ${(props) => {
-    if (props.value === 'low') {
-      return '#8FA1D0';
-    } else if (props.value === 'medium') {
-      return '#E09CB5';
-    } else if (props.value === 'high') {
-      return '#BEDBB0';
-    } else {
-      return '#ffffff4d';
-    }
-  }};
-`;
 
-export const RadioButtonLabel = styled.label`
-  min-width: 14px;
-  min-height: 14px;
-  margin-right: 8px;
-`;
+  position: relative;
 
-export const RadioButton = styled(Field)`
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  justify-content: center;
-  align-items: center;
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 2px solid var(--modalBGC);
 
-  & + ${RadioButtonLabel} {
-    min-width: 14px;
-    min-height: 14px;
-    margin-right: 8px;
-
-    display: flex;
-    align-items: baseline;
-    &:before {
-      content: '';
-      display: flex;
-      z-index: 99;
-      min-width: 14px;
-      min-height: 14px;
-
-      background-color: ${(props) => {
-        if (props.value === 'low') {
-          return '#8FA1D0';
-        } else if (props.value === 'medium') {
-          return '#E09CB5';
-        } else if (props.value === 'high') {
-          return '#BEDBB0';
-        } else {
-          return '#ffffff4d';
-        }
-      }};
-      border-radius: 80%;
-    }
+    opacity: 0;
   }
-  &:checked + ${RadioButtonLabel}:before {
-    min-width: 13px;
-    min-height: 13px;
-    border: solid 3px black;
+
+  &:not(:last-child) {
+    margin-right: 0px;
+  }
+`;
+
+export const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 8px;
+
+  label {
+    color: var(--iconSideBarBoardColor);
+    font-size: var(--fontSize12);
+    font-family: Poppins;
+    letter-spacing: var(--letterSpacing24);
+
+    cursor: pointer;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input:checked {
+    & + ${Span}::before {
+      opacity: 1;
+    }
   }
 `;

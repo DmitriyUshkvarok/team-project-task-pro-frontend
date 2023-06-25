@@ -15,8 +15,8 @@ export const tasksApi = createApi({
   tagTypes: ['Profile'],
   endpoints: (build) => ({
     createTask: build.mutation({
-      query: (formData) => ({
-        url: `/tasks`,
+      query: (formData, boardId, columnId) => ({
+        url: `/tasks/${boardId}/${columnId}`,
         method: 'POST',
         body: formData,
       }),

@@ -18,15 +18,17 @@ import {
   InputDescription,
   StyledPriority,
   StyledLabelDeadline,
-  RadioBtn,
+  // RadioBtn,
   Button,
   StyleErrorMessage,
-  Item,
-  RadioButton,
-  RadioButtonLabel,
+  // Item,
+  // RadioButton,
+  // RadioButtonLabel,
+  Span,
+  LabelContainer,
 } from './AddCard.styled';
 
-const ModalAddCard = ({ column }) => {
+const ModalAddCard = ({ boardId, columnId }) => {
   const [select, setSelect] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
 
@@ -60,7 +62,7 @@ const ModalAddCard = ({ column }) => {
     setSelect(value);
   };
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values, boardId, columnId) => {
     alert(JSON.stringify(values, null, 2));
 
     try {
@@ -105,9 +107,9 @@ const ModalAddCard = ({ column }) => {
             <StyleErrorMessage name="description" component="div" />
 
             <StyledPriority id="priority">Label color</StyledPriority>
-            <RadioBtn role="group" aria-labelledby="my-radio-group">
-              <Item value="low">
-                <RadioButton
+            <LabelContainer role="group" aria-labelledby="my-radio-group">
+              <label htmlFor="low">
+                <input
                   value="low"
                   type="radio"
                   id="low"
@@ -118,10 +120,11 @@ const ModalAddCard = ({ column }) => {
                   }}
                   checked={select === 'low'}
                 />
-                <RadioButtonLabel htmlFor="low"></RadioButtonLabel>
-              </Item>
-              <Item value="medium">
-                <RadioButton
+                <Span value="low" />
+              </label>
+
+              <label>
+                <input
                   type="radio"
                   id="medium"
                   name="priority"
@@ -132,10 +135,11 @@ const ModalAddCard = ({ column }) => {
                   checked={select === 'medium'}
                   value="medium"
                 />
-                <RadioButtonLabel htmlFor="medium"></RadioButtonLabel>
-              </Item>
-              <Item value="high">
-                <RadioButton
+                <Span value="medium" />
+              </label>
+
+              <label>
+                <input
                   type="radio"
                   id="high"
                   name="priority"
@@ -146,11 +150,11 @@ const ModalAddCard = ({ column }) => {
                   checked={select === 'high'}
                   value="high"
                 />
-                <RadioButtonLabel htmlFor="high"></RadioButtonLabel>
-              </Item>
+                <Span value="high" />
+              </label>
 
-              <Item value="without">
-                <RadioButton
+              <label>
+                <input
                   type="radio"
                   id="without"
                   name="priority"
@@ -161,9 +165,9 @@ const ModalAddCard = ({ column }) => {
                   value="without"
                   checked={select === 'without'}
                 />
-                <RadioButtonLabel htmlFor="without"></RadioButtonLabel>
-              </Item>
-            </RadioBtn>
+                <Span value="without" />
+              </label>
+            </LabelContainer>
             <StyleErrorMessage name="priority" component="div" />
 
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
