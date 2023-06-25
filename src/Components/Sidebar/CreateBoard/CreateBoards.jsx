@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../../redux/modal/modalSlice';
+import ModalBoard from '../../Modals/ModalBoard/ModalBoard';
 import {
   Container,
   Desc,
@@ -9,12 +12,17 @@ import {
 import url from '../../../images/icons/sprite/icons.svg';
 
 const CreateBoards = () => {
+  const dispatch = useDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(openModal({ name: 'modalBoard' }));
+  };
   return (
     <Container>
       <Desc>My boards</Desc>
       <WrapTitleContent>
         <Title>Create a new board</Title>
-        <BtnCreateBoard type="buttom">
+        <BtnCreateBoard onClick={handleOpenModal} type="buttom">
           <svg width="20" height="20">
             <use xlinkHref={`${url}#icon-plus`} />
           </svg>

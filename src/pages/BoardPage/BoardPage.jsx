@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import {
   Board,
   Filter,
@@ -14,15 +15,17 @@ import {
   BtnAdd,
 } from './BoardPage.styled';
 
-export const BoardPage = () => {
+const BoardPage = ({ closeSidebar }) => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const title = queryParams.get('title');
   return (
-    <Board>
-      {/*sidebar  */}
+    <Board style={{ height: '100vh' }} onClick={closeSidebar}>
       <Sidebar>
-        <Title>Project office</Title>
+        <Title>{title}</Title>
         <Filter> Icon Filters</Filter>
       </Sidebar>
-
+      <BtnAdd>Add Columns</BtnAdd>
       <ContainerColumns>
         <BoxColumns>
           <BoxColumnsTitle>
@@ -265,3 +268,5 @@ export const BoardPage = () => {
     </Board>
   );
 };
+
+export default BoardPage;
