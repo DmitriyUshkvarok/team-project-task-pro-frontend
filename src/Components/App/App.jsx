@@ -7,8 +7,6 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 import Modal from '../Modals/Modal/Modal';
@@ -30,45 +28,40 @@ function App() {
 
   return (
     <>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        {isOpen && <Modal />}
-        {isRefreshing ? (
-          <p>Loading...</p>
-        ) : (
-          <Suspense fallback={<p>Loading...</p>}>
-            <Container>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <PrivateRoute
-                      redirectTo="/welcome"
-                      component={<HomePage />}
-                    />
-                  }
-                />
-                <Route
-                  path="/welcome"
-                  element={
-                    <RestictedRoute
-                      redirectTo="/"
-                      component={<WelcomePage />}
-                    />
-                  }
-                />
-                <Route
-                  path="/auth/:id"
-                  element={
-                    <RestictedRoute redirectTo="/" component={<AuthPage />} />
-                  }
-                />
-                <Route path="*" element={<HomePage />} />
-              </Routes>
-            </Container>
-          </Suspense>
-        )}
-        <ToastContainer />
-      </LocalizationProvider>
+      {isOpen && <Modal />}
+      {isRefreshing ? (
+        <p>Loading...</p>
+      ) : (
+        <Suspense fallback={<p>Loading...</p>}>
+          <Container>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute
+                    redirectTo="/welcome"
+                    component={<HomePage />}
+                  />
+                }
+              />
+              <Route
+                path="/welcome"
+                element={
+                  <RestictedRoute redirectTo="/" component={<WelcomePage />} />
+                }
+              />
+              <Route
+                path="/auth/:id"
+                element={
+                  <RestictedRoute redirectTo="/" component={<AuthPage />} />
+                }
+              />
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </Container>
+        </Suspense>
+      )}
+      <ToastContainer />
     </>
   );
 }
