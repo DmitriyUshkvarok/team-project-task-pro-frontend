@@ -28,8 +28,8 @@ const CustomerSupport = () => {
   const [helpModal, setHelpModal] = useState(false);
 
   const handleClick = () => {
-    setVisible((prev) => !prev);
-    setHelpModal(true);
+    // setVisible((prev) => !prev);
+    // setHelpModal(true);
     console.log('click');
   };
 

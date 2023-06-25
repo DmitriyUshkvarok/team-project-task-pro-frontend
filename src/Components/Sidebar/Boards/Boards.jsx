@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
 import url from '../../../images/icons/sprite/icons.svg';
 import {
   ListBoard,
@@ -14,30 +15,32 @@ import {
 const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
+  const { data: boards } = useGetFetchBoardsQuery();
+
   const handleItemClick = (index) => {
     setSelectedItem((prevSelectedItem) =>
       prevSelectedItem === index ? null : index
     );
   };
-  const boards = [
-    'Board 1',
-    'Board 2',
-    'Board 1',
-    'Board 2',
-    'Board 1',
-    'Board 2',
-  ];
+  // const boards = [
+  //   'Board 1',
+  //   'Board 2',
+  //   'Board 1',
+  //   'Board 2',
+  //   'Board 1',
+  //   'Board 2',
+  // ];
   return (
     <ListBoard>
-      {boards.map((board, index) => (
+      {boards.map(({ _id, title }, index) => (
         <ItemBoard
-          key={index}
+          key={_id}
           isSelected={selectedItem === index}
           onClick={() => handleItemClick(index)}
         >
           <WrapTitle>
             <IconProject />
-            <TitleBoard>{board}</TitleBoard>
+            <TitleBoard>{title}</TitleBoard>
           </WrapTitle>
 
           <WrapIcons isSelected={selectedItem === index}>

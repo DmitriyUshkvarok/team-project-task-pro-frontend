@@ -14,9 +14,9 @@ import {
   BtnAdd,
 } from './BoardPage.styled';
 
-export const BoardPage = () => {
+export const BoardPage = ({ closeSidebar }) => {
   return (
-    <Board>
+    <Board onClick={closeSidebar}>
       {/*sidebar  */}
       <Sidebar>
         <Title>Project office</Title>
