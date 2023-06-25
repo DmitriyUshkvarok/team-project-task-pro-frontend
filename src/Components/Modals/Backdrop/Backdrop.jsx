@@ -1,4 +1,4 @@
-import { NeedHelpModal } from '../NeedHelp/NeedHelp';
+import NeedHelpModal from '../NeedHelp/NeedHelp';
 import { BackdropContainer } from './Backdrop.styled';
 
 const Backdrop = ({ visible, handleClose, helpModal }) => {

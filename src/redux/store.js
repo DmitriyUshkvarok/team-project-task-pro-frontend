@@ -14,9 +14,11 @@ import {
 } from 'redux-persist';
 
 import themeReducer from './theme/themeSlice';
+import modalReducer from './modal/modalSlice';
 
 const store = configureStore({
   reducer: {
+    modal: modalReducer,
     auth: persisteAuthReducer,
     theme: themeReducer,
     [profileApi.reducerPath]: profileApi.reducer,

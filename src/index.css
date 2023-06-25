@@ -31,6 +31,10 @@
   --fontWeight700: 700;
   --fontWeight600: 600;
   --fontWeight500: 500;
+
+  --letterSpacing24: -0.24px;
+  --letterSpacing28: -0.28px;
+  --letterSpacing36: -0.36px;
 }
 
 #root {
@@ -58,6 +62,7 @@ body[data-theme='light'] {
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --defaultScreenColor: #e6e6e6;
+  --modalBGC: #fcfcfc;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -74,6 +79,7 @@ body[data-theme='light'] {
 
   --activeItemBorder: rgba(246, 246, 247, 1);
   --borderBottomColor: rgba(22, 22, 22, 0.1);
+  --boxShadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
 }
 
 body[data-theme='dark'] {
@@ -86,6 +92,7 @@ body[data-theme='dark'] {
   --mediumColor: #e09cb5;
   --gefaultScreenColor: #e6e6e6;
   --calendarBackground: #1f1f1f;
+  --modalBGC: #151515;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -102,6 +109,7 @@ body[data-theme='dark'] {
 
   --activeItemBorder: rgba(31, 31, 31, 1);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
+  --modalBorder: 1px solid rgba(190, 219, 176, 0.5);
 }
 
 body[data-theme='violet'] {
@@ -113,6 +121,7 @@ body[data-theme='violet'] {
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --gefaultScreenColor: #e6e6e6;
+  --modalBGC: #fcfcfc;
 
   --accentColorSideBar: rgba(184, 188, 253, 1);
   --accentColorForElementSideBar: #ffffff;
@@ -129,6 +138,7 @@ body[data-theme='violet'] {
 
   --activeItemBorder: rgba(255, 255, 255, 0.5);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
+  --boxShadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
 }
 
 h1,
