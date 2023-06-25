@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import * as yup from 'yup';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 import { Formik, Form } from 'formik';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs from 'dayjs';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { addDays } from 'date-fns';
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import './calendar.css';
 
 import {
   AddCardModal,
@@ -23,8 +28,9 @@ import {
 
 const ModalAddCard = ({ column }) => {
   const [select, setSelect] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
 
-  const today = new Date();
+  const currentDate = new Date();
 
   const [createTask] = useCreateTaskMutation();
 
@@ -162,11 +168,17 @@ const ModalAddCard = ({ column }) => {
 
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
             <DatePicker
+              selected={startDate}
+              minDate={new Date()}
+              onChange={(date) => setFieldValue('deadline', date)}
+            />
+            {/* <DatePicker
               defaultValue={dayjs(today)}
               name="deadline"
               onChange={(date) => setFieldValue('deadline', date)}
               disablePast
               views={['month', 'day']}
+              renderInput={(params) => <TextField {...params} />}
               // open={true}
 
               // PopperProps={{
@@ -182,8 +194,7 @@ const ModalAddCard = ({ column }) => {
               //     },
               //   },
               // }}
-              renderInput={(params) => <TextField {...params} />}
-            />
+            /> */}
             <StyleErrorMessage name="deadline" component="div" />
 
             <Button type="submit">+Add</Button>
