@@ -14,7 +14,12 @@ import {
   BtnAdd,
 } from './BoardPage.styled';
 
+
+import { openModal } from '../../redux/modal/modalSlice';
+import { useDispatch } from 'react-redux';
+
 export const BoardPage = () => {
+  const dispatch = useDispatch();
   return (
     <Board>
       {/*sidebar  */}
@@ -101,7 +106,9 @@ export const BoardPage = () => {
             </Card> */}
           </ListCard>
 
-          <Btn>Add another card</Btn>
+          <Btn onClick={() => dispatch(openModal({ name: 'taskcard' }))}>
+            Add another card
+          </Btn>
         </BoxColumns>
         <BoxColumns>
           <BoxColumnsTitle>
