@@ -51,11 +51,11 @@ export const Ball = styled.div`
       background-color: #00a4ccff;
     }
   }
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     left: 45%;
     animation-delay: 0.2s;
   }
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     left: auto;
     right: 15%;
     animation-delay: 0.3s;
@@ -90,12 +90,12 @@ export const Shadow = styled.div`
       background-color: #00a4cc6b;
     }
   }
-  &:nth-child(4) {
+  &:nth-of-type(4) {
     left: 45%;
     animation-delay: 0.2s;
   }
 
-  &:nth-child(5) {
+  &:nth-of-type(5) {
     left: auto;
     right: 15%;
     animation-delay: 0.3s;

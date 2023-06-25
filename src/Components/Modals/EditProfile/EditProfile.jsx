@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import userDefault from '../../../images/icons/iconsPng/user_default.png';
 import { useState } from 'react';
 import {
   useUpdateUserMutation,
@@ -111,7 +112,7 @@ const EditProfile = () => {
           src={
             currentUser && currentUser.avatarURL
               ? currentUser.avatarURL
-              : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541'
+              : userDefault
           }
           alt="user avatar"
           style={{

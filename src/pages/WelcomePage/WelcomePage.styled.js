@@ -42,7 +42,7 @@ export const Logo = styled.p`
   gap: 14px;
   margin-bottom: 24px;
 
-  color: var(--logoColor:);
+  color: var(--logoColor);
   font-size: var(--fontSize40);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight600);
@@ -67,7 +67,6 @@ export const ImgLogo = styled.img`
     max-width: 100%;
     max-height: 100%;
   }
-
 `;
 
 export const ImgIcon = styled.svg`
