@@ -11,6 +11,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
+import ModalBoard from '../Modals/ModalBoard/ModalBoard';
+import Column from '../Modals/Column/Column';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -31,6 +33,7 @@ function App() {
           <p>Loading...</p>
         ) : (
           <Suspense fallback={<p>Loading...</p>}>
+            <ModalBoard modalTitle="New board" buttonName="Create" />
             <Container>
               <Routes>
                 <Route
