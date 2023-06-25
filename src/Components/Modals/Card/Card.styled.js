@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { ErrorMessage, Field } from 'formik';
+
 import { FaChevronDown } from 'react-icons/fa';
 
 
 export const AddCardModal = styled.div`
   width: 335px;
-  height: 522px;
-  background-color: var(--whiteColor);
+  background-color: var(--blackColor);
 
   border-radius: var(--borderRadius8);
   padding: 24px;
