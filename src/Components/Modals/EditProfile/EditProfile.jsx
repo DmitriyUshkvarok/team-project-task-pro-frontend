@@ -20,10 +20,13 @@ import {
   Error,
   Edit,
   EditTitle,
+  BtnClose,
 } from './EditProfile.styled';
 
+import url from '../../../images/icons/sprite/icons.svg';
 import { closeModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
+import { Button } from 'bootstrap';
 
 const initialValues = {
   name: '',
@@ -95,7 +98,7 @@ const EditProfile = () => {
   };
   return (
     <Edit>
-      <button
+      <BtnClose
         onClick={() => dispatch(closeModal())}
         style={{
           position: 'absolute',
@@ -104,8 +107,10 @@ const EditProfile = () => {
           cursor: 'pointer',
         }}
       >
-        close
-      </button>
+        <svg width="18" height="18">
+          <use xlinkHref={`${url}#icon-x-close`} />
+        </svg>
+      </BtnClose>
       <EditTitle>Edit profile</EditTitle>
       <div>
         <img
