@@ -134,3 +134,11 @@
 .react-datepicker__day--disabled:focus {
   background-color: inherit;
 }
+
+.react-datepicker__input-container input {
+  opacity: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  height: 18px;
+  width: 150px;
+}

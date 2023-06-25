@@ -186,3 +186,21 @@ export const LabelContainer = styled.div`
     }
   }
 `;
+
+export const CalendarContainer = styled.div`
+  position: relative;
+  text-align: left;
+`;
+
+export const ButtonDate = styled.button`
+  color: var(--accentColor);
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  letter-spacing: var(--letterSpacing28);
+  font-weight: var(--fontWeight500);
+  background: inherit;
+  border: none;
+  padding: 0px;
+  float: left;
+  position: absolute;
+`;

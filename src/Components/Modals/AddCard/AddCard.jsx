@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
-// import TextField from '@mui/material/TextField';
 import { Formik, Form } from 'formik';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { addDays } from 'date-fns';
+import { format } from 'date-fns';
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
-
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
 import './calendar.css';
 
 import {
@@ -18,21 +14,39 @@ import {
   InputDescription,
   StyledPriority,
   StyledLabelDeadline,
-  // RadioBtn,
   Button,
   StyleErrorMessage,
-  // Item,
-  // RadioButton,
-  // RadioButtonLabel,
   Span,
   LabelContainer,
+  ButtonDate,
+  CalendarContainer,
 } from './AddCard.styled';
 
 const ModalAddCard = ({ boardId, columnId }) => {
+  const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
-  const [startDate, setStartDate] = useState(new Date());
+  const [formattedDate, setFormattedDate] = useState('');
 
-  const currentDate = new Date();
+  useEffect(() => {
+    setFormattedDate(formattedDateForBtn(date));
+  }, [date]);
+
+  const isToday = (date) => {
+    const today = new Date();
+    return (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    );
+  };
+
+  const formattedDateForBtn = (date) => {
+    if (isToday(date)) {
+      console.log(`11111`);
+      return 'Today, ' + format(date, 'MMMM dd');
+    }
+    return format(date, 'MMMM dd');
+  };
 
   const [createTask] = useCreateTaskMutation();
 
@@ -64,9 +78,8 @@ const ModalAddCard = ({ boardId, columnId }) => {
 
   const handleSubmit = async (values, boardId, columnId) => {
     alert(JSON.stringify(values, null, 2));
-
     try {
-      await createTask(values);
+      await createTask(values, boardId, columnId);
     } catch (error) {
       console.log(error);
     }
@@ -171,37 +184,21 @@ const ModalAddCard = ({ boardId, columnId }) => {
             <StyleErrorMessage name="priority" component="div" />
 
             <StyledLabelDeadline> Deadline</StyledLabelDeadline>
-            <DatePicker
-              selected={startDate}
-              minDate={new Date()}
-              onChange={(date) => setFieldValue('deadline', date)}
-            />
-            {/* <DatePicker
-              defaultValue={dayjs(today)}
-              name="deadline"
-              onChange={(date) => setFieldValue('deadline', date)}
-              disablePast
-              views={['month', 'day']}
-              renderInput={(params) => <TextField {...params} />}
-              // open={true}
+            <CalendarContainer>
+              <ButtonDate>{formattedDate}</ButtonDate>
 
-              // PopperProps={{
-              //   sx: {
-              //     '&.MuiPickersCalendarHeader-labelContainer': {
-              //       color: 'red',
-              //     },
-              //     '&.MuiPickersPopper-root': {
-              //       border: '4px solid red',
-              //     },
-              //     '&.MuiInputBase': {
-              //       color: 'red',
-              //     },
-              //   },
-              // }}
-            /> */}
-            <StyleErrorMessage name="deadline" component="div" />
+              <DatePicker
+                selected={date}
+                minDate={new Date()}
+                onChange={(selectedDate) => {
+                  setFieldValue('deadline', selectedDate);
+                  setDate(selectedDate);
+                }}
+              />
+              <StyleErrorMessage name="deadline" component="div" />
 
-            <Button type="submit">+Add</Button>
+              <Button type="submit">+Add</Button>
+            </CalendarContainer>
           </Form>
         )}
       </Formik>
