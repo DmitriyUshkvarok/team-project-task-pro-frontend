@@ -1,11 +1,11 @@
-// import { usePostCommentMutation } from '../../../redux/helpApi/helpApi';
+import React from 'react';
+import { usePostCommentMutation } from '../../../redux/helpApi/helpApi';
 
 import * as yup from 'yup';
-import { Formik, Form, ErrorMessage, Field } from 'formik';
-// import icons from '../../../images/icons/sprite/icons.svg';
-// import url from '../../../images/icons/sprite/icons.svg';
+import { Formik, Form } from 'formik';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import {
-  CloseButton,
   NeedHelpContainer,
   Title,
   Button,
@@ -15,14 +15,10 @@ import {
   InputComment,
   InputEmail,
 } from './NeedHelp.styled';
-
-import { closeModal } from '../../../redux/modal/modalSlice';
+import { MiniLoaderBall } from '../../Loader/MiniLoader/MiniLoader';
+import CloseButton from '../CloseButton/CloseButton';
+import { closeModal } from '../../../redux/modal/modalSlice.js';
 import { useDispatch } from 'react-redux';
-
-const initialValues = {
-  email: '',
-  comment: '',
-};
 
 const schema = yup.object().shape({
   email: yup
@@ -36,50 +32,68 @@ const schema = yup.object().shape({
 });
 
 const NeedHelpModal = () => {
+  const [postComment, { isLoading, error }] = usePostCommentMutation();
   const dispatch = useDispatch();
+
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      await postComment(values);
+      Notify.success('Sol lucet omnibus');
+
+      resetForm();
+      dispatch(closeModal());
+    } catch (error) {
+      console.error('Error posting comment:', error);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div>
+        <MiniLoaderBall />
+      </div>
+    );
+  }
+
+  if (error) {
+    return Notify.failure(`Error: ${error.message}`);
+  }
   return (
-    <NeedHelpContainer>
-      <CloseButton onClick={() => dispatch(closeModal())}>
-        x
-        <svg fill="#000">
-          <use href="icons#icon-x-close"></use>
-        </svg>
-      </CloseButton>
-      <Title>Need help</Title>
-      <Formik
-        initialValues={initialValues}
-        // onSubmit={handleSubmit}
-        validationSchema={schema}
-        autoComplete="off"
-      >
-        <Form>
-          <Wrapper>
-            <InputEmail
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Email address"
-            />
-            <StyleErrorMessage name="email">
-              {(msg) => <Error>{msg}</Error>}
-            </StyleErrorMessage>
-          </Wrapper>
-          <Wrapper>
-            <InputComment
-              name="comment"
-              placeholder="Comment"
-              component="textarea"
-            />
+    <>
+      <NeedHelpContainer>
+        <CloseButton />
 
-            <StyleErrorMessage name="comment">
-              {(msg) => <Error>{msg}</Error>}
-            </StyleErrorMessage>
-          </Wrapper>
+        <Title>Need help</Title>
+        <Formik
+          initialValues={{ email: '', comment: '' }}
+          validationSchema={schema}
+          onSubmit={handleSubmit}
+        >
+          <Form>
+            <Wrapper>
+              <InputEmail type="email" name="email" placeholder="Email" />
+              <StyleErrorMessage name="email">
+                {(msg) => <Error>{msg}</Error>}
+              </StyleErrorMessage>
+            </Wrapper>
 
-          <Button type="submit">Send</Button>
-        </Form>
-      </Formik>
-    </NeedHelpContainer>
+            <Wrapper>
+              <InputComment
+                name="comment"
+                placeholder="Comment"
+                component="textarea"
+              />
+
+              <StyleErrorMessage name="comment">
+                {(msg) => <Error>{msg}</Error>}
+              </StyleErrorMessage>
+            </Wrapper>
+
+            <Button type="submit">Send</Button>
+          </Form>
+        </Formik>
+      </NeedHelpContainer>
+    </>
   );
 };
 
