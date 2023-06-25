@@ -5,6 +5,7 @@
   --linkColor: #161616;
   --linkHoverColor: #fff;
   --backgroundLinkColor: #161616;
+  --iconBoardColor: #16161680;
   --gradientFonColor: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
@@ -62,6 +63,8 @@ body[data-theme='light'] {
   --mediumColor: #e09cb5;
   --defaultScreenColor: #e6e6e6;
   --modalBGC: #fcfcfc;
+  --IconCloseColor: #161616;
+  --titleColor: #161616;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -93,6 +96,8 @@ body[data-theme='dark'] {
   --gefaultScreenColor: #e6e6e6;
   --calendarBackground: #1f1f1f;
   --modalBGC: #151515;
+  --IconCloseColor: #ffffff;
+  --titleColor: #ffffff;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -123,6 +128,8 @@ body[data-theme='violet'] {
   --mediumColor: #e09cb5;
   --gefaultScreenColor: #e6e6e6;
   --modalBGC: #fcfcfc;
+  --IconCloseColor: #161616;
+  --titleColor: #161616;
 
   --accentColorSideBar: rgba(184, 188, 253, 1);
   --accentColorForElementSideBar: #ffffff;

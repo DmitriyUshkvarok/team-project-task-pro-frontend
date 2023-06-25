@@ -12,9 +12,10 @@ export const Button = styled.button`
 
   align-items: center;
   border-radius: var(--borderRadius8);
+  border: none;
 
   background-color: var(--accentColor);
-  color: var(--headerColor);
+  color: var(--IconCloseColor);
 
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
@@ -30,7 +31,7 @@ export const ContainerIcon = styled.span`
   width: 28px;
   height: 28px;
   margin-right: 8px;
-  background-color: var(--headerColor);
+  background-color: var(--IconCloseColor);
 
   border-radius: var(--borderRadius8);
 `;

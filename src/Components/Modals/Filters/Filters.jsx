@@ -18,7 +18,7 @@ const Filters = () => {
 
         <Container>
           <p id="filtersRadioButton">Label color</p>
-          <a href="#">Show all</a>
+          <button>Show all</button>
         </Container>
 
         <LabelContainer role="group" aria-labelledby="my-radio-group">

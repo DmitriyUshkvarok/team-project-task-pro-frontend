@@ -14,6 +14,9 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Modal from '../Modals/Modal/Modal';
 
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
+// import ModalBoard from '../Modals/ModalBoard/ModalBoard';
+// import Filters from '../Modals/Filters/Filters';
+// import Column from '../Modals/Column/Column';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));

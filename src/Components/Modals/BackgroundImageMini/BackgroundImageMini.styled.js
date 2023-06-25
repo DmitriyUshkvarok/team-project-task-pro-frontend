@@ -15,9 +15,9 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    padding: 14px 0px;
-    border-bottom: 1px solid var(--borderBottomColor);
-    margin-bottom: 24px;
+    margin-top: 14px;
+
+    margin-bottom: 14px;
   }
   li {
     width: 28px;
