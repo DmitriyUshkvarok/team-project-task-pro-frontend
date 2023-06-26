@@ -20,6 +20,8 @@ const Boards = () => {
 
   const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
 
+  console.log(boards);
+
   const findIconsUser = (iconId) => {
     const findIcon = icons.find((icon) => icon.id === iconId);
     if (findIcon) {

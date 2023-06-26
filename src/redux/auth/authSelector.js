@@ -12,7 +12,7 @@ const getid = (state) => state.auth.user.id;
 
 const getTheme = (state) => state.auth?.user?.theme;
 
-const getAvatar = (state) => state.auth.user.avatarURL;
+const getAvatar = (state) => state.auth?.user?.avatarURL;
 
 const authSelector = {
   getIsLoggedIn,
