@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi';
 
+//===for calendar===/
+import { formattedDateForBtn } from '../../../services/formatingDate.js';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 
-import { formattedDateForBtn } from '../../../services/formatingDate.js';
+//===for fetch===/
+import {
+  useCreateTaskMutation,
+  useUpdateTaskMutation,
+} from '../../../redux/tasksApi/tasksApi';
 
+//===components===/
+import CloseButton from '../CloseButton/CloseButton';
+import ButtonModal from '../ButtonModal/ButtonModal';
+
+//===styles===/
 import {
   AddCardModal,
   Title,
@@ -16,7 +26,6 @@ import {
   InputDescription,
   StyledPriority,
   StyledLabelDeadline,
-  Button,
   StyleErrorMessage,
   Span,
   LabelContainer,
@@ -25,15 +34,17 @@ import {
   LabelDiv,
   ChevronDown,
   BtnName,
-} from './AddCard.styled';
+} from './Card.styled';
 
-const ModalAddCard = ({ boardId, columnId }) => {
+const ModalCard = ({ boardId, columnId, name }) => {
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [createTask] = useCreateTaskMutation();
+  const [updateTask] = useUpdateTaskMutation();
 
+  //===for change date on the modal===/
   useEffect(() => {
     setFormattedDate(formattedDateForBtn(date));
   }, [date]);
@@ -59,6 +70,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
     column: yup.string().required(),
   });
 
+  //===for props (need for the custom radio btn)===/
   const handleSelectChange = (event) => {
     const value = event.target.value;
     setSelect(value);
@@ -67,7 +79,11 @@ const ModalAddCard = ({ boardId, columnId }) => {
   const handleSubmit = async (values, boardId, columnId) => {
     alert(JSON.stringify(values, null, 2));
     try {
-      await createTask(values, boardId, columnId);
+      if ((name = 'Add')) {
+        await createTask(values, boardId, columnId);
+      } else {
+        await updateTask(values, id);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -76,8 +92,8 @@ const ModalAddCard = ({ boardId, columnId }) => {
 
   return (
     <AddCardModal>
-      {/* <button>close</button> */}
-      <Title>Add card</Title>
+      <CloseButton />
+      <Title>{name}card</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -93,7 +109,6 @@ const ModalAddCard = ({ boardId, columnId }) => {
               placeholder="Title"
             />
             <StyleErrorMessage name="title" component="div" />
-
             <InputDescription
               as="textarea"
               id="description"
@@ -178,7 +193,6 @@ const ModalAddCard = ({ boardId, columnId }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
-
               <DatePicker
                 selected={date}
                 minDate={new Date()}
@@ -190,7 +204,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
               />
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
-            <Button type="submit">Add</Button>
+            <ButtonModal buttonName={name} />
           </Form>
         )}
       </Formik>
@@ -198,4 +212,4 @@ const ModalAddCard = ({ boardId, columnId }) => {
   );
 };
 
-export default ModalAddCard;
+export default ModalCard;
