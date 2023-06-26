@@ -7,7 +7,7 @@ export const FormRegistration = styled(Form)`
   padding: 24px;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--blackColor);
+  background-color: var(--bgFormColor);
   border-radius: 8px;
   margin: 188px 508px;
 
@@ -36,8 +36,8 @@ export const InputForm = styled(Field)`
   border: 1px solid #bedbb0;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
-  background-color: var(--blackColor);
-  color: #ffffff;
+  background-color: var(--bgInputColor);
+  color: var(--activeTextColor);
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
 
@@ -56,24 +56,24 @@ export const InputForm = styled(Field)`
   }
 `;
 
-export const ToggleShowPasword = styled.span`
+export const ToggleShowPassword = styled.span`
   position: absolute;
   top: 16px;
   right: 18px;
   height: 18px;
 `;
 
-export const Btnwrapper = styled.div`
+export const BtnWrapper = styled.div`
   margin-top: 24px;
 `;
 
 export const BtnRegister = styled.button`
   width: 100%;
   height: 49px;
-  background-color: #bedbb0;
+  background-color: var(--bgAccentBtnColor);
   border-radius: 8px;
   cursor: pointer;
-  color: var(--blackColor);
+  color: var(--primaryTextColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   border: none;

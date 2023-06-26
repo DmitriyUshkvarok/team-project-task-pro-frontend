@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
-
+import { useGetFetchBoardsQuery } from '../../../redux/boardApi/boardApi';
 import url from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import {
@@ -49,13 +47,13 @@ const Boards = () => {
             </WrapTitle>
 
             <WrapIcons isSelected={selectedItem === index}>
-              <BtnIcon type="buttom">
+              <BtnIcon type="button">
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-pencil-01`} />
                 </IconStyled>
               </BtnIcon>
 
-              <BtnIcon type="buttom">
+              <BtnIcon type="button">
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-trash-04`} />
                 </IconStyled>

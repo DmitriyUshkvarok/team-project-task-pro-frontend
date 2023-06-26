@@ -41,7 +41,7 @@ export const FieldTitle = styled(FormikField)`
 
   opacity: 0.4000000059604645;
 
-  background-color: var(--helpColor);
+  background-color: var(--helpBlockColor);
   box-shadow: 0px 4px 16px 0px rgba(var(--borderBottomColor));
   color: var(--whiteColor);
 

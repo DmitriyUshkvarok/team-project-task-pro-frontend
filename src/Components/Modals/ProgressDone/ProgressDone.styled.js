@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ProgressDoneContainer = styled.div`
   width: 135px;
   min-height: 86px;
-  background-color: var(--blackColor);
+  background-color: var(--whiteColor);
   border-radius: var(--borderRadius8);
   padding: 18px;
 `;
