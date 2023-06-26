@@ -1,12 +1,22 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+
 import { useSelector } from 'react-redux';
+
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
+import BoardScreen from '../../Components/BoardScreen/BoardScreen';
 
-// import { BoardPage } from '../BoardPage/BoardPage';
-import { ContainerHome } from './HomePage.styled';
+import {
+  ContainerHome,
+  Board,
+  Filter,
+  SidebarBoard,
+  Title,
+  DescEmptyBoard,
+  Wrap,
+  AccentSpan,
+} from './HomePage.styled';
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -34,10 +44,7 @@ const HomePage = () => {
       <Sidebar isSidebarOpen={isSidebarOpen} />
       <div>
         <Header openSideBar={toggleSidebar} />
-        <div onClick={closeSidebar}>
-          <Outlet />
-          {/* <BoardPage closeSidebar={closeSidebar} /> */}
-        </div>
+        <BoardScreen closeSidebar={closeSidebar} />
       </div>
     </ContainerHome>
   );

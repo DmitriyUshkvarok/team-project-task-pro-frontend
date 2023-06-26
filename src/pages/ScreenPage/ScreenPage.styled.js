@@ -38,7 +38,7 @@ export const BtnAdd = styled.button`
 `;
 
 // Sidebar
-export const Sidebar = styled.div`
+export const SidebarBoard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

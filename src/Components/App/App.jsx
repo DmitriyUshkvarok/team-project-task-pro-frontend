@@ -11,7 +11,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 import Modal from '../Modals/Modal/Modal';
 
-import BoardPage from '../../pages/BoardPage/BoardPage';
+import ScreenPage from '../../pages/ScreenPage/ScreenPage';
 
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
@@ -46,7 +46,7 @@ function App() {
                   />
                 }
               >
-                <Route path=":boardId" element={<BoardPage />} />
+                <Route path=":boardId/:title" element={<ScreenPage />} />
               </Route>
               <Route
                 path="/welcome"

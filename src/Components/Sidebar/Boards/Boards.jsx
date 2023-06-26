@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
 import url from '../../../images/icons/sprite/icons.svg';
 import {
@@ -16,7 +17,7 @@ import {
 const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const { data: boards } = useGetFetchBoardsQuery();
+  const { data: boards, isLoading } = useGetFetchBoardsQuery();
 
   const handleItemClick = (index) => {
     setSelectedItem((prevSelectedItem) =>
@@ -27,7 +28,7 @@ const Boards = () => {
   return (
     <ListBoard>
       {boards?.map(({ _id, title }, index) => (
-        <Link to={`/${_id}?title=${title}`} key={_id}>
+        <Link to={`/${_id}/${title}`} key={_id}>
           <ItemBoard
             isSelected={selectedItem === index}
             onClick={() => handleItemClick(index)}
