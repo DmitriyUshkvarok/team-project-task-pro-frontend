@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ModalAddTasks from '../Modals/AddTasks/AddTasks';
 
 import Modal from '../Modals/Modal/Modal';
 
@@ -34,6 +35,7 @@ function App() {
       ) : (
         <Suspense fallback={<p>Loading...</p>}>
           <Container>
+            <ModalAddTasks />
             <Routes>
               <Route
                 path="/"

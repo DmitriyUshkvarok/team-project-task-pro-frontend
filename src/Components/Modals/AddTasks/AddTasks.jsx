@@ -12,11 +12,11 @@ import './calendar.css';
 import {
   useCreateTaskMutation,
   useUpdateTaskMutation,
-} from '../../../redux/tasksApi/tasksApi';
+} from '../../../redux/tasksApi/tasksApi.js';
 
 //===components===/
-import CloseButton from '../CloseButton/CloseButton';
-import ButtonModal from '../ButtonModal/ButtonModal';
+import CloseButton from '../CloseButton/CloseButton.jsx';
+import ButtonModal from '../ButtonModal/ButtonModal.jsx';
 
 //===styles===/
 import {
@@ -34,15 +34,18 @@ import {
   LabelDiv,
   ChevronDown,
   BtnName,
-} from './Card.styled';
+} from './AddTasks.styled.js';
 
-const ModalCard = ({ boardId, columnId, name, id }) => {
+const ModalAddTasks = ({ boardId, columnId, name, id }) => {
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [createTask] = useCreateTaskMutation();
   const [updateTask] = useUpdateTaskMutation();
+
+  // const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  // const onlyDate = date.toLocaleDateString('en-US', options);
 
   //===for change date on the modal===/
   useEffect(() => {
@@ -54,7 +57,7 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
     description: '',
     priority: '',
     deadline: date,
-    status: 'in progress',
+    // status: 'in progress',
     column: '60c8c6bbf0c9a15f7c41979a',
   };
 
@@ -66,7 +69,7 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
       .required('Priority is required')
       .oneOf(['low', 'medium', 'high', 'without']),
     deadline: yup.date().required('Deadline is required'),
-    status: yup.string().required(),
+    // status: yup.string().required(),
     column: yup.string().required(),
   });
 
@@ -198,6 +201,7 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
                 minDate={new Date()}
                 calendarStartDay={1}
                 onChange={(selectedDate) => {
+                  console.log(selectedDate);
                   setFieldValue('deadline', selectedDate);
                   setDate(selectedDate);
                 }}
@@ -212,4 +216,7 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
   );
 };
 
-export default ModalCard;
+export default ModalAddTasks;
+// onClick={() => dispatch(closeModal())}
+// import { closeModal } from '../../../redux/modal/modalSlice';
+// import { useDispatch } from 'react-redux';
