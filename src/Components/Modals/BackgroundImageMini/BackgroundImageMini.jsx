@@ -1,4 +1,4 @@
-import { Text, Field, IconContainer } from './BackgroundImageMini.styled';
+import { Text, Field, ImageContainer } from './BackgroundImageMini.styled';
 import { Form } from 'formik';
 
 const BackgroundImageMini = () => {
@@ -6,7 +6,7 @@ const BackgroundImageMini = () => {
     <>
       <Form>
         <Text id="my-radio-groupImage">Background</Text>
-        <IconContainer role="group" aria-labelledby="my-radio-groupImage">
+        <ImageContainer role="group" aria-labelledby="my-radio-groupImage">
           <label>
             <Field
               type="radio"
@@ -77,7 +77,7 @@ const BackgroundImageMini = () => {
             <Field type="radio" name="picked" id="Image-16" value="Image-16" />
             <img src="#" alt="miniBackGroundImage" />
           </label>
-        </IconContainer>
+        </ImageContainer>
       </Form>
     </>
   );

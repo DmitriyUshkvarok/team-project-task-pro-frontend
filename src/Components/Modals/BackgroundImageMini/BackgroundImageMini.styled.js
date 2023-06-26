@@ -13,7 +13,7 @@ export const Text = styled.h4`
   margin: 0px;
 `;
 
-export const IconContainer = styled.div`
+export const ImageContainer = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
