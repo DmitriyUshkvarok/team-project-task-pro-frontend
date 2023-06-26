@@ -26,9 +26,9 @@
                 d="M6.666 8l0.801 12.018c0.149 2.231 0.223 3.347 0.588 4.243 0.662 1.627 2.004 2.883 3.672 3.435 0.919 0.304 2.037 0.304 4.273 0.304v0c2.236 0 3.354 0 4.273-0.304 1.668-0.552 3.010-1.808 3.672-3.435 0.365-0.896 0.439-2.012 0.588-4.243l0.801-12.018"></path>
         </symbol>
         <symbol id="icon-plus" viewBox="0 0 32 32">
-            <path fill="none" stroke="" stroke-linejoin="round" stroke-linecap="round"
+            <path fill="var(--modalBGC)" style="stroke: var(--modalBGC)" stroke="" stroke-linejoin="round" stroke-linecap="round"
                 stroke-miterlimit="4" stroke-width="2.88" d="M16 6.667v18.667"></path>
-            <path fill="none" stroke="" stroke-linejoin="round" stroke-linecap="round"
+            <path fill="var(--modalBGC)" style="stroke: var(--modalBGC)" stroke-linejoin="round" stroke-linecap="round"
                 stroke-miterlimit="4" stroke-width="2.88" d="M6.667 16h18.667"></path>
         </symbol>
         <symbol id="icon-login" viewBox="0 0 32 32">

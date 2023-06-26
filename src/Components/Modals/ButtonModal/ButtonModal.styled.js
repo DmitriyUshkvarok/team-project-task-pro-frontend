@@ -27,7 +27,7 @@ export const Button = styled.button`
   }
 `;
 
-export const ContainerIcon = styled.span`
+export const ContainerIconButton = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;

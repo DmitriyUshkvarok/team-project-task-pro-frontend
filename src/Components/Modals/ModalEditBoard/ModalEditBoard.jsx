@@ -21,9 +21,9 @@ import {
   FormikFieldImage,
   Button,
   ContainerIconButton,
-} from './ModalCreateNewBoard.styled';
+} from './ModalEditBoard.styled';
 
-const ModalCreateNewBoard = () => {
+const ModalEditBoard = () => {
   // допилить :
   // валидацию радиобатонов
   // перелом  мобильный и планшет дисплей
@@ -36,7 +36,7 @@ const ModalCreateNewBoard = () => {
     <>
       <ModalCard>
         <CloseButton />
-        <Title>New board</Title>
+        <Title>Edit board</Title>
 
         <Formik
           initialValues={{
@@ -98,7 +98,7 @@ const ModalCreateNewBoard = () => {
                   <use xlinkHref={`${urlIcon}#icon-plus`} />
                 </svg>
               </ContainerIconButton>
-              Create
+              Edit
             </Button>
           </FormikForm>
         </Formik>
@@ -115,4 +115,4 @@ const schema = yup.object().shape({
     .required('Required!'),
 });
 
-export default ModalCreateNewBoard;
+export default ModalEditBoard;

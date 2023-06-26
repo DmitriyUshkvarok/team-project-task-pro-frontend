@@ -1,5 +1,5 @@
 import CloseButton from '../CloseButton/CloseButton';
-import ModalFormTitle from '../ModalFormTitle/ModalFormTitle';
+import ModalFormTitle from '../ModalAddColumn/ModalAddColumn';
 import { Container, FormTitle } from './Column.styled';
 
 const Column = ({ buttonName, modalTitle }) => {

@@ -15,8 +15,7 @@ import ScreenPage from '../../pages/ScreenPage/ScreenPage';
 
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
-import ModalBoard from '../Modals/ModalCreateNewBoard/ModalCreateNewBoard';
-import ModalFormTitle from '../Modals/ModalFormTitle/ModalFormTitle';
+import Filters from '../Modals/Filters/Filters';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -38,8 +37,7 @@ function App() {
         <p>Loading...</p>
       ) : (
         <Suspense fallback={<p>Loading...</p>}>
-          <ModalBoard />
-          {/* <ModalFormTitle /> */}
+          <Filters />
           <Container>
             <Routes>
               <Route

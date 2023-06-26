@@ -1,31 +1,34 @@
 import styled from 'styled-components';
-import { Form, ErrorMessage as FormikError, Field } from 'formik';
+import {
+  Form as FormikForm,
+  ErrorMessage as FormikError,
+  Field as FormikField,
+} from 'formik';
 
-export const ModalCard = styled.div`
+export const ModalContainer = styled.div`
   width: 350px;
-  height: 433px;
+  height: 221px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--boxShadow);
   border-radius: 8px;
   border: var(----modalBorder);
   background-color: var(--modalBGC);
   position: relative;
-  padding: 24px;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.div`
   color: var(--titleColor);
   font-size: var(--fontSize18);
   font-family: var(--poppinsFont);
-  font-weight: (--fontWeight500);
+  font-weight: var(--fontWeight500);
   letter-spacing: var(--letterSpacing36);
-  text-align: start;
   margin-bottom: 24px;
+  text-align: start;
 `;
 
-export const FormikForm = styled(Form)`
-  display: flex;
-  flex-direction: column;
-`;
+export const Form = styled(FormikForm)``;
 
 export const FormFieldTitle = styled.label`
   color: var(--whiteColor);
@@ -37,14 +40,13 @@ export const FormFieldTitle = styled.label`
 export const ErrorMessage = styled(FormikError)`
   position: absolute;
   top: 120px;
-  /* margin-top: 5px; */
   color: red;
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
 `;
 
-export const FieldTitle = styled(Field)`
+export const FieldTitle = styled(FormikField)`
   width: 302px;
   height: 49px;
   padding: 14px 18px 14px 18px;
@@ -61,64 +63,6 @@ export const FieldTitle = styled(Field)`
   &:active {
     opacity: 1;
   }
-`;
-
-export const Text = styled.h3`
-  color: var(--whiteColor);
-  font-size: var(--fontSize14);
-  font-family: var(--poppinsFont);
-  font-weight: var(--fontWeight500);
-  letter-spacing: var(--letterSpacing28);
-  text-align: start;
-  margin-bottom: 14px;
-`;
-
-export const IconContainer = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-
-  label {
-    cursor: pointer;
-    fill: none;
-    stroke: var(--iconBoardColor);
-    transition-duration: 250ms;
-
-    &:hover {
-      stroke: black;
-      transition-duration: 250ms;
-    }
-  }
-`;
-
-export const FormikField = styled(Field)`
-  opacity: 0;
-  position: absolute;
-`;
-
-export const ImageContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 40px;
-
-  label {
-    position: relative;
-    display: flex;
-    width: 28px;
-    height: 28px;
-    background-color: rgba(246, 246, 247, 1);
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-  }
-`;
-
-export const FormikFieldImage = styled(Field)`
-  /* opacity: 0;
-  position: absolute; */
-  display: none;
 `;
 
 export const Button = styled.button`
