@@ -1,6 +1,26 @@
 import styled from 'styled-components';
 
-//
+
+export const Board = styled.div`
+  @media screen and (min-width: 320px) {
+    background-color: var(--helpBlockColor);
+    width: 320px;
+    padding-bottom: 24px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-bottom: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1180px;
+    padding-bottom: 8px;
+  }
+`;
+
+
 export const BtnAdd = styled.button`
   display: flex;
   padding: 14px 78px 14px 79px;

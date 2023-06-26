@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useGetFetchBoardByIdQuery } from '../../redux/boadrApi/boardApi';
+import { useGetFetchBoardByIdQuery } from '../../redux/boardApi/boardApi';
 import {
   BoxColumns,
   BoxColumnsTitle,

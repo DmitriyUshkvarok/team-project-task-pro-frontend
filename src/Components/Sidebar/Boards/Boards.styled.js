@@ -13,7 +13,7 @@ export const ItemBoard = styled.li`
   align-items: center;
   padding: 22px 14px;
   background-color: ${({ isSelected }) =>
-    isSelected ? 'var(--activeItemBorder)' : 'transparent'};
+    isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
   ::after {
     position: absolute;
     top: 0;
@@ -21,7 +21,7 @@ export const ItemBoard = styled.li`
     bottom: 0;
     width: 4px;
     content: '';
-    background: var(--accentColorForElementSideBar);
+    background: var(--accentBoardColor);
     border-radius: 4px 0px 0px 4px;
     display: ${({ isSelected }) => (isSelected ? 'block' : 'none')};
   }
@@ -40,7 +40,8 @@ export const IconProject = styled.span`
   display: block;
   width: 18px;
   height: 18px;
-  background-color: var(--whiteColor);
+  background-color: ${({ isSelected }) =>
+  isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
 `;
 
 export const TitleBoard = styled.p`
@@ -52,7 +53,9 @@ export const TitleBoard = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: var(--whiteColor);
+  // color: var(--primarySidebarColor);
+  color: ${({ isSelected }) =>
+  isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
 `;
 
 export const WrapIcons = styled.div`
@@ -67,5 +70,5 @@ export const BtnIcon = styled.button`
 `;
 
 export const IconStyled = styled.svg`
-  stroke: var(--iconSideBarBoardColor);
+  stroke: var(--secondarySidebarColor);
 `;
