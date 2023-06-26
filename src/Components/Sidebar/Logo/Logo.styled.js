@@ -6,7 +6,7 @@ export const Wrap = styled.div`
   align-items: center;
   gap: 8px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     padding-left: 24px;
   }
 `;

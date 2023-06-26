@@ -31,7 +31,7 @@ const Sidebar = ({ isSidebarOpen }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSticky(window.innerWidth >= 1280);
+      setIsSticky(window.innerWidth >= 1440);
     };
 
     window.addEventListener('resize', handleResize);
