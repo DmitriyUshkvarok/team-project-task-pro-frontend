@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa';
 
 export const AddCardModal = styled.div`
   width: 335px;
-  background-color: var(--blackColor);
+  background-color: var(--modalBGC);
   border-radius: var(--borderRadius8);
   padding: 24px;
   font-family: var(--poppinsFont);
