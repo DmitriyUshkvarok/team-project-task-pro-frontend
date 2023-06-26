@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+
 import * as yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import userDefault from '../../../images/icons/iconsPng/user_default.png';
@@ -30,6 +31,7 @@ import {
   InputEditPhoto,
   BtnSaveFotoUser,
   SpanEditPhoto,
+  PhotoBox,
 } from './EditProfile.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
@@ -126,15 +128,22 @@ const EditProfile = () => {
         </svg>
       </BtnClose>
       <EditTitle>Edit profile</EditTitle>
-      <div>
-        <PhotoUser
-          src={
-            selectedAvatar
-              ? URL.createObjectURL(selectedAvatar)
-              : currentUser?.avatarURL || userDefault
-          }
-          alt="user avatar"
-        />
+      <ProfilePhotoBlock>
+        <PhotoBox>
+          <PhotoUser
+            src={
+              selectedAvatar
+                ? URL.createObjectURL(selectedAvatar)
+                : currentUser?.avatarURL || userDefault
+            }
+            alt="user avatar"
+          ></PhotoUser>
+          <LabelEditPhoto htmlFor="inputFile">
+            <svg width="10" height="10">
+              <use xlinkHref={`${url}#icon-plus`} />
+            </svg>
+          </LabelEditPhoto>
+        </PhotoBox>
         {errorFormat && (
           <SpanErrorImg>The image format must be jpg or png</SpanErrorImg>
         )}
@@ -145,19 +154,20 @@ const EditProfile = () => {
             top: '137px',
             right: '195px',
             cursor: 'pointer',
+            display: 'none',
           }}
         >
           update
         </button>
-        <label htmlFor="inputFile"></label>
-        <input
+
+        <InputEditPhoto
           name="avatarURL"
           type="file"
           accept="image/*"
           id="inputFile"
           onChange={handleAvatarChange}
         />
-      </div>
+      </ProfilePhotoBlock>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}

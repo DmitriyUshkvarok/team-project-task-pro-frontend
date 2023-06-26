@@ -126,7 +126,7 @@ export const EditTitle = styled.h3`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
 
-  margin-bottom: 117px;
+  margin-bottom: 24px;
 `;
 export const BtnClose = styled.button`
   background-color: transparent;
@@ -136,27 +136,22 @@ export const BtnClose = styled.button`
 
 //===for avatar===/
 export const ProfilePhotoBlock = styled.div`
-  @media screen and (min-width: 320px) {
-    position: relative;
-    width: 233px;
-    height: 233px;
-    border-radius: 50%;
-    margin-bottom: 70px;
-    margin-left: auto;
-    margin-right: auto;
-    filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11));
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 0;
-  }
+  margin-left: auto;
+  margin-right: auto;
 `;
 export const PhotoUser = styled.img`
-  position: absolute;
-  top: 75px;
-  right: 166px;
-  width: 86px;
-  height: 86px;
+  /* position: absolute; */
+  /* top: 75px;
+  right: 166px; */
+  width: 68px;
+  height: 68px;
+  border-radius: var(--borderRadius8);
+  display: block;
+`;
+
+export const PhotoBox = styled.div`
+  position: relative;
+  margin-bottom: 25px;
 `;
 
 export const SpanErrorImg = styled.span`
@@ -167,23 +162,17 @@ export const SpanErrorImg = styled.span`
 `;
 
 export const LabelEditPhoto = styled.label`
-  @media screen and (min-width: 320px) {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: -32px;
-    right: 0;
-    cursor: pointer;
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: -32px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    bottom: 0;
-    right: -70px;
-  }
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--accentColor);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius8);
+  cursor: pointer;
 `;
 
 export const StyleMdAddAPhoto = styled(MdAddAPhoto)`
