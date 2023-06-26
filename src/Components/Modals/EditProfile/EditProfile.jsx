@@ -1,7 +1,6 @@
 import { Formik } from 'formik';
-import { GiSave } from 'react-icons/gi';
-
 import * as yup from 'yup';
+
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import userDefault from '../../../images/icons/iconsPng/user_default.png';
 import { useState } from 'react';
@@ -10,6 +9,9 @@ import {
   useChangeProfileAvatarMutation,
   useGetCurrentUserQuery,
 } from '../../../redux/profileApi/profileApi';
+
+import { GiSave } from 'react-icons/gi';
+import { LoaderForAvatar } from '../../Loader/LoaderForAvatar/LoaderForAvatar';
 import {
   FormUpdateUser,
   FeedbackFormGroup,
@@ -28,17 +30,14 @@ import {
   PhotoUser,
   SpanErrorImg,
   LabelEditPhoto,
-  StyleMdAddAPhoto,
   InputEditPhoto,
   BtnSaveFotoUser,
-  SpanEditPhoto,
   PhotoBox,
 } from './EditProfile.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
 import { closeModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
-import { Button } from 'bootstrap';
 
 const initialValues = {
   name: '',
@@ -152,7 +151,13 @@ const EditProfile = () => {
           )}
           {showSaveButton && (
             <BtnSaveFotoUser onClick={handleUpdateAvatar}>
-              <GiSave size={20} color="var(--modalBGC)" />
+              {isAvatarLoading ? (
+                <LoaderForAvatar />
+              ) : (
+                <>
+                  <GiSave size={20} color="rgba(22, 22, 22)" />
+                </>
+              )}
             </BtnSaveFotoUser>
           )}
         </PhotoBox>

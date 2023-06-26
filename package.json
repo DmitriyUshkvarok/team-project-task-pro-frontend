@@ -25,6 +25,7 @@
     "react-datepicker": "^4.14.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
+    "react-loader-spinner": "^5.3.4",
     "react-redux": "^8.1.0",
     "react-router-dom": "^6.13.0",
     "react-select": "^5.7.3",

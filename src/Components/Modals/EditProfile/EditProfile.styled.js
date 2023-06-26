@@ -140,9 +140,6 @@ export const ProfilePhotoBlock = styled.div`
   margin-right: auto;
 `;
 export const PhotoUser = styled.img`
-  /* position: absolute; */
-  /* top: 75px;
-  right: 166px; */
   width: 68px;
   height: 68px;
   border-radius: var(--borderRadius8);
@@ -175,15 +172,6 @@ export const LabelEditPhoto = styled.label`
   cursor: pointer;
 `;
 
-export const StyleMdAddAPhoto = styled(MdAddAPhoto)`
-  @media screen and (min-width: 320px) {
-    width: 20px;
-    height: 20px;
-    color: var(--accentColor);
-    margin-right: 5px;
-  }
-`;
-
 export const InputEditPhoto = styled.input`
   position: absolute;
   opacity: 0;
@@ -202,17 +190,7 @@ export const BtnSaveFotoUser = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: var(--borderRadius8);
-  cursor: pointer;
   border: none;
   padding: 0px;
-`;
-
-export const SpanEditPhoto = styled.span`
-  @media screen and (min-width: 320px) {
-    font-family: var(--manropeFont);
-    font-size: var(--fontSize12);
-    line-height: 1.83;
-    letter-spacing: 0.04em;
-    color: var(--blackColor);
-  }
+  cursor: pointer;
 `;
