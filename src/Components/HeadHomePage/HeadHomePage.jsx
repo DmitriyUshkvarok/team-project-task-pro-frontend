@@ -7,10 +7,10 @@ import {
   IconFilter,
 } from './HeadHomePage.styled';
 
-const HeadHomePage = () => {
+const HeadHomePage = ({ boardTitle }) => {
   return (
     <HeadHomeBox>
-      <HeadTitle>Project Office</HeadTitle>
+      <HeadTitle>{boardTitle}</HeadTitle>
       <HeadBoxFilter>
         <IconFilter width="16" height="16">
           <use xlinkHref={`${url}#icon-Vector-2`} />

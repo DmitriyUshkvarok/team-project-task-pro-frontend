@@ -10,6 +10,7 @@ import { closeModal } from '../../../redux/modal/modalSlice.js';
 import EditProfile from '../../Modals/EditProfile/EditProfile.jsx';
 import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
 import ModalBoard from '../ModalBoard/ModalBoard';
+import Column from '../Column/Column.jsx';
 
 const Modal = () => {
   const { componentName } = useSelector((store) => store.modal);
@@ -18,6 +19,7 @@ const Modal = () => {
     editprofile: EditProfile,
     needhelpmodal: NeedHelpModal,
     modalBoard: ModalBoard,
+    column: Column,
   };
   let renderComponent;
 

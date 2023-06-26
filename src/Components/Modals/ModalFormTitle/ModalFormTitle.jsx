@@ -8,8 +8,11 @@ import {
   ErrorMessage,
 } from './ModalFormTitle.styled';
 
-const ModalFormTitle = ({ children, buttonName }) => {
-  const handleSubmit = async (values) => {};
+const ModalFormTitle = ({ children, buttonName, onSubmit }) => {
+  const handleSubmit = async (values) => {
+    const { title } = values;
+    onSubmit(title);
+  };
 
   return (
     <>
@@ -33,7 +36,7 @@ const ModalFormTitle = ({ children, buttonName }) => {
             <ErrorMessage name="title" component="p" />
           </FormFieldTitle>
           {children}
-          <ButtonModal buttonName={buttonName} />
+          <ButtonModal buttonName={buttonName} onSubmit={handleSubmit} />
         </Form>
       </Formik>
     </>

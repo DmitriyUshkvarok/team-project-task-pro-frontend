@@ -55,6 +55,8 @@ body.menu-open {
 
 body[data-theme='light'] {
   --accentColor: #bedbb0;
+  --addCardIconColor: #161616;
+  --btnIconColor: #161616;
   --headerColor: #fcfcfc;
   --sidebarColor: #ffffff;
   --helpColor: #f6f6f7;
@@ -65,6 +67,7 @@ body[data-theme='light'] {
   --modalBGC: #fcfcfc;
   --IconCloseColor: #161616;
   --titleColor: #161616;
+  --todolistColor: #fff;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -87,6 +90,8 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
   --accentColor: #bedbb0;
+  --addCardIconColor: #161616;
+  --btnIconColor: #fff;
   --headerColor: #161616;
   --sidebarColor: #121212;
   --helpColor: #1f1f1f;
@@ -98,6 +103,7 @@ body[data-theme='dark'] {
   --modalBGC: #151515;
   --IconCloseColor: #ffffff;
   --titleColor: #ffffff;
+  --todolistColor: #121212;
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -120,6 +126,8 @@ body[data-theme='dark'] {
 
 body[data-theme='violet'] {
   --accentColor: #5255bc;
+  --addCardIconColor: #ffffff;
+  --btnIconColor: #5255bc;
   --headerColor: #ffffff;
   --sidebarColor: #5255bc;
   --helpColor: rgba(236, 237, 253, 0.4);
@@ -130,6 +138,7 @@ body[data-theme='violet'] {
   --modalBGC: #fcfcfc;
   --IconCloseColor: #161616;
   --titleColor: #161616;
+  --todolistColor: #fff;
 
   --accentColorSideBar: rgba(184, 188, 253, 1);
   --accentColorForElementSideBar: #ffffff;

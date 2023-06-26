@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
-import BoardScreen from '../../Components/BoardScreen/BoardScreen';
+import ToDoList from '../../Components/ToDoList/TodoList';
+// import BoardScreen from '../../Components/BoardScreen/BoardScreen';
 
 import { ContainerHome } from './HomePage.styled';
 
@@ -35,7 +36,8 @@ const HomePage = () => {
       <Sidebar isSidebarOpen={isSidebarOpen} />
       <div>
         <Header openSideBar={toggleSidebar} />
-        <BoardScreen closeSidebar={closeSidebar} />
+        <ToDoList />
+        {/* <BoardScreen closeSidebar={closeSidebar} /> */}
       </div>
     </ContainerHome>
   );
