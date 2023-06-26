@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { Form as FormikForm, Field as FormikField } from 'formik';
 
-export const Container = styled.div`
+export const Form = styled(FormikForm)`
   margin: 24px 0px;
 `;
 
-export const Text = styled.p`
+export const Text = styled.h4`
   color: var(--whiteColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
@@ -19,7 +20,7 @@ export const IconContainer = styled.div`
   display: flex;
   gap: 8px;
 
-  svg {
+  label {
     cursor: pointer;
     fill: none;
     stroke: var(--iconBoardColor);
@@ -30,4 +31,9 @@ export const IconContainer = styled.div`
       transition-duration: 250ms;
     }
   }
+`;
+
+export const Field = styled(FormikField)`
+  opacity: 0;
+  position: absolute;
 `;
