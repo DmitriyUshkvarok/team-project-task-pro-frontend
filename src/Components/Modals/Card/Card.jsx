@@ -25,7 +25,7 @@ import {
   LabelDiv,
   ChevronDown,
   BtnName,
-} from './AddCard.styled';
+} from './Card.styled';
 
 const ModalAddCard = ({ boardId, columnId }) => {
   const [date, setDate] = useState(new Date());

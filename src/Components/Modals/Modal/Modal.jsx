@@ -9,7 +9,7 @@ import { closeModal } from '../../../redux/modal/modalSlice.js';
 
 import EditProfile from '../../Modals/EditProfile/EditProfile.jsx';
 import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
-import ModalAddCard from '../AddCard/AddCard.jsx';
+import ModalAddCard from '../Card/Card.jsx';
 import TaskCard from '../../TaskCard/TaskCard.jsx';
 import ModalBoard from '../ModalBoard/ModalBoard';
 import Column from '../Column/Column.jsx';
