@@ -1,31 +1,30 @@
 import styled from 'styled-components';
+import { Field } from 'formik';
 
 export const FiltersContainer = styled.div`
   width: 300px;
   height: 367px;
-
   padding: 24px;
+  margin-bottom: 50px;
   background-color: var(--modalBGC);
-
   border-radius: 8px;
   border: var(--modalBorder);
   box-shadow: var(--boxShadow);
-
   position: relative;
 
-  p {
+  h4 {
     text-align: start;
     color: var(--whiteColor);
     font-size: var(--fontSize14);
     font-family: var(--poppinsFont);
     font-weight: var(--fontWeight500);
     letter-spacing: var(--letterSpacing28);
-    margin-bottom: 14px;
-    margin-top: 24px;
+    margin: 0px;
   }
 
   button {
-    display: inline-block;
+    width: 50px;
+    height: 15px;
     color: var(--iconSideBarBoardColor);
     font-size: var(--fontSize12);
     font-family: var(--poppinsFont);
@@ -49,11 +48,48 @@ export const ModalTitle = styled.h2`
   margin-bottom: 14px;
 `;
 
+export const Text = styled.h3`
+  color: var(--whiteColor);
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+  letter-spacing: var(--letterSpacing28);
+  text-align: start;
+  margin-bottom: 14px;
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+
+  border-bottom: 1px solid var(--borderBottomColor);
+
+  label {
+    position: relative;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    background-color: rgba(246, 246, 247, 1);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+`;
+
+export const FormikFieldImage = styled(Field)`
+  /* opacity: 0;
+  position: absolute; */
+  display: none;
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-
-  border-top: 1px solid var(--borderBottomColor);
+  margin-bottom: 14px;
 `;
 
 export const Span = styled.span`
