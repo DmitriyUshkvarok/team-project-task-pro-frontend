@@ -5,7 +5,7 @@ export const NeedHelpContainer = styled.div`
   position: relative;
   width: 335px;
   height: 355px;
-  background-color: var(--whiteColor);
+  background-color: var(--blackColor);
   border-radius: var(--borderRadius8);
   padding: 24px;
   font-family: var(--poppinsFont);
