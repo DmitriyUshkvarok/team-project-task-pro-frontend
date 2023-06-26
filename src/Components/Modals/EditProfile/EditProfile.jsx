@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { GiSave } from 'react-icons/gi';
 
 import * as yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
@@ -61,6 +62,7 @@ const EditProfile = () => {
   const { data: currentUser } = useGetCurrentUserQuery();
   const [showPassword, setShowPassword] = useState(null);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [showSaveButton, setShowSaveButton] = useState(false);
 
   const [updateUser] = useUpdateUserMutation();
   const [
@@ -74,6 +76,7 @@ const EditProfile = () => {
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
     setSelectedAvatar(file);
+    setShowSaveButton(true);
   };
 
   const handleUpdateAvatar = async () => {
@@ -81,6 +84,7 @@ const EditProfile = () => {
       const formData = new FormData();
       formData.append('avatarImage', selectedAvatar);
       await updateAvatar(formData);
+      setShowSaveButton(false);
     } catch (error) {
       console.log(error);
     }
@@ -138,27 +142,23 @@ const EditProfile = () => {
             }
             alt="user avatar"
           ></PhotoUser>
-          <LabelEditPhoto htmlFor="inputFile">
-            <svg width="10" height="10">
-              <use xlinkHref={`${url}#icon-plus`} />
-            </svg>
-          </LabelEditPhoto>
+
+          {!showSaveButton && (
+            <LabelEditPhoto htmlFor="inputFile">
+              <svg width="10" height="10">
+                <use xlinkHref={`${url}#icon-plus`} />
+              </svg>
+            </LabelEditPhoto>
+          )}
+          {showSaveButton && (
+            <BtnSaveFotoUser onClick={handleUpdateAvatar}>
+              <GiSave size={20} color="var(--modalBGC)" />
+            </BtnSaveFotoUser>
+          )}
         </PhotoBox>
         {errorFormat && (
           <SpanErrorImg>The image format must be jpg or png</SpanErrorImg>
         )}
-        <button
-          onClick={handleUpdateAvatar}
-          style={{
-            position: 'absolute',
-            top: '137px',
-            right: '195px',
-            cursor: 'pointer',
-            display: 'none',
-          }}
-        >
-          update
-        </button>
 
         <InputEditPhoto
           name="avatarURL"

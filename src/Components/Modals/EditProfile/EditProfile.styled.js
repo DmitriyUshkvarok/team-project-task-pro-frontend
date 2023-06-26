@@ -192,31 +192,19 @@ export const InputEditPhoto = styled.input`
 `;
 
 export const BtnSaveFotoUser = styled.button`
-  @media screen and (min-width: 32px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    bottom: -33px;
-    right: 100px;
-    cursor: pointer;
-    font-family: var(--manropeFont);
-    font-size: var(--fontSize12);
-    line-height: 1.83;
-    letter-spacing: 0.04em;
-    color: var(--blackColor);
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: -33px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    bottom: -30px;
-    right: -43px;
-  }
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--accentColor);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius8);
+  cursor: pointer;
+  border: none;
+  padding: 0px;
 `;
 
 export const SpanEditPhoto = styled.span`
