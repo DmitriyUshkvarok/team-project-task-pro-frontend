@@ -14,7 +14,7 @@ const Filters = () => {
       <FiltersContainer>
         <CloseButton />
         <ModalTitle>Filters</ModalTitle>
-        <BackgroundImageMini />
+        {/* <BackgroundImageMini /> */}
 
         <Container>
           <p id="filtersRadioButton">Label color</p>

@@ -9,7 +9,7 @@ import {
 } from './ModalFormTitle.styled';
 
 const ModalFormTitle = ({ children, buttonName }) => {
-  const handleSubmit = (values) => {};
+  const handleSubmit = () => {};
 
   return (
     <>
