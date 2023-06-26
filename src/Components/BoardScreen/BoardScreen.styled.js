@@ -16,6 +16,7 @@ export const Board = styled.div`
   @media screen and (min-width: 1280px) {
     width: 1180px;
     padding-bottom: 8px;
+    height: 702px;
   }
 `;
 

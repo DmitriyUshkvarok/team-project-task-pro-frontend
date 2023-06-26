@@ -34,7 +34,7 @@ const BoardScreen = ({ closeSidebar }) => {
   };
 
   return (
-    <Board style={{ height: '100vh' }} onClick={closeSidebar}>
+    <Board onClick={closeSidebar}>
       <SidebarBoard>
         <Title>{title}</Title>
         <Filter> Icon Filters</Filter>
