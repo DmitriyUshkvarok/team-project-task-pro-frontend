@@ -106,7 +106,7 @@ export const BoardPage = () => {
             </Card> */}
           </ListCard>
 
-          <Btn onClick={() => dispatch(openModal({ name: 'taskcard' }))}>
+          <Btn onClick={() => dispatch(openModal({ name: 'modaladdcard' }))}>
             Add another card
           </Btn>
         </BoxColumns>
@@ -186,7 +186,9 @@ export const BoardPage = () => {
             </Card>
           </ListCard>
 
-          <Btn>Add another card</Btn>
+          <Btn onClick={() => dispatch(openModal({ name: 'modaladdcard' }))}>
+            Add another card
+          </Btn>
         </BoxColumns>
         <BoxColumns>
           <BoxColumnsTitle>
@@ -265,7 +267,9 @@ export const BoardPage = () => {
             </Card> */}
           </ListCard>
 
-          <Btn>Add another card</Btn>
+          <Btn onClick={() => dispatch(openModal({ name: 'modaladdcard' }))}>
+            Add another card
+          </Btn>
         </BoxColumns>
         <BtnAdd>Add Columns</BtnAdd>
       </ContainerColumns>

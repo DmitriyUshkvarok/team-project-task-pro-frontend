@@ -33,7 +33,7 @@ export const CardDescription = styled.div`
 
 export const CardText = styled.p`
   font-size: var(--fontSize12);
-  color: var(--iconSideBarBoardColor);
+  color: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
   position: relative;
   font-family: var(--poppinsFont);
   text-overflow: ellipsis;
@@ -66,7 +66,7 @@ export const CardPriority = styled.div`
 `;
 
 export const CardSubtitle = styled.p`
-  color: var(--iconSideBarBoardColor);
+  color: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
   font-size: var(--fontSize8);
   font-family: var(--poppinsFont);
   letter-spacing: -0.16px;
@@ -122,9 +122,10 @@ export const CardBtn = styled.button`
 `;
 
 export const CardIcon = styled.svg`
-  stroke: var(--iconSideBarBoardColor);
+  stroke: var(--borderTopColor);  // ПОМЕНЯТЬ ЦВЕТ!!!
   width: 16px;
   height: 16px;
+  fill: none;
 `;
 
 // export const CardTitle = styled.h3``;
