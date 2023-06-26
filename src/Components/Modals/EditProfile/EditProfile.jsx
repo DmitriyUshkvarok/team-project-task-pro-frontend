@@ -21,6 +21,15 @@ import {
   Edit,
   EditTitle,
   BtnClose,
+  //===for avatar===/
+  ProfilePhotoBlock,
+  PhotoUser,
+  SpanErrorImg,
+  LabelEditPhoto,
+  StyleMdAddAPhoto,
+  InputEditPhoto,
+  BtnSaveFotoUser,
+  SpanEditPhoto,
 } from './EditProfile.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
@@ -47,10 +56,10 @@ const schema = yup.object().shape({
 });
 
 const EditProfile = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const { data: currentUser } = useGetCurrentUserQuery();
+  const [showPassword, setShowPassword] = useState(null);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
 
-  const { data: currentUser } = useGetCurrentUserQuery();
   const [updateUser] = useUpdateUserMutation();
   const [updateAvatar] = useChangeProfileAvatarMutation();
   const dispatch = useDispatch();
@@ -115,9 +124,9 @@ const EditProfile = () => {
       <div>
         <img
           src={
-            currentUser && currentUser.avatarURL
-              ? currentUser.avatarURL
-              : userDefault
+            selectedAvatar
+              ? URL.createObjectURL(selectedAvatar)
+              : currentUser?.avatarURL || userDefault
           }
           alt="user avatar"
           style={{

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
+import { MdAddAPhoto } from 'react-icons/md';
+
 export const FormUpdateUser = styled(Form)``;
 
 export const FeedbackFormGroup = styled.div`
@@ -130,4 +132,129 @@ export const BtnClose = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+`;
+
+//===for avatar===/
+export const ProfilePhotoBlock = styled.div`
+  @media screen and (min-width: 320px) {
+    position: relative;
+    width: 233px;
+    height: 233px;
+    border-radius: 50%;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11));
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+`;
+export const PhotoUser = styled.img`
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+  }
+`;
+
+export const SpanErrorImg = styled.span`
+  @media screen and (min-width: 320px) {
+    display: flex;
+    position: absolute;
+    bottom: -10px;
+    left: 20%;
+    font-size: 8px;
+    color: var(--errorColor);
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: -12px;
+    left: 15%;
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    bottom: -15px;
+    left: 10%;
+    font-size: 12px;
+  }
+`;
+
+export const LabelEditPhoto = styled.label`
+  @media screen and (min-width: 320px) {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: -32px;
+    right: 0;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: -32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    bottom: 0;
+    right: -70px;
+  }
+`;
+
+export const StyleMdAddAPhoto = styled(MdAddAPhoto)`
+  @media screen and (min-width: 320px) {
+    width: 20px;
+    height: 20px;
+    color: var(--accentColor);
+    margin-right: 5px;
+  }
+`;
+
+export const InputEditPhoto = styled.input`
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+`;
+
+export const BtnSaveFotoUser = styled.button`
+  @media screen and (min-width: 32px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: -33px;
+    right: 100px;
+    cursor: pointer;
+    font-family: var(--manropeFont);
+    font-size: var(--fontSize12);
+    line-height: 1.83;
+    letter-spacing: 0.04em;
+    color: var(--blackColor);
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: -33px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    bottom: -30px;
+    right: -43px;
+  }
+`;
+
+export const SpanEditPhoto = styled.span`
+  @media screen and (min-width: 320px) {
+    font-family: var(--manropeFont);
+    font-size: var(--fontSize12);
+    line-height: 1.83;
+    letter-spacing: 0.04em;
+    color: var(--blackColor);
+  }
 `;
