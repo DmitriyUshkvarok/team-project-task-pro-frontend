@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
+import { MdAddAPhoto } from 'react-icons/md';
+
 export const FormUpdateUser = styled(Form)``;
 
 export const FeedbackFormGroup = styled.div`
@@ -124,10 +126,71 @@ export const EditTitle = styled.h3`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
 
-  margin-bottom: 117px;
+  margin-bottom: 24px;
 `;
 export const BtnClose = styled.button`
   background-color: transparent;
   border: none;
+  cursor: pointer;
+`;
+
+//===for avatar===/
+export const ProfilePhotoBlock = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`;
+export const PhotoUser = styled.img`
+  width: 68px;
+  height: 68px;
+  border-radius: var(--borderRadius8);
+  display: block;
+`;
+
+export const PhotoBox = styled.div`
+  position: relative;
+  margin-bottom: 25px;
+`;
+
+export const SpanErrorImg = styled.span`
+  font-size: 10px;
+  margin-top: 5px;
+  color: red;
+  width: 100%;
+`;
+
+export const LabelEditPhoto = styled.label`
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--accentColor);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius8);
+  cursor: pointer;
+`;
+
+export const InputEditPhoto = styled.input`
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+`;
+
+export const BtnSaveFotoUser = styled.button`
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--accentColor);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius8);
+  border: none;
+  padding: 0px;
   cursor: pointer;
 `;

@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import userDefault from '../../../images/icons/iconsPng/user_default.png';
 import { useState } from 'react';
@@ -8,6 +9,9 @@ import {
   useChangeProfileAvatarMutation,
   useGetCurrentUserQuery,
 } from '../../../redux/profileApi/profileApi';
+
+import { GiSave } from 'react-icons/gi';
+import { LoaderForAvatar } from '../../Loader/LoaderForAvatar/LoaderForAvatar';
 import {
   FormUpdateUser,
   FeedbackFormGroup,
@@ -21,12 +25,19 @@ import {
   Edit,
   EditTitle,
   BtnClose,
+  //===for avatar===/
+  ProfilePhotoBlock,
+  PhotoUser,
+  SpanErrorImg,
+  LabelEditPhoto,
+  InputEditPhoto,
+  BtnSaveFotoUser,
+  PhotoBox,
 } from './EditProfile.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
 import { closeModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
-import { Button } from 'bootstrap';
 
 const initialValues = {
   name: '',
@@ -47,17 +58,24 @@ const schema = yup.object().shape({
 });
 
 const EditProfile = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
-
   const { data: currentUser } = useGetCurrentUserQuery();
+  const [showPassword, setShowPassword] = useState(null);
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [showSaveButton, setShowSaveButton] = useState(false);
+
   const [updateUser] = useUpdateUserMutation();
-  const [updateAvatar] = useChangeProfileAvatarMutation();
+  const [
+    updateAvatar,
+    { isLoading: isAvatarLoading, error: errorFormat, message: mes },
+  ] = useChangeProfileAvatarMutation();
+  console.log(errorFormat);
+  console.log(mes);
   const dispatch = useDispatch();
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
     setSelectedAvatar(file);
+    setShowSaveButton(true);
   };
 
   const handleUpdateAvatar = async () => {
@@ -65,6 +83,7 @@ const EditProfile = () => {
       const formData = new FormData();
       formData.append('avatarImage', selectedAvatar);
       await updateAvatar(formData);
+      setShowSaveButton(false);
     } catch (error) {
       console.log(error);
     }
@@ -112,42 +131,48 @@ const EditProfile = () => {
         </svg>
       </BtnClose>
       <EditTitle>Edit profile</EditTitle>
-      <div>
-        <img
-          src={
-            currentUser && currentUser.avatarURL
-              ? currentUser.avatarURL
-              : userDefault
-          }
-          alt="user avatar"
-          style={{
-            position: 'absolute',
-            top: '75px',
-            right: '166px',
-            width: '86px',
-            height: '86px',
-          }}
-        />
-        <button
-          onClick={handleUpdateAvatar}
-          style={{
-            position: 'absolute',
-            top: '137px',
-            right: '195px',
-            cursor: 'pointer',
-          }}
-        >
-          update
-        </button>
-        <label htmlFor="inputFile"></label>
-        <input
+      <ProfilePhotoBlock>
+        <PhotoBox>
+          <PhotoUser
+            src={
+              selectedAvatar
+                ? URL.createObjectURL(selectedAvatar)
+                : currentUser?.avatarURL || userDefault
+            }
+            alt="user avatar"
+          ></PhotoUser>
+
+          {!showSaveButton && (
+            <LabelEditPhoto htmlFor="inputFile">
+              <svg width="10" height="10">
+                <use xlinkHref={`${url}#icon-plus`} />
+              </svg>
+            </LabelEditPhoto>
+          )}
+          {showSaveButton && (
+            <BtnSaveFotoUser onClick={handleUpdateAvatar}>
+              {isAvatarLoading ? (
+                <LoaderForAvatar />
+              ) : (
+                <>
+                  <GiSave size={20} color="rgba(22, 22, 22)" />
+                </>
+              )}
+            </BtnSaveFotoUser>
+          )}
+        </PhotoBox>
+        {errorFormat && (
+          <SpanErrorImg>The image format must be jpg or png</SpanErrorImg>
+        )}
+
+        <InputEditPhoto
           name="avatarURL"
           type="file"
           accept="image/*"
           id="inputFile"
           onChange={handleAvatarChange}
         />
-      </div>
+      </ProfilePhotoBlock>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
