@@ -8,7 +8,7 @@ import {
   DescEmptyBoard,
   Wrap,
   AccentSpan,
-} from '../../pages/HomePage/HomePage.styled';
+} from './BoardScreen.styled';
 
 const BoardScreen = ({ closeSidebar }) => {
   const { data: boards } = useGetFetchBoardsQuery();

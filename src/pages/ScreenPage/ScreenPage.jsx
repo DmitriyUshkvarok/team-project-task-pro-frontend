@@ -1,9 +1,5 @@
 import { useParams } from 'react-router-dom';
 import {
-  Board,
-  Filter,
-  SidebarBoard,
-  Title,
   BoxColumns,
   BoxColumnsTitle,
   Subject,

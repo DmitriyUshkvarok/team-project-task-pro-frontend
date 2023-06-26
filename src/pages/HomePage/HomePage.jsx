@@ -7,16 +7,7 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
 import BoardScreen from '../../Components/BoardScreen/BoardScreen';
 
-import {
-  ContainerHome,
-  Board,
-  Filter,
-  SidebarBoard,
-  Title,
-  DescEmptyBoard,
-  Wrap,
-  AccentSpan,
-} from './HomePage.styled';
+import { ContainerHome } from './HomePage.styled';
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
