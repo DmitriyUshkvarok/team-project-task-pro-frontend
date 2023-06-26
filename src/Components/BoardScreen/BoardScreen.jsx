@@ -1,7 +1,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
-import { useGetFetchBoardsQuery } from '../../redux/boadrApi/boardApi';
+import { useGetFetchBoardsQuery } from '../../redux/boardApi/boardApi';
 import {
   Board,
   Filter,
