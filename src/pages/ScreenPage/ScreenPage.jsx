@@ -5,11 +5,11 @@ import {
   BoxColumnsTitle,
   Subject,
   Icon,
-  ListCard,
-  Card,
+  // ListCard,
+  // Card,
   Btn,
-  ContainerColumns,
-  BtnAdd,
+  // ContainerColumns,
+  // BtnAdd,
 } from './ScreenPage.styled';
 
 const ScreenPage = () => {
