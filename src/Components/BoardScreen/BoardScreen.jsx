@@ -1,4 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/modal/modalSlice';
 import { useGetFetchBoardsQuery } from '../../redux/boadrApi/boardApi';
 import {
   Board,
@@ -10,10 +12,27 @@ import {
   AccentSpan,
 } from './BoardScreen.styled';
 
-const BoardScreen = ({ closeSidebar }) => {
-  const { data: boards } = useGetFetchBoardsQuery();
+import {
+  ContainerColumns,
+  BtnAdd,
+} from '../../pages/ScreenPage/ScreenPage.styled';
 
-  const { title } = useParams();
+const BoardScreen = ({ closeSidebar }) => {
+  const dispatch = useDispatch();
+  const { data: boards } = useGetFetchBoardsQuery();
+  const { title, boardId } = useParams();
+
+  const handleClickModal = () => {
+    dispatch(
+      openModal({
+        name: 'column',
+        // boardId,
+        // modalTitle: 'Create',
+        // buttonName: 'Create',
+      })
+    );
+  };
+
   return (
     <Board style={{ height: '100vh' }} onClick={closeSidebar}>
       <SidebarBoard>
@@ -31,8 +50,12 @@ const BoardScreen = ({ closeSidebar }) => {
           </DescEmptyBoard>
         </Wrap>
       )}
-
-      <Outlet />
+      <ContainerColumns>
+        <Outlet />
+        {boards?.length !== 0 && (
+          <BtnAdd onClick={handleClickModal}>Add Columns</BtnAdd>
+        )}
+      </ContainerColumns>
     </Board>
   );
 };
