@@ -2,7 +2,7 @@ const getIsLoggedIn = (state) => state.auth.isLoggedIn;
 
 const getIsRefreshing = (state) => state.auth.isRefreshing;
 
-const getName = (state) => state.auth.user.name;
+const getName = (state) => state.auth?.user?.name;
 
 const getEmail = (state) => state.auth.user.email;
 
@@ -12,7 +12,7 @@ const getid = (state) => state.auth.user.id;
 
 const getTheme = (state) => state.auth?.user?.theme;
 
-const getAvatar = (state) => state.auth.user.avatarURL;
+const getAvatar = (state) => state.auth?.user?.avatarURL;
 
 const authSelector = {
   getIsLoggedIn,

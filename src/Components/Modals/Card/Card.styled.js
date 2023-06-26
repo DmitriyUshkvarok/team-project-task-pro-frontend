@@ -10,6 +10,7 @@ export const AddCardModal = styled.div`
   font-family: var(--poppinsFont);
   color: var(--whiteColor);
   margin-top: 20px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     width: 350px;

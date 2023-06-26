@@ -18,7 +18,7 @@ import authOperation from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const initialValues = {
   email: '',
@@ -34,12 +34,16 @@ const schema = yup.object().shape({
       return emailRegex.test(value);
     })
     .required(),
-  password: yup.string().min(10).max(20).required(),
+  password: yup
+    .string()
+    .min(8)
+    .max(64)
+    .matches(/^[^\s]+$/, 'Password should not contain spaces')
+    .required(),
 });
 
 function LogInForm() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,7 +51,6 @@ function LogInForm() {
     setIsLoading(true);
     try {
       await dispatch(authOperation.logIn(values));
-      navigate('/home');
       resetForm();
     } catch (error) {
       console.log(error);

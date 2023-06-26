@@ -4,7 +4,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
 
-  width: 302px;
+  width: 287px;
   height: 49px;
 
   padding: 10px 0px 11px 0px;
@@ -21,6 +21,10 @@ export const Button = styled.button`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    width: 302px;
+  }
 `;
 
 export const ContainerIcon = styled.span`

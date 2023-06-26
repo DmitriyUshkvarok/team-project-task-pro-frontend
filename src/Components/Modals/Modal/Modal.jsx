@@ -11,10 +11,10 @@ import EditProfile from '../../Modals/EditProfile/EditProfile.jsx';
 import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
 import ModalAddCard from '../AddCard/AddCard.jsx';
 import TaskCard from '../../TaskCard/TaskCard.jsx';
-
+import ModalBoard from '../ModalBoard/ModalBoard';
+import Column from '../Column/Column.jsx';
 
 const Modal = () => {
-  
   const { componentName } = useSelector((store) => store.modal);
 
   const componentsLoopUp = {
@@ -22,6 +22,8 @@ const Modal = () => {
     needhelpmodal: NeedHelpModal,
     modaladdcard: ModalAddCard,
     taskcard: TaskCard,
+    modalBoard: ModalBoard,
+    column: Column,
   };
   let renderComponent;
 

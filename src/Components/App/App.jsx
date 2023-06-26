@@ -11,6 +11,8 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 import Modal from '../Modals/Modal/Modal';
 
+import ScreenPage from '../../pages/ScreenPage/ScreenPage';
+
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
@@ -43,7 +45,9 @@ function App() {
                     component={<HomePage />}
                   />
                 }
-              />
+              >
+                <Route path=":boardId/:title" element={<ScreenPage />} />
+              </Route>
               <Route
                 path="/welcome"
                 element={
@@ -56,7 +60,7 @@ function App() {
                   <RestictedRoute redirectTo="/" component={<AuthPage />} />
                 }
               />
-              <Route path="*" element={<HomePage />} />
+              <Route path="*" element={<WelcomePage />} />
             </Routes>
           </Container>
         </Suspense>

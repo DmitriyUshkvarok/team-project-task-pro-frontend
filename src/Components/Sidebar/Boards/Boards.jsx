@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
+
 import url from '../../../images/icons/sprite/icons.svg';
+import icons from '../../icons.json';
 import {
   ListBoard,
   ItemBoard,
   WrapTitle,
-  IconProject,
   TitleBoard,
   WrapIcons,
   BtnIcon,
@@ -14,46 +18,51 @@ import {
 const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleItemClick = (index) => {
+  const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
+
+  const findIconsUser = (iconId) => {
+    const findIcon = icons.find((icon) => icon.id === iconId);
+    if (findIcon) {
+      return `${url}${findIcon.path}`;
+    }
+  };
+
+  const handleItemClick = async (index, boardId) => {
     setSelectedItem((prevSelectedItem) =>
       prevSelectedItem === index ? null : index
     );
   };
-  const boards = [
-    'Board 1',
-    'Board 2',
-    'Board 1',
-    'Board 2',
-    'Board 1',
-    'Board 2',
-  ];
+
   return (
     <ListBoard>
-      {boards.map((board, index) => (
-        <ItemBoard
-          key={index}
-          isSelected={selectedItem === index}
-          onClick={() => handleItemClick(index)}
-        >
-          <WrapTitle>
-            <IconProject />
-            <TitleBoard>{board}</TitleBoard>
-          </WrapTitle>
-
-          <WrapIcons isSelected={selectedItem === index}>
-            <BtnIcon type="buttom">
-              <IconStyled width="16" height="16">
-                <use xlinkHref={`${url}#icon-pencil-01`} />
+      {boards?.map(({ _id, title, iconId }, index) => (
+        <Link to={`/${_id}/${title}`} key={_id}>
+          <ItemBoard
+            isSelected={selectedItem === index}
+            onClick={() => handleItemClick(index, _id)}
+          >
+            <WrapTitle>
+              <IconStyled width="18" height="18">
+                <use xlinkHref={findIconsUser(iconId)} />
               </IconStyled>
-            </BtnIcon>
+              <TitleBoard>{title}</TitleBoard>
+            </WrapTitle>
 
-            <BtnIcon type="buttom">
-              <IconStyled width="16" height="16">
-                <use xlinkHref={`${url}#icon-trash-04`} />
-              </IconStyled>
-            </BtnIcon>
-          </WrapIcons>
-        </ItemBoard>
+            <WrapIcons isSelected={selectedItem === index}>
+              <BtnIcon type="buttom">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-pencil-01`} />
+                </IconStyled>
+              </BtnIcon>
+
+              <BtnIcon type="buttom">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-trash-04`} />
+                </IconStyled>
+              </BtnIcon>
+            </WrapIcons>
+          </ItemBoard>
+        </Link>
       ))}
     </ListBoard>
   );

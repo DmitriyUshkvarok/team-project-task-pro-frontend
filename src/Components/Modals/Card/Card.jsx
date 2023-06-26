@@ -27,17 +27,12 @@ import {
   BtnName,
 } from './AddCard.styled';
 
-import { closeModal } from '../../../redux/modal/modalSlice';
-import { useDispatch } from 'react-redux';
-
 const ModalAddCard = ({ boardId, columnId }) => {
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [createTask] = useCreateTaskMutation();
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setFormattedDate(formattedDateForBtn(date));
@@ -81,7 +76,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
 
   return (
     <AddCardModal>
-      <button onClick={() => dispatch(closeModal())}>close</button>
+      {/* <button>close</button> */}
       <Title>Add card</Title>
       <Formik
         initialValues={initialValues}

@@ -22,7 +22,15 @@ export const tasksApi = createApi({
       }),
       invalidatesTags: ['Profile'],
     }),
+    updateTask: build.mutation({
+      query: (formData, id) => ({
+        url: `/tasks/${id}`,
+        method: 'PATCH',
+        body: formData,
+      }),
+      invalidatesTags: ['Profile'],
+    }),
   }),
 });
 
-export const { useCreateTaskMutation } = tasksApi;
+export const { useCreateTaskMutation, useUpdateTaskMutation } = tasksApi;
