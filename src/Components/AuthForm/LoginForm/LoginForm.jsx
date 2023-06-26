@@ -17,7 +17,6 @@ import { useDispatch } from 'react-redux';
 import authOperation from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
-
 import { NavLink } from 'react-router-dom';
 
 const initialValues = {
