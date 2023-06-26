@@ -25,7 +25,7 @@ export const ItemBoard = styled.li`
     border-radius: 4px 0px 0px 4px;
     display: ${({ isSelected }) => (isSelected ? 'block' : 'none')};
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     padding-left: 24px;
   }
 `;
