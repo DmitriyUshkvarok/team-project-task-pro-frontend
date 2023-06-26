@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 import { ErrorMessage, Field } from 'formik';
 
-export const AddCardModal = styled.div`
-  width: 335px;
-  height: 522px;
-  background-color: var(--whiteColor);
-  border-radius: var(--borderRadius8);
-  padding: 24px;
+
+// import styled, { css } from 'styled-components';
+// import { ErrorMessage, Formik, Form, Field } from 'formik';
+
+
+// export const AddCardModal = styled.div`
+//   width: 335px;
+//   height: 522px;
+//   background-color: var(--blackColor);
+//   border-radius: var(--borderRadius8);
+//   padding: 24px;
+
 
 //   font-family: var(--poppinsFont);
 
