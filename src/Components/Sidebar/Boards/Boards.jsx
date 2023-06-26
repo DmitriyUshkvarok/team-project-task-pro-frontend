@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Link, redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { useGetFetchBoardsQuery } from '../../../redux/boadrApi/boardApi';
+
 import url from '../../../images/icons/sprite/icons.svg';
+import icons from '../../icons.json';
 import {
   ListBoard,
   ItemBoard,
   WrapTitle,
-  IconProject,
   TitleBoard,
   WrapIcons,
   BtnIcon,
@@ -17,7 +18,14 @@ import {
 const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const { data: boards, isLoading } = useGetFetchBoardsQuery();
+  const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
+
+  const findIconsUser = (iconId) => {
+    const findIcon = icons.find((icon) => icon.id === iconId);
+    if (findIcon) {
+      return `${url}${findIcon.path}`;
+    }
+  };
 
   const handleItemClick = (index) => {
     setSelectedItem((prevSelectedItem) =>
@@ -27,14 +35,16 @@ const Boards = () => {
 
   return (
     <ListBoard>
-      {boards?.map(({ _id, title }, index) => (
+      {boards?.map(({ _id, title, iconId }, index) => (
         <Link to={`/${_id}/${title}`} key={_id}>
           <ItemBoard
             isSelected={selectedItem === index}
             onClick={() => handleItemClick(index)}
           >
             <WrapTitle>
-              <IconProject />
+              <IconStyled width="18" height="18">
+                <use xlinkHref={findIconsUser(iconId)} />
+              </IconStyled>
               <TitleBoard>{title}</TitleBoard>
             </WrapTitle>
 
