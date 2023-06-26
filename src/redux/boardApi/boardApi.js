@@ -12,6 +12,7 @@ export const boardsApi = createApi({
       return headers;
     },
   }),
+
   tagTypes: ['Boards', 'Columns'],
   endpoints: (builder) => ({
     getFetchBoards: builder.query({
@@ -47,3 +48,4 @@ export const {
   useCreateBoardMutation,
   useCreateColumnMutation,
 } = boardsApi;
+

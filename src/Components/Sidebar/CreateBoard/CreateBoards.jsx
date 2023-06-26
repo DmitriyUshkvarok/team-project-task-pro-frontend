@@ -25,6 +25,7 @@ const CreateBoards = () => {
         <Title>Create a new board</Title>
 
         <BtnCreateBoard onClick={handleOpenModal} type="buttom">
+
           <IconStyled width="20" height="20">
             <use xlinkHref={`${url}#icon-plus`} />
           </IconStyled>
