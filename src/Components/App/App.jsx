@@ -14,8 +14,6 @@ import ScreenPage from '../../pages/ScreenPage/ScreenPage';
 
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
-import Filters from '../Modals/Filters/Filters';
-
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -36,7 +34,6 @@ function App() {
         <p>Loading...</p>
       ) : (
         <Suspense fallback={<p>Loading...</p>}>
-          <Filters />
           <Container>
             <Routes>
               <Route
