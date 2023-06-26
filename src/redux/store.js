@@ -19,9 +19,9 @@ import modalReducer from './modal/modalSlice';
 
 const store = configureStore({
   reducer: {
-    modal: modalReducer,
     auth: persisteAuthReducer,
     theme: themeReducer,
+    modal: modalReducer,
     [profileApi.reducerPath]: profileApi.reducer,
     [tasksApi.reducerPath]: tasksApi.reducer,
     [helpApi.reducerPath]: helpApi.reducer,

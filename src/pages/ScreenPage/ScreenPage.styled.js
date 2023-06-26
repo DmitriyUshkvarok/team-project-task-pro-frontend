@@ -53,7 +53,7 @@ export const ContainerColumns = styled.ul`
     padding-left: 32px;
     padding-right: 32px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     width: 1180px;
     padding-left: 24px;
     padding-right: 24px;
@@ -79,7 +79,7 @@ export const ContainerColumns = styled.ul`
       margin-left: 32px;
       margin-right: 32px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1440px) {
       margin-left: 24px;
       margin-right: 24px;
     }
@@ -130,7 +130,7 @@ export const ListCard = styled.ul`
   @media screen and (min-width: 768px) {
     height: 640px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     height: 478px;
   }
   ::-webkit-scrollbar {
@@ -155,7 +155,7 @@ export const ListCard = styled.ul`
     @media screen and (min-width: 768px) {
       height: 640px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1440px) {
       height: 478px;
     }
   }
