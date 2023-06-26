@@ -36,7 +36,7 @@ import {
   BtnName,
 } from './Card.styled';
 
-const ModalCard = ({ boardId, columnId, name }) => {
+const ModalCard = ({ boardId, columnId, name, id }) => {
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
@@ -76,7 +76,7 @@ const ModalCard = ({ boardId, columnId, name }) => {
     setSelect(value);
   };
 
-  const handleSubmit = async (values, boardId, columnId) => {
+  const handleSubmit = async (values, boardId, columnId, id) => {
     alert(JSON.stringify(values, null, 2));
     try {
       if ((name = 'Add')) {
