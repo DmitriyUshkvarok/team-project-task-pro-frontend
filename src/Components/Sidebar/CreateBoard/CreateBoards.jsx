@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../../redux/modal/modalSlice';
-import ModalBoard from '../../Modals/ModalBoard/ModalBoard';
+
 import {
   Container,
   Desc,

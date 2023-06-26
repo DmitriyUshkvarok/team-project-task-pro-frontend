@@ -20,8 +20,6 @@ const Boards = () => {
 
   const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
 
-  console.log(boards);
-
   const findIconsUser = (iconId) => {
     const findIcon = icons.find((icon) => icon.id === iconId);
     if (findIcon) {
@@ -29,7 +27,7 @@ const Boards = () => {
     }
   };
 
-  const handleItemClick = (index) => {
+  const handleItemClick = async (index, boardId) => {
     setSelectedItem((prevSelectedItem) =>
       prevSelectedItem === index ? null : index
     );
@@ -41,7 +39,7 @@ const Boards = () => {
         <Link to={`/${_id}/${title}`} key={_id}>
           <ItemBoard
             isSelected={selectedItem === index}
-            onClick={() => handleItemClick(index)}
+            onClick={() => handleItemClick(index, _id)}
           >
             <WrapTitle>
               <IconStyled width="18" height="18">
