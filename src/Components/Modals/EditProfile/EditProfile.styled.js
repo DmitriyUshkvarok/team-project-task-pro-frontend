@@ -152,37 +152,18 @@ export const ProfilePhotoBlock = styled.div`
   }
 `;
 export const PhotoUser = styled.img`
-  @media screen and (min-width: 320px) {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center center;
-  }
+  position: absolute;
+  top: 75px;
+  right: 166px;
+  width: 86px;
+  height: 86px;
 `;
 
 export const SpanErrorImg = styled.span`
-  @media screen and (min-width: 320px) {
-    display: flex;
-    position: absolute;
-    bottom: -10px;
-    left: 20%;
-    font-size: 8px;
-    color: var(--errorColor);
-    width: 100%;
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: -12px;
-    left: 15%;
-    font-size: 10px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    bottom: -15px;
-    left: 10%;
-    font-size: 12px;
-  }
+  font-size: 10px;
+  margin-top: 5px;
+  color: red;
+  width: 100%;
 `;
 
 export const LabelEditPhoto = styled.label`

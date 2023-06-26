@@ -61,7 +61,12 @@ const EditProfile = () => {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
 
   const [updateUser] = useUpdateUserMutation();
-  const [updateAvatar] = useChangeProfileAvatarMutation();
+  const [
+    updateAvatar,
+    { isLoading: isAvatarLoading, error: errorFormat, message: mes },
+  ] = useChangeProfileAvatarMutation();
+  console.log(errorFormat);
+  console.log(mes);
   const dispatch = useDispatch();
 
   const handleAvatarChange = (event) => {
@@ -122,21 +127,17 @@ const EditProfile = () => {
       </BtnClose>
       <EditTitle>Edit profile</EditTitle>
       <div>
-        <img
+        <PhotoUser
           src={
             selectedAvatar
               ? URL.createObjectURL(selectedAvatar)
               : currentUser?.avatarURL || userDefault
           }
           alt="user avatar"
-          style={{
-            position: 'absolute',
-            top: '75px',
-            right: '166px',
-            width: '86px',
-            height: '86px',
-          }}
         />
+        {errorFormat && (
+          <SpanErrorImg>The image format must be jpg or png</SpanErrorImg>
+        )}
         <button
           onClick={handleUpdateAvatar}
           style={{
