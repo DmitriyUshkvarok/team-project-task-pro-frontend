@@ -1,24 +1,5 @@
 import styled from 'styled-components';
 
-export const Board = styled.div`
-  @media screen and (min-width: 320px) {
-    background-color: var(--helpColor);
-    width: 320px;
-    padding-bottom: 24px;
-  }
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-bottom: 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 1180px;
-    padding-bottom: 8px;
-  }
-`;
-
 //
 export const BtnAdd = styled.button`
   display: flex;
@@ -38,27 +19,6 @@ export const BtnAdd = styled.button`
 `;
 
 // Sidebar
-export const Sidebar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 24px;
-`;
-
-export const Title = styled.h2`
-  color: #fff;
-  font-size: var(--fontSize18);
-  font-family: var(--poppinsFont);
-  font-weight: var(--fontWeight500);
-  letter-spacing: -0.36px;
-`;
-export const Filter = styled.p`
-  color: var(--borderTopColor);
-  font-size: var(--fontSize14);
-  font-family: var(--poppinsFont);
-  font-weight: var(--fontWeight500);
-  letter-spacing: -0.28px;
-`;
 
 //-----Sidebar
 export const ContainerColumns = styled.ul`

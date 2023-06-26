@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+
 import { useSelector } from 'react-redux';
+
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
+import BoardScreen from '../../Components/BoardScreen/BoardScreen';
 
-// import { BoardPage } from '../BoardPage/BoardPage';
 import { ContainerHome } from './HomePage.styled';
 
 const HomePage = () => {
@@ -34,10 +35,7 @@ const HomePage = () => {
       <Sidebar isSidebarOpen={isSidebarOpen} />
       <div>
         <Header openSideBar={toggleSidebar} />
-        <div onClick={closeSidebar}>
-          <Outlet />
-          {/* <BoardPage closeSidebar={closeSidebar} /> */}
-        </div>
+        <BoardScreen closeSidebar={closeSidebar} />
       </div>
     </ContainerHome>
   );

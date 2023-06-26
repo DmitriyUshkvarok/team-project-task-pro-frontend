@@ -25,7 +25,6 @@ const ModalFormTitle = ({ children, buttonName }) => {
             <FieldTitle
               type="text"
               name="title"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="You need to enter the name of the column"
               required
               placeholder="Title"

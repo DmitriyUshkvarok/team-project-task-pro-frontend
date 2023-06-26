@@ -33,6 +33,7 @@ export const ItemBoard = styled.li`
 export const WrapTitle = styled.div`
   display: flex;
   gap: 6px;
+  align-items: center;
 `;
 
 export const IconProject = styled.span`
