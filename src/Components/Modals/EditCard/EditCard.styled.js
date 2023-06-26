@@ -8,6 +8,7 @@ export const AddCardModal = styled.div`
   border-radius: var(--borderRadius8);
   padding: 24px;
 
+
 //   font-family: var(--poppinsFont);
 
 //   color: var(--whiteColor);
