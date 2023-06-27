@@ -3,13 +3,15 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 
-const Calendar = (date, onChange) => {
+const Calendar = ({ prop, click }) => {
+  console.log(prop);
+  console.log(click);
   return (
     <DatePicker
-      selected={date}
+      selected={prop}
       minDate={new Date()}
       calendarStartDay={1}
-      onChange={onChange}
+      onChange={(selectedDate) => click(selectedDate)}
     />
   );
 };

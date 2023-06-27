@@ -89,6 +89,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
   };
 
   // const hendleSubmitCalendar = (selectedDate) => {
+  //   console.log(selectedDate);
   //   setFieldValue('deadline', selectedDate);
   //   setDate(selectedDate);
   // };
@@ -155,7 +156,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
-              {/* <Calendar prop={date} onChange={() => hendleSubmitCalendar()} /> */}
+              {/* <Calendar prop={date} click={hendleSubmitCalendar} /> */}
               <DatePicker
                 selected={date}
                 minDate={new Date()}
