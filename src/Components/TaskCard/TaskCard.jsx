@@ -47,6 +47,27 @@ const TaskCard = ({ data, id }) => {
     return color;
   }
 
+  switch (priority) {
+    case 'Medium':
+      color = '#e09cb5';
+      break;
+
+    case 'Without':
+      color = '#1616164d';
+      break;
+
+    case 'High':
+      color = '#BEDBB0';
+      break;
+
+    case 'Low':
+      color = '##8FA1D0';
+      break;
+
+    default:
+      console.log('Invalid subscription type');
+  }
+
   return (
     <CardBg>
       {data.tasks

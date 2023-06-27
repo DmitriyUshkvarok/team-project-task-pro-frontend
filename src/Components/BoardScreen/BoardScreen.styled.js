@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Board = styled.div`
   background-color: var(--headerPageColor);
   padding-bottom: 24px;
+  height: calc(100vh - 60px);
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -10,11 +11,12 @@ export const Board = styled.div`
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-bottom: 32px;
+    height: calc(100vh - 68px);
   }
   @media screen and (min-width: 1440px) {
     width: 1180px;
     padding-bottom: 8px;
-    height: 702px;
+    /* height: 702px; */
   }
 `;
 

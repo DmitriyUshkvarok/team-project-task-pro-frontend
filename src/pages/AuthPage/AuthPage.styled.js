@@ -10,4 +10,5 @@ export const FormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 `;

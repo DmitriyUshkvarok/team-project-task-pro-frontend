@@ -24,11 +24,11 @@ const register = createAsyncThunk('auth/register', async (credentials) => {
   }
 });
 
-const logIn = createAsyncThunk('auth/login', async (credentials) => {
+const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     setAuth(data.token);
-
+    await thunkAPI.dispatch(refreshCurrentUser());
     return data;
   } catch (error) {
     handleAuthError(error);
