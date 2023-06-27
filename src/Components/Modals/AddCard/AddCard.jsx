@@ -9,7 +9,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 
-// import Calendar from '../Calendar/Calendar.jsx';
+import Calendar from '../Calendar/Calendar.jsx';
 
 //===for fetch===/
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
@@ -81,6 +81,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
   const handleSubmit = async (values, boardId, columnId, id) => {
     alert(JSON.stringify(values, null, 2));
     try {
+      console.log(values);
       await createTask(values, boardId, columnId);
       dispatch(closeModal());
     } catch (error) {
@@ -88,11 +89,10 @@ const ModalAddCard = ({ boardId, columnId }) => {
     }
   };
 
-  // const hendleSubmitCalendar = (selectedDate) => {
-  //   console.log(selectedDate);
-  //   setFieldValue('deadline', selectedDate);
-  //   setDate(selectedDate);
-  // };
+  const hendleSubmitCalendar = (selectedDate) => {
+    // setFieldValue('deadline', selectedDate);
+    setDate(selectedDate);
+  };
 
   return (
     <AddCardModal>
@@ -156,8 +156,14 @@ const ModalAddCard = ({ boardId, columnId }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
-              {/* <Calendar prop={date} click={hendleSubmitCalendar} /> */}
-              <DatePicker
+
+              <Calendar
+                prop={date}
+                click={hendleSubmitCalendar}
+                setFieldValue={setFieldValue}
+              />
+
+              {/* <DatePicker
                 selected={date}
                 minDate={new Date()}
                 calendarStartDay={1}
@@ -165,7 +171,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
                   setFieldValue('deadline', selectedDate);
                   setDate(selectedDate);
                 }}
-              />
+              /> */}
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
             <ButtonModal buttonName={'Add'} />
