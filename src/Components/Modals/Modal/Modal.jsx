@@ -12,6 +12,7 @@ import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
 import ModalCreateNewBoard from '../ModalCreateNewBoard/ModalCreateNewBoard.jsx';
 
 import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
+import AddCard from '../AddCard/AddCard.jsx';
 
 const Modal = () => {
   const { componentName } = useSelector((store) => store.modal);
@@ -21,6 +22,7 @@ const Modal = () => {
     needhelpmodal: NeedHelpModal,
     craeteModalBoard: ModalCreateNewBoard,
     addColumn: ModalAddColumn,
+    modalAddCard: AddCard,
   };
   let renderComponent;
 
