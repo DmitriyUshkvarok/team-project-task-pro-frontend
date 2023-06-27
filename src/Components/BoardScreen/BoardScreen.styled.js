@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
 export const Board = styled.div`
-  @media screen and (min-width: 320px) {
-    background-color: var(--headerPageColor);
-    width: 320px;
-    padding-bottom: 24px;
-  }
+  background-color: var(--headerPageColor);
+  padding-bottom: 24px;
+
   @media screen and (min-width: 375px) {
     width: 375px;
   }

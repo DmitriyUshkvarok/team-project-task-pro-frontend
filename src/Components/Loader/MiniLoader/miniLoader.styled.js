@@ -29,7 +29,7 @@ export const Ball = styled.div`
   border-radius: 50%;
   position: absolute;
   left: 15%;
-  animation: ball 0.5s alternate infinite ease;
+  animation: ball 0.3s alternate infinite ease;
   @keyframes ball {
     0% {
       top: 72px;
