@@ -17,6 +17,7 @@ import {
   CardIcon,
 } from './TaskCard.styled';
 import url from '../../images/icons/sprite/icons.svg';
+import PropTypes from 'prop-types';
 
 const TaskCard = ({ data, id }) => {
   console.log(data);
@@ -45,27 +46,6 @@ const TaskCard = ({ data, id }) => {
     }
 
     return color;
-  }
-
-  switch (priority) {
-    case 'Medium':
-      color = '#e09cb5';
-      break;
-
-    case 'Without':
-      color = '#1616164d';
-      break;
-
-    case 'High':
-      color = '#BEDBB0';
-      break;
-
-    case 'Low':
-      color = '##8FA1D0';
-      break;
-
-    default:
-      console.log('Invalid subscription type');
   }
 
   return (
@@ -138,3 +118,10 @@ const TaskCard = ({ data, id }) => {
 };
 
 export default TaskCard;
+
+TaskCard.propTypes = {
+  data: PropTypes.shape({
+    tasks: PropTypes.arrayOf(PropTypes.object),
+  }),
+  id: PropTypes.string,
+};
