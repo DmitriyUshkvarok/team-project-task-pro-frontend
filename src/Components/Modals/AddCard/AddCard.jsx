@@ -9,6 +9,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 
+// import Calendar from '../Calendar/Calendar.jsx';
+
 //===for fetch===/
 import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
 
@@ -86,6 +88,11 @@ const ModalAddCard = ({ boardId, columnId }) => {
     }
   };
 
+  // const hendleSubmitCalendar = (selectedDate) => {
+  //   setFieldValue('deadline', selectedDate);
+  //   setDate(selectedDate);
+  // };
+
   return (
     <AddCardModal>
       <CloseButton onClick={() => dispatch(closeModal())} />
@@ -121,7 +128,7 @@ const ModalAddCard = ({ boardId, columnId }) => {
               <LabelContainer role="group" aria-labelledby="my-radio-group">
                 {priorityValue.map((value) => {
                   return (
-                    <label htmlFor={value}>
+                    <label htmlFor={value} key={value}>
                       <input
                         value={value}
                         type="radio"
@@ -148,12 +155,12 @@ const ModalAddCard = ({ boardId, columnId }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
+              {/* <Calendar prop={date} onChange={() => hendleSubmitCalendar()} /> */}
               <DatePicker
                 selected={date}
                 minDate={new Date()}
                 calendarStartDay={1}
                 onChange={(selectedDate) => {
-                  console.log(selectedDate);
                   setFieldValue('deadline', selectedDate);
                   setDate(selectedDate);
                 }}

@@ -121,7 +121,7 @@ const ModalEditCard = ({ title, description, priority, id }) => {
               <LabelContainer role="group" aria-labelledby="my-radio-group">
                 {priorityValue.map((value) => {
                   return (
-                    <label htmlFor={value}>
+                    <label htmlFor={value} key={value}>
                       <input
                         value={value}
                         type="radio"
@@ -153,7 +153,6 @@ const ModalEditCard = ({ title, description, priority, id }) => {
                 minDate={new Date()}
                 calendarStartDay={1}
                 onChange={(selectedDate) => {
-                  console.log(selectedDate);
                   setFieldValue('deadline', selectedDate);
                   setDate(selectedDate);
                 }}
