@@ -77,14 +77,14 @@ body[data-theme="light"] {
   --customerSupportBgColor: #f6f6f7;
   --iconLogOutColor: #bedbb0;
 
-      /**Need Help*/
-      --needHelpBgColor: #FCFCFC;
-      --titleNeedHelpColor: #161616;
-      --iconCloseColor: #161616;
-      --borderNeedHelpColor: #BEDBB0;
-      --textInputColor: #161616;
-      --btnNeedHelpColor: #BEDBB0;
-      --btnTextNeedHelpColor: #161616;
+  /**Need Help*/
+  --needHelpBgColor: #FCFCFC;
+  --titleNeedHelpColor: #161616;
+  --iconCloseColor: #161616;
+  --borderNeedHelpColor: #BEDBB0;
+  --textInputColor: #161616;
+  --btnNeedHelpColor: #BEDBB0;
+  --btnTextNeedHelpColor: #161616;
 
 
   /**after del*/
@@ -147,7 +147,7 @@ body[data-theme="dark"] {
   --customerSupportBgColor: #1f1f1f;
   --iconLogOutColor: #bedbb0;
 
-    /**Need Help*/
+  /**Need Help*/
   --needHelpBgColor: #151515;
   --titleNeedHelpColor: #FFFFFF;
   --iconCloseColor: #FFFFFF;
