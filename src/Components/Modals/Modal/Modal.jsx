@@ -10,7 +10,7 @@ import { closeModal } from '../../../redux/modal/modalSlice.js';
 import EditProfile from '../../Modals/EditProfile/EditProfile.jsx';
 import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
 import ModalCreateNewBoard from '../ModalCreateNewBoard/ModalCreateNewBoard.jsx';
-
+import ModalEditBoard from '../ModalEditBoard/ModalEditBoard';
 import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
 import ModalEditColumn from '../ModalEditColumn/ModalEditColumn.jsx';
 import AddCard from '../AddCard/AddCard.jsx';
@@ -25,6 +25,7 @@ const Modal = () => {
     addColumn: ModalAddColumn,
     modalAddCard: AddCard,
     editColumn: ModalEditColumn,
+    editBoard: ModalEditBoard,
   };
   let renderComponent;
 

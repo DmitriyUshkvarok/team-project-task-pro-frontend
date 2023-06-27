@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
   useDeleteBoardMutation,
@@ -20,6 +21,7 @@ import {
 const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(0);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
   const [deleteBoard] = useDeleteBoardMutation();
@@ -34,6 +36,17 @@ const Boards = () => {
   const handleItemClick = async (index, boardId) => {
     setSelectedItem((prevSelectedItem) =>
       prevSelectedItem === index ? null : index
+    );
+  };
+
+  const handleEditBoard = (id, title, iconId) => {
+    dispatch(
+      openModal({
+        name: 'editBoard',
+        id,
+        title,
+        iconId,
+      })
     );
   };
 
@@ -66,7 +79,10 @@ const Boards = () => {
             </WrapTitle>
 
             <WrapIcons isSelected={selectedItem === index}>
-              <BtnIcon type="button">
+              <BtnIcon
+                onClick={() => handleEditBoard(_id, title, iconId)}
+                type="button"
+              >
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-pencil-01`} />
                 </IconStyled>
