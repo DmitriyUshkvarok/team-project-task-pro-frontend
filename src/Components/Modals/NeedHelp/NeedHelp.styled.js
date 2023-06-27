@@ -5,11 +5,11 @@ export const NeedHelpContainer = styled.div`
   position: relative;
   width: 335px;
   height: 355px;
-  background-color: var(--whiteColor);
+  background-color: var(--needHelpBgColor);
   border-radius: var(--borderRadius8);
   padding: 24px;
   font-family: var(--poppinsFont);
-  color: var(--whiteColor);
+  // color: red;
   margin: 0 auto;
   margin-top: 50px;
 
@@ -20,11 +20,11 @@ export const NeedHelpContainer = styled.div`
 
 export const Title = styled.h2`
   font-size: var(--fontSize18);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
   margin-bottom: 24px;
-  color: var(--titleColor);
+  color: var(--titleNeedHelpColor);
   text-align: left;
 `;
 
@@ -34,8 +34,8 @@ export const InputEmail = styled(Field)`
   padding: 14px 18px;
   background-color: inherit;
   border-radius: var(--borderRadius8);
-  border: 1px solid #bedbb0;
-  color: #fff;
+  border: 1px solid var(--borderNeedHelpColor);
+  color: var(--textInputColor);
   line-height: 18px;
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
@@ -52,8 +52,8 @@ export const InputComment = styled(Field)`
   padding: 14px 18px;
   background-color: inherit;
   border-radius: var(--borderRadius8);
-  border: 1px solid #bedbb0;
-  color: #fff;
+  border: 1px solid var(--borderNeedHelpColor);
+  color: var(--textInputColor);
   line-height: 18px;
 
   font-family: var(--poppinsFont);
@@ -73,7 +73,8 @@ export const Button = styled.button`
   width: 287px;
   height: 49px;
   border-radius: var(--borderRadius8);
-  background-color: #bedbb0;
+  background-color: var(--btnNeedHelpColor);
+  color: var(--btnTextNeedHelpColor);
   border: 0px;
   font-size: var(--fontSize14);
   font-weight: var(--fontWeight500);
@@ -96,7 +97,7 @@ export const StyleErrorMessage = styled(ErrorMessage)``;
 export const Error = styled.p`
   position: absolute;
   width: 100%;
-  color: red;
+  color: var(--errorColor);
   font-size: 10px;
   bottom: -11px;
 `;
