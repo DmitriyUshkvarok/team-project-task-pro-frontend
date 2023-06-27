@@ -1,189 +1,170 @@
-// import React, { useState } from 'react';
-// import * as yup from 'yup';
-// import TextField from '@mui/material/TextField';
-// import { Formik, Form } from 'formik';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// import dayjs from 'dayjs';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
+import * as yup from 'yup';
 
-// import {
-//   AddCardModal,
-//   Title,
-//   InputTitle,
-//   InputDescription,
-//   StyledLabelColor,
-//   StyledLabelDeadline,
-//   RadioBtn,
-//   Button,
-//   StyleErrorMessage,
-//   Item,
-//   RadioButton,
-//   RadioButtonLabel,
-// } from './EditCard.styled';
+//===for calendar===/
+import { formattedDateForBtn } from '../../../services/formatingDate.js';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css';
 
-// const ModalEditCard = ({ titel, description, labelColor, deadline }) => {
-//   const [select, setSelect] = useState(labelColor);
+//===for fetch===/
+import { useUpdateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
 
-//   const today = new Date();
+//===components===/
+import CloseButton from '../CloseButton/CloseButton.jsx';
+import ButtonModal from '../ButtonModal/ButtonModal.jsx';
+import { closeModal } from '../../../redux/modal/modalSlice';
 
-//   const initialValues = {
-//     title: '123',
-//     description: 'fsdfsdfsdfsdfd',
-//     labelColor: select,
-//     deadline: deadline,
-//   };
+//===styles===/
+import {
+  EditCardModal,
+  Title,
+  InputTitle,
+  InputDescription,
+  StyledPriority,
+  StyledLabelDeadline,
+  StyleErrorMessage,
+  Span,
+  LabelContainer,
+  ButtonDate,
+  CalendarContainer,
+  LabelDiv,
+  ChevronDown,
+  BtnName,
+} from './EditCard.styled.js';
 
-//   const schema = yup.object({
-//     title: yup.string().required('Title is required').max(30),
-//     description: yup.string().required('Description is required'),
-//     labelColor: yup.string().required('Label color is required'),
-//     deadline: yup.date().required('Deadline is required'),
-//   });
+const ModalEditCard = ({ title, description, priority, id }) => {
+  const [date, setDate] = useState(new Date());
+  const [select, setSelect] = useState(null);
+  const [formattedDate, setFormattedDate] = useState('');
 
-//   const handleSelectChange = (event) => {
-//     const value = event.target.value;
-//     setSelect(value);
-//   };
+  const [updateTask] = useUpdateTaskMutation();
 
-//   const handleSubmit = async (values) => {
-//     alert(JSON.stringify(values, null, 2));
-//     // ***DISPATCH на ЗМІНУ */
-//     // ****** не забути закрити форму після відправки */
-//   };
+  const dispatch = useDispatch();
 
-//   return (
-//     <AddCardModal>
-//       {/* <button>close</button> */}
-//       <Title>Edit card</Title>
-//       <Formik
-//         initialValues={initialValues}
-//         onSubmit={handleSubmit}
-//         validationSchema={schema}
-//         autoComplete="off"
-//       >
-//         {({ setFieldValue }) => (
-//           <Form>
-//             <div>
-//               <InputTitle
-//                 id="title"
-//                 name="title"
-//                 type="text"
-//                 placeholder="Title"
-//               />
-//               <StyleErrorMessage name="title" component="div" />
-//             </div>
+  const priorityValue = ['low', 'medium', 'high', 'without'];
 
-//             <div>
-//               <InputDescription
-//                 as="textarea"
-//                 id="description"
-//                 name="description"
-//                 type="text"
-//                 onChange={(event) =>
-//                   setFieldValue('description', event.target.value)
-//                 }
-//                 placeholder="Description"
-//               />
-//               <StyleErrorMessage name="description" component="div" />
-//             </div>
+  //===for change date on the modal===/
+  useEffect(() => {
+    setFormattedDate(formattedDateForBtn(date));
+  }, [date]);
 
-//             <div>
-//               <StyledLabelColor id="labelColor">Label color</StyledLabelColor>
-//               <RadioBtn role="group" aria-labelledby="my-radio-group">
-//                 <Item value="low">
-//                   <RadioButton
-//                     value="low"
-//                     type="radio"
-//                     id="low"
-//                     name="labelColor"
-//                     onChange={(event) => {
-//                       handleSelectChange(event);
-//                       setFieldValue('labelColor', event.target.value);
-//                     }}
-//                     checked={select === 'low'}
-//                   />
-//                   <RadioButtonLabel htmlFor="low"></RadioButtonLabel>
-//                 </Item>
-//                 <Item value="medium">
-//                   <RadioButton
-//                     type="radio"
-//                     id="medium"
-//                     name="labelColor"
-//                     onChange={(event) => {
-//                       handleSelectChange(event);
-//                       setFieldValue('labelColor', event.target.value);
-//                     }}
-//                     checked={select === 'medium'}
-//                     value="medium"
-//                   />
-//                   <RadioButtonLabel htmlFor="medium"></RadioButtonLabel>
-//                 </Item>
-//                 <Item value="high">
-//                   <RadioButton
-//                     type="radio"
-//                     id="high"
-//                     name="labelColor"
-//                     onChange={(event) => {
-//                       handleSelectChange(event);
-//                       setFieldValue('labelColor', event.target.value);
-//                     }}
-//                     checked={select === 'high'}
-//                     value="high"
-//                   />
-//                   <RadioButtonLabel htmlFor="high"></RadioButtonLabel>
-//                 </Item>
+  const initialValues = {
+    title: title,
+    description: description,
+    priority: priority,
+    deadline: date,
+    column: '60c8c6bbf0c9a15f7c41979a',
+  };
 
-//                 <Item value="without priority">
-//                   <RadioButton
-//                     type="radio"
-//                     id="without priority"
-//                     name="labelColor"
-//                     onChange={(event) => {
-//                       handleSelectChange(event);
-//                       setFieldValue('labelColor', event.target.value);
-//                     }}
-//                     value="without priority"
-//                     checked={select === 'without priority'}
-//                   />
-//                   <RadioButtonLabel htmlFor="without priority"></RadioButtonLabel>
-//                 </Item>
-//               </RadioBtn>
-//               <StyleErrorMessage name="labelColor" component="div" />
-//             </div>
+  const schema = yup.object({
+    title: yup.string().required('Title is required').max(30),
+    description: yup.string().required('Description is required'),
+    priority: yup
+      .string()
+      .required('Priority is required')
+      .oneOf(['low', 'medium', 'high', 'without']),
+    deadline: yup.date().required('Deadline is required'),
+    column: yup.string().required(),
+  });
 
-//             <div>
-//               <StyledLabelDeadline> Deadline</StyledLabelDeadline>
-//               <DatePicker
-//                 defaultValue={dayjs(today)}
-//                 name="deadline"
-//                 onChange={(date) => setFieldValue('deadline', date)}
-//                 disablePast
-//                 views={['month', 'day']}
-//                 // open={true}
+  //===for props (need for the custom radio btn)===/
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    setSelect(value);
+  };
 
-//                 PopperProps={{
-//                   sx: {
-//                     '&.MuiPickersCalendarHeader-labelContainer': {
-//                       color: 'red',
-//                     },
-//                     '&.MuiPickersPopper-root': {
-//                       border: '4px solid red',
-//                     },
-//                     '&.MuiInputBase': {
-//                       color: 'red',
-//                     },
-//                   },
-//                 }}
-//                 renderInput={(params) => <TextField {...params} />}
-//               />
-//               <StyleErrorMessage name="deadline" component="div" />
-//             </div>
+  const handleSubmit = async (values, boardId, columnId, id) => {
+    alert(JSON.stringify(values, null, 2));
+    try {
+      await updateTask(values, id);
+      dispatch(closeModal());
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-//             <Button type="submit">+Add</Button>
-//           </Form>
-//         )}
-//       </Formik>
-//     </AddCardModal>
-//   );
-// };
+  return (
+    <EditCardModal>
+      <CloseButton onClick={() => dispatch(closeModal())} />
+      <Title>Edit card</Title>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={schema}
+        autoComplete="off"
+      >
+        {({ setFieldValue }) => (
+          <Form>
+            <InputTitle
+              id="title"
+              name="title"
+              type="text"
+              placeholder="Title"
+            />
+            <StyleErrorMessage name="title" component="div" />
+            <InputDescription
+              as="textarea"
+              id="description"
+              name="description"
+              type="text"
+              onChange={(event) =>
+                setFieldValue('description', event.target.value)
+              }
+              placeholder="Description"
+            />
+            <StyleErrorMessage name="description" component="div" />
+            <LabelDiv>
+              <StyledPriority id="priority">Label color</StyledPriority>
+              <LabelContainer role="group" aria-labelledby="my-radio-group">
+                {priorityValue.map((value) => {
+                  return (
+                    <label htmlFor={value} key={value}>
+                      <input
+                        value={value}
+                        type="radio"
+                        id={value}
+                        name="priority"
+                        onChange={(event) => {
+                          handleSelectChange(event);
+                          setFieldValue('priority', event.target.value);
+                        }}
+                        checked={select === value}
+                      />
+                      <Span value={value} />
+                    </label>
+                  );
+                })}
+              </LabelContainer>
+              <StyleErrorMessage name="priority" component="div" />
+            </LabelDiv>
+            <StyledLabelDeadline> Deadline</StyledLabelDeadline>
+            <CalendarContainer>
+              <ButtonDate type="button">
+                <BtnName>
+                  {formattedDate}
+                  <ChevronDown />
+                </BtnName>
+              </ButtonDate>
+              <DatePicker
+                selected={date}
+                minDate={new Date()}
+                calendarStartDay={1}
+                onChange={(selectedDate) => {
+                  setFieldValue('deadline', selectedDate);
+                  setDate(selectedDate);
+                }}
+              />
+              <StyleErrorMessage name="deadline" component="div" />
+            </CalendarContainer>
+            <ButtonModal buttonName={'Edit'} />
+          </Form>
+        )}
+      </Formik>
+    </EditCardModal>
+  );
+};
 
-// export default ModalEditCard;
+export default ModalEditCard;
