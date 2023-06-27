@@ -59,7 +59,7 @@ const ModalAddCard = ({ componentName }) => {
     description: '',
     priority: '',
     deadline: date.toISOString(),
-    column: '60c8c6bbf0c9a15f7c41979a',
+    column: columnId,
   };
 
   const schema = yup.object({
@@ -80,7 +80,6 @@ const ModalAddCard = ({ componentName }) => {
   };
 
   const handleSubmit = async (values) => {
-    console.log(values);
     alert(JSON.stringify(values, null, 2));
     try {
       await createTask({ values, boardId, columnId });

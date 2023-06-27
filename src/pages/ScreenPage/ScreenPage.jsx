@@ -64,8 +64,7 @@ const ScreenPage = () => {
                 </IconStyled>
               </BtnIcon>
             </BoxColumnsTitle>
-            <TaskCard />
-
+            <TaskCard data={data} id={_id} />;
             <Btn onClick={() => handlClickModal(_id)}>Add another card</Btn>
           </BoxColumns>
         ))}
