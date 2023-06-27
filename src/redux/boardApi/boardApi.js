@@ -12,7 +12,7 @@ export const boardsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Boards', 'Columns'],
+  tagTypes: ['Boards', 'Columns', 'BoardsId'],
   endpoints: (builder) => ({
     getFetchBoards: builder.query({
       query: () => '/board ',
@@ -20,7 +20,7 @@ export const boardsApi = createApi({
     }),
     getFetchBoardById: builder.query({
       query: (boardId) => `/board/getById/${boardId}`,
-      providesTags: ['Boards'],
+      providesTags: ['BoardsId'],
     }),
     createBoard: builder.mutation({
       query: (formData) => ({
@@ -30,13 +30,20 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['Boards'],
     }),
+    deleteBoard: builder.mutation({
+      query: (id) => ({
+        url: `/board/delete/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Boards', 'Columns'],
+    }),
     createColumn: builder.mutation({
       query: ({ values, boardId }) => ({
         url: `/column/${boardId}`,
         method: 'POST',
         body: values,
       }),
-      invalidatesTags: ['Boards', 'Columns'],
+      invalidatesTags: ['BoardsId', 'Columns'],
     }),
   }),
 });
@@ -46,4 +53,5 @@ export const {
   useGetFetchBoardByIdQuery,
   useCreateBoardMutation,
   useCreateColumnMutation,
+  useDeleteBoardMutation,
 } = boardsApi;
