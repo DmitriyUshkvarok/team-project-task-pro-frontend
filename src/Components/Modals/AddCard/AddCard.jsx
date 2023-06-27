@@ -37,7 +37,8 @@ import {
   BtnName,
 } from './AddCard.styled.js';
 
-const ModalAddCard = ({ boardId, columnId }) => {
+const ModalAddCard = ({ componentName }) => {
+  console.log(componentName.boardId, componentName.columnId);
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');

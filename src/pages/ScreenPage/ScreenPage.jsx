@@ -20,15 +20,15 @@ const ScreenPage = () => {
   const dispatch = useDispatch();
   const { data } = useGetFetchBoardByIdQuery(boardId);
 
-  // const handlClickModal = (columnId) => {
-  //   dispatch(
-  //     openModal({
-  //       name: 'addCard',
-  //       boardId,
-  //       columnId,
-  //     })
-  //   );
-  // };
+  const handlClickModal = (columnId) => {
+    dispatch(
+      openModal({
+        name: 'modalAddCard',
+        boardId,
+        columnId,
+      })
+    );
+  };
 
   return (
     <>
