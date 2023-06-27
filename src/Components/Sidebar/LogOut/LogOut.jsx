@@ -22,8 +22,13 @@ const LogOut = () => {
       'Are you sure you want to log out?',
       'Yes',
       'No',
-      () => {
-        dispatch(authOperation.logOut());
+      async () => {
+        try {
+          await dispatch(authOperation.logOut());
+          location.reload();
+        } catch (error) {
+          console.log(error);
+        }
       },
       () => {}
     );

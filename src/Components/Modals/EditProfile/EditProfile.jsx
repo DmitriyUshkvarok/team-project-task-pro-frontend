@@ -46,15 +46,19 @@ const initialValues = {
 };
 
 const schema = yup.object().shape({
-  name: yup.string().min(4).max(20),
+  name: yup.string().min(4).max(32),
   email: yup
     .string()
     .email('Invalid email')
     .test('email-format', 'Invalid email format', (value) => {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      emailRegex.test(value);
+      if (!value) return true;
       return emailRegex.test(value);
-    }),
-  password: yup.string().min(10).max(20),
+    })
+    .optional()
+    .notRequired(),
+  password: yup.string().min(8).max(64),
 });
 
 const EditProfile = () => {

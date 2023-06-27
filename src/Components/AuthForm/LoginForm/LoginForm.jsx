@@ -50,6 +50,7 @@ function LogInForm() {
     setIsLoading(true);
     try {
       await dispatch(authOperation.logIn(values));
+      await dispatch(authOperation.refreshCurrentUser(values));
       resetForm();
     } catch (error) {
       console.log(error);
