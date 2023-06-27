@@ -19,17 +19,44 @@ import {
 import url from '../../images/icons/sprite/icons.svg';
 
 const TaskCard = ({ data, id }) => {
+  console.log(data);
   const maxLength = 97;
   // const longText = `Conduct in-depth research and analysis on the project's topic, gather relevant data, and identify key insights to inform decision-making and project planning.`;
-  const color = '#e09cb5';
+  // const color = '#e09cb5';
+
+  function colorSwitch(priority) {
+    let color;
+    switch (priority) {
+      case 'medium':
+        color = '#e09cb5';
+        break;
+
+      case 'without':
+        color = '#1616164d';
+        break;
+
+      case 'high':
+        color = '#BEDBB0';
+        break;
+
+      case 'low':
+        color = '#8FA1D0';
+        break;
+    }
+
+    return color;
+  }
 
   return (
-    <CardBg style={{ backgroundColor: `${color}` }}>
+    <CardBg>
       {data.tasks
         .filter((task) => id === task.column)
         .map((task) => {
           return (
-            <Card key={task._id}>
+            <Card
+              key={task._id}
+              style={{ backgroundColor: `${colorSwitch(task.priority)}` }}
+            >
               <CardTitle>{task.title}</CardTitle>
 
               <CardDescription>
@@ -47,7 +74,7 @@ const TaskCard = ({ data, id }) => {
                     <Circle>
                       <div
                         style={{
-                          backgroundColor: `${color}`,
+                          backgroundColor: `${colorSwitch(task.priority)}`,
                           height: '12px',
                           width: '12px',
                           borderRadius: '50%',
