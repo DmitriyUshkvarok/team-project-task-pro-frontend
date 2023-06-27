@@ -5,6 +5,7 @@ export const Board = styled.div`
     background-color: var(--helpBlockColor);
     width: 320px;
     padding-bottom: 24px;
+    height: calc(100vh - 60px);
   }
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -12,6 +13,7 @@ export const Board = styled.div`
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-bottom: 32px;
+    margin: 100px;
   }
   @media screen and (min-width: 1280px) {
     width: 1180px;
