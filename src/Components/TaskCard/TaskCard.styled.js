@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const CardBg = styled.div`
   width: 334px;
-  height: 154px;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
 `;
 
 export const Card = styled.div`
@@ -127,4 +126,3 @@ export const CardIcon = styled.svg`
   height: 16px;
   fill: none;
 `;
-

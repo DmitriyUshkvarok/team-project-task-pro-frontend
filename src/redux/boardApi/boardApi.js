@@ -53,6 +53,10 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['Profile'],
     }),
+    getFetchTaskById: builder.query({
+      query: (boardId) => `/board/getById/${boardId}`,
+      providesTags: ['Profile'],
+    }),
     editColumn: builder.mutation({
       query: ({ values, id }) => ({
         url: `/column/${id}`,
