@@ -9,8 +9,9 @@ import { closeModal } from '../../../redux/modal/modalSlice.js';
 
 import EditProfile from '../../Modals/EditProfile/EditProfile.jsx';
 import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
-import ModalAddCard from '../AddCard/AddCard.jsx';
-import ModalEditCard from '../EditCard/EditCard.jsx';
+import ModalCreateNewBoard from '../ModalCreateNewBoard/ModalCreateNewBoard.jsx';
+
+import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
 
 const Modal = () => {
   const { componentName } = useSelector((store) => store.modal);
@@ -18,8 +19,8 @@ const Modal = () => {
   const componentsLoopUp = {
     editprofile: EditProfile,
     needhelpmodal: NeedHelpModal,
-    modalAddCard: ModalAddCard,
-    modalEditCard: ModalEditCard,
+    craeteModalBoard: ModalCreateNewBoard,
+    addColumn: ModalAddColumn,
   };
   let renderComponent;
 
