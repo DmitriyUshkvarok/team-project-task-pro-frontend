@@ -10,10 +10,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 
 //===for fetch===/
-import {
-  useCreateTaskMutation,
-  useUpdateTaskMutation,
-} from '../../../redux/tasksApi/tasksApi.js';
+import { useUpdateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
 
 //===components===/
 import CloseButton from '../CloseButton/CloseButton.jsx';
@@ -22,7 +19,7 @@ import { closeModal } from '../../../redux/modal/modalSlice';
 
 //===styles===/
 import {
-  AddCardModal,
+  EditCardModal,
   Title,
   InputTitle,
   InputDescription,
@@ -43,10 +40,11 @@ const ModalEditCard = ({ title, description, priority, id }) => {
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
-  //   const [createTask] = useCreateTaskMutation();
   const [updateTask] = useUpdateTaskMutation();
 
   const dispatch = useDispatch();
+
+  const priorityValue = ['low', 'medium', 'high', 'without'];
 
   //===for change date on the modal===/
   useEffect(() => {
@@ -58,7 +56,6 @@ const ModalEditCard = ({ title, description, priority, id }) => {
     description: description,
     priority: priority,
     deadline: date,
-    // status: 'in progress',
     column: '60c8c6bbf0c9a15f7c41979a',
   };
 
@@ -70,7 +67,6 @@ const ModalEditCard = ({ title, description, priority, id }) => {
       .required('Priority is required')
       .oneOf(['low', 'medium', 'high', 'without']),
     deadline: yup.date().required('Deadline is required'),
-    // status: yup.string().required(),
     column: yup.string().required(),
   });
 
@@ -91,7 +87,7 @@ const ModalEditCard = ({ title, description, priority, id }) => {
   };
 
   return (
-    <AddCardModal>
+    <EditCardModal>
       <CloseButton onClick={() => dispatch(closeModal())} />
       <Title>Edit card</Title>
       <Formik
@@ -123,65 +119,24 @@ const ModalEditCard = ({ title, description, priority, id }) => {
             <LabelDiv>
               <StyledPriority id="priority">Label color</StyledPriority>
               <LabelContainer role="group" aria-labelledby="my-radio-group">
-                <label htmlFor="low">
-                  <input
-                    value="low"
-                    type="radio"
-                    id="low"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    checked={select === 'low'}
-                  />
-                  <Span value="low" />
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    id="medium"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    checked={select === 'medium'}
-                    value="medium"
-                  />
-                  <Span value="medium" />
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    id="high"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    checked={select === 'high'}
-                    value="high"
-                  />
-                  <Span value="high" />
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    id="without"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    value="without"
-                    checked={select === 'without'}
-                  />
-                  <Span value="without" />
-                </label>
+                {priorityValue.map((value) => {
+                  return (
+                    <label htmlFor={value}>
+                      <input
+                        value={value}
+                        type="radio"
+                        id={value}
+                        name="priority"
+                        onChange={(event) => {
+                          handleSelectChange(event);
+                          setFieldValue('priority', event.target.value);
+                        }}
+                        checked={select === value}
+                      />
+                      <Span value={value} />
+                    </label>
+                  );
+                })}
               </LabelContainer>
               <StyleErrorMessage name="priority" component="div" />
             </LabelDiv>
@@ -209,7 +164,7 @@ const ModalEditCard = ({ title, description, priority, id }) => {
           </Form>
         )}
       </Formik>
-    </AddCardModal>
+    </EditCardModal>
   );
 };
 
