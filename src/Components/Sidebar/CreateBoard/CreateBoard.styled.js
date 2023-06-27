@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 70px;
-  padding: 0 14px;
+  // padding: 0 14px;
   @media screen and (min-width: 1440px) {
-    padding: 0 24px;
+    // padding: 0 24px;
     margin-top: 60px;
   }
 `;

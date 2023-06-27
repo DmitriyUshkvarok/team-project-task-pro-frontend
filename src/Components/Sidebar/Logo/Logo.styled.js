@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const Wrap = styled.div`
   display: flex;
-  padding-left: 14px;
+  // padding-left: 14px;
   align-items: center;
   gap: 8px;
 
   @media screen and (min-width: 1440px) {
-    padding-left: 24px;
+    // padding-left: 24px;
   }
 `;
 
