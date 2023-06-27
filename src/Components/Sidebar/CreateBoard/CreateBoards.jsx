@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { openModal } from '../../../redux/modal/modalSlice';
 
 import {
@@ -16,7 +17,7 @@ const CreateBoards = () => {
   const dispatch = useDispatch();
 
   const handleOpenModal = () => {
-    dispatch(openModal({ name: 'modalBoard' }));
+    dispatch(openModal({ name: 'craeteModalBoard' }));
   };
   return (
     <Container>
