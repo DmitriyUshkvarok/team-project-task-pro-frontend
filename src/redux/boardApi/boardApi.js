@@ -53,6 +53,14 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['Profile'],
     }),
+    editColumn: builder.mutation({
+      query: ({ values, id }) => ({
+        url: `/column/${id}`,
+        method: 'PATCH',
+        body: values,
+      }),
+      invalidatesTags: ['BoardsId', 'Columns'],
+    }),
   }),
 });
 
@@ -63,4 +71,5 @@ export const {
   useCreateColumnMutation,
   useDeleteBoardMutation,
   useCreateTaskMutation,
+  useEditColumnMutation,
 } = boardsApi;
