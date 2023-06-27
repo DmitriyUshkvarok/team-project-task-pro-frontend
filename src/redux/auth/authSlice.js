@@ -10,6 +10,8 @@ const initialState = {
     avatarURL: null,
     id: null,
     theme: '',
+    boards: [],
+    currentBoard: null,
   },
   token: null,
   isLoggedIn: false,
@@ -39,6 +41,8 @@ const authSlice = createSlice({
         state.user.theme = action.payload.theme;
         state.user.name = action.payload.name;
         state.user.id = action.payload.id;
+        state.user.boards = action.payload.boards;
+        state.user.currentBoard = action.payload.currentBoard;
         state.user.avatarURL = action.payload.avatarURL;
         state.token = action.payload.token;
         state.isLoggedIn = true;
@@ -50,6 +54,8 @@ const authSlice = createSlice({
           avatarURL: null,
           id: null,
           theme: '',
+          boards: [],
+          currentBoard: null,
         };
         state.token = null;
         state.isLoggedIn = false;
