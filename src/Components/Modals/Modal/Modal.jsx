@@ -12,6 +12,7 @@ import NeedHelpModal from '../NeedHelp/NeedHelp.jsx';
 import ModalCreateNewBoard from '../ModalCreateNewBoard/ModalCreateNewBoard.jsx';
 
 import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
+import ModalEditColumn from '../ModalEditColumn/ModalEditColumn.jsx';
 import AddCard from '../AddCard/AddCard.jsx';
 
 const Modal = () => {
@@ -23,6 +24,7 @@ const Modal = () => {
     craeteModalBoard: ModalCreateNewBoard,
     addColumn: ModalAddColumn,
     modalAddCard: AddCard,
+    editColumn: ModalEditColumn,
   };
   let renderComponent;
 

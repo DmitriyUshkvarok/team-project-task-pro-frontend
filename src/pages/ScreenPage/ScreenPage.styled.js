@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Board = styled.div`
   @media screen and (min-width: 320px) {
     background-color: var(--helpBlockColor);
@@ -19,7 +18,6 @@ export const Board = styled.div`
     padding-bottom: 8px;
   }
 `;
-
 
 export const BtnAdd = styled.button`
   display: flex;
@@ -181,4 +179,14 @@ export const Btn = styled.button`
   padding: 14px 89px;
   justify-content: center;
   align-items: center;
+`;
+
+export const IconStyled = styled.svg`
+  stroke: var(--secondarySidebarColor);
+`;
+
+export const BtnIcon = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 `;

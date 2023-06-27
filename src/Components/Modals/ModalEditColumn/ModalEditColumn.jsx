@@ -2,6 +2,9 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import CloseButton from '../CloseButton/CloseButton';
+import { useEditColumnMutation } from '../../../redux/boardApi/boardApi';
+import { useDispatch } from 'react-redux';
+import { closeModal } from '../../../redux/modal/modalSlice';
 import {
   Form,
   FormFieldTitle,
@@ -13,8 +16,15 @@ import {
   ContainerIconButton,
 } from './ModalEditColumn.styled';
 
-const ModalEditColumn = () => {
-  const handleSubmit = () => {};
+const ModalEditColumn = ({ componentName }) => {
+  const dispatch = useDispatch();
+  const { id, title } = componentName;
+  const [editColumn] = useEditColumnMutation();
+
+  const handleSubmit = async (values) => {
+    await editColumn({ values, id });
+    dispatch(closeModal());
+  };
 
   return (
     <>
@@ -23,7 +33,7 @@ const ModalEditColumn = () => {
         <Title>Edit column</Title>
         <Formik
           initialValues={{
-            title: '',
+            title: title,
           }}
           validationSchema={schema}
           onSubmit={handleSubmit}
@@ -33,7 +43,7 @@ const ModalEditColumn = () => {
               <FieldTitle
                 type="text"
                 name="title"
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="You need to enter the name of the column"
                 required
                 placeholder="Title"

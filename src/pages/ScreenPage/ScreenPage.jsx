@@ -13,7 +13,10 @@ import {
   Btn,
   // ContainerColumns,
   // BtnAdd,
+  IconStyled,
+  BtnIcon,
 } from './ScreenPage.styled';
+import url from '../../images/icons/sprite/icons.svg';
 
 const ScreenPage = () => {
   const { boardId } = useParams();
@@ -30,21 +33,40 @@ const ScreenPage = () => {
     );
   };
 
+  const handleEditColumn = (id, title) => {
+    dispatch(
+      openModal({
+        name: 'editColumn',
+        id,
+        title,
+      })
+    );
+  };
+
   return (
     <>
       {data?.columns &&
-        data.columns.map((column) => (
-          <BoxColumns key={column._id}>
+        data.columns.map(({ _id, title }) => (
+          <BoxColumns key={_id}>
             <BoxColumnsTitle>
-              <Subject>{column.title}</Subject>
-              <Icon>icon</Icon>
-              <Icon>icon</Icon>
+              <Subject>{title}</Subject>
+              <BtnIcon
+                onClick={() => handleEditColumn(_id, title)}
+                type="button"
+              >
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-pencil-01`} />
+                </IconStyled>
+              </BtnIcon>
+              <BtnIcon type="button">
+                <IconStyled width="16" height="16">
+                  <use xlinkHref={`${url}#icon-trash-04`} />
+                </IconStyled>
+              </BtnIcon>
             </BoxColumnsTitle>
             <TaskCard />
 
-            <Btn onClick={() => handlClickModal(column._id)}>
-              Add another card
-            </Btn>
+            <Btn onClick={() => handlClickModal(_id)}>Add another card</Btn>
           </BoxColumns>
         ))}
     </>
