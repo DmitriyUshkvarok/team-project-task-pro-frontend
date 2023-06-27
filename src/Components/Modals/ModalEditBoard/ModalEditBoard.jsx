@@ -1,5 +1,8 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
+import { useDispatch } from 'react-redux';
+import { closeModal } from '../../../redux/modal/modalSlice';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
@@ -23,14 +26,21 @@ import {
   ContainerIconButton,
 } from './ModalEditBoard.styled';
 
-const ModalEditBoard = () => {
+const ModalEditBoard = ({ componentName }) => {
+  const { id, title } = componentName;
+  const [editBoard] = useEditBoardMutation();
+  const dispatch = useDispatch();
+
   // допилить :
   // валидацию радиобатонов
   // перелом  мобильный и планшет дисплей
   // черный цвет иконки когда она активна
   // мини картинки
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (values) => {
+    await editBoard({ values, id });
+    dispatch(closeModal());
+  };
 
   return (
     <>
@@ -40,7 +50,9 @@ const ModalEditBoard = () => {
 
         <Formik
           initialValues={{
-            title: '',
+            title: title,
+            iconId: '',
+            backgroundId: '',
           }}
           validationSchema={schema}
           onSubmit={handleSubmit}
@@ -50,7 +62,7 @@ const ModalEditBoard = () => {
               <FieldTitle
                 type="text"
                 name="title"
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="You need to enter the name of the column"
                 required
                 placeholder="Title"
@@ -60,15 +72,9 @@ const ModalEditBoard = () => {
 
             <Text id="my-radio-groupIcon">Icons</Text>
             <IconContainer role="group" aria-labelledby="my-radio-groupIcon">
-              {icons.map(({ id, path, value }) => (
+              {icons.map(({ id, path }) => (
                 <label key={id}>
-                  <FormikField
-                    type="radio"
-                    name="icon"
-                    id={id}
-                    value={value}
-                    checked
-                  />
+                  <FormikField type="radio" name="iconId" value={id} />
                   <svg width="18" height="18">
                     <use xlinkHref={`${urlIcon}${path}`} />
                   </svg>
@@ -82,10 +88,8 @@ const ModalEditBoard = () => {
                 <label key={id}>
                   <FormikFieldImage
                     type="radio"
-                    name="image"
-                    id={id}
+                    name="backgroundId"
                     value={value}
-                    checked
                   />
                   <img src={path} alt="" />
                 </label>
