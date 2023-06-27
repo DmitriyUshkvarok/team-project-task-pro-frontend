@@ -38,7 +38,6 @@ import {
 } from './AddCard.styled.js';
 
 const ModalAddCard = ({ componentName }) => {
-  console.log(componentName.boardId, componentName.columnId);
   const { boardId, columnId } = componentName;
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
@@ -59,7 +58,7 @@ const ModalAddCard = ({ componentName }) => {
     title: '',
     description: '',
     priority: '',
-    deadline: date,
+    deadline: date.toISOString(),
     column: '60c8c6bbf0c9a15f7c41979a',
   };
 
@@ -81,6 +80,7 @@ const ModalAddCard = ({ componentName }) => {
   };
 
   const handleSubmit = async (values) => {
+    console.log(values);
     alert(JSON.stringify(values, null, 2));
     try {
       await createTask({ values, boardId, columnId });
@@ -164,7 +164,7 @@ const ModalAddCard = ({ componentName }) => {
                 minDate={new Date()}
                 calendarStartDay={1}
                 onChange={(selectedDate) => {
-                  setFieldValue('deadline', selectedDate);
+                  setFieldValue('deadline', selectedDate.toISOString());
                   setDate(selectedDate);
                 }}
               />
