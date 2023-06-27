@@ -13,6 +13,7 @@ import ModalCreateNewBoard from '../ModalCreateNewBoard/ModalCreateNewBoard.jsx'
 
 import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
 import AddCard from '../AddCard/AddCard.jsx';
+import ModalEditCard from '../EditCard/EditCard.jsx';
 
 const Modal = () => {
   const { componentName } = useSelector((store) => store.modal);
@@ -23,6 +24,7 @@ const Modal = () => {
     craeteModalBoard: ModalCreateNewBoard,
     addColumn: ModalAddColumn,
     modalAddCard: AddCard,
+    ModalEditCard: ModalEditCard,
   };
   let renderComponent;
 
