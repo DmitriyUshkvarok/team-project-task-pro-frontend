@@ -6,6 +6,7 @@
   --bgAccentBtnColor: #bedbb0;
   --bgFormColor: #151515;
   --bgInputColor: #1f1f1f;
+  --errorColor: #ff0000;
 
   --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
 
@@ -76,6 +77,15 @@ body[data-theme="light"] {
   --customerSupportBgColor: #f6f6f7;
   --iconLogOutColor: #bedbb0;
 
+      /**Need Help*/
+      --needHelpBgColor: #FCFCFC;
+      --titleNeedHelpColor: #161616;
+      --iconCloseColor: #161616;
+      --borderNeedHelpColor: #BEDBB0;
+      --textInputColor: #161616;
+      --btnNeedHelpColor: #BEDBB0;
+      --btnTextNeedHelpColor: #161616;
+
 
   /**after del*/
   --logoHeaderColor: red;
@@ -137,6 +147,15 @@ body[data-theme="dark"] {
   --customerSupportBgColor: #1f1f1f;
   --iconLogOutColor: #bedbb0;
 
+    /**Need Help*/
+  --needHelpBgColor: #151515;
+  --titleNeedHelpColor: #FFFFFF;
+  --iconCloseColor: #FFFFFF;
+  --borderNeedHelpColor: #BEDBB0;
+  --textInputColor: #FFFFFF;
+  --btnNeedHelpColor: #BEDBB0;
+  --btnTextNeedHelpColor: #161616;
+
   /**after del*/
 
   --sidebarColor: #121212;
@@ -181,7 +200,7 @@ body[data-theme="violet"] {
   --themeBgColor: #FCFCFC;
   --themeBorderColor: #ECEDFD;
   --themeBoxShadow: rgba(17, 17, 17, 0.10);
-  
+
 
   /**Sidebar*/
   --logoFonColor: #ecedfd;
@@ -196,6 +215,24 @@ body[data-theme="violet"] {
   --secondarySidebarBgColor: rgba(255, 255, 255, 0.5);
   --customerSupportBgColor: rgba(236, 237, 253, 0.4);
   --iconLogOutColor: #FFFFFF;
+
+  /**Need Help*/
+  --needHelpBgColor: #FCFCFC;
+  --titleNeedHelpColor: #161616;
+  --iconCloseColor: #161616;
+  --borderNeedHelpColor: #5255BC;
+  --textInputColor: #161616;
+  --btnNeedHelpColor: #5255BC;
+  --btnTextNeedHelpColor: #FFFFFF;
+
+
+
+
+  /**Project office*/
+
+
+
+
 
   /**after del*/
 
