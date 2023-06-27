@@ -35,6 +35,7 @@ export const InputEmail = styled(Field)`
   background-color: inherit;
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderNeedHelpColor);
+  opacity: 0.4000000059604645;
   color: var(--textInputColor);
   line-height: 18px;
   font-family: var(--poppinsFont);
@@ -53,8 +54,11 @@ export const InputComment = styled(Field)`
   background-color: inherit;
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderNeedHelpColor);
+  opacity: 0.4000000059604645;
+
   color: var(--textInputColor);
   line-height: 18px;
+  
 
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
@@ -74,6 +78,7 @@ export const Button = styled.button`
   height: 49px;
   border-radius: var(--borderRadius8);
   background-color: var(--btnNeedHelpColor);
+  
   color: var(--btnTextNeedHelpColor);
   border: 0px;
   font-size: var(--fontSize14);

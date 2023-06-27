@@ -8,11 +8,15 @@
   --bgInputColor: #1f1f1f;
   --errorColor: #ff0000;
 
-  --gradientFonColor: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #bedbb0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
-  --poppinsFont: "Poppins";
+  --poppinsFont: 'Poppins';
 
   --borderRadius8: 8px;
 
@@ -51,7 +55,7 @@ body.menu-open {
   overflow: hidden;
 }
 
-body[data-theme="light"] {
+body[data-theme='light'] {
   --accentColor: #bedbb0;
 
   /**Header*/
@@ -59,9 +63,9 @@ body[data-theme="light"] {
   --primaryItemsColor: #161616;
   --secondaryItemsColor: #161616cc;
 
-  --themeBgColor: #FCFCFC;
-  --themeBorderColor: #BEDBB0;
-  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+  --themeBgColor: #fcfcfc;
+  --themeBorderColor: #bedbb0;
+  --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
@@ -78,14 +82,29 @@ body[data-theme="light"] {
   --iconLogOutColor: #bedbb0;
 
   /**Need Help*/
-  --needHelpBgColor: #FCFCFC;
+  --needHelpBgColor: #fcfcfc;
+  --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --titleNeedHelpColor: #161616;
   --iconCloseColor: #161616;
-  --borderNeedHelpColor: #BEDBB0;
+  --borderNeedHelpColor: #bedbb0;
   --textInputColor: #161616;
-  --btnNeedHelpColor: #BEDBB0;
+  --btnNeedHelpColor: #bedbb0;
   --btnTextNeedHelpColor: #161616;
 
+   /**Modal Board*/
+   --boardBgColor: #FCFCFC;
+   --titleBoardColor: #161616;
+   --iconCloseColor: #161616;
+   --textInputBoardColor: #161616;
+   --bgInputBoardColor: #FCFCFC;
+   --borderInputBoardColor: #BEDBB0;
+   --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
+   --iconBoardColor: #16161680;
+   --iconBoardActiveColor: #161616;
+   --btnBoardColor: #BEDBB0;
+   --btnTextBoardColor: #161616;
+   --iconBoardBgColor: #161616;
+   --iconPlusBoardColor: #FFFFFF;
 
   /**after del*/
   --logoHeaderColor: red;
@@ -121,7 +140,7 @@ body[data-theme="light"] {
   --borderTopColor: rgba(22, 22, 22, 0.8);
 }
 
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --accentColor: #bedbb0;
 
   /**Header*/
@@ -130,8 +149,8 @@ body[data-theme="dark"] {
   --secondaryItemsColor: #ffffffcc;
 
   --themeBgColor: #151515;
-  --themeBorderColor: #BEDBB0;
-  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+  --themeBorderColor: #bedbb0;
+  --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
@@ -149,12 +168,30 @@ body[data-theme="dark"] {
 
   /**Need Help*/
   --needHelpBgColor: #151515;
-  --titleNeedHelpColor: #FFFFFF;
-  --iconCloseColor: #FFFFFF;
-  --borderNeedHelpColor: #BEDBB0;
-  --textInputColor: #FFFFFF;
-  --btnNeedHelpColor: #BEDBB0;
+  --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
+  --needHelBorderColor: rgba(190, 219, 176, 0.50);
+  --titleNeedHelpColor: #ffffff;
+  --iconCloseColor: #ffffff;
+  --borderNeedHelpColor: #bedbb0;
+  --textInputColor: #ffffff;
+  --btnNeedHelpColor: #bedbb0;
   --btnTextNeedHelpColor: #161616;
+
+    /**Modal Board*/
+    --boardBgColor: #151515;
+    --borderBoardColor: rgba(190, 219, 176, 0.50);
+    --titleBoardColor: #FFFFFF;
+    --iconCloseColor: #FFFFFF;
+    --textInputBoardColor: #FFFFFF;
+    --bgInputBoardColor: #1F1F1F;
+    --borderInputBoardColor: #BEDBB0;
+    --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
+    --iconBoardColor: #FFFFFF80;
+    --iconBoardActiveColor: #FFFFFF;
+    --btnBoardColor: #BEDBB0;
+    --btnTextBoardColor: #161616;
+    --iconBoardBgColor: #161616;
+    --iconPlusBoardColor: #FFFFFF;
 
   /**after del*/
 
@@ -189,7 +226,7 @@ body[data-theme="dark"] {
   --borderTopColor: rgba(255, 255, 255, 0.8);
 }
 
-body[data-theme="violet"] {
+body[data-theme='violet'] {
   --accentColor: #5255bc;
 
   /**Header*/
@@ -197,10 +234,9 @@ body[data-theme="violet"] {
   --primaryItemsColor: #161616;
   --secondaryItemsColor: #161616cc;
 
-  --themeBgColor: #FCFCFC;
-  --themeBorderColor: #ECEDFD;
-  --themeBoxShadow: rgba(17, 17, 17, 0.10);
-
+  --themeBgColor: #fcfcfc;
+  --themeBorderColor: #ecedfd;
+  --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**Sidebar*/
   --logoFonColor: #ecedfd;
@@ -214,25 +250,40 @@ body[data-theme="violet"] {
   --primarySidebarBgColor: #5255bc;
   --secondarySidebarBgColor: rgba(255, 255, 255, 0.5);
   --customerSupportBgColor: rgba(236, 237, 253, 0.4);
-  --iconLogOutColor: #FFFFFF;
+  --iconLogOutColor: #ffffff;
 
   /**Need Help*/
-  --needHelpBgColor: #FCFCFC;
+  --needHelpBgColor: #fcfcfc;
+  --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --titleNeedHelpColor: #161616;
   --iconCloseColor: #161616;
-  --borderNeedHelpColor: #5255BC;
+  --borderNeedHelpColor: #5255bc;
   --textInputColor: #161616;
-  --btnNeedHelpColor: #5255BC;
-  --btnTextNeedHelpColor: #FFFFFF;
+  --btnNeedHelpColor: #5255bc;
+  --btnTextNeedHelpColor: #ffffff;
+
+  /**Modal Board*/
+  --boardBgColor: #fcfcfc;
+  --titleBoardColor: #161616;
+  --iconCloseColor: #161616;
+  --bgInputBoardColor: #fcfcfc;
+  --textInputBoardColor: #161616;
+  --borderInputBoardColor: #5255BC;
+  --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
+  --iconBoardColor: #16161680;
+  --iconBoardActiveColor: #161616;
+  --btnBoardColor: #5255BC;
+  --btnTextBoardColor: #FFFFFF;
+  --iconBoardBgColor: #FFFFFF;
+  --iconPlusBoardColor: #161616;
 
 
 
+
+
+  
 
   /**Project office*/
-
-
-
-
 
   /**after del*/
 
