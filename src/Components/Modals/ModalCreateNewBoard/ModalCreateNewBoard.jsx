@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { useCreateBoardMutation } from '../../../redux/boardApi/boardApi';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
@@ -29,8 +30,11 @@ const ModalCreateNewBoard = () => {
   // перелом  мобильный и планшет дисплей
   // черный цвет иконки когда она активна
   // мини картинки
-
-  const handleSubmit = () => {};
+  const [createBoard] = useCreateBoardMutation();
+  const handleSubmit = async (values) => {
+    console.log(values);
+    await createBoard(values);
+  };
 
   return (
     <>
@@ -41,6 +45,8 @@ const ModalCreateNewBoard = () => {
         <Formik
           initialValues={{
             title: '',
+            iconId: '',
+            backgroundId: '',
           }}
           validationSchema={schema}
           onSubmit={handleSubmit}
@@ -50,7 +56,7 @@ const ModalCreateNewBoard = () => {
               <FieldTitle
                 type="text"
                 name="title"
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="You need to enter the name of the column"
                 required
                 placeholder="Title"
@@ -60,15 +66,9 @@ const ModalCreateNewBoard = () => {
 
             <Text id="my-radio-groupIcon">Icons</Text>
             <IconContainer role="group" aria-labelledby="my-radio-groupIcon">
-              {icons.map(({ id, path, value }) => (
+              {icons.map(({ id, path }) => (
                 <label key={id}>
-                  <FormikField
-                    type="radio"
-                    name="icon"
-                    id={id}
-                    value={value}
-                    checked
-                  />
+                  <FormikField type="radio" value={id} name="iconId" />
                   <svg width="18" height="18">
                     <use xlinkHref={`${urlIcon}${path}`} />
                   </svg>
@@ -82,10 +82,8 @@ const ModalCreateNewBoard = () => {
                 <label key={id}>
                   <FormikFieldImage
                     type="radio"
-                    name="image"
-                    id={id}
+                    name="backgroundId"
                     value={value}
-                    checked
                   />
                   <img src={path} alt="" />
                 </label>

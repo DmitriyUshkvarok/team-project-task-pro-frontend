@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { useCreateColumnMutation } from '../../../redux/boardApi/boardApi';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import CloseButton from '../CloseButton/CloseButton';
 import {
@@ -13,8 +14,12 @@ import {
   ContainerIconButton,
 } from './ModalAddColumn.styled';
 
-const ModalAddColumn = () => {
-  const handleSubmit = () => {};
+const ModalAddColumn = ({ componentName }) => {
+  const [createColumn] = useCreateColumnMutation();
+  const handleSubmit = async (values) => {
+    const { boardId } = componentName;
+    await createColumn({ values, boardId });
+  };
 
   return (
     <>
@@ -33,7 +38,7 @@ const ModalAddColumn = () => {
               <FieldTitle
                 type="text"
                 name="title"
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="You need to enter the name of the column"
                 required
                 placeholder="Title"

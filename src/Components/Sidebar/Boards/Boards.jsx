@@ -1,6 +1,10 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useGetFetchBoardsQuery } from '../../../redux/boardApi/boardApi';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import {
+  useGetFetchBoardsQuery,
+  useDeleteBoardMutation,
+} from '../../../redux/boardApi/boardApi';
 import url from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import {
@@ -14,9 +18,11 @@ import {
 } from './Boards.styled';
 
 const Boards = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(0);
+  const navigate = useNavigate();
 
   const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
+  const [deleteBoard] = useDeleteBoardMutation();
 
   const findIconsUser = (iconId) => {
     const findIcon = icons.find((icon) => icon.id === iconId);
@@ -30,6 +36,19 @@ const Boards = () => {
       prevSelectedItem === index ? null : index
     );
   };
+
+  const handleDeleteBoard = async (id) => {
+    const { data } = await deleteBoard(id);
+
+    if (data.message === 'Board deleted') {
+      navigate('/', { replace: true });
+    }
+  };
+  useEffect(() => {
+    if (boards?.length > 0) {
+      navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
+    }
+  }, [boards]);
 
   return (
     <ListBoard>
@@ -53,7 +72,7 @@ const Boards = () => {
                 </IconStyled>
               </BtnIcon>
 
-              <BtnIcon type="button">
+              <BtnIcon onClick={() => handleDeleteBoard(_id)} type="button">
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-trash-04`} />
                 </IconStyled>

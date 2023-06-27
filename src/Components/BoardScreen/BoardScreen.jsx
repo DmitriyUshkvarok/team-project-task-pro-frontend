@@ -25,10 +25,8 @@ const BoardScreen = ({ closeSidebar }) => {
   const handleClickModal = () => {
     dispatch(
       openModal({
-        name: 'column',
-        // boardId,
-        // modalTitle: 'Create',
-        // buttonName: 'Create',
+        name: 'addColumn',
+        boardId,
       })
     );
   };

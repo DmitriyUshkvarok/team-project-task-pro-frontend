@@ -1,5 +1,8 @@
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../redux/modal/modalSlice';
 import { useGetFetchBoardByIdQuery } from '../../redux/boardApi/boardApi';
+import TaskCard from '../../Components/TaskCard/TaskCard';
 import {
   BoxColumns,
   BoxColumnsTitle,
@@ -14,7 +17,18 @@ import {
 
 const ScreenPage = () => {
   const { boardId } = useParams();
+  const dispatch = useDispatch();
   const { data } = useGetFetchBoardByIdQuery(boardId);
+
+  const handlClickModal = (columnId) => {
+    dispatch(
+      openModal({
+        name: 'modalAddCard',
+        boardId,
+        columnId,
+      })
+    );
+  };
 
   return (
     <>
@@ -26,130 +40,13 @@ const ScreenPage = () => {
               <Icon>icon</Icon>
               <Icon>icon</Icon>
             </BoxColumnsTitle>
+            <TaskCard />
 
-            {/* <ListCard>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-          </ListCard> */}
-
-            <Btn>Add another card</Btn>
+            <Btn onClick={() => handlClickModal(column._id)}>
+              Add another card
+            </Btn>
           </BoxColumns>
         ))}
-
-      {/* <BoxColumns>
-          <BoxColumnsTitle>
-            <Subject>To Do</Subject>
-            <Icon>icon</Icon>
-            <Icon>icon</Icon>
-          </BoxColumnsTitle>
-
-          <ListCard>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-          </ListCard>
-
-          <Btn>Add another card</Btn>
-        </BoxColumns>
-        <BoxColumns>
-          <BoxColumnsTitle>
-            <Subject>To Do</Subject>
-            <Icon>icon</Icon>
-            <Icon>icon</Icon>
-          </BoxColumnsTitle>
-
-          <ListCard>
-            <Card>
-              <h3>The Watch Spot Design</h3>
-              <p>
-                Create a visually stunning and eye-catching watch dial design
-                that embodies our brand's essence of sleek aesthetics and modern
-                elegance. Your design should be unique, innovative, and
-                reflective of the latest trends in watch design.
-              </p>
-              <div>
-                <p>Priority</p>
-                <p>12/05/2023</p>
-              </div>
-            </Card>
-          </ListCard>
-
-          <Btn>Add another card</Btn>
-        </BoxColumns> */}
-      {/* <BtnAdd>Add Columns</BtnAdd> */}
     </>
   );
 };

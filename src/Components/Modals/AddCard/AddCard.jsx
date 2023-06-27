@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 
@@ -8,15 +9,15 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './calendar.css';
 
+// import Calendar from '../Calendar/Calendar.jsx';
+
 //===for fetch===/
-import {
-  useCreateTaskMutation,
-  useUpdateTaskMutation,
-} from '../../../redux/tasksApi/tasksApi';
+import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
 
 //===components===/
-import CloseButton from '../CloseButton/CloseButton';
-import ButtonModal from '../ButtonModal/ButtonModal';
+import CloseButton from '../CloseButton/CloseButton.jsx';
+import ButtonModal from '../ButtonModal/ButtonModal.jsx';
+import { closeModal } from '../../../redux/modal/modalSlice';
 
 //===styles===/
 import {
@@ -34,15 +35,19 @@ import {
   LabelDiv,
   ChevronDown,
   BtnName,
-} from './Card.styled';
+} from './AddCard.styled.js';
 
-const ModalCard = ({ boardId, columnId, name, id }) => {
+const ModalAddCard = ({ componentName }) => {
+  console.log(componentName.boardId, componentName.columnId);
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [createTask] = useCreateTaskMutation();
-  const [updateTask] = useUpdateTaskMutation();
+
+  const dispatch = useDispatch();
+
+  const priorityValue = ['low', 'medium', 'high', 'without'];
 
   //===for change date on the modal===/
   useEffect(() => {
@@ -54,7 +59,6 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
     description: '',
     priority: '',
     deadline: date,
-    status: 'in progress',
     column: '60c8c6bbf0c9a15f7c41979a',
   };
 
@@ -66,7 +70,6 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
       .required('Priority is required')
       .oneOf(['low', 'medium', 'high', 'without']),
     deadline: yup.date().required('Deadline is required'),
-    status: yup.string().required(),
     column: yup.string().required(),
   });
 
@@ -79,21 +82,23 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
   const handleSubmit = async (values, boardId, columnId, id) => {
     alert(JSON.stringify(values, null, 2));
     try {
-      if ((name = 'Add')) {
-        await createTask(values, boardId, columnId);
-      } else {
-        await updateTask(values, id);
-      }
+      await createTask(values, boardId, columnId);
+      dispatch(closeModal());
     } catch (error) {
       console.log(error);
     }
-    // ****** не забути закрити форму після відправки */
   };
+
+  // const hendleSubmitCalendar = (selectedDate) => {
+  //   console.log(selectedDate);
+  //   setFieldValue('deadline', selectedDate);
+  //   setDate(selectedDate);
+  // };
 
   return (
     <AddCardModal>
-      <CloseButton />
-      <Title>{name}card</Title>
+      <CloseButton onClick={() => dispatch(closeModal())} />
+      <Title>Add card</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -123,65 +128,24 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
             <LabelDiv>
               <StyledPriority id="priority">Label color</StyledPriority>
               <LabelContainer role="group" aria-labelledby="my-radio-group">
-                <label htmlFor="low">
-                  <input
-                    value="low"
-                    type="radio"
-                    id="low"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    checked={select === 'low'}
-                  />
-                  <Span value="low" />
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    id="medium"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    checked={select === 'medium'}
-                    value="medium"
-                  />
-                  <Span value="medium" />
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    id="high"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    checked={select === 'high'}
-                    value="high"
-                  />
-                  <Span value="high" />
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    id="without"
-                    name="priority"
-                    onChange={(event) => {
-                      handleSelectChange(event);
-                      setFieldValue('priority', event.target.value);
-                    }}
-                    value="without"
-                    checked={select === 'without'}
-                  />
-                  <Span value="without" />
-                </label>
+                {priorityValue.map((value) => {
+                  return (
+                    <label htmlFor={value} key={value}>
+                      <input
+                        value={value}
+                        type="radio"
+                        id={value}
+                        name="priority"
+                        onChange={(event) => {
+                          handleSelectChange(event);
+                          setFieldValue('priority', event.target.value);
+                        }}
+                        checked={select === value}
+                      />
+                      <Span value={value} />
+                    </label>
+                  );
+                })}
               </LabelContainer>
               <StyleErrorMessage name="priority" component="div" />
             </LabelDiv>
@@ -193,6 +157,7 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
+              {/* <Calendar prop={date} click={hendleSubmitCalendar} /> */}
               <DatePicker
                 selected={date}
                 minDate={new Date()}
@@ -204,7 +169,7 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
               />
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
-            <ButtonModal buttonName={name} />
+            <ButtonModal buttonName={'Add'} />
           </Form>
         )}
       </Formik>
@@ -212,4 +177,4 @@ const ModalCard = ({ boardId, columnId, name, id }) => {
   );
 };
 
-export default ModalCard;
+export default ModalAddCard;
