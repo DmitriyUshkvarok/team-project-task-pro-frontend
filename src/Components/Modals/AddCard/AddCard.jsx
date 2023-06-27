@@ -12,7 +12,7 @@ import './calendar.css';
 // import Calendar from '../Calendar/Calendar.jsx';
 
 //===for fetch===/
-import { useCreateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
+import { useCreateTaskMutation } from '../../../redux/boardApi/boardApi.js';
 
 //===components===/
 import CloseButton from '../CloseButton/CloseButton.jsx';
@@ -39,6 +39,7 @@ import {
 
 const ModalAddCard = ({ componentName }) => {
   console.log(componentName.boardId, componentName.columnId);
+  const { boardId, columnId } = componentName;
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
@@ -79,10 +80,10 @@ const ModalAddCard = ({ componentName }) => {
     setSelect(value);
   };
 
-  const handleSubmit = async (values, boardId, columnId, id) => {
+  const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2));
     try {
-      await createTask(values, boardId, columnId);
+      await createTask({ values, boardId, columnId });
       dispatch(closeModal());
     } catch (error) {
       console.log(error);

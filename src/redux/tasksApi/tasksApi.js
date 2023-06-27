@@ -14,14 +14,14 @@ export const tasksApi = createApi({
   }),
   tagTypes: ['Profile'],
   endpoints: (build) => ({
-    createTask: build.mutation({
-      query: (formData, boardId, columnId) => ({
-        url: `/tasks/60c8c6bbf0c9a15f7c41979a/60c8c6bbf0c9a15f7c41979a`,
-        method: 'POST',
-        body: formData,
-      }),
-      invalidatesTags: ['Profile'],
-    }),
+    // createTask: build.mutation({
+    //   query: ({ values, boardId, columnId }) => ({
+    //     url: `/tasks/${boardId}/${columnId}`,
+    //     method: 'POST',
+    //     body: values,
+    //   }),
+    //   invalidatesTags: ['Profile'],
+    // }),
     updateTask: build.mutation({
       query: (formData, id) => ({
         url: `/tasks/${id}`,
