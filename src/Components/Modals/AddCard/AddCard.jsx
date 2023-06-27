@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 
@@ -17,6 +18,7 @@ import {
 //===components===/
 import CloseButton from '../CloseButton/CloseButton.jsx';
 import ButtonModal from '../ButtonModal/ButtonModal.jsx';
+import { closeModal } from '../../../redux/modal/modalSlice';
 
 //===styles===/
 import {
@@ -34,18 +36,17 @@ import {
   LabelDiv,
   ChevronDown,
   BtnName,
-} from './AddTasks.styled.js';
+} from './AddCard.styled.js';
 
-const ModalAddTasks = ({ boardId, columnId, name, id }) => {
+const ModalAddCard = ({ boardId, columnId }) => {
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [createTask] = useCreateTaskMutation();
-  const [updateTask] = useUpdateTaskMutation();
+  // const [updateTask] = useUpdateTaskMutation();
 
-  // const options = { day: 'numeric', month: 'long', year: 'numeric' };
-  // const onlyDate = date.toLocaleDateString('en-US', options);
+  const dispatch = useDispatch();
 
   //===for change date on the modal===/
   useEffect(() => {
@@ -82,21 +83,18 @@ const ModalAddTasks = ({ boardId, columnId, name, id }) => {
   const handleSubmit = async (values, boardId, columnId, id) => {
     alert(JSON.stringify(values, null, 2));
     try {
-      if ((name = 'Add')) {
-        await createTask(values, boardId, columnId);
-      } else {
-        await updateTask(values, id);
-      }
+      await createTask(values, boardId, columnId);
+      dispatch(closeModal());
+      // await updateTask(values, id);
     } catch (error) {
       console.log(error);
     }
-    // ****** не забути закрити форму після відправки */
   };
 
   return (
     <AddCardModal>
-      <CloseButton />
-      <Title>{name}card</Title>
+      <CloseButton onClick={() => dispatch(closeModal())} />
+      <Title>Add card</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -208,7 +206,7 @@ const ModalAddTasks = ({ boardId, columnId, name, id }) => {
               />
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
-            <ButtonModal buttonName={name} />
+            <ButtonModal buttonName={'Add'} />
           </Form>
         )}
       </Formik>
@@ -216,7 +214,4 @@ const ModalAddTasks = ({ boardId, columnId, name, id }) => {
   );
 };
 
-export default ModalAddTasks;
-// onClick={() => dispatch(closeModal())}
-// import { closeModal } from '../../../redux/modal/modalSlice';
-// import { useDispatch } from 'react-redux';
+export default ModalAddCard;
