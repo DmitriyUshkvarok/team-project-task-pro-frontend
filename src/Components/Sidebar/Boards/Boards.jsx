@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import {
@@ -18,7 +18,7 @@ import {
 } from './Boards.styled';
 
 const Boards = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(0);
   const navigate = useNavigate();
 
   const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
@@ -44,6 +44,11 @@ const Boards = () => {
       navigate('/', { replace: true });
     }
   };
+  useEffect(() => {
+    if (boards?.length > 0) {
+      navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
+    }
+  }, [boards]);
 
   return (
     <ListBoard>
