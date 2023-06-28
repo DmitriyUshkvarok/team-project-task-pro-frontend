@@ -16,6 +16,8 @@ import {
   IconStyled,
   BtnIcon,
   ListTask,
+  // Btn,
+  // AddCardIcon,
 } from './ScreenPage.styled';
 import url from '../../images/icons/sprite/icons.svg';
 import { LoaderForDeleted } from '../../Components/Loader/LoaderDeleted/LoaderDeleted';
