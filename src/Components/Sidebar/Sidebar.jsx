@@ -5,10 +5,12 @@ import Boards from './Boards/Boards';
 import CustomerSupport from './CustomerSupport/CustomerSupport';
 import LogOut from './LogOut/LogOut';
 import { Container } from './SideBar.styled';
+import { useGetMiniImgQuery } from '../../redux/miniImgApi/miniImgApi';
 
 const Sidebar = ({ isSidebarOpen }) => {
   const [isClose, setClose] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const { data } = useGetMiniImgQuery();
 
   const handleKeyDown = (event) => {
     if (event.key === 'Escape') {

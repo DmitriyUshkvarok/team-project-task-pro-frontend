@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../../redux/modal/modalSlice';
+import authSelector from '../../../redux/auth/authSelector';
 import {
   useGetFetchBoardsQuery,
   useDeleteBoardMutation,
@@ -22,8 +23,14 @@ const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(0);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
 
-  const { data: boards, isLoading, error } = useGetFetchBoardsQuery();
+  const boards = useSelector(authSelector.getBoards);
+  const currentBoards = useSelector(authSelector.getCurrentBoard);
+
+  console.log(currentBoards);
+
+  const { data, isLoading, error } = useGetFetchBoardsQuery();
   const [deleteBoard] = useDeleteBoardMutation();
 
   const findIconsUser = (iconId) => {
@@ -33,7 +40,7 @@ const Boards = () => {
     }
   };
 
-  const handleItemClick = async (index, boardId) => {
+  const handleItemClick = async (index) => {
     setSelectedItem((prevSelectedItem) =>
       prevSelectedItem === index ? null : index
     );
@@ -51,21 +58,26 @@ const Boards = () => {
   };
 
   const handleDeleteBoard = async (id) => {
-    const { data } = await deleteBoard(id);
+    await deleteBoard(id);
 
-    if (data.message === 'Board deleted') {
-      navigate('/', { replace: true });
+    console.log(data);
+
+    if (data.length === 1) {
+      navigate(`/`, { replace: true });
     }
+    navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
+
+    // if (data.message === 'Board deleted') {
   };
   useEffect(() => {
     if (boards?.length > 0) {
       navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
     }
-  }, [boards]);
+  }, []);
 
   return (
     <ListBoard>
-      {boards?.map(({ _id, title, iconId }, index) => (
+      {data?.map(({ _id, title, iconId }, index) => (
         <Link to={`/${_id}/${title}`} key={_id}>
           <ItemBoard
             isSelected={selectedItem === index}
