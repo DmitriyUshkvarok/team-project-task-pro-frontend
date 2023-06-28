@@ -104,7 +104,7 @@ export const Button = styled.button`
 `;
 
 export const StyleErrorMessage = styled(ErrorMessage)`
-  color: red;
+  color: var(--errorColor);
   margin-top: 5px;
   font-size: var(--fontSize10);
 `;
