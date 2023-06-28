@@ -60,10 +60,10 @@ export const FieldTitle = styled(Field)`
   font-family: var(--poppinsFont);
   letter-spacing: -0.28px;
 
-  // &:hover,
-  // &:active {
-  //   opacity: 1;
-  // }
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
 `;
 
 export const Text = styled.h3`

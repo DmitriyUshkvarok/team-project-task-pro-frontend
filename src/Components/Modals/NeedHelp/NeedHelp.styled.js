@@ -42,6 +42,12 @@ export const InputEmail = styled(Field)`
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
 
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
+
+
   @media screen and (min-width: 768px) {
     width: 352px;
   }
@@ -67,6 +73,11 @@ export const InputComment = styled(Field)`
   resize: none;
 
   margin-top: 14px;
+
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
 
   @media screen and (min-width: 768px) {
     width: 352px;
