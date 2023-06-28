@@ -41,7 +41,7 @@ export const ErrorMessage = styled(FormikError)`
   top: ${({ name }) =>
     name === 'title' ? '50px' : name === 'iconId' ? '190px' : '60px'};
 
-  color: red;
+    color: var(--errorColor);
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
