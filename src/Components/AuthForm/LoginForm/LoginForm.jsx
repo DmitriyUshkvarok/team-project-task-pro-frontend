@@ -1,5 +1,4 @@
 import {
-  FormikStyle,
   FormLogin,
   FeedbackFormGroup,
   InputEmail,
@@ -19,6 +18,7 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
+import { Formik } from 'formik';
 
 const initialValues = {
   email: '',
@@ -66,7 +66,7 @@ function LogInForm() {
 
   return (
     <>
-      <FormikStyle
+      <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
@@ -118,7 +118,7 @@ function LogInForm() {
             </BtnLogIn>
           </BtnWrapper>
         </FormLogin>
-      </FormikStyle>
+      </Formik>
     </>
   );
 }
