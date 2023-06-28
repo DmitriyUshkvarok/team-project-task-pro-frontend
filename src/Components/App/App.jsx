@@ -35,12 +35,7 @@ function App() {
       {isRefreshing ? (
         <LoaderForRefresh />
       ) : (
-<<<<<<< HEAD
-        <Suspense fallback={<p>Loading...</p>}>
-          <ModalEditBoard />
-=======
         <Suspense fallback={<LoaderForApp />}>
->>>>>>> main
           <Container>
             <Routes>
               <Route

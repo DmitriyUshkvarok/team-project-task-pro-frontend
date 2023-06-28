@@ -29,17 +29,9 @@ import {
 } from './ModalCreateNewBoard.styled';
 
 const ModalCreateNewBoard = () => {
-<<<<<<< HEAD
-=======
-  // допилить :
-  // валидацию радиобатонов
-  // перелом  мобильный и планшет дисплей
-  // черный цвет иконки когда она активна
-  // мини картинки
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
->>>>>>> main
   const [createBoard] = useCreateBoardMutation();
 
   const handleSubmit = async (values) => {
