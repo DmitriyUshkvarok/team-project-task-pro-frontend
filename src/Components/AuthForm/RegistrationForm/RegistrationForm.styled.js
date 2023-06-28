@@ -101,7 +101,7 @@ export const StyleErrorMessage = styled(ErrorMessage)``;
 export const Error = styled.div`
   position: absolute;
   width: 100%;
-  color: red;
+  color: var(--errorColor);
   font-size: 10px;
   margin-top: 1px;
 `;
