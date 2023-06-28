@@ -33,12 +33,6 @@ const ModalEditBoard = ({ componentName }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // допилить :
-  // валидацию радиобатонов
-  // перелом  мобильный и планшет дисплей
-  // черный цвет иконки когда она активна
-  // мини картинки
-
   const handleSubmit = async (values) => {
     const { data } = await editBoard({ values, id });
     navigate(`/${data._id}/${data.title}`, { replace: true });
@@ -65,7 +59,6 @@ const ModalEditBoard = ({ componentName }) => {
               <FieldTitle
                 type="text"
                 name="title"
-                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="You need to enter the name of the column"
                 required
                 placeholder="Title"
@@ -83,6 +76,7 @@ const ModalEditBoard = ({ componentName }) => {
                   </svg>
                 </label>
               ))}
+              <ErrorMessage name="iconId" component="p" />
             </IconContainer>
 
             <Text id="my-radio-groupImage">Background</Text>
@@ -97,6 +91,7 @@ const ModalEditBoard = ({ componentName }) => {
                   <img src={path} alt="" />
                 </label>
               ))}
+              <ErrorMessage name="backgroundId" component="p" />
             </ImageContainer>
 
             <Button type="submit">
@@ -114,12 +109,14 @@ const ModalEditBoard = ({ componentName }) => {
   );
 };
 
-const schema = yup.object().shape({
+const schema = yup.object({
   title: yup
     .string()
     .min(2, 'To Short!')
     .max(10, 'To Long!')
     .required('Required!'),
+  iconId: yup.string().required('Required!'),
+  backgroundId: yup.string().required('Required!'),
 });
 
 export default ModalEditBoard;
