@@ -14,6 +14,7 @@ import {
   Wrap,
   AccentSpan,
 } from './BoardScreen.styled';
+import { FiFilter } from 'react-icons/fi';
 
 import {
   ContainerColumns,
@@ -24,7 +25,6 @@ const BoardScreen = ({ closeSidebar }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
   const { data: boards } = useGetFetchBoardsQuery();
-  // const { data } = useGetFetchBoardByIdQuery(boardId);
 
   const handleClickModal = () => {
     dispatch(
@@ -39,7 +39,10 @@ const BoardScreen = ({ closeSidebar }) => {
     <Board onClick={closeSidebar}>
       <SidebarBoard>
         <Title>{title}</Title>
-        <Filter> Icon Filters</Filter>
+        <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
+          <FiFilter />
+          <span>Filters</span>
+        </Filter>
       </SidebarBoard>
       {boards?.length === 0 && (
         <Wrap>

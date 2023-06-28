@@ -14,6 +14,7 @@ import ModalEditBoard from '../ModalEditBoard/ModalEditBoard';
 import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
 import ModalEditColumn from '../ModalEditColumn/ModalEditColumn.jsx';
 import AddCard from '../AddCard/AddCard.jsx';
+import Filters from '../Filters/Filters.jsx';
 import ModalEditCard from '../EditCard/EditCard.jsx';
 import ProgressDoneModal from '../ProgressDone/ProgressDone.jsx';
 
@@ -30,6 +31,7 @@ const Modal = () => {
     editColumn: ModalEditColumn,
     editBoard: ModalEditBoard,
     progressDoneModal: ProgressDoneModal,
+    filter: Filters,
   };
   let renderComponent;
 

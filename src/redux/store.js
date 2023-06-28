@@ -17,12 +17,14 @@ import {
 
 import themeReducer from './theme/themeSlice';
 import modalReducer from './modal/modalSlice';
+import { filterReducer } from './filter/filterSlice';
 
 const store = configureStore({
   reducer: {
     auth: persisteAuthReducer,
     theme: themeReducer,
     modal: modalReducer,
+    filter: filterReducer,
     [profileApi.reducerPath]: profileApi.reducer,
     [tasksApi.reducerPath]: tasksApi.reducer,
     [helpApi.reducerPath]: helpApi.reducer,

@@ -79,7 +79,6 @@ const ModalAddCard = ({ componentName }) => {
   };
 
   const handleSubmit = async (values) => {
-    alert(JSON.stringify(values, null, 2));
     try {
       await createTask({ values, boardId, columnId });
       dispatch(closeModal());
