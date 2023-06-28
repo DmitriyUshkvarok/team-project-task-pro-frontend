@@ -36,7 +36,7 @@ export const ErrorMessage = styled(FormikError)`
   position: absolute;
   top: 120px;
   /* margin-top: 5px; */
-  color: red;
+  color: var(--errorColor);
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
