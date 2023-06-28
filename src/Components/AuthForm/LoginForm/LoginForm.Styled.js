@@ -1,22 +1,25 @@
 import styled from 'styled-components';
-import { Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-export const FormRegistration = styled(Form)`
+export const FormikStyle = styled(Formik)``;
+
+export const FormLogin = styled(Form)`
   width: 100%;
-  height: 363px;
+  height: 298px;
   padding: 24px;
   justify-content: center;
   flex-direction: column;
   background-color: var(--bgFormColor);
   border-radius: 8px;
-  margin: 188px 508px;
+  margin: 219px 508px;
 
   @media screen and (min-width: 375px) {
     width: 335px;
   }
+
   @media screen and (min-width: 768px) {
     width: 424px;
-    height: 395px;
+    height: 332px;
     padding: 40px;
   }
 `;
@@ -29,7 +32,39 @@ export const FeedbackFormGroup = styled.div`
 
 export const PasswordWrapper = styled.div``;
 
-export const InputForm = styled(Field)`
+export const ToggleShowPassword = styled.span`
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  height: 18px;
+`;
+
+export const InputEmail = styled(Field)`
+  padding: 14px 18px;
+  width: 100%;
+  height: 49px;
+  border: 1px solid #bedbb0;
+  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
+  border-radius: 8px;
+  background-color: var(--bgInputColor);
+  color: var(--activeTextColor);
+  font-family: var(--poppinsFont);
+  font-size: var(--fontSize14);
+
+  @media screen and (min-width: 375px) {
+    width: 285px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 342px;
+  }
+
+  &::placeholder {
+    font-size: var(--fontSize14);
+  }
+`;
+
+export const InputPassword = styled(Field)`
   padding: 14px 18px;
   width: 100%;
   height: 49px;
@@ -56,18 +91,22 @@ export const InputForm = styled(Field)`
   }
 `;
 
-export const ToggleShowPassword = styled.span`
+export const StyleErrorMessage = styled(ErrorMessage)``;
+
+export const Error = styled.p`
   position: absolute;
-  top: 16px;
-  right: 18px;
-  height: 18px;
+  width: 100%;
+  color: red;
+  font-size: 10px;
+  margin-top: 1px;
 `;
 
 export const BtnWrapper = styled.div`
+  width: 100%;
   margin-top: 24px;
 `;
 
-export const BtnRegister = styled.button`
+export const BtnLogIn = styled.button`
   width: 100%;
   height: 49px;
   background-color: var(--bgAccentBtnColor);
@@ -86,24 +125,11 @@ export const BtnRegister = styled.button`
   @media screen and (min-width: 768px) {
     width: 342px;
   }
-  &:focus {
-    outline: none;
-  }
 
   &:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
-`;
-
-export const StyleErrorMessage = styled(ErrorMessage)``;
-
-export const Error = styled.div`
-  position: absolute;
-  width: 100%;
-  color: var(--errorColor);
-  font-size: 10px;
-  margin-top: 1px;
 `;
 
 export const Link = styled.div`
