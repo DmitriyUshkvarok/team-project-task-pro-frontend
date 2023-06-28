@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
@@ -21,6 +22,15 @@ const ScreenPage = () => {
   const dispatch = useDispatch();
   const { data } = useGetFetchBoardByIdQuery(boardId);
   const [deleteColumn] = useDeleteColumnMutation();
+  const [value, setValue] = useState();
+  const [filteredTasks, setFilteredTasks] = useState();
+
+  useEffect(() => {
+    if (data) {
+      setValue(data.tasks);
+      setFilteredTasks(data.tasks);
+    }
+  }, [data]);
 
   const handlClickModal = (columnId) => {
     dispatch(
@@ -46,8 +56,21 @@ const ScreenPage = () => {
     await deleteColumn(id);
   };
 
+  const handleFilteredPriority = () => {
+    // if (priority !== '_____') {
+    setFilteredTasks(value.filter((task) => task.priority === 'high'));
+    // } else return;
+  };
+
+  console.log(`filteredTasks`, filteredTasks);
+
   return (
     <>
+      //===============delete start=================== */
+      <button onClick={handleFilteredPriority} type="button">
+        qqqqqqqq
+      </button>
+      //===============delete end================== */
       {data?.columns &&
         data.columns.map(({ _id, title }) => (
           <BoxColumns key={_id}>
@@ -67,8 +90,8 @@ const ScreenPage = () => {
                 </IconStyled>
               </BtnIcon>
             </BoxColumnsTitle>
-            {data?.tasks &&
-              data.tasks.map(
+            {filteredTasks &&
+              filteredTasks.map(
                 (task) =>
                   task.column === _id && <TaskCard task={task} key={task._id} />
               )}
