@@ -25,7 +25,6 @@ const BoardScreen = ({ closeSidebar }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
   const { data: boards } = useGetFetchBoardsQuery();
-  // const { data } = useGetFetchBoardByIdQuery(boardId);
 
   const handleClickModal = () => {
     dispatch(
@@ -40,10 +39,8 @@ const BoardScreen = ({ closeSidebar }) => {
     <Board onClick={closeSidebar}>
       <SidebarBoard>
         <Title>{title}</Title>
-        {/* <Filter> </> Filters</Filter> */}
         <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
           <FiFilter />
-          {/* <span>{Filters}</span> */}
           <span>Filters</span>
         </Filter>
       </SidebarBoard>

@@ -26,9 +26,6 @@ const ScreenPage = () => {
   const [value, setValue] = useState();
   const [filteredTasks, setFilteredTasks] = useState();
   const filter = useSelector(selectFilterValue);
-  // const [filtered, setFiltered] = useState();
-
-  console.log('filter', filter);
 
   useEffect(() => {
     if (data) {
@@ -72,8 +69,6 @@ const ScreenPage = () => {
       setFilteredTasks(value.filter((task) => task.priority === filter));
     } else setFilteredTasks(value);
   };
-
-  console.log(`filteredTasks`, filteredTasks);
 
   return (
     <>

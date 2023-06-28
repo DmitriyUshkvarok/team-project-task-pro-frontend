@@ -21,20 +21,6 @@ export const FiltersContainer = styled.div`
     letter-spacing: var(--letterSpacing28);
     margin: 0px;
   }
-
-  /* button {
-    width: 50px;
-    height: 15px;
-    color: var(--iconSideBarBoardColor);
-    font-size: var(--fontSize12);
-    font-family: var(--poppinsFont);
-    letter-spacing: var(--letterSpacing24);
-    text-decoration: underline;
-    border: none;
-    background-color: inherit;
-    cursor: pointer;
-    padding: 0;
-  } */
 `;
 
 export const ShowAll = styled.label`

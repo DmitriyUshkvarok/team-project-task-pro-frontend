@@ -15,7 +15,6 @@ import {
 } from './Filters.styled';
 import CloseButton from '../CloseButton/CloseButton';
 import images from '../../image.json';
-// import selectFilterValue from '../../../redux/filter/filterSelector';
 import { setFilter } from '../../../redux/filter/filterSlice';
 
 const Filters = () => {
@@ -25,10 +24,7 @@ const Filters = () => {
   // адаптивную верстку мобилка планшет
 
   const dispatch = useDispatch();
-  // const filter = useSelector(selectFilterValue);
-  // const handleSubmit = () => {};
   const onFilterChange = (e) => {
-    console.log('e.target.value :>> ', e.target.value);
     dispatch(setFilter(e.target.value));
   };
 
@@ -64,7 +60,6 @@ const Filters = () => {
 
             <Container>
               <h4 id="filtersRadioButton">Label color</h4>
-              {/* <ShowAll>Show all</ShowAll> */}
               <ShowAll>
                 <input
                   type="radio"
