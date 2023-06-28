@@ -79,9 +79,9 @@ export const ImageContainer = styled.div`
 `;
 
 export const FormikFieldImage = styled(Field)`
-  /* opacity: 0;
-  position: absolute; */
-  display: none;
+  opacity: 0;
+  position: absolute;
+  /* display: none; */
 `;
 
 export const Container = styled.div`
