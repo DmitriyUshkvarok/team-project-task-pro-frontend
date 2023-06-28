@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -169,3 +170,10 @@ const ModalAddCard = ({ componentName }) => {
 };
 
 export default ModalAddCard;
+
+ModalAddCard.propTypes = {
+  componentName: PropTypes.shape({
+    boardId: PropTypes.string.isRequired,
+    columnId: PropTypes.string.isRequired,
+  }).isRequired,
+};

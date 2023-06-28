@@ -47,7 +47,7 @@ const TaskCard = ({ task }) => {
 
   return (
     <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
-      <Card key={task._id}>
+      <Card>
         <CardTitle>{task.title}</CardTitle>
 
         <CardDescription>
@@ -106,8 +106,11 @@ const TaskCard = ({ task }) => {
 export default TaskCard;
 
 TaskCard.propTypes = {
-  data: PropTypes.shape({
-    tasks: PropTypes.arrayOf(PropTypes.object),
-  }),
-  id: PropTypes.string,
+  task: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    priority: PropTypes.oneOf(['medium', 'without', 'high', 'low']).isRequired,
+    deadline: PropTypes.string.isRequired,
+  }).isRequired,
 };

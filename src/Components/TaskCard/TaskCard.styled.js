@@ -5,7 +5,9 @@ export const CardBg = styled.div`
   border-radius: 8px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+
+  margin-bottom: 8px;
 `;
 
 export const Card = styled.div`
