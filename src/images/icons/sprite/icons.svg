@@ -26,10 +26,10 @@
                 d="M6.666 8l0.801 12.018c0.149 2.231 0.223 3.347 0.588 4.243 0.662 1.627 2.004 2.883 3.672 3.435 0.919 0.304 2.037 0.304 4.273 0.304v0c2.236 0 3.354 0 4.273-0.304 1.668-0.552 3.010-1.808 3.672-3.435 0.365-0.896 0.439-2.012 0.588-4.243l0.801-12.018"></path>
         </symbol>
         <symbol id="icon-plus" viewBox="0 0 32 32">
-            <path fill="var(--modalBGC)" style="stroke: var(--modalBGC)" stroke="" stroke-linejoin="round" stroke-linecap="round"
-                stroke-miterlimit="4" stroke-width="2.88" d="M16 6.667v18.667"></path>
-            <path fill="var(--modalBGC)" style="stroke: var(--modalBGC)" stroke-linejoin="round" stroke-linecap="round"
-                stroke-miterlimit="4" stroke-width="2.88" d="M6.667 16h18.667"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                stroke-width="2.2857" d="M16 6.667v18.667"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                stroke-width="2.2857" d="M6.667 16h18.667"></path>
         </symbol>
         <symbol id="icon-login" viewBox="0 0 32 32">
             <path fill="none" stroke="" style="stroke: var(--color1)" stroke-linejoin="round"
@@ -67,9 +67,9 @@
                 d="M29.333 4h-26.667l10.667 12.613v8.72l5.333 2.667v-11.387l10.667-12.613z"></path>
         </symbol>
         <symbol id="icon-x-close" viewBox="0 0 32 32">
-            <path style="stroke: var(--IconCloseColor)" stroke-linejoin="round"
+            <path stroke-linejoin="round"
                 stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 8l-16 16"></path>
-            <path style="stroke: var(--IconCloseColor)" stroke-linejoin="round"
+            <path stroke-linejoin="round"
                 stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 8l16 16"></path>
         </symbol>
         <symbol id="icon-arrow-circle-broken-right" viewBox="0 0 32 32">
