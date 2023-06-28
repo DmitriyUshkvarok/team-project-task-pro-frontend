@@ -22,7 +22,7 @@ import PropTypes from 'prop-types';
 import { openModal } from '../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, columns }) => {
   const dispatch = useDispatch();
   const maxLength = 97;
 
@@ -87,7 +87,16 @@ const TaskCard = ({ task }) => {
           <CardBtnGrope>
             <CardBtn
               type="button"
-              onClick={() => dispatch(openModal({ name: 'progressDoneModal' }))}
+              onClick={() =>
+                dispatch(
+                  openModal({
+                    name: 'progressDoneModal',
+                    currentColumnId: task.column,
+                    currentTaskId: task._id,
+                    columns,
+                  })
+                )
+              }
             >
               <CardIcon>
                 <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
@@ -119,5 +128,13 @@ TaskCard.propTypes = {
     description: PropTypes.string.isRequired,
     priority: PropTypes.oneOf(['medium', 'without', 'high', 'low']).isRequired,
     deadline: PropTypes.string.isRequired,
+    column: PropTypes.string.isRequired,
   }).isRequired,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      board: PropTypes.string.isRequired,
+    }).isRequired
+  ),
 };
