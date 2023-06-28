@@ -87,10 +87,7 @@ export const Error = styled.p`
 `;
 
 export const Edit = styled.div`
-  position: absolute;
-
-  left: 42%; //редактировать!!!!!!!!!!!!!!
-  top: 42%; //редактировать!!!!!!!!!!!!!!
+  position: relative;
 
   display: flex;
   flex-direction: column;
