@@ -19,7 +19,11 @@ import {
 import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
 
+import { openModal } from '../../redux/modal/modalSlice';
+import { useDispatch } from 'react-redux';
+
 const TaskCard = ({ task }) => {
+  const dispatch = useDispatch();
   const maxLength = 97;
 
   function colorSwitch(priority) {
@@ -81,7 +85,10 @@ const TaskCard = ({ task }) => {
           </CardBottomGrop>
 
           <CardBtnGrope>
-            <CardBtn type="button">
+            <CardBtn
+              type="button"
+              onClick={() => dispatch(openModal({ name: 'progressDoneModal' }))}
+            >
               <CardIcon>
                 <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
               </CardIcon>
