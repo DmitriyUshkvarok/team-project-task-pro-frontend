@@ -4,6 +4,7 @@ import { Form, ErrorMessage as FormikError, Field } from 'formik';
 export const ModalCard = styled.div`
   width: 335px;
   height: 433px;
+  background-color: var(--boardBgColor);
   // box-shadow: var(--boxShadow);
   border-radius: 8px;
   border: 1px solid var(--borderBoardColor);
@@ -32,16 +33,16 @@ export const FormikForm = styled(Form)`
 `;
 
 export const FormFieldTitle = styled.label`
-  width: 100%;
-  position: relative;
+width: 100%;
+position: relative;
+  
 `;
 
 export const ErrorMessage = styled(FormikError)`
   position: absolute;
-  top: ${({ name }) =>
-    name === 'title' ? '50px' : name === 'iconId' ? '190px' : '60px'};
-
-  color: red;
+  top: 120px;
+  /* margin-top: 5px; */
+  color: var(--errorColor);
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -54,13 +55,12 @@ export const FieldTitle = styled(Field)`
   margin-bottom: 24px;
   align-items: center;
   border-radius: var(--borderRadius8);
-  background: var(--bgInputBoardColor);
   border: 1px solid var(--borderInputBoardColor);
   opacity: 0.4000000059604645;
-
+  background-color: var(--bgInputBoardColor);
   box-shadow: 0px 4px 16px 0px rgba(var(--boxShadowInputBoardColor));
+  
   color: var(--textInputBoardColor);
-
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   letter-spacing: -0.28px;
