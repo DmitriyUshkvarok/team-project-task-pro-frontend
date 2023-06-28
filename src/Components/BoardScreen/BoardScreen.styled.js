@@ -60,8 +60,7 @@ export const BoardsContainer = styled.div`
   ::-webkit-scrollbar-track {
     @media screen and (min-width: 320px) {
       border-radius: 12px;
-      /* background-color: var(--headerColor); */
-      background: red;
+      background-color: var(--headerColor);
       margin-left: 20px;
       margin-right: 20px;
     }
