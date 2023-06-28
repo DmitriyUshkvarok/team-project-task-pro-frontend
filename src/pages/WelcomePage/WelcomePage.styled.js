@@ -7,7 +7,6 @@ export const StyleSectionWelcomePage = styled.section`
   justify-content: center;
   align-items: center;
 
-  width: 473px;
   height: 100vh;
   flex-shrink: 0;
   margin: 0 auto;
@@ -18,12 +17,16 @@ export const StyleSectionWelcomePage = styled.section`
     align-items: center;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 375px) {
     width: 335px;
   }
 
+  @media screen and (min-width: 768px) {
+    width: 473px;
+  }
+
   @media screen and (max-width: 374px) {
-    max-width: 100%;
+    padding: 0 20px;
   }
 `;
 
@@ -43,49 +46,47 @@ export const Logo = styled.p`
   margin-bottom: 24px;
 
   color: var(--logoColor);
-  font-size: var(--fontSize40);
-  font-family: var(--poppinsFont);
   font-weight: var(--fontWeight600);
-  letter-spacing: -1.6px;
+  font-family: var(--poppinsFont);
 
   @media screen and (max-width: 767px) {
     font-size: var(--fontSize28);
     letter-spacing: -1.12px;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: var(--fontSize40);
+    letter-spacing: -1.6px;
+  }
 `;
 
 export const ImgLogo = styled.img`
-  width: 162px;
-  height: 162px;
+  @media screen and (min-width: 768px) {
+    width: 162px;
+    height: 162px;
+  }
 
   @media screen and (max-width: 767px) {
     width: 124px;
     height: 124px;
   }
-
-  @media screen and (max-width: 374px) {
-    max-width: 100%;
-    max-height: 100%;
-  }
 `;
 
 export const ImgIcon = styled.svg`
-  width: 48px;
-  height: 48px;
+  @media screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
 
   @media screen and (max-width: 767px) {
     width: 40px;
     height: 40px;
   }
-
-  @media screen and (max-width: 374px) {
-    max-width: 100%;
-  }
 `;
 
 export const Content = styled.p`
   display: flex;
-  width: 473px;
+
   flex-direction: column;
   flex-shrink: 0;
   margin-bottom: 48px;
@@ -97,11 +98,14 @@ export const Content = styled.p`
   line-height: 18px;
   letter-spacing: -0.28px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 375px) {
     width: 335px;
   }
+  @media screen and (min-width: 768px) {
+    width: 473px;
+  }
   @media screen and (max-width: 374px) {
-    max-width: 100%;
+    width: 100%;
   }
 `;
 export const Link = styled(NavLink)`
@@ -128,11 +132,11 @@ export const Link = styled(NavLink)`
     text-align: center;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 375px) {
     width: 335px;
   }
 
   @media screen and (max-width: 374px) {
-    max-width: 100%;
+    width: 280px;
   }
 `;

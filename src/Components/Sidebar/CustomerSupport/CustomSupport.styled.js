@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
   @media screen and (min-width: 768px) {
     margin-top: 290px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-top: 40px;
     padding: 0 24px;
   }
@@ -32,7 +32,7 @@ export const Desc = styled.p`
 
   color: var(--primarySidebarColor);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: var(--fontSize14);
     line-height: 1.43em;
   }

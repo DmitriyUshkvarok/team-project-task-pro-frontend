@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { closeModal } from '../../../redux/modal/modalSlice';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
@@ -30,9 +31,11 @@ const ModalEditBoard = ({ componentName }) => {
   const { id, title } = componentName;
   const [editBoard] = useEditBoardMutation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-    await editBoard({ values, id });
+    const { data } = await editBoard({ values, id });
+    navigate(`/${data._id}/${data.title}`, { replace: true });
     dispatch(closeModal());
   };
 

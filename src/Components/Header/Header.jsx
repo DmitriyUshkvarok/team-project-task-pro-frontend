@@ -12,12 +12,13 @@ import { useSelector } from 'react-redux';
 import authSelector from '../../redux/auth/authSelector';
 import userDefault from '../../images/icons/iconsPng/user_default.png';
 import PropTypes from 'prop-types';
-
+import { useGetCurrentUserQuery } from '../../redux/profileApi/profileApi';
 import { openModal } from '../../redux/modal/modalSlice.js';
 
 import { useDispatch } from 'react-redux';
 
 const Header = ({ openSideBar }) => {
+  const { data: currentUser } = useGetCurrentUserQuery();
   const dispatch = useDispatch();
 
   const name = useSelector(authSelector.getName);
@@ -34,8 +35,13 @@ const Header = ({ openSideBar }) => {
           <UserInfo
             onClick={() => dispatch(openModal({ name: 'editprofile' }))}
           >
-            <UserText>{name}</UserText>
-            <UserIcon src={avatarSrc} alt="user_icon" width={32} height={32} />
+            <UserText>{currentUser?.name || name}</UserText>
+            <UserIcon
+              src={currentUser?.avatarURL || avatarSrc}
+              alt="user_icon"
+              width={32}
+              height={32}
+            />
           </UserInfo>
         </BoxMenu>
       </Navigation>

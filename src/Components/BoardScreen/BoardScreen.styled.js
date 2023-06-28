@@ -13,10 +13,9 @@ export const Board = styled.div`
     padding-bottom: 32px;
     height: calc(100vh - 68px);
   }
-  @media screen and (min-width: 1440px) {
-    width: 1180px;
+  @media screen and (min-width: 1280px) {
+    width: 100%;
     padding-bottom: 8px;
-    /* height: 702px; */
   }
 `;
 

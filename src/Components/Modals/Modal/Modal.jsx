@@ -15,6 +15,7 @@ import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
 import ModalEditColumn from '../ModalEditColumn/ModalEditColumn.jsx';
 import AddCard from '../AddCard/AddCard.jsx';
 import ModalEditCard from '../EditCard/EditCard.jsx';
+import ProgressDoneModal from '../ProgressDone/ProgressDone.jsx';
 
 const Modal = () => {
   const { componentName } = useSelector((store) => store.modal);
@@ -28,6 +29,7 @@ const Modal = () => {
     ModalEditCard: ModalEditCard,
     editColumn: ModalEditColumn,
     editBoard: ModalEditBoard,
+    progressDoneModal: ProgressDoneModal,
   };
   let renderComponent;
 

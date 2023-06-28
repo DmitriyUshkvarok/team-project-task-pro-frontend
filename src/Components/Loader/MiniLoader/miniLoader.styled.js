@@ -20,8 +20,7 @@ export const Container = styled.div`
 
 export const Box = styled.div`
   position: relative;
-  width: 320px;
-  height: 200px;
+  width: 400px;
 `;
 export const Ball = styled.div`
   width: 30px;

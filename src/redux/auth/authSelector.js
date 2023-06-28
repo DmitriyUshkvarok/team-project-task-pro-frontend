@@ -14,6 +14,10 @@ const getTheme = (state) => state.auth?.user?.theme;
 
 const getAvatar = (state) => state.auth?.user?.avatarURL;
 
+const getBoards = (state) => state.auth?.user?.boards;
+
+const getCurrentBoard = (state) => state.auth?.user?.currentBoard;
+
 const authSelector = {
   getIsLoggedIn,
   getIsRefreshing,
@@ -23,6 +27,8 @@ const authSelector = {
   getid,
   getTheme,
   getAvatar,
+  getBoards,
+  getCurrentBoard,
 };
 
 export default authSelector;

@@ -19,7 +19,11 @@ import {
 import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
 
+import { openModal } from '../../redux/modal/modalSlice';
+import { useDispatch } from 'react-redux';
+
 const TaskCard = ({ task }) => {
+  const dispatch = useDispatch();
   const maxLength = 97;
 
   function colorSwitch(priority) {
@@ -47,7 +51,7 @@ const TaskCard = ({ task }) => {
 
   return (
     <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
-      <Card key={task._id}>
+      <Card>
         <CardTitle>{task.title}</CardTitle>
 
         <CardDescription>
@@ -81,7 +85,10 @@ const TaskCard = ({ task }) => {
           </CardBottomGrop>
 
           <CardBtnGrope>
-            <CardBtn type="button">
+            <CardBtn
+              type="button"
+              onClick={() => dispatch(openModal({ name: 'progressDoneModal' }))}
+            >
               <CardIcon>
                 <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
               </CardIcon>
@@ -106,8 +113,11 @@ const TaskCard = ({ task }) => {
 export default TaskCard;
 
 TaskCard.propTypes = {
-  data: PropTypes.shape({
-    tasks: PropTypes.arrayOf(PropTypes.object),
-  }),
-  id: PropTypes.string,
+  task: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    priority: PropTypes.oneOf(['medium', 'without', 'high', 'low']).isRequired,
+    deadline: PropTypes.string.isRequired,
+  }).isRequired,
 };

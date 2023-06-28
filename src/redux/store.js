@@ -4,6 +4,7 @@ import { profileApi } from './profileApi/profileApi';
 import { tasksApi } from './tasksApi/tasksApi';
 import { helpApi } from './helpApi/helpApi';
 import { boardsApi } from './boardApi/boardApi';
+import { miniImgApi } from './miniImgApi/miniImgApi';
 import {
   persistStore,
   FLUSH,
@@ -26,6 +27,7 @@ const store = configureStore({
     [tasksApi.reducerPath]: tasksApi.reducer,
     [helpApi.reducerPath]: helpApi.reducer,
     [boardsApi.reducerPath]: boardsApi.reducer,
+    [miniImgApi.reducerPath]: miniImgApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -36,7 +38,8 @@ const store = configureStore({
       profileApi.middleware,
       tasksApi.middleware,
       helpApi.middleware,
-      boardsApi.middleware
+      boardsApi.middleware,
+      miniImgApi.middleware
     ),
 });
 

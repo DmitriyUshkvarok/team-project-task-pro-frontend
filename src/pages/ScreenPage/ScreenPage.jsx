@@ -1,18 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
-import { useGetFetchBoardByIdQuery } from '../../redux/boardApi/boardApi';
+import {
+  useGetFetchBoardByIdQuery,
+  useDeleteColumnMutation,
+} from '../../redux/boardApi/boardApi';
 import TaskCard from '../../Components/TaskCard/TaskCard';
 import {
   BoxColumns,
   BoxColumnsTitle,
   Subject,
-  // Icon,
-  // ListCard,
-  // Card,
   Btn,
-  // ContainerColumns,
-  // BtnAdd,
   IconStyled,
   BtnIcon,
 } from './ScreenPage.styled';
@@ -22,6 +20,7 @@ const ScreenPage = () => {
   const { boardId } = useParams();
   const dispatch = useDispatch();
   const { data } = useGetFetchBoardByIdQuery(boardId);
+  const [deleteColumn] = useDeleteColumnMutation();
 
   const handlClickModal = (columnId) => {
     dispatch(
@@ -43,7 +42,9 @@ const ScreenPage = () => {
     );
   };
 
-  console.log(data);
+  const handleDeleteColumn = async (id) => {
+    await deleteColumn(id);
+  };
 
   return (
     <>
@@ -60,7 +61,7 @@ const ScreenPage = () => {
                   <use xlinkHref={`${url}#icon-pencil-01`} />
                 </IconStyled>
               </BtnIcon>
-              <BtnIcon type="button">
+              <BtnIcon onClick={() => handleDeleteColumn(_id)} type="button">
                 <IconStyled width="16" height="16">
                   <use xlinkHref={`${url}#icon-trash-04`} />
                 </IconStyled>
@@ -68,7 +69,8 @@ const ScreenPage = () => {
             </BoxColumnsTitle>
             {data?.tasks &&
               data.tasks.map(
-                (task) => task.column === _id && <TaskCard task={task} />
+                (task) =>
+                  task.column === _id && <TaskCard task={task} key={task._id} />
               )}
             ;<Btn onClick={() => handlClickModal(_id)}>Add another card</Btn>
           </BoxColumns>

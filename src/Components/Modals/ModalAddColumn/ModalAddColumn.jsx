@@ -1,6 +1,8 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useCreateColumnMutation } from '../../../redux/boardApi/boardApi';
+import { useDispatch } from 'react-redux';
+import { closeModal } from '../../../redux/modal/modalSlice';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import CloseButton from '../CloseButton/CloseButton';
 import {
@@ -15,10 +17,12 @@ import {
 } from './ModalAddColumn.styled';
 
 const ModalAddColumn = ({ componentName }) => {
+  const dispatch = useDispatch();
   const [createColumn] = useCreateColumnMutation();
   const handleSubmit = async (values) => {
     const { boardId } = componentName;
     await createColumn({ values, boardId });
+    dispatch(closeModal());
   };
 
   return (

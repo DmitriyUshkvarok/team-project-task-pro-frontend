@@ -5,8 +5,14 @@ import {
   ColumnStatus,
   Button,
 } from './ProgressDone.styled';
+// import { openModal } from '../../../redux/modal/modalSlice'; //для закрытия модалки расскоментировать код
+// import { useDispatch } from 'react-redux'; //для закрытия модалки расскоментировать код
+
+
+// onClick={() => dispatch(closeModal())}  // для закрытия модального окна, добавить в код  после того как данные передадуться в карту 
 
 const ProgressDoneModal = () => {
+  // const dispatch = useDispatch(); //для закрытия модалки расскоментировать код
   return (
     <ProgressDoneContainer>
       <Button type="button">
