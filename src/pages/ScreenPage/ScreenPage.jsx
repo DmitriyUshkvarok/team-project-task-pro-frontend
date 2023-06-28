@@ -43,6 +43,8 @@ const ScreenPage = () => {
     );
   };
 
+  console.log(data);
+
   return (
     <>
       {data?.columns &&
@@ -64,8 +66,11 @@ const ScreenPage = () => {
                 </IconStyled>
               </BtnIcon>
             </BoxColumnsTitle>
-            <TaskCard data={data} id={_id} />;
-            <Btn onClick={() => handlClickModal(_id)}>Add another card</Btn>
+            {data?.tasks &&
+              data.tasks.map(
+                (task) => task.column === _id && <TaskCard task={task} />
+              )}
+            ;<Btn onClick={() => handlClickModal(_id)}>Add another card</Btn>
           </BoxColumns>
         ))}
     </>
