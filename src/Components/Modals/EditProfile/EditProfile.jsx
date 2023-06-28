@@ -13,6 +13,7 @@ import {
 
 import { GiSave } from 'react-icons/gi';
 import { LoaderForAvatar } from '../../Loader/LoaderForAvatar/LoaderForAvatar';
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import {
   FormUpdateUser,
   FeedbackFormGroup,
@@ -68,7 +69,7 @@ const EditProfile = () => {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [showSaveButton, setShowSaveButton] = useState(false);
 
-  const [updateUser] = useUpdateUserMutation();
+  const [updateUser, { isLoading: isInfoLoading }] = useUpdateUserMutation();
   const [updateAvatar, { isLoading: isAvatarLoading, error: errorFormat }] =
     useChangeProfileAvatarMutation();
   console.log(errorFormat);
@@ -258,7 +259,9 @@ const EditProfile = () => {
             </StyleErrorMessage>
           </FeedbackFormGroup>
           <BtnWrapper>
-            <BtnUpdate type="submit">Send</BtnUpdate>
+            <BtnUpdate type="submit" disabled={isInfoLoading}>
+              {isInfoLoading ? <LoaderForButton /> : 'Send'}
+            </BtnUpdate>
           </BtnWrapper>
         </FormUpdateUser>
       </Formik>
