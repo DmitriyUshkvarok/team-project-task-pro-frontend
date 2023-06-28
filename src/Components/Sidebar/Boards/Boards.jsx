@@ -20,16 +20,13 @@ import {
 } from './Boards.styled';
 
 const Boards = () => {
-  const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const boards = useSelector(authSelector.getBoards);
-  const currentBoards = useSelector(authSelector.getCurrentBoard);
 
-  console.log(currentBoards);
-
-  const { data, isLoading, error } = useGetFetchBoardsQuery();
+  const { data } = useGetFetchBoardsQuery();
   const [deleteBoard] = useDeleteBoardMutation();
 
   const findIconsUser = (iconId) => {
@@ -59,15 +56,13 @@ const Boards = () => {
   const handleDeleteBoard = async (id) => {
     await deleteBoard(id);
 
-    console.log(data);
-
     if (data.length <= 1) {
-      console.log('ia');
       return navigate(`/`, { replace: true });
     }
+
     navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
 
-    // if (data.message === 'Board deleted') {
+    // navigate(-1, { replace: true });
   };
   useEffect(() => {
     if (boards?.length > 0) {
