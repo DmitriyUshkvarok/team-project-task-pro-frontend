@@ -5,9 +5,9 @@ import * as yup from 'yup';
 
 //===for calendar===/
 import { formattedDateForBtn } from '../../../services/formatingDate.js';
-import DatePicker from 'react-datepicker';
+import Calendar from '../Calendar/Calendar.jsx';
 import 'react-datepicker/dist/react-datepicker.css';
-import './calendar.css';
+import '../Calendar/calendar.css';
 
 //===for fetch===/
 import { useUpdateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
@@ -35,7 +35,7 @@ import {
   BtnName,
 } from './EditCard.styled.js';
 
-const ModalEditCard = ({ title, description, priority, id }) => {
+const ModalEditCard = ({ title, description, priority, columnId }) => {
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
@@ -56,7 +56,7 @@ const ModalEditCard = ({ title, description, priority, id }) => {
     description: description,
     priority: priority,
     deadline: date,
-    column: '60c8c6bbf0c9a15f7c41979a',
+    column: columnId,
   };
 
   const schema = yup.object({
@@ -84,6 +84,10 @@ const ModalEditCard = ({ title, description, priority, id }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const hendleSubmitCalendar = (selectedDate) => {
+    setDate(selectedDate);
   };
 
   return (
@@ -148,14 +152,10 @@ const ModalEditCard = ({ title, description, priority, id }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
-              <DatePicker
-                selected={date}
-                minDate={new Date()}
-                calendarStartDay={1}
-                onChange={(selectedDate) => {
-                  setFieldValue('deadline', selectedDate);
-                  setDate(selectedDate);
-                }}
+              <Calendar
+                prop={date}
+                click={hendleSubmitCalendar}
+                setFieldValue={setFieldValue}
               />
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
