@@ -81,7 +81,7 @@ export const StyleErrorMessage = styled(ErrorMessage)``;
 export const Error = styled.p`
   position: absolute;
   width: 100%;
-  color: red;
+  color: var(--errorColor);
   font-size: 10px;
   margin-top: 1px;
 `;
@@ -151,7 +151,7 @@ export const SpanErrorImg = styled.span`
   position: absolute;
   top: 12%;
   font-size: 10px;
-  color: red;
+  color: var(--errorColor);
   width: 100%;
 `;
 
