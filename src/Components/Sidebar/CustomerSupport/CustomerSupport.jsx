@@ -6,24 +6,22 @@ import {
   WrapContent,
   DescContent,
   BtnNeedHelp,
-  IconStyled
+  IconStyled,
 } from './CustomSupport.styled';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import plant from '../../../images/icons/iconsPng/plant.png';
 import url from '../../../images/icons/sprite/icons.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
 // import Backdrop from '../../Modals/Backdrop/Backdrop';
 
 import { openModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 
-
-
 const CustomerSupport = () => {
   const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
-  const [helpModal, setHelpModal] = useState(false);
+  // const [visible, setVisible] = useState(false);
+  // const [helpModal, setHelpModal] = useState(false);
 
   const handleClick = () => {
     // setVisible((prev) => !prev);
@@ -49,12 +47,6 @@ const CustomerSupport = () => {
             <DescContent onClick={handleClick}>Need help?</DescContent>
           </BtnNeedHelp>
         </WrapContent>
-        {/* <Backdrop
-          handleClose={handleClose}
-          handleClick={handleClick}
-          helpModal={helpModal}
-          visible={visible}
-        /> */}
       </Container>
     </MainContainer>
   );

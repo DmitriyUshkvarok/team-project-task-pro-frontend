@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
-export const CardBg = styled.div`
-  width: 334px;
+export const CardBg = styled.li`
+  /* width: 334px;
   border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row-reverse;
+  overflow: hidden; */
 
-  margin-bottom: 8px;
+  @media screen and (min-width: 320px) {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: var(--sidebarColor);
+    width: 279px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 334px;
+  }
+  /* margin-bottom: 8px; */
 `;
 
 export const Card = styled.div`
+  border-radius: 0 8px 8px 0;
   background-color: var(--headerColor);
   width: 330px;
   height: 154px;

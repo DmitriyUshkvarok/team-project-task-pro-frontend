@@ -10,9 +10,12 @@ import {
   BoxColumns,
   BoxColumnsTitle,
   Subject,
-  Btn,
+  AddCardBtn,
   IconStyled,
   BtnIcon,
+  ListTask,
+  // Btn,
+  // AddCardIcon,
 } from './ScreenPage.styled';
 import url from '../../images/icons/sprite/icons.svg';
 
@@ -67,12 +70,22 @@ const ScreenPage = () => {
                 </IconStyled>
               </BtnIcon>
             </BoxColumnsTitle>
-            {data?.tasks &&
-              data.tasks.map(
-                (task) =>
-                  task.column === _id && <TaskCard task={task} key={task._id} />
-              )}
-            ;<Btn onClick={() => handlClickModal(_id)}>Add another card</Btn>
+
+            <ListTask>
+              {data?.tasks &&
+                data.tasks.map(
+                  (task) =>
+                    task.column === _id && (
+                      <TaskCard task={task} key={task._id} />
+                    )
+                )}
+            </ListTask>
+            <AddCardBtn onClick={() => handlClickModal(_id)}>
+              <svg width="28" height="28">
+                <use xlinkHref={`${url}#icon-plus`} />
+              </svg>
+              Add another card
+            </AddCardBtn>
           </BoxColumns>
         ))}
     </>
