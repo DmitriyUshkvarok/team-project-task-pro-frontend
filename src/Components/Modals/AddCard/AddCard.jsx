@@ -5,11 +5,9 @@ import * as yup from 'yup';
 
 //===for calendar===/
 import { formattedDateForBtn } from '../../../services/formatingDate.js';
-import DatePicker from 'react-datepicker';
+import Calendar from '../Calendar/Calendar.jsx';
 import 'react-datepicker/dist/react-datepicker.css';
-import './calendar.css';
-
-// import Calendar from '../Calendar/Calendar.jsx';
+import '../Calendar/calendar.css';
 
 //===for fetch===/
 import { useCreateTaskMutation } from '../../../redux/boardApi/boardApi.js';
@@ -89,11 +87,9 @@ const ModalAddCard = ({ componentName }) => {
     }
   };
 
-  // const hendleSubmitCalendar = (selectedDate) => {
-  //   console.log(selectedDate);
-  //   setFieldValue('deadline', selectedDate);
-  //   setDate(selectedDate);
-  // };
+  const hendleSubmitCalendar = (selectedDate) => {
+    setDate(selectedDate);
+  };
 
   return (
     <AddCardModal>
@@ -157,15 +153,10 @@ const ModalAddCard = ({ componentName }) => {
                   <ChevronDown />
                 </BtnName>
               </ButtonDate>
-              {/* <Calendar prop={date} click={hendleSubmitCalendar} /> */}
-              <DatePicker
-                selected={date}
-                minDate={new Date()}
-                calendarStartDay={1}
-                onChange={(selectedDate) => {
-                  setFieldValue('deadline', selectedDate.toISOString());
-                  setDate(selectedDate);
-                }}
+              <Calendar
+                prop={date}
+                click={hendleSubmitCalendar}
+                setFieldValue={setFieldValue}
               />
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
