@@ -14,8 +14,8 @@ export const Button = styled.button`
   border-radius: var(--borderRadius8);
   border: none;
 
-  background-color: var(--accentColor);
-  color: var(--IconCloseColor);
+  background-color: var(--btnBoardColor);
+  color: var(--btnTextBoardColor);
 
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
@@ -35,7 +35,7 @@ export const ContainerIconButton = styled.span`
   width: 28px;
   height: 28px;
   margin-right: 8px;
-  background-color: var(--IconCloseColor);
-
+  background-color: var(--iconBoardBgColor);
   border-radius: var(--borderRadius8);
+  stroke: var(--iconPlusBoardColor);
 `;
