@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 
-import { MdAddAPhoto } from 'react-icons/md';
-
 export const FormUpdateUser = styled(Form)``;
 
 export const FeedbackFormGroup = styled.div`
@@ -144,6 +142,7 @@ export const PhotoUser = styled.img`
   height: 68px;
   border-radius: var(--borderRadius8);
   display: block;
+  object-fit: cover;
 `;
 
 export const PhotoBox = styled.div`
@@ -152,8 +151,9 @@ export const PhotoBox = styled.div`
 `;
 
 export const SpanErrorImg = styled.span`
+  position: absolute;
+  top: 12%;
   font-size: 10px;
-  margin-top: 5px;
   color: red;
   width: 100%;
 `;

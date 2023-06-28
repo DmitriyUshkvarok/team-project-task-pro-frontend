@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
 
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import userDefault from '../../../images/icons/iconsPng/user_default.png';
@@ -68,12 +69,9 @@ const EditProfile = () => {
   const [showSaveButton, setShowSaveButton] = useState(false);
 
   const [updateUser] = useUpdateUserMutation();
-  const [
-    updateAvatar,
-    { isLoading: isAvatarLoading, error: errorFormat, message: mes },
-  ] = useChangeProfileAvatarMutation();
+  const [updateAvatar, { isLoading: isAvatarLoading, error: errorFormat }] =
+    useChangeProfileAvatarMutation();
   console.log(errorFormat);
-  console.log(mes);
   const dispatch = useDispatch();
 
   const handleAvatarChange = (event) => {
@@ -102,14 +100,37 @@ const EditProfile = () => {
 
     if (values.name) {
       updatedUser.name = values.name;
+      try {
+        await updateUser(updatedUser);
+        toast.success('Name field has been updated');
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     if (values.email) {
       updatedUser.email = values.email;
+      try {
+        await updateUser(updatedUser);
+        toast.success('Email field has been updated');
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     if (values.password) {
       updatedUser.password = values.password;
+      try {
+        await updateUser(updatedUser);
+        toast.success('Password field has been updated');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (Object.keys(updatedUser).length === 0) {
+      toast.warning('To save changes, at least one field must be filled');
+      return;
     }
 
     try {
@@ -166,7 +187,14 @@ const EditProfile = () => {
           )}
         </PhotoBox>
         {errorFormat && (
-          <SpanErrorImg>The image format must be jpg or png</SpanErrorImg>
+          <>
+            {errorFormat.status === 500 && (
+              <SpanErrorImg>{errorFormat.data.message}</SpanErrorImg>
+            )}
+            {errorFormat.status === 413 && (
+              <SpanErrorImg>{errorFormat.data.message}</SpanErrorImg>
+            )}
+          </>
         )}
 
         <InputEditPhoto

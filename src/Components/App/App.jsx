@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import authOperation from '../../redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import { LoaderForApp } from '../Loader/LoaderForApp/LoaderForApp';
+import { LoaderForRefresh } from '../Loader/LoaderForRefresh/LoaderForRefresh';
 
 import Modal from '../Modals/Modal/Modal';
 
@@ -31,9 +33,9 @@ function App() {
     <>
       {isOpen && <Modal />}
       {isRefreshing ? (
-        <p>Loading...</p>
+        <LoaderForRefresh />
       ) : (
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<LoaderForApp />}>
           <Container>
             <Routes>
               <Route
