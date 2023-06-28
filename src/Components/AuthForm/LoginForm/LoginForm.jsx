@@ -18,6 +18,7 @@ import authOperation from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 
 const initialValues = {
   email: '',
@@ -65,7 +66,6 @@ function LogInForm() {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
       <FormikStyle
         initialValues={initialValues}
         validationSchema={schema}
@@ -113,7 +113,9 @@ function LogInForm() {
             </StyleErrorMessage>
           </FeedbackFormGroup>
           <BtnWrapper>
-            <BtnLogIn type="submit">Log In Now</BtnLogIn>
+            <BtnLogIn type="submit">
+              {isLoading ? <LoaderForButton /> : 'Log In Now'}
+            </BtnLogIn>
           </BtnWrapper>
         </FormLogin>
       </FormikStyle>

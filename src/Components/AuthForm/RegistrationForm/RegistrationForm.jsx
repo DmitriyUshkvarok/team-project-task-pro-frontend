@@ -16,7 +16,7 @@ import {
   Error,
   Link,
 } from './RegistrationForm.styled';
-
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import { NavLink } from 'react-router-dom';
 
 const initialValues = {
@@ -67,7 +67,6 @@ const RegistrationForm = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
@@ -121,7 +120,9 @@ const RegistrationForm = () => {
             </StyleErrorMessage>
           </FeedbackFormGroup>
           <BtnWrapper>
-            <BtnRegister type="submit">Register Now</BtnRegister>
+            <BtnRegister type="submit">
+              {isLoading ? <LoaderForButton /> : 'Register Now'}
+            </BtnRegister>
           </BtnWrapper>
         </FormRegistration>
       </Formik>
