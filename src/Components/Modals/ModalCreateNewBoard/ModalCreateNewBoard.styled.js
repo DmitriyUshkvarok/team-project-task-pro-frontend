@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Form, ErrorMessage as FormikError, Field } from 'formik';
 
 export const ModalCard = styled.div`
-  width: 350px;
+  width: 335px;
   height: 433px;
   // box-shadow: var(--boxShadow);
   border-radius: 8px;
@@ -10,6 +10,10 @@ export const ModalCard = styled.div`
   background-color: var(--boardBgColor);
   position: relative;
   padding: 24px;
+
+  @media screen and (min-width: 768px) {
+    width: 350px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -28,14 +32,15 @@ export const FormikForm = styled(Form)`
 `;
 
 export const FormFieldTitle = styled.label`
-width: 100%;
-position: relative;
+  width: 100%;
+  position: relative;
 `;
 
 export const ErrorMessage = styled(FormikError)`
   position: absolute;
-  top: 120px;
-  /* margin-top: 5px; */
+  top: ${({ name }) =>
+    name === 'title' ? '50px' : name === 'iconId' ? '190px' : '60px'};
+
   color: red;
   font-size: 10px;
   font-family: var(--poppinsFont);
@@ -43,7 +48,7 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const FieldTitle = styled(Field)`
-  width: 302px;
+  width: 287px;
   height: 49px;
   padding: 14px 18px 14px 18px;
   margin-bottom: 24px;
@@ -52,7 +57,7 @@ export const FieldTitle = styled(Field)`
   background: var(--bgInputBoardColor);
   border: 1px solid var(--borderInputBoardColor);
   opacity: 0.4000000059604645;
-   
+
   box-shadow: 0px 4px 16px 0px rgba(var(--boxShadowInputBoardColor));
   color: var(--textInputBoardColor);
 
@@ -61,8 +66,13 @@ export const FieldTitle = styled(Field)`
   letter-spacing: -0.28px;
 
   &:hover,
-  &:active {
+  &:focus {
     opacity: 1;
+    outline: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 302px;
   }
 `;
 
@@ -83,9 +93,6 @@ export const IconContainer = styled.div`
 
   label {
     cursor: pointer;
-    fill: none;
-    stroke: var(--iconBoardColor);
-    transition-duration: 250ms;
 
     &:hover {
       stroke: var(--iconBoardActiveColor);
@@ -94,9 +101,20 @@ export const IconContainer = styled.div`
   }
 `;
 
+export const Icon = styled.svg`
+  fill: none;
+  stroke: var(--iconBoardColor);
+  transition-duration: 250ms;
+`;
+
 export const FormikField = styled(Field)`
   opacity: 0;
   position: absolute;
+
+  &:checked + ${Icon} {
+    stroke: var(--iconBoardActiveColor);
+    transition-duration: 250ms;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -119,8 +137,6 @@ export const ImageContainer = styled.div`
 `;
 
 export const FormikFieldImage = styled(Field)`
-  /* opacity: 0;
-  position: absolute; */
   display: none;
 `;
 

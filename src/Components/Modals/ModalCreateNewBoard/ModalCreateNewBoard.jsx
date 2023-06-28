@@ -22,15 +22,12 @@ import {
   FormikFieldImage,
   Button,
   ContainerIconButton,
+  Icon,
 } from './ModalCreateNewBoard.styled';
 
 const ModalCreateNewBoard = () => {
-  // допилить :
-  // валидацию радиобатонов
-  // перелом  мобильный и планшет дисплей
-  // черный цвет иконки когда она активна
-  // мини картинки
   const [createBoard] = useCreateBoardMutation();
+
   const handleSubmit = async (values) => {
     console.log(values);
     await createBoard(values);
@@ -56,7 +53,6 @@ const ModalCreateNewBoard = () => {
               <FieldTitle
                 type="text"
                 name="title"
-                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="You need to enter the name of the column"
                 required
                 placeholder="Title"
@@ -69,11 +65,12 @@ const ModalCreateNewBoard = () => {
               {icons.map(({ id, path }) => (
                 <label key={id}>
                   <FormikField type="radio" value={id} name="iconId" />
-                  <svg width="18" height="18">
+                  <Icon width="18" height="18">
                     <use xlinkHref={`${urlIcon}${path}`} />
-                  </svg>
+                  </Icon>
                 </label>
               ))}
+              <ErrorMessage name="iconId" component="p" />
             </IconContainer>
 
             <Text id="my-radio-groupImage">Background</Text>
@@ -88,6 +85,7 @@ const ModalCreateNewBoard = () => {
                   <img src={path} alt="" />
                 </label>
               ))}
+              <ErrorMessage name="backgroundId" component="p" />
             </ImageContainer>
 
             <Button type="submit">
@@ -105,12 +103,14 @@ const ModalCreateNewBoard = () => {
   );
 };
 
-const schema = yup.object().shape({
+const schema = yup.object({
   title: yup
     .string()
     .min(2, 'To Short!')
     .max(10, 'To Long!')
     .required('Required!'),
+  iconId: yup.string().required('Required!'),
+  backgroundId: yup.string().required('Required!'),
 });
 
 export default ModalCreateNewBoard;

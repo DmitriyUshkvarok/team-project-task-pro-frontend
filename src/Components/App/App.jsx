@@ -34,6 +34,7 @@ function App() {
         <p>Loading...</p>
       ) : (
         <Suspense fallback={<p>Loading...</p>}>
+          <ModalEditBoard />
           <Container>
             <Routes>
               <Route
