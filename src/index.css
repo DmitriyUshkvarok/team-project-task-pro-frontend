@@ -8,9 +8,11 @@
   --bgInputColor: #1f1f1f;
   --errorColor: #ff0000;
 
-  --gradientFonColor: linear-gradient(180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
@@ -46,7 +48,7 @@ body {
   background-repeat: no-repeat;
   margin: 0;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 body.menu-open {
@@ -104,10 +106,10 @@ body[data-theme='light'] {
   --iconBoardBgColor: #161616;
   --iconPlusBoardColor: #ffffff;
   --labelColor: #16161680;
-  --labelLowColor: #8FA1D0;
-  --labelMediumColor: #E09CB5;
-  --labelHighColor: #BEDBB0;
-  --labelWithoutColor: #1616164D;
+  --labelLowColor: #8fa1d0;
+  --labelMediumColor: #e09cb5;
+  --labelHighColor: #bedbb0;
+  --labelWithoutColor: #1616164d;
   --boardDateColor: #bedbb0;
 
   /**after del*/
@@ -197,10 +199,10 @@ body[data-theme='dark'] {
   --iconBoardBgColor: #161616;
   --iconPlusBoardColor: #ffffff;
   --labelColor: #ffffff80;
-  --labelLowColor: #8FA1D0;
-  --labelMediumColor: #E09CB5;
-  --labelHighColor: #BEDBB0;
-  --labelWithoutColor: #FFFFFF4D;
+  --labelLowColor: #8fa1d0;
+  --labelMediumColor: #e09cb5;
+  --labelHighColor: #bedbb0;
+  --labelWithoutColor: #ffffff4d;
   --boardDateColor: #bedbb0;
 
   /**after del*/

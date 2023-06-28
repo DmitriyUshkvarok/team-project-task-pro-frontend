@@ -5,18 +5,21 @@ export const Board = styled.div`
   padding-bottom: 24px;
   height: 100vh;
   /* height: calc(100vh - 60px); */
-
+  min-height: 812px;
   @media screen and (min-width: 375px) {
     width: 375px;
   }
   @media screen and (min-width: 768px) {
     width: 768px;
+    min-height: 1024px;
     padding-bottom: 32px;
   }
   @media screen and (min-width: 1280px) {
     width: 100%;
     padding-bottom: 8px;
-    height: calc(100vh - 68px);
+    /* height: calc(100vh - 68px); */
+    min-height: 770px;
+    /* height: 100vh; */
   }
 `;
 
@@ -53,7 +56,7 @@ export const BoardsContainer = styled.div`
 
   ::-webkit-scrollbar-thumb {
     border-radius: 12px;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: var(--borderBottomColor);
   }
 
