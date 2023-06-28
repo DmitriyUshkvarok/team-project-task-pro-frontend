@@ -11,15 +11,15 @@ export const ModalContainer = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--boxShadow);
+  // box-shadow: var(--boxShadow);
   border-radius: 8px;
-  border: var(----modalBorder);
-  background-color: var(--modalBGC);
+  border: 1px solid var(--borderBoardColor);
+  background-color: var(--boardBgColor);
   position: relative;
 `;
 
 export const Title = styled.div`
-  color: var(--titleColor);
+  color: var(--titleBoardColor);
   font-size: var(--fontSize18);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -31,16 +31,15 @@ export const Title = styled.div`
 export const Form = styled(FormikForm)``;
 
 export const FormFieldTitle = styled.label`
-  color: var(--whiteColor);
-  font-size: var(--fontSize14);
-  font-family: var(--poppinsFont);
-  letter-spacing: -0.28px;
+width: 100%;
+position: relative;
+
 `;
 
 export const ErrorMessage = styled(FormikError)`
   position: absolute;
   top: 120px;
-  color: red;
+  color: var(--errorColor);
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -53,11 +52,16 @@ export const FieldTitle = styled(FormikField)`
   margin-bottom: 24px;
   align-items: center;
   border-radius: var(--borderRadius8);
-  border: 1px solid var(--accentColor);
+  border: 1px solid var(--borderInputBoardColor);
   opacity: 0.4000000059604645;
-  background-color: var(--helpBlockColor);
-  box-shadow: 0px 4px 16px 0px rgba(var(--borderBottomColor));
-  color: var(--whiteColor);
+  background-color: var(--bgInputBoardColor);
+  box-shadow: 0px 4px 16px 0px rgba(var(--boxShadowInputBoardColor));
+
+
+  color: var(--textInputBoardColor);
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  letter-spacing: -0.28px;
 
   &:hover,
   &:active {
@@ -74,8 +78,8 @@ export const Button = styled.button`
   align-items: center;
   border-radius: var(--borderRadius8);
   border: none;
-  background-color: var(--accentColor);
-  color: var(--IconCloseColor);
+  background-color: var(--btnBoardColor);
+  color: var(--btnTextBoardColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -93,6 +97,7 @@ export const ContainerIconButton = styled.span`
   width: 28px;
   height: 28px;
   margin-right: 8px;
-  background-color: var(--IconCloseColor);
+  background-color: var(--iconBoardBgColor);
   border-radius: var(--borderRadius8);
+  stroke: var(--iconPlusBoardColor);
 `;
