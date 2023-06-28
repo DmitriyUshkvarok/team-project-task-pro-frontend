@@ -60,17 +60,17 @@ const Boards = () => {
   const handleDeleteBoard = async (id) => {
     await deleteBoard(id);
 
-    console.log(boards);
+    console.log(data);
 
-    if (boards.length === 1) {
+    if (data.length === 1) {
       navigate(`/`, { replace: true });
     }
-    navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
+    navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
 
     // if (data.message === 'Board deleted') {
   };
   useEffect(() => {
-    if (currentBoards) {
+    if (boards?.length > 0) {
       navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
     }
   }, []);
