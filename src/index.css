@@ -91,20 +91,26 @@ body[data-theme='light'] {
   --btnNeedHelpColor: #bedbb0;
   --btnTextNeedHelpColor: #161616;
 
-   /**Modal Board*/
-   --boardBgColor: #FCFCFC;
-   --titleBoardColor: #161616;
-   --iconCloseColor: #161616;
-   --textInputBoardColor: #161616;
-   --bgInputBoardColor: #FCFCFC;
-   --borderInputBoardColor: #BEDBB0;
-   --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
-   --iconBoardColor: #16161680;
-   --iconBoardActiveColor: #161616;
-   --btnBoardColor: #BEDBB0;
-   --btnTextBoardColor: #161616;
-   --iconBoardBgColor: #161616;
-   --iconPlusBoardColor: #FFFFFF;
+  /**Modal Board*/
+  --boardBgColor: #fcfcfc;
+  --titleBoardColor: #161616;
+  --iconCloseColor: #161616;
+  --textInputBoardColor: #161616;
+  --bgInputBoardColor: #fcfcfc;
+  --borderInputBoardColor: #bedbb0;
+  --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
+  --iconBoardColor: #16161680;
+  --iconBoardActiveColor: #161616;
+  --btnBoardColor: #bedbb0;
+  --btnTextBoardColor: #161616;
+  --iconBoardBgColor: #161616;
+  --iconPlusBoardColor: #ffffff;
+  --labelColor: #16161680;
+  --labelLowColor: #8FA1D0;
+  --labelMediumColor: #E09CB5;
+  --labelHighColor: #BEDBB0;
+  --labelWithoutColor: #1616164D;
+  --boardDateColor: #bedbb0;
 
   /**after del*/
   --logoHeaderColor: red;
@@ -169,7 +175,7 @@ body[data-theme='dark'] {
   /**Need Help*/
   --needHelpBgColor: #151515;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
-  --needHelBorderColor: rgba(190, 219, 176, 0.50);
+  --needHelBorderColor: rgba(190, 219, 176, 0.5);
   --titleNeedHelpColor: #ffffff;
   --iconCloseColor: #ffffff;
   --borderNeedHelpColor: #bedbb0;
@@ -177,21 +183,27 @@ body[data-theme='dark'] {
   --btnNeedHelpColor: #bedbb0;
   --btnTextNeedHelpColor: #161616;
 
-    /**Modal Board*/
-    --boardBgColor: #151515;
-    --borderBoardColor: rgba(190, 219, 176, 0.50);
-    --titleBoardColor: #FFFFFF;
-    --iconCloseColor: #FFFFFF;
-    --textInputBoardColor: #FFFFFF;
-    --bgInputBoardColor: #1F1F1F;
-    --borderInputBoardColor: #BEDBB0;
-    --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
-    --iconBoardColor: #FFFFFF80;
-    --iconBoardActiveColor: #FFFFFF;
-    --btnBoardColor: #BEDBB0;
-    --btnTextBoardColor: #161616;
-    --iconBoardBgColor: #161616;
-    --iconPlusBoardColor: #FFFFFF;
+  /**Modal Board*/
+  --boardBgColor: #151515;
+  --borderBoardColor: rgba(190, 219, 176, 0.5);
+  --titleBoardColor: #ffffff;
+  --iconCloseColor: #ffffff;
+  --textInputBoardColor: #ffffff;
+  --bgInputBoardColor: #1f1f1f;
+  --borderInputBoardColor: #bedbb0;
+  --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
+  --iconBoardColor: #ffffff80;
+  --iconBoardActiveColor: #ffffff;
+  --btnBoardColor: #bedbb0;
+  --btnTextBoardColor: #161616;
+  --iconBoardBgColor: #161616;
+  --iconPlusBoardColor: #ffffff;
+  --labelColor: #ffffff80;
+  --labelLowColor: #8FA1D0;
+  --labelMediumColor: #E09CB5;
+  --labelHighColor: #BEDBB0;
+  --labelWithoutColor: #FFFFFF4D;
+  --boardDateColor: #bedbb0;
 
   /**after del*/
 
@@ -268,20 +280,20 @@ body[data-theme='violet'] {
   --iconCloseColor: #161616;
   --bgInputBoardColor: #fcfcfc;
   --textInputBoardColor: #161616;
-  --borderInputBoardColor: #5255BC;
+  --borderInputBoardColor: #5255bc;
   --boxShadowInputBoardColor: rgba(22, 22, 22, 0.08);
   --iconBoardColor: #16161680;
   --iconBoardActiveColor: #161616;
-  --btnBoardColor: #5255BC;
-  --btnTextBoardColor: #FFFFFF;
-  --iconBoardBgColor: #FFFFFF;
+  --btnBoardColor: #5255bc;
+  --btnTextBoardColor: #ffffff;
+  --iconBoardBgColor: #ffffff;
   --iconPlusBoardColor: #161616;
-
-
-
-
-
-  
+  --labelColor: #16161680;
+  --labelLowColor: #8fa1d0;
+  --labelMediumColor: #e09cb5;
+  --labelHighColor: #bedbb0;
+  --labelWithoutColor: #1616164d;
+  --boardDateColor: #5255bc;
 
   /**Project office*/
 
