@@ -14,6 +14,7 @@ import ModalEditBoard from '../ModalEditBoard/ModalEditBoard';
 import ModalAddColumn from '../ModalAddColumn/ModalAddColumn.jsx';
 import ModalEditColumn from '../ModalEditColumn/ModalEditColumn.jsx';
 import AddCard from '../AddCard/AddCard.jsx';
+import Filters from '../Filters/Filters.jsx';
 import ModalEditCard from '../EditCard/EditCard.jsx';
 
 const Modal = () => {
@@ -28,6 +29,7 @@ const Modal = () => {
     ModalEditCard: ModalEditCard,
     editColumn: ModalEditColumn,
     editBoard: ModalEditBoard,
+    filter: Filters,
   };
   let renderComponent;
 

@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Form } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   FiltersContainer,
   LabelContainer,
@@ -10,9 +11,12 @@ import {
   Text,
   ImageContainer,
   FormikFieldImage,
+  ShowAll,
 } from './Filters.styled';
 import CloseButton from '../CloseButton/CloseButton';
 import images from '../../image.json';
+// import selectFilterValue from '../../../redux/filter/filterSelector';
+import { setFilter } from '../../../redux/filter/filterSlice';
 
 const Filters = () => {
   // допилить:
@@ -20,7 +24,14 @@ const Filters = () => {
   // каптинки
   // адаптивную верстку мобилка планшет
 
-  const handleSubmit = () => {};
+  const dispatch = useDispatch();
+  // const filter = useSelector(selectFilterValue);
+  // const handleSubmit = () => {};
+  const onFilterChange = (e) => {
+    console.log('e.target.value :>> ', e.target.value);
+    dispatch(setFilter(e.target.value));
+  };
+
   return (
     <>
       <FiltersContainer>
@@ -32,7 +43,7 @@ const Filters = () => {
             title: '',
           }}
           validationSchema={schema}
-          onSubmit={handleSubmit}
+          onSubmit={() => {}}
         >
           <Form>
             <Text id="my-radio-groupImage">Background</Text>
@@ -53,34 +64,61 @@ const Filters = () => {
 
             <Container>
               <h4 id="filtersRadioButton">Label color</h4>
-              <button>Show all</button>
+              {/* <ShowAll>Show all</ShowAll> */}
+              <ShowAll>
+                <input
+                  type="radio"
+                  value="all"
+                  name="filtersRadioButton"
+                  onChange={onFilterChange}
+                  style={{ display: 'none' }}
+                />
+                <Span value="all" />
+                Show all
+              </ShowAll>
             </Container>
 
             <LabelContainer role="group" aria-labelledby="my-radio-group">
               <label>
                 <input
                   type="radio"
-                  value="without priority"
+                  value="without"
                   name="filtersRadioButton"
+                  onChange={onFilterChange}
                 />
                 <Span value="priority" />
                 Without priority
               </label>
 
               <label>
-                <input type="radio" value="low" name="filtersRadioButton" />
+                <input
+                  type="radio"
+                  value="low"
+                  name="filtersRadioButton"
+                  onChange={onFilterChange}
+                />
                 <Span value="low" />
                 Low
               </label>
 
               <label>
-                <input type="radio" value="medium" name="filtersRadioButton" />
+                <input
+                  type="radio"
+                  value="medium"
+                  name="filtersRadioButton"
+                  onChange={onFilterChange}
+                />
                 <Span value="medium" />
                 Medium
               </label>
 
               <label>
-                <input type="radio" value="high" name="filtersRadioButton" />
+                <input
+                  type="radio"
+                  value="high"
+                  name="filtersRadioButton"
+                  onChange={onFilterChange}
+                />
                 <Span value="high" />
                 High
               </label>

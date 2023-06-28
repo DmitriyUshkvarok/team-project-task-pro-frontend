@@ -22,7 +22,7 @@ export const FiltersContainer = styled.div`
     margin: 0px;
   }
 
-  button {
+  /* button {
     width: 50px;
     height: 15px;
     color: var(--iconSideBarBoardColor);
@@ -34,7 +34,19 @@ export const FiltersContainer = styled.div`
     background-color: inherit;
     cursor: pointer;
     padding: 0;
-  }
+  } */
+`;
+
+export const ShowAll = styled.label`
+  color: var(--iconSideBarBoardColor);
+  font-size: var(--fontSize12);
+  font-family: var(--poppinsFont);
+  letter-spacing: var(--letterSpacing24);
+  text-decoration: underline;
+  background-color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 export const ModalTitle = styled.h2`
@@ -62,7 +74,7 @@ export const ImageContainer = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 3px;
   padding-bottom: 14px;
   margin-bottom: 24px;
 
@@ -105,6 +117,8 @@ export const Span = styled.span`
       return '#E09CB5';
     } else if (props.value === 'high') {
       return '#BEDBB0';
+    } else if (props.value === 'without') {
+      return '#ffffff55';
     } else {
       return '#1616164D';
     }

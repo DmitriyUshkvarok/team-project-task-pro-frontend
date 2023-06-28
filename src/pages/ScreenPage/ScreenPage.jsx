@@ -25,23 +25,23 @@ const ScreenPage = () => {
   const [deleteColumn] = useDeleteColumnMutation();
   const [value, setValue] = useState();
   const [filteredTasks, setFilteredTasks] = useState();
-  const [filtered, setFiltered] = useState(useSelector(selectFilterValue));
+  const filter = useSelector(selectFilterValue);
+  // const [filtered, setFiltered] = useState();
 
-  console.log('filtered', filtered);
+  console.log('filter', filter);
 
   useEffect(() => {
     if (data) {
       setValue(data.tasks);
       setFilteredTasks(data.tasks);
-      // handleFilteredPriority();
     }
   }, [data]);
 
   useEffect(() => {
-    if (filtered && data) {
+    if (filter && data) {
       handleFilteredPriority();
     }
-  }, [filtered]);
+  }, [filter]);
 
   const handlClickModal = (columnId) => {
     dispatch(
@@ -68,19 +68,15 @@ const ScreenPage = () => {
   };
 
   const handleFilteredPriority = () => {
-    if (filtered !== 'all') {
-      setFilteredTasks(value.filter((task) => task.priority === filtered));
-    }
+    if (filter !== 'all') {
+      setFilteredTasks(value.filter((task) => task.priority === filter));
+    } else setFilteredTasks(value);
   };
 
   console.log(`filteredTasks`, filteredTasks);
 
   return (
     <>
-      <button onClick={() => setFiltered('medium')} type="button">
-        qqqqqqqq
-      </button>
-
       {data?.columns &&
         data.columns.map(({ _id, title }) => (
           <BoxColumns key={_id}>
