@@ -9,7 +9,6 @@ export const NeedHelpContainer = styled.div`
   border-radius: var(--borderRadius8);
   padding: 24px;
   font-family: var(--poppinsFont);
-  // color: red;
   margin: 0 auto;
   margin-top: 50px;
 
