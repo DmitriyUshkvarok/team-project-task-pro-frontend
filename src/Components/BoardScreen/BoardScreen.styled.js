@@ -56,13 +56,6 @@ export const Title = styled.h2`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
 `;
-// export const Filter = styled.p`
-//   color: var(--borderTopColor);
-//   font-size: var(--fontSize14);
-//   font-family: var(--poppinsFont);
-//   font-weight: var(--fontWeight500);
-//   letter-spacing: -0.28px;
-// `;
 
 export const Filter = styled.p`
   color: var(--borderTopColor);
