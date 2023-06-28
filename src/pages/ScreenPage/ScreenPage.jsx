@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardByIdQuery,
   useDeleteColumnMutation,
 } from '../../redux/boardApi/boardApi';
 import TaskCard from '../../Components/TaskCard/TaskCard';
+import { selectFilterValue } from '../../redux/filter/filterSelector';
 import {
   BoxColumns,
   BoxColumnsTitle,
@@ -24,13 +25,23 @@ const ScreenPage = () => {
   const [deleteColumn] = useDeleteColumnMutation();
   const [value, setValue] = useState();
   const [filteredTasks, setFilteredTasks] = useState();
+  const [filtered, setFiltered] = useState(useSelector(selectFilterValue));
+
+  console.log('filtered', filtered);
 
   useEffect(() => {
     if (data) {
       setValue(data.tasks);
       setFilteredTasks(data.tasks);
+      // handleFilteredPriority();
     }
   }, [data]);
+
+  useEffect(() => {
+    if (filtered && data) {
+      handleFilteredPriority();
+    }
+  }, [filtered]);
 
   const handlClickModal = (columnId) => {
     dispatch(
@@ -57,20 +68,19 @@ const ScreenPage = () => {
   };
 
   const handleFilteredPriority = () => {
-    // if (priority !== '_____') {
-    setFilteredTasks(value.filter((task) => task.priority === 'high'));
-    // } else return;
+    if (filtered !== 'all') {
+      setFilteredTasks(value.filter((task) => task.priority === filtered));
+    }
   };
 
   console.log(`filteredTasks`, filteredTasks);
 
   return (
     <>
-      //===============delete start=================== */
-      <button onClick={handleFilteredPriority} type="button">
+      <button onClick={() => setFiltered('medium')} type="button">
         qqqqqqqq
       </button>
-      //===============delete end================== */
+
       {data?.columns &&
         data.columns.map(({ _id, title }) => (
           <BoxColumns key={_id}>
