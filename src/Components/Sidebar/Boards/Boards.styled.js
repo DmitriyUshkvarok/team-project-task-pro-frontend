@@ -25,7 +25,7 @@ export const ItemBoard = styled.li`
     border-radius: 4px 0px 0px 4px;
     display: ${({ isSelected }) => (isSelected ? 'block' : 'none')};
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding-left: 24px;
   }
 `;
@@ -41,7 +41,7 @@ export const IconProject = styled.span`
   width: 18px;
   height: 18px;
   background-color: ${({ isSelected }) =>
-  isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
+    isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
 `;
 
 export const TitleBoard = styled.p`
@@ -55,7 +55,7 @@ export const TitleBoard = styled.p`
 
   // color: var(--primarySidebarColor);
   color: ${({ isSelected }) =>
-  isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
+    isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
 `;
 
 export const WrapIcons = styled.div`

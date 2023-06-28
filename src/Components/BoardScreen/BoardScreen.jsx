@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
-  useGetFetchBoardByIdQuery,
+  // useGetFetchBoardByIdQuery,
 } from '../../redux/boardApi/boardApi';
 import {
   Board,
@@ -13,14 +13,14 @@ import {
   DescEmptyBoard,
   Wrap,
   AccentSpan,
+  BoardsContainer,
+  ContainerColumns,
+  AddColumnBtn,
+  AddIcon,
 } from './BoardScreen.styled';
 import { FiFilter } from 'react-icons/fi';
-
-import {
-  ContainerColumns,
-  BtnAdd,
-} from '../../pages/ScreenPage/ScreenPage.styled';
-
+import url from '../../images/icons/sprite/icons.svg';
+// ../../images/icons/sprite/icons.svg
 const BoardScreen = ({ closeSidebar }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
@@ -47,7 +47,7 @@ const BoardScreen = ({ closeSidebar }) => {
       {boards?.length === 0 && (
         <Wrap>
           <DescEmptyBoard>
-            Before starting your project, it is essential{' '}
+            Before starting your project, it is essential
             <AccentSpan> to create a board</AccentSpan>
             to visualize and track all the necessary tasks and milestones. This
             board serves as a powerful tool to organize the workflow and ensure
@@ -55,12 +55,19 @@ const BoardScreen = ({ closeSidebar }) => {
           </DescEmptyBoard>
         </Wrap>
       )}
-      <ContainerColumns>
-        <Outlet />
+      <BoardsContainer>
+        <ContainerColumns>
+          <Outlet />
+        </ContainerColumns>
         {boards?.length !== 0 && (
-          <BtnAdd onClick={handleClickModal}>Add Columns</BtnAdd>
+          <AddColumnBtn onClick={handleClickModal}>
+            <AddIcon width="28" height="28">
+              <use xlinkHref={`${url}#icon-plus`} />
+            </AddIcon>
+            Add Columns
+          </AddColumnBtn>
         )}
-      </ContainerColumns>
+      </BoardsContainer>
     </Board>
   );
 };

@@ -41,50 +41,7 @@ export const BtnAdd = styled.button`
 // Sidebar
 
 //-----Sidebar
-export const ContainerColumns = styled.ul`
-  @media screen and (min-width: 320px) {
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: calc(100vw - 260px);
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-    display: flex;
-  }
 
-  ::-webkit-scrollbar-thumb {
-    border-radius: 12px;
-    background-color: var(--borderBottomColor);
-  }
-
-  ::-webkit-scrollbar-track {
-    @media screen and (min-width: 320px) {
-      border-radius: 12px;
-      background-color: var(--headerColor);
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-    @media screen and (min-width: 768px) {
-      margin-left: 32px;
-      margin-right: 32px;
-    }
-    @media screen and (min-width: 1280px) {
-      margin-left: 24px;
-      margin-right: 24px;
-    }
-  }
-`;
 export const BoxColumns = styled.li``;
 
 export const BoxColumnsTitle = styled.div`
@@ -113,7 +70,7 @@ export const Icon = styled.p`
   color: #ffffff80;
 `;
 
-export const ListCard = styled.ul`
+export const ListTask = styled.ul`
   @media screen and (min-width: 320px) {
     position: relative;
     min-width: 292px;
@@ -123,6 +80,7 @@ export const ListCard = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 14px;
   }
   @media screen and (min-width: 375px) {
     width: 346px;
@@ -172,15 +130,38 @@ export const Card = styled.li`
   }
 `;
 
-export const Btn = styled.button`
-  margin-top: 14px;
-  margin-bottom: 24px;
-  border-radius: 8px;
-  background-color: var(--iconSideBarLogOutColor);
-  display: inline-flex;
-  padding: 14px 89px;
+// export const Btn = styled.button`
+//   margin-top: 14px;
+//   margin-bottom: 24px;
+//   border-radius: 8px;
+//   background-color: var(--iconSideBarLogOutColor);
+//   display: inline-flex;
+//   padding: 14px 89px;
+//   justify-content: center;
+//   align-items: center;
+// `;
+
+export const AddCardBtn = styled.button`
+  background-color: var(--accentColor);
+  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  min-width: 100%;
+  height: 56px;
+  border: none;
+  color: var(--addCardIconColor);
+  font-family: var(-poppinsFont);
+  font-weight: var(--fontWeight500);
+  font-size: var(--fontSize14);
+  border-radius: var(--borderRadius8);
+  cursor: pointer;
+  @media screen and (min-width: 375px) {
+    min-width: 334px;
+  }
+`;
+export const AddCardIcon = styled.svg`
+  stroke: var(--IconCloseColor);
 `;
 
 export const IconStyled = styled.svg`
