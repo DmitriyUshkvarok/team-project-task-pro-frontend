@@ -35,7 +35,7 @@ export const boardsApi = createApi({
         url: `/board/delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Boards', 'Columns'],
+      invalidatesTags: ['Boards', 'BoardsId'],
     }),
     createColumn: builder.mutation({
       query: ({ values, boardId }) => ({
@@ -43,7 +43,7 @@ export const boardsApi = createApi({
         method: 'POST',
         body: values,
       }),
-      invalidatesTags: ['BoardsId', 'Columns', 'Profile'],
+      invalidatesTags: ['BoardsId', 'Columns'],
     }),
     createTask: builder.mutation({
       query: ({ values, boardId, columnId }) => ({
@@ -51,7 +51,7 @@ export const boardsApi = createApi({
         method: 'POST',
         body: values,
       }),
-      invalidatesTags: ['Profile'],
+      invalidatesTags: ['Profile', 'BoardsId'],
     }),
     getFetchTaskById: builder.query({
       query: (boardId) => `/board/getById/${boardId}`,
@@ -62,6 +62,13 @@ export const boardsApi = createApi({
         url: `/column/${id}`,
         method: 'PATCH',
         body: values,
+      }),
+      invalidatesTags: ['BoardsId', 'Columns'],
+    }),
+    deleteColumn: builder.mutation({
+      query: (id) => ({
+        url: `/column/${id}`,
+        method: 'DELETE',
       }),
       invalidatesTags: ['BoardsId', 'Columns'],
     }),
@@ -85,4 +92,5 @@ export const {
   useCreateTaskMutation,
   useEditColumnMutation,
   useEditBoardMutation,
+  useDeleteColumnMutation,
 } = boardsApi;

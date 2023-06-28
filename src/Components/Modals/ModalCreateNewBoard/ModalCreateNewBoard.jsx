@@ -1,6 +1,9 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 import { useCreateBoardMutation } from '../../../redux/boardApi/boardApi';
+import { useDispatch } from 'react-redux';
+import { closeModal } from '../../../redux/modal/modalSlice';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
@@ -30,10 +33,14 @@ const ModalCreateNewBoard = () => {
   // перелом  мобильный и планшет дисплей
   // черный цвет иконки когда она активна
   // мини картинки
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [createBoard] = useCreateBoardMutation();
   const handleSubmit = async (values) => {
-    console.log(values);
-    await createBoard(values);
+    const { data } = await createBoard(values);
+    navigate(`/${data._id}/${data.title}`, { replace: true });
+    dispatch(closeModal());
   };
 
   return (
