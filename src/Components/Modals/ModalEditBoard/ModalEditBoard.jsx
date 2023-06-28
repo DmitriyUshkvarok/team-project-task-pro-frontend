@@ -4,6 +4,7 @@ import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { closeModal } from '../../../redux/modal/modalSlice';
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
@@ -29,7 +30,7 @@ import {
 
 const ModalEditBoard = ({ componentName }) => {
   const { id, title } = componentName;
-  const [editBoard] = useEditBoardMutation();
+  const [editBoard, { isLoading: isEditLoading }] = useEditBoardMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -94,13 +95,13 @@ const ModalEditBoard = ({ componentName }) => {
               <ErrorMessage name="backgroundId" component="p" />
             </ImageContainer>
 
-            <Button type="submit">
+            <Button type="submit" disabled={isEditLoading}>
               <ContainerIconButton>
                 <svg width="14" height="14">
                   <use xlinkHref={`${urlIcon}#icon-plus`} />
                 </svg>
               </ContainerIconButton>
-              Edit
+              {isEditLoading ? <LoaderForButton /> : 'Edit'}
             </Button>
           </FormikForm>
         </Formik>

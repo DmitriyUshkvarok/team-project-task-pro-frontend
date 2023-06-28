@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { closeModal } from '../../../redux/modal/modalSlice';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import CloseButton from '../CloseButton/CloseButton';
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import {
   Form,
   FormFieldTitle,
@@ -18,7 +19,8 @@ import {
 
 const ModalAddColumn = ({ componentName }) => {
   const dispatch = useDispatch();
-  const [createColumn] = useCreateColumnMutation();
+  const [createColumn, { isLoading: isCreteLoading }] =
+    useCreateColumnMutation();
   const handleSubmit = async (values) => {
     const { boardId } = componentName;
     await createColumn({ values, boardId });
@@ -50,13 +52,13 @@ const ModalAddColumn = ({ componentName }) => {
               <ErrorMessage name="title" component="p" />
             </FormFieldTitle>
 
-            <Button type="submit">
+            <Button type="submit" disabled={isCreteLoading}>
               <ContainerIconButton>
                 <svg width="14" height="14">
                   <use xlinkHref={`${urlIcon}#icon-plus`} />
                 </svg>
               </ContainerIconButton>
-              Add
+              {isCreteLoading ? <LoaderForButton /> : 'Add'}
             </Button>
           </Form>
         </Formik>

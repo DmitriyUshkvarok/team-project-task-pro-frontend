@@ -20,8 +20,10 @@ import {
   // AddCardIcon,
 } from './ScreenPage.styled';
 import url from '../../images/icons/sprite/icons.svg';
+import { LoaderForDeleted } from '../../Components/Loader/LoaderDeleted/LoaderDeleted';
 
 const ScreenPage = () => {
+  const [isDeletedLoad, setIsDeletedLoad] = useState({});
   const { boardId } = useParams();
   const dispatch = useDispatch();
   const { data } = useGetFetchBoardByIdQuery(boardId);
@@ -64,7 +66,20 @@ const ScreenPage = () => {
   };
 
   const handleDeleteColumn = async (id) => {
-    await deleteColumn(id);
+    setIsDeletedLoad((prevIsDeletedLoad) => ({
+      ...prevIsDeletedLoad,
+      [id]: true,
+    }));
+    try {
+      await deleteColumn(id);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsDeletedLoad((prevIsDeletedLoad) => ({
+        ...prevIsDeletedLoad,
+        [id]: false,
+      }));
+    }
   };
 
   const handleFilteredPriority = () => {
@@ -88,10 +103,18 @@ const ScreenPage = () => {
                   <use xlinkHref={`${url}#icon-pencil-01`} />
                 </IconStyled>
               </BtnIcon>
-              <BtnIcon onClick={() => handleDeleteColumn(_id)} type="button">
-                <IconStyled width="16" height="16">
-                  <use xlinkHref={`${url}#icon-trash-04`} />
-                </IconStyled>
+              <BtnIcon
+                onClick={() => handleDeleteColumn(_id)}
+                type="button"
+                disabled={isDeletedLoad[_id]}
+              >
+                {isDeletedLoad[_id] ? (
+                  <LoaderForDeleted />
+                ) : (
+                  <IconStyled width="16" height="16">
+                    <use xlinkHref={`${url}#icon-trash-04`} />
+                  </IconStyled>
+                )}
               </BtnIcon>
             </BoxColumnsTitle>
 

@@ -5,6 +5,7 @@ import CloseButton from '../CloseButton/CloseButton';
 import { useEditColumnMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../../redux/modal/modalSlice';
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import {
   Form,
   FormFieldTitle,
@@ -19,7 +20,7 @@ import {
 const ModalEditColumn = ({ componentName }) => {
   const dispatch = useDispatch();
   const { id, title } = componentName;
-  const [editColumn] = useEditColumnMutation();
+  const [editColumn, { isLoading: isEditLoading }] = useEditColumnMutation();
 
   const handleSubmit = async (values) => {
     await editColumn({ values, id });
@@ -51,13 +52,13 @@ const ModalEditColumn = ({ componentName }) => {
               <ErrorMessage name="title" component="p" />
             </FormFieldTitle>
 
-            <Button type="submit">
+            <Button type="submit" disabled={isEditLoading}>
               <ContainerIconButton>
                 <svg width="14" height="14">
                   <use xlinkHref={`${urlIcon}#icon-plus`} />
                 </svg>
               </ContainerIconButton>
-              Add
+              {isEditLoading ? <LoaderForButton /> : 'Edit'}
             </Button>
           </Form>
         </Formik>

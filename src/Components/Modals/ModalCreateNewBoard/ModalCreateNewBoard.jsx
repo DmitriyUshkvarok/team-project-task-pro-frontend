@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCreateBoardMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../../redux/modal/modalSlice';
-
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 
@@ -32,7 +32,7 @@ const ModalCreateNewBoard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [createBoard] = useCreateBoardMutation();
+  const [createBoard, { isLoading: isCreateBoard }] = useCreateBoardMutation();
 
   const handleSubmit = async (values) => {
     const { data } = await createBoard(values);
@@ -95,13 +95,13 @@ const ModalCreateNewBoard = () => {
               <ErrorMessage name="backgroundId" component="p" />
             </ImageContainer>
 
-            <Button type="submit">
+            <Button type="submit" disabled={isCreateBoard}>
               <ContainerIconButton>
                 <svg width="14" height="14">
                   <use xlinkHref={`${urlIcon}#icon-plus`} />
                 </svg>
               </ContainerIconButton>
-              Create
+              {isCreateBoard ? <LoaderForButton /> : 'Create'}
             </Button>
           </FormikForm>
         </Formik>

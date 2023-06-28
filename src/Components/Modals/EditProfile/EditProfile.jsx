@@ -41,12 +41,6 @@ import url from '../../../images/icons/sprite/icons.svg';
 import { closeModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 
-const initialValues = {
-  name: '',
-  email: '',
-  password: '',
-};
-
 const schema = yup.object().shape({
   name: yup.string().min(4).max(32),
   email: yup
@@ -72,8 +66,13 @@ const EditProfile = () => {
   const [updateUser, { isLoading: isInfoLoading }] = useUpdateUserMutation();
   const [updateAvatar, { isLoading: isAvatarLoading, error: errorFormat }] =
     useChangeProfileAvatarMutation();
-  console.log(errorFormat);
   const dispatch = useDispatch();
+
+  const initialValues = {
+    name: currentUser?.name || '',
+    email: currentUser?.email || '',
+    password: '',
+  };
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -98,15 +97,10 @@ const EditProfile = () => {
 
   const handleUpdateUser = async (values, { resetForm }) => {
     const updatedUser = {};
-
     if (values.name) {
       updatedUser.name = values.name;
-      try {
-        await updateUser(updatedUser);
-        toast.success('Name field has been updated');
-      } catch (error) {
-        console.log(error);
-      }
+      await updateUser(updatedUser);
+      toast.success('Name field has been updated');
     }
 
     if (values.email) {
