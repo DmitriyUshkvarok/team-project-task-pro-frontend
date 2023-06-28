@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../../redux/modal/modalSlice';
 import authSelector from '../../../redux/auth/authSelector';
@@ -23,7 +23,6 @@ const Boards = () => {
   const [selectedItem, setSelectedItem] = useState(0);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const boards = useSelector(authSelector.getBoards);
   const currentBoards = useSelector(authSelector.getCurrentBoard);
@@ -62,8 +61,9 @@ const Boards = () => {
 
     console.log(data);
 
-    if (data.length === 1) {
-      navigate(`/`, { replace: true });
+    if (data.length <= 1) {
+      console.log('ia');
+      return navigate(`/`, { replace: true });
     }
     navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
 
