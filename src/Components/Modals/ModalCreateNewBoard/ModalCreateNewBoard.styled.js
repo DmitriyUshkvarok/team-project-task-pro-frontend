@@ -41,7 +41,7 @@ export const ErrorMessage = styled(FormikError)`
   top: ${({ name }) =>
     name === 'title' ? '50px' : name === 'iconId' ? '190px' : '60px'};
 
-    color: var(--errorColor);
+  color: var(--errorColor);
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -127,6 +127,8 @@ export const ImageContainer = styled.div`
   label {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 28px;
     height: 28px;
     background-image: url(${(props) => props.data && data[0].image.regular});

@@ -84,6 +84,16 @@ const ModalCreateNewBoard = () => {
 
             <Text id="my-radio-groupImage">Background</Text>
             <ImageContainer role="group" aria-labelledby="my-radio-groupImage">
+              <label>
+                <FormikFieldImage
+                  type="radio"
+                  name="backgroundId"
+                  value="default"
+                />
+                <svg width="16" height="16">
+                  <use xlinkHref={`${urlIcon}#icon-image-default`} />
+                </svg>
+              </label>
               {data?.map(({ _id, name, image }) => (
                 <label key={_id}>
                   <FormikFieldImage
@@ -91,7 +101,7 @@ const ModalCreateNewBoard = () => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img src={image.regular} alt={name} />
+                  <img width={28} src={image.regular} alt={name} />
                 </label>
               ))}
               <ErrorMessage name="backgroundId" component="p" />

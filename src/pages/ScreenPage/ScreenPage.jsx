@@ -84,7 +84,7 @@ const ScreenPage = () => {
 
   const handleFilteredPriority = () => {
     if (filter !== 'all') {
-      setFilteredTasks(value.filter((task) => task.priority === filter));
+      setFilteredTasks(value?.filter((task) => task.priority === filter));
     } else setFilteredTasks(value);
   };
 
@@ -123,15 +123,13 @@ const ScreenPage = () => {
                 filteredTasks.map(
                   (task) =>
                     task.column === _id && (
-                      (
-                    <TaskCard
-                      task={task}
-                      columns={data.columns}
-                      key={task._id}
-                    />
+                      <TaskCard
+                        task={task}
+                        columns={data.columns}
+                        key={task._id}
+                      />
                     )
-                    )
-              )}
+                )}
             </ListTask>
             <AddCardBtn onClick={() => handlClickModal(_id)}>
               <svg width="28" height="28">

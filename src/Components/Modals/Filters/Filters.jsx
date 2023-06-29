@@ -16,6 +16,8 @@ import {
 import CloseButton from '../CloseButton/CloseButton';
 import images from '../../image.json';
 import { setFilter } from '../../../redux/filter/filterSlice';
+import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
+import urlIcon from '../../../images/icons/sprite/icons.svg';
 
 const Filters = () => {
   // допилить:
@@ -27,6 +29,7 @@ const Filters = () => {
   const onFilterChange = (e) => {
     dispatch(setFilter(e.target.value));
   };
+  const { data } = useGetMiniImgQuery();
 
   return (
     <>
@@ -44,16 +47,24 @@ const Filters = () => {
           <Form>
             <Text id="my-radio-groupImage">Background</Text>
             <ImageContainer role="group" aria-labelledby="my-radio-groupImage">
-              {images.map(({ id, path, value }) => (
-                <label key={id}>
+              <label>
+                <FormikFieldImage
+                  type="radio"
+                  name="backgroundId"
+                  value="default"
+                />
+                <svg width="16" height="16">
+                  <use xlinkHref={`${urlIcon}#icon-image-default`} />
+                </svg>
+              </label>
+              {data?.map(({ _id, name, image }) => (
+                <label key={_id}>
                   <FormikFieldImage
                     type="radio"
-                    name="image"
-                    id={id}
-                    value={value}
-                    checked
+                    name="backgroundId"
+                    value={name}
                   />
-                  <img src={path} alt="" />
+                  <img width={28} src={image.regular} alt={name} />
                 </label>
               ))}
             </ImageContainer>
