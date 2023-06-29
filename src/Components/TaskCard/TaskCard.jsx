@@ -26,6 +26,13 @@ const TaskCard = ({ task }) => {
   const dispatch = useDispatch();
   const maxLength = 97;
 
+  const date = new Date(task.deadline);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
+
+
   function colorSwitch(priority) {
     let color;
     switch (priority) {
@@ -80,7 +87,7 @@ const TaskCard = ({ task }) => {
             </CardPriority>
             <CardDeadline>
               <CardSubtitle>Deadline</CardSubtitle>
-              <Deadline>{task.deadline}</Deadline>
+              <Deadline>{formattedDate}</Deadline>
             </CardDeadline>
           </CardBottomGrop>
 
@@ -93,7 +100,10 @@ const TaskCard = ({ task }) => {
                 <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
               </CardIcon>
             </CardBtn>
-            <CardBtn type="button">
+            <CardBtn
+              type="button"
+              onClick={() => dispatch(openModal({ name: 'editTask' }))}
+            >
               <CardIcon stroke="grey">
                 <use xlinkHref={`${url}#icon-pencil-01`} />
               </CardIcon>
