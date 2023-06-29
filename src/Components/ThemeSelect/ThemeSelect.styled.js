@@ -52,8 +52,10 @@ export const ListThema = styled.ul`
 export const ItemThema = styled.li`
   cursor: pointer;
   color: var(--primaryItemsColor);
+  opacity: 50%;
   transition: color var(--transition);
   :hover {
     color: var(--accentColor);
+    opacity: 100%;
   }
 `;

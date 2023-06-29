@@ -41,7 +41,7 @@ export const ErrorMessage = styled(FormikError)`
   top: ${({ name }) =>
     name === 'title' ? '50px' : name === 'iconId' ? '190px' : '60px'};
 
-    color: var(--errorColor);
+  color: var(--errorColor);
   font-size: 10px;
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -156,6 +156,7 @@ export const Button = styled.button`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 302px;

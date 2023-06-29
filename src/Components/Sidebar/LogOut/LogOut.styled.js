@@ -25,6 +25,9 @@ export const BtnLogOut = styled.button`
   background-color: transparent;
 
   cursor: pointer;
+  :hover {
+    color: var(--accentColor);
+  }
 `;
 
 export const IconLogOut = styled.svg`
