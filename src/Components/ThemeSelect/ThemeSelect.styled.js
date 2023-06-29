@@ -40,7 +40,7 @@ export const ListThema = styled.ul`
 
   border-radius: var(--borderRadius8);
   border: 1px solid var(--accentColor);
-  background: var(----themeBgColor);
+  background: var(--themeBgColor);
   box-shadow: 0px 4px 16px 0px var(--themeBoxShadow);
 
   gap: 8px;

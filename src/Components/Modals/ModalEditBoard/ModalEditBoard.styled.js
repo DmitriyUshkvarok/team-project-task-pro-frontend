@@ -4,11 +4,10 @@ import { Form, ErrorMessage as FormikError, Field } from 'formik';
 export const ModalCard = styled.div`
   width: 335px;
   height: 433px;
-  background-color: var(--boardBgColor);
+  background-color: var(--modalBgColor);
   // box-shadow: var(--boxShadow);
   border-radius: 8px;
   border: 1px solid var(--borderBoardColor);
-  background-color: var(--boardBgColor);
   position: relative;
   padding: 24px;
 
