@@ -18,12 +18,13 @@ import {
   BtnIcon,
   IconStyled,
 } from './Boards.styled';
-
+import { LoaderForDeleted } from '../../Loader/LoaderDeleted/LoaderDeleted';
 import { useScrollbar } from './use-scrollbar';
 import { useRef } from 'react';
 import 'overlayscrollbars/overlayscrollbars.css';
 
 const Boards = () => {
+  const [isDeletedLoad, setIsDeletedLoad] = useState({});
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -60,7 +61,20 @@ const Boards = () => {
   };
 
   const handleDeleteBoard = async (id) => {
-    await deleteBoard(id);
+    setIsDeletedLoad((prevIsDeletedLoad) => ({
+      ...prevIsDeletedLoad,
+      [id]: true,
+    }));
+    try {
+      await deleteBoard(id);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsDeletedLoad((prevIsDeletedLoad) => ({
+        ...prevIsDeletedLoad,
+        [id]: false,
+      }));
+    }
 
     if (data.length <= 1) {
       return navigate(`/`, { replace: true });
@@ -68,8 +82,9 @@ const Boards = () => {
 
     navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
 
-    // navigate(-1, { replace: true });
+    navigate(-1, { replace: true });
   };
+
   useEffect(() => {
     if (boards?.length > 0) {
       navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
@@ -107,10 +122,18 @@ const Boards = () => {
                   </IconStyled>
                 </BtnIcon>
 
-                <BtnIcon onClick={() => handleDeleteBoard(_id)} type="button">
-                  <IconStyled width="16" height="16">
-                    <use xlinkHref={`${url}#icon-trash-04`} />
-                  </IconStyled>
+                <BtnIcon
+                  onClick={() => handleDeleteBoard(_id)}
+                  type="button"
+                  disabled={isDeletedLoad[_id]}
+                >
+                  {isDeletedLoad[_id] ? (
+                    <LoaderForDeleted />
+                  ) : (
+                    <IconStyled width="16" height="16">
+                      <use xlinkHref={`${url}#icon-trash-04`} />
+                    </IconStyled>
+                  )}
                 </BtnIcon>
               </WrapIcons>
             </ItemBoard>

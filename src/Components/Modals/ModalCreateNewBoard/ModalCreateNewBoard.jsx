@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { closeModal } from '../../../redux/modal/modalSlice';
 import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
-
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import { images } from '../../miniImgBg';

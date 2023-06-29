@@ -39,8 +39,12 @@ const BoardScreen = ({ closeSidebar }) => {
 
   const bgName = boards?.find(({ _id }) => _id === boardId);
 
-  const { data: boardBg } = useGetBoardBdByIdQuery(bgName?.backgroundId);
+  const boardBgQuery = useGetBoardBdByIdQuery(bgName?.backgroundId, {
+    skip: !bgName?.backgroundId,
+    refetchOnMountOrArgChange: true,
+  });
 
+  const { data: boardBg } = boardBgQuery;
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <SidebarBoard>
