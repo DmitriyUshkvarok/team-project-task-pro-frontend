@@ -99,12 +99,12 @@ function LogInForm() {
               />
               <ToggleShowPassword onClick={togglePasswordVisibility}>
                 {showPassword ? (
+                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
+                ) : (
                   <BsEyeSlash
                     color="#ffffff4d"
                     style={{ width: 18, height: 18 }}
                   />
-                ) : (
-                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
                 )}
               </ToggleShowPassword>
             </PasswordWrapper>
