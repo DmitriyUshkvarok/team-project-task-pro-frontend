@@ -88,6 +88,13 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['BoardsId', 'Columns'],
     }),
+    deleteTask: builder.mutation({
+      query: (id) => ({
+        url: `/tasks/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['BoardsId', 'Columns'],
+    }),
     getBoardBdById: builder.query({
       query: (name) => `background/${name}`,
       providesTags: ['BoardsId'],
@@ -108,4 +115,5 @@ export const {
   useUpdateTaskMutation,
   useGetBoardBdByIdQuery,
   useGetAllBoardBdQuery,
+  useDeleteTaskMutation,
 } = boardsApi;

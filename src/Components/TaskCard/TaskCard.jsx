@@ -22,7 +22,10 @@ import PropTypes from 'prop-types';
 import { openModal } from '../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 
+import { useDeleteTaskMutation } from '../../redux/boardApi/boardApi';
+
 const TaskCard = ({ task, columns }) => {
+  const [deleteTask] = useDeleteTaskMutation();
   const dispatch = useDispatch();
   const maxLength = 97;
 
@@ -48,6 +51,14 @@ const TaskCard = ({ task, columns }) => {
 
     return color;
   }
+
+  const handleDeleteTask = async (id) => {
+    try {
+      await deleteTask(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
@@ -118,7 +129,7 @@ const TaskCard = ({ task, columns }) => {
               </CardIcon>
             </CardBtn>
             <CardBtn type="button">
-              <CardIcon>
+              <CardIcon onClick={() => handleDeleteTask(task._id)}>
                 <use xlinkHref={`${url}#icon-trash-04`} />
               </CardIcon>
             </CardBtn>
