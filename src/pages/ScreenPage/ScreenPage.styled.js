@@ -148,7 +148,15 @@ export const AddCardBtn = styled.button`
     min-width: 334px;
   }
 `;
-export const AddCardIcon = styled.svg`
+export const AddCardIcon = styled.span`
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  stroke: var(--IconCloseColor);
+  background-color: var(--iconBoardBgColor);
+  border-radius: var(--borderRadius8);
   stroke: var(--IconCloseColor);
 `;
 

@@ -132,10 +132,15 @@ export const AddColumnBtn = styled.button`
     padding: 14px 78px 14px 79px;
   }
 `;
-export const AddIcon = styled.svg`
+export const AddColumnIcon = styled.span`
   margin-right: 8px;
-
-  background-color: var(--btnIconColor);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  stroke: var(--IconCloseColor);
+  background-color: var(--iconBoardBgColor);
   border-radius: var(--borderRadius8);
 `;
 
