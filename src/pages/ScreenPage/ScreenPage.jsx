@@ -16,8 +16,7 @@ import {
   IconStyled,
   BtnIcon,
   ListTask,
-  // Btn,
-  // AddCardIcon,
+  AddCardIcon,
 } from './ScreenPage.styled';
 import url from '../../images/icons/sprite/icons.svg';
 import { LoaderForDeleted } from '../../Components/Loader/LoaderDeleted/LoaderDeleted';
@@ -123,20 +122,18 @@ const ScreenPage = () => {
                 filteredTasks.map(
                   (task) =>
                     task.column === _id && (
-                      (
-                    <TaskCard
-                      task={task}
-                      columns={data.columns}
-                      key={task._id}
-                    />
+                      <TaskCard
+                        task={task}
+                        columns={data.columns}
+                        key={task._id}
+                      />
                     )
-                    )
-              )}
+                )}
             </ListTask>
             <AddCardBtn onClick={() => handlClickModal(_id)}>
-              <svg width="28" height="28">
+              <AddCardIcon width="28" height="28">
                 <use xlinkHref={`${url}#icon-plus`} />
-              </svg>
+              </AddCardIcon>
               Add another card
             </AddCardBtn>
           </BoxColumns>

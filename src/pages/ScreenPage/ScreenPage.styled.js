@@ -5,7 +5,6 @@ export const Board = styled.div`
     background-color: var(--helpBlockColor);
     width: 320px;
     padding-bottom: 24px;
-    /* height: calc(100vh - 60px); */
   }
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -129,17 +128,6 @@ export const Card = styled.li`
     width: 334px;
   }
 `;
-
-// export const Btn = styled.button`
-//   margin-top: 14px;
-//   margin-bottom: 24px;
-//   border-radius: 8px;
-//   background-color: var(--iconSideBarLogOutColor);
-//   display: inline-flex;
-//   padding: 14px 89px;
-//   justify-content: center;
-//   align-items: center;
-// `;
 
 export const AddCardBtn = styled.button`
   background-color: var(--accentColor);

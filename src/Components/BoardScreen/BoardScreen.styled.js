@@ -4,7 +4,6 @@ export const Board = styled.div`
   background-color: var(--headerPageColor);
   padding-bottom: 24px;
   height: 100vh;
-  /* height: calc(100vh - 60px); */
   min-height: 812px;
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -17,9 +16,7 @@ export const Board = styled.div`
   @media screen and (min-width: 1280px) {
     width: 100%;
     padding-bottom: 8px;
-    /* height: calc(100vh - 68px); */
     min-height: 770px;
-    /* height: 100vh; */
   }
 `;
 
@@ -51,12 +48,10 @@ export const BoardsContainer = styled.div`
   ::-webkit-scrollbar {
     width: 12px;
     display: flex;
-    /* margin-top: 52px; */
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 12px;
-    /* height: 100vh; */
     background-color: var(--borderBottomColor);
   }
 
@@ -79,52 +74,8 @@ export const BoardsContainer = styled.div`
 `;
 
 export const ContainerColumns = styled.ul`
-  @media screen and (min-width: 320px) {
-    /* position: relative;
-    min-width: 292px;
-    height: 478px;
-    overflow-y: auto;
-    position: relative; */
-    display: flex;
-    gap: 34px;
-    /* flex-direction: column;
-    gap: 8px; */
-  }
-  @media screen and (min-width: 375px) {
-    /* width: 346px; */
-  }
-  @media screen and (min-width: 768px) {
-    /* height: 640px; */
-  }
-  @media screen and (min-width: 1280px) {
-    /* height: 478px; */
-  }
-  /* ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    width: 8px;
-
-    border-radius: 12px;
-    background-color: var(--sidebarColor);
-  }
-
-  ::-webkit-scrollbar-track {
-    width: 8px;
-    height: 478px;
-    flex-shrink: 0;
-
-    border-radius: 12px;
-
-    background: var(--borderBottomColor);
-    @media screen and (min-width: 768px) {
-      height: 640px;
-    }
-    @media screen and (min-width: 1280px) {
-      height: 478px;
-    }
-  } */
+  display: flex;
+  gap: 34px;
 `;
 
 export const AddColumnBtn = styled.button`
@@ -145,7 +96,8 @@ export const AddColumnBtn = styled.button`
     min-width: 100%;
     height: 56px;
     padding: 14px 70px 14px 75px;
-    margin-left: 34px;
+
+    /* margin-left: 34px; */
   }
   @media screen and (min-width: 375px) {
     min-width: 334px;

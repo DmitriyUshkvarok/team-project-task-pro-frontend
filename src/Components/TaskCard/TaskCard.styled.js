@@ -15,15 +15,17 @@ export const CardBg = styled.li`
   @media screen and (min-width: 375px) {
     width: 334px;
   }
-  /* margin-bottom: 8px; */
 `;
 
 export const Card = styled.div`
   border-radius: 0 8px 8px 0;
   background-color: var(--headerColor);
-  width: 330px;
+
   height: 154px;
   padding: 14px 24px;
+  @media screen and (min-width: 375px) {
+    width: 330px;
+  }
 `;
 
 export const CardTitle = styled.h4`
@@ -39,6 +41,9 @@ export const CardDescription = styled.div`
   width: 290px;
   height: 52px;
   margin-bottom: 14px;
+  @media screen and (min-width: 320px) {
+    width: 227px;
+  }
 `;
 
 export const CardText = styled.p`
