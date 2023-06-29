@@ -7,9 +7,15 @@ export const Board = styled.div`
   min-height: 812px;
   height: calc(100vh - 60px);
 
-  background-image: url(${(props) => props.boardBg?.desktop?.regular});
+  background-image: url(${(props) => props.boardBg?.mobile?.regular});
   background-size: cover;
   background-position: center;
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${(props) => props.boardBg?.mobile?.retina});
+  }
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -18,11 +24,26 @@ export const Board = styled.div`
     width: 768px;
     min-height: 1024px;
     padding-bottom: 32px;
+    background-image: url(${(props) => props.boardBg?.tablet?.regular});
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${(props) => props.boardBg?.tablet?.retina});
+    }
   }
   @media screen and (min-width: 1280px) {
     width: 100%;
     padding-bottom: 8px;
     min-height: 770px;
+    /* height: 100vh; */
+    background-image: url(${(props) => props.boardBg?.desktop?.regular});
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${(props) => props.boardBg?.desktop?.retina});
+    }
   }
 `;
 

@@ -83,7 +83,7 @@ const ScreenPage = () => {
 
   const handleFilteredPriority = () => {
     if (filter !== 'all') {
-      setFilteredTasks(value.filter((task) => task.priority === filter));
+      setFilteredTasks(value?.filter((task) => task.priority === filter));
     } else setFilteredTasks(value);
   };
 

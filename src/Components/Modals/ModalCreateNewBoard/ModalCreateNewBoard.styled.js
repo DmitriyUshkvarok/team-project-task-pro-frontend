@@ -127,6 +127,8 @@ export const ImageContainer = styled.div`
   label {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 28px;
     height: 28px;
     background-image: url(${(props) => props.data && data[0].image.regular});

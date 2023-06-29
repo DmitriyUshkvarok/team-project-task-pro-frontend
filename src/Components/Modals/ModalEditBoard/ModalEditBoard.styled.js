@@ -33,9 +33,8 @@ export const FormikForm = styled(Form)`
 `;
 
 export const FormFieldTitle = styled.label`
-width: 100%;
-position: relative;
-  
+  width: 100%;
+  position: relative;
 `;
 
 export const ErrorMessage = styled(FormikError)`
@@ -59,7 +58,7 @@ export const FieldTitle = styled(Field)`
   opacity: 0.4000000059604645;
   background-color: var(--bgInputBoardColor);
   box-shadow: 0px 4px 16px 0px rgba(var(--boxShadowInputBoardColor));
-  
+
   color: var(--textInputBoardColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
@@ -127,6 +126,8 @@ export const ImageContainer = styled.div`
   label {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 28px;
     height: 28px;
     background-color: rgba(246, 246, 247, 1);
