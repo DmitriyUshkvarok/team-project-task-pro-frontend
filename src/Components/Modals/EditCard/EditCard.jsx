@@ -37,7 +37,6 @@ import {
 } from './EditCard.styled.js';
 
 const ModalEditCard = ({ componentName }) => {
-  console.log(componentName);
   const {
     task: { title, description, priority, deadline, column, _id },
   } = componentName;
@@ -120,7 +119,6 @@ const ModalEditCard = ({ componentName }) => {
               id="description"
               name="description"
               type="text"
-              value={initialValues.description}
               onChange={(event) =>
                 setFieldValue('description', event.target.value)
               }
