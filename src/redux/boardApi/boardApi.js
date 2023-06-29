@@ -12,7 +12,7 @@ export const boardsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Boards', 'Columns', 'BoardsId', 'Profile'],
+  tagTypes: ['Boards', 'Columns', 'BoardsId', 'Profile', 'BoardBg'],
   endpoints: (builder) => ({
     getFetchBoards: builder.query({
       query: () => '/board ',
@@ -35,7 +35,7 @@ export const boardsApi = createApi({
         url: `/board/delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Boards'],
+      invalidatesTags: ['Boards', 'BoardsId'],
     }),
     createColumn: builder.mutation({
       query: ({ values, boardId }) => ({
@@ -88,6 +88,10 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['BoardsId', 'Columns'],
     }),
+    getBoardBdById: builder.query({
+      query: (name) => `background/${name}`,
+      providesTags: ['BoardsId'],
+    }),
   }),
 });
 
@@ -102,4 +106,6 @@ export const {
   useEditBoardMutation,
   useDeleteColumnMutation,
   useUpdateTaskMutation,
+  useGetBoardBdByIdQuery,
+  useGetAllBoardBdQuery,
 } = boardsApi;

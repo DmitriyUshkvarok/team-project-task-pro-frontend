@@ -129,6 +129,7 @@ export const ImageContainer = styled.div`
     display: flex;
     width: 28px;
     height: 28px;
+    background-image: url(${(props) => props.data && data[0].image.regular});
     background-color: rgba(246, 246, 247, 1);
     border-radius: 8px;
     border: none;

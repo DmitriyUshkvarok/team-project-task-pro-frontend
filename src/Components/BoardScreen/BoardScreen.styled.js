@@ -6,6 +6,12 @@ export const Board = styled.div`
   height: 100vh;
   /* height: calc(100vh - 60px); */
   min-height: 812px;
+  height: calc(100vh - 60px);
+
+  background-image: url(${(props) => props.boardBg?.desktop?.regular});
+  background-size: cover;
+  background-position: center;
+
   @media screen and (min-width: 375px) {
     width: 375px;
   }

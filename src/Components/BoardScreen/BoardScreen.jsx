@@ -4,7 +4,9 @@ import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
   // useGetFetchBoardByIdQuery,
+  useGetBoardBdByIdQuery,
 } from '../../redux/boardApi/boardApi';
+
 import {
   Board,
   Filter,
@@ -35,14 +37,20 @@ const BoardScreen = ({ closeSidebar }) => {
     );
   };
 
+  const bgName = boards?.find(({ _id }) => _id === boardId);
+
+  const { data: boardBg } = useGetBoardBdByIdQuery(bgName?.backgroundId);
+
   return (
-    <Board onClick={closeSidebar}>
+    <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <SidebarBoard>
         <Title>{title}</Title>
         <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
           <FiFilter />
           <span>Filters</span>
         </Filter>
+        <Title>{bgName?.title}</Title>
+        <Filter> Icon Filters</Filter>
       </SidebarBoard>
       {boards?.length === 0 && (
         <Wrap>
