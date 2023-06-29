@@ -1,4 +1,3 @@
-import React from 'react';
 import { usePostCommentMutation } from '../../../redux/helpApi/helpApi';
 
 import * as yup from 'yup';
