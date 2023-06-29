@@ -30,7 +30,7 @@ export const InputTitle = styled(Field)`
   width: 287px;
   height: 49px;
   padding: 14px 18px;
-  background-color: var(--bgInputBoardColor);;
+  background-color: var(--bgInputBoardColor);
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderInputBoardColor);
   color: var(--textInputBoardColor);
@@ -54,7 +54,7 @@ export const InputDescription = styled(Field)`
   width: 287px;
   height: 154px;
   padding: 14px 18px;
-  background-color: var(--bgInputBoardColor);;
+  background-color: var(--bgInputBoardColor);
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderInputBoardColor);
   color: var(--textInputBoardColor);
@@ -198,7 +198,7 @@ export const ButtonDate = styled.button`
   font-family: var(--poppinsFont);
   letter-spacing: var(--letterSpacing28);
   font-weight: var(--fontWeight500);
-  background: inherit;
+  background-color: var(--bgInputBoardColor);
   border: none;
   padding: 0px;
   float: left;

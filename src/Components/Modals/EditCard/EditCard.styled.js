@@ -4,11 +4,12 @@ import { FaChevronDown } from 'react-icons/fa';
 
 export const EditCardModal = styled.div`
   width: 335px;
-  background-color: var(--modalBGC);
+  background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
+  border: 1px solid var(--borderBoardColor);
   padding: 24px;
   font-family: var(--poppinsFont);
-  color: var(--whiteColor);
+  color: var(--titleBoardColor);
   margin-top: 20px;
   position: relative;
 
@@ -19,7 +20,6 @@ export const EditCardModal = styled.div`
 
 export const Title = styled.h2`
   font-size: var(--fontSize18);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
   margin-bottom: 24px;
@@ -30,10 +30,10 @@ export const InputTitle = styled(Field)`
   width: 287px;
   height: 49px;
   padding: 14px 18px;
-  background-color: inherit;
+  background-color: var(--bgInputBoardColor);
   border-radius: var(--borderRadius8);
-  border: 1px solid var(--accentColor);
-  color: var(--whiteColor);
+  border: 1px solid var(--borderInputBoardColor);
+  color: var(--textInputBoardColor);
   line-height: 18px;
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
@@ -48,10 +48,10 @@ export const InputDescription = styled(Field)`
   width: 287px;
   height: 154px;
   padding: 14px 18px;
-  background-color: inherit;
+  background-color: var(--bgInputBoardColor);
   border-radius: var(--borderRadius8);
-  border: 1px solid var(--accentColor);
-  color: var(--whiteColor);
+  border: 1px solid var(--borderInputBoardColor);
+  color: var(--textInputBoardColor);
   line-height: 18px;
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
@@ -66,10 +66,9 @@ export const InputDescription = styled(Field)`
 
 export const StyledPriority = styled.p`
   font-size: var(--fontSize12);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.24px;
-  color: var(--opacityWhite2);
+  color: var(--labelColor);
   margin-top: 24px;
   margin-bottom: 4px;
   text-align: left;
@@ -77,10 +76,9 @@ export const StyledPriority = styled.p`
 
 export const StyledLabelDeadline = styled.p`
   font-size: var(--fontSize12);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.24px;
-  color: var(--opacityWhite2);
+  color: var(--labelColor);
   margin-top: 14px;
   margin-bottom: 4px;
   text-align: left;
@@ -91,7 +89,7 @@ export const Button = styled.button`
   height: 49px;
   padding: 10px 0px;
   border-radius: var(--borderRadius8);
-  background-color: var(--accentColor);
+  background-color: var(--btnBoardColor);
   border: 0px;
   font-size: var(--fontSize14);
   font-weight: var(--fontWeight500);
@@ -117,13 +115,13 @@ export const Span = styled.span`
 
   background-color: ${(props) => {
     if (props.value === 'low') {
-      return '#8FA1D0';
+      return 'var(--labelLowColor)';
     } else if (props.value === 'medium') {
-      return '#E09CB5';
+      return 'var(--labelMediumColor)';
     } else if (props.value === 'high') {
-      return '#BEDBB0';
+      return 'var(--labelHighColor)';
     } else {
-      return 'rgba(255,255,255,0.3)';
+      return 'var(--labelWithoutColor)';
     }
   }};
 
@@ -139,7 +137,7 @@ export const Span = styled.span`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    border: 2px solid var(--modalBGC);
+    border: 2px solid var(--modalBgColor);
     opacity: 0;
   }
 
@@ -155,7 +153,7 @@ export const LabelContainer = styled.div`
   gap: 8px;
 
   label {
-    color: var(--iconSideBarBoardColor);
+    color: var(--iconBoardBgColor);
     font-size: var(--fontSize12);
     font-family: Poppins;
     letter-spacing: var(--letterSpacing24);
@@ -183,12 +181,12 @@ export const LabelDiv = styled.div`
 `;
 
 export const ButtonDate = styled.button`
-  color: var(--accentColor);
+  color: var(--boardDateColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   letter-spacing: var(--letterSpacing28);
   font-weight: var(--fontWeight500);
-  background: inherit;
+  background-color: var(--bgInputBoardColor);
   border: none;
   padding: 0px;
   float: left;
