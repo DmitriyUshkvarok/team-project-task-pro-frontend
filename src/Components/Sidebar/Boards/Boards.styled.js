@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ListBoard = styled.ul`
   margin-top: 40px;
-  height: 130px;
-  overflow-y: auto;
+  /* height: 130px; */
+  /* overflow-y: auto; */
 `;
 
 export const ItemBoard = styled.li`
@@ -25,6 +25,7 @@ export const ItemBoard = styled.li`
     border-radius: 4px 0px 0px 4px;
     display: ${({ isSelected }) => (isSelected ? 'block' : 'none')};
   }
+
   @media screen and (min-width: 1280px) {
     padding-left: 24px;
   }
