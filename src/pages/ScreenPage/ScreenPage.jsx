@@ -132,7 +132,9 @@ const ScreenPage = () => {
             </ListTask>
             <AddCardBtn onClick={() => handlClickModal(_id)}>
               <AddCardIcon width="28" height="28">
-                <use xlinkHref={`${url}#icon-plus`} />
+                <svg width="18" height="18">
+                  <use xlinkHref={`${url}#icon-plus`} />
+                </svg>
               </AddCardIcon>
               Add another card
             </AddCardBtn>

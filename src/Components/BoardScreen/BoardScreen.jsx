@@ -18,11 +18,11 @@ import {
   BoardsContainer,
   ContainerColumns,
   AddColumnBtn,
-  AddIcon,
+  AddColumnIcon,
 } from './BoardScreen.styled';
 import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
-// ../../images/icons/sprite/icons.svg
+
 const BoardScreen = ({ closeSidebar }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
@@ -67,9 +67,11 @@ const BoardScreen = ({ closeSidebar }) => {
         </ContainerColumns>
         {boards?.length !== 0 && (
           <AddColumnBtn onClick={handleClickModal}>
-            <AddIcon width="28" height="28">
-              <use xlinkHref={`${url}#icon-plus`} />
-            </AddIcon>
+            <AddColumnIcon>
+              <svg width="18" height="18">
+                <use xlinkHref={`${url}#icon-plus`} />
+              </svg>
+            </AddColumnIcon>
             Add Columns
           </AddColumnBtn>
         )}
