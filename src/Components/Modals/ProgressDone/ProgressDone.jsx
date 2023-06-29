@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import { useUpdateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
 import { useUpdateTaskMutation } from '../../../redux/boardApi/boardApi';
 import { closeModal } from '../../../redux/modal/modalSlice';
 
@@ -11,6 +10,7 @@ import {
   ProgressDoneContainer,
   ColumnName,
   ColumnMoveTo,
+  Message,
 } from './ProgressDone.styled';
 
 const ProgressDoneModal = ({ componentName }) => {
@@ -25,32 +25,43 @@ const ProgressDoneModal = ({ componentName }) => {
     if (columnIdMoveTo === currentColumnId) return;
     const value = { column: columnIdMoveTo };
     try {
-      await updateTask([value, currentTaskId]);
+      await updateTask({ values: value, idTask: currentTaskId });
       dispatch(closeModal());
     } catch (error) {
       console.log(error);
     }
   };
 
+  const taskAbleToMove = allColumns.length > 1;
+
   return (
     <ProgressDoneContainer>
-      {allColumns.map(({ _id, title }) => (
-        <ColumnMoveTo key={_id} onClick={() => handleClick(_id)}>
-          {_id !== currentColumnId && <ColumnName>{title}</ColumnName>}
-          {_id === currentColumnId && (
-            <ColumnName
-              style={{ color: 'var(--accentColor)', cursor: 'default' }}
-            >
-              {title}
-            </ColumnName>
-          )}
-          {_id !== currentColumnId && (
-            <svg width={16} height={16}>
-              <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
-            </svg>
-          )}
-        </ColumnMoveTo>
-      ))}
+      {taskAbleToMove &&
+        allColumns.map(({ _id, title }) => (
+          <ColumnMoveTo key={_id} onClick={() => handleClick(_id)}>
+            {_id !== currentColumnId && <ColumnName>{title}</ColumnName>}
+            {_id === currentColumnId && (
+              <ColumnName
+                style={{ color: 'var(--accentColor)', cursor: 'default' }}
+              >
+                {title}
+              </ColumnName>
+            )}
+            {_id !== currentColumnId && (
+              <svg width={16} height={16}>
+                <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
+              </svg>
+            )}
+          </ColumnMoveTo>
+        ))}
+
+      {!taskAbleToMove && (
+        <Message>
+          <div>Add more</div>
+          <div>columns to</div>
+          <div>move the task</div>
+        </Message>
+      )}
     </ProgressDoneContainer>
   );
 };

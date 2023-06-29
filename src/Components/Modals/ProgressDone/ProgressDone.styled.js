@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProgressDoneContainer = styled.ul`
-  width: 135px;
+  min-width: 135px;
   min-height: 86px;
   background-color: var(--modalBGC);
   border-radius: var(--borderRadius8);
@@ -36,4 +36,8 @@ export const ColumnMoveTo = styled.li`
     color: var(--accentColor);
     stroke: var(--accentColor);
   }
+`;
+
+export const Message = styled.div`
+  color: var(--accentColor);
 `;
