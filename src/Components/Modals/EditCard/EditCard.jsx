@@ -11,7 +11,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '../Calendar/calendar.css';
 
 //===for fetch===/
-import { useUpdateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
+import { useUpdateTaskMutation } from '../../../redux/boardApi/boardApi.js';
 
 //===components===/
 import CloseButton from '../CloseButton/CloseButton.jsx';
@@ -39,10 +39,11 @@ import {
 const ModalEditCard = ({ componentName }) => {
   console.log(componentName);
   const {
-    task: { title, description, priority, deadline, column },
+    task: { title, description, priority, deadline, column, _id },
   } = componentName;
 
-  console.log(`deadline`, deadline);
+  const idTask = _id.toString();
+
   const [date, setDate] = useState(new Date(deadline));
   const [select, setSelect] = useState(priority);
   const [formattedDate, setFormattedDate] = useState('');
@@ -86,11 +87,9 @@ const ModalEditCard = ({ componentName }) => {
   const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2));
     try {
-      await updateTask(values, id);
+      await updateTask({ values, idTask });
       dispatch(closeModal());
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const hendleSubmitCalendar = (selectedDate) => {

@@ -4,7 +4,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { parseISO } from 'date-fns';
 
 const Calendar = ({ prop, click, setFieldValue }) => {
-  console.log(prop);
   const handleDateChange = (selectedDate) => {
     click(selectedDate);
     setFieldValue('deadline', selectedDate);
