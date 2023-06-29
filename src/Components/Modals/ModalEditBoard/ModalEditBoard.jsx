@@ -34,9 +34,11 @@ const ModalEditBoard = ({ componentName }) => {
   const [editBoard, { isLoading: isEditLoading }] = useEditBoardMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { data } = useGetMiniImgQuery();
 
   const handleSubmit = async (values) => {
     const { data } = await editBoard({ values, id });
+
     navigate(`/${data?._id}/${data?.title}`, { replace: true });
     dispatch(closeModal());
   };

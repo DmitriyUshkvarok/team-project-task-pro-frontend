@@ -44,13 +44,11 @@ const BoardScreen = ({ closeSidebar }) => {
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <SidebarBoard>
-        <Title>{title}</Title>
+        <Title>{bgName?.title}</Title>
         <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
           <FiFilter />
           <span>Filters</span>
         </Filter>
-        <Title>{bgName?.title}</Title>
-        <Filter> Icon Filters</Filter>
       </SidebarBoard>
       {boards?.length === 0 && (
         <Wrap>
