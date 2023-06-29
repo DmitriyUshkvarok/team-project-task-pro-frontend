@@ -16,8 +16,6 @@ import ScreenPage from '../../pages/ScreenPage/ScreenPage';
 
 import RestictedRoute from '../RestictedRoute/RestictedRoute';
 
-import Boards from '../Sidebar/Boards/Boards';
-
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -38,7 +36,6 @@ function App() {
         <LoaderForRefresh />
       ) : (
         <Suspense fallback={<LoaderForApp />}>
-          <Boards />
           <Container>
             <Routes>
               <Route
