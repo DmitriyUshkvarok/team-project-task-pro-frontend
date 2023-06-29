@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa';
 
 export const AddCardModal = styled.div`
   width: 335px;
-  background-color: var(--boardBgColor);
+  background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderBoardColor);
   padding: 24px;
@@ -149,7 +149,7 @@ export const Span = styled.span`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    border: 2px solid var(--boardBgColor);
+    border: 2px solid var(--modalBgColor);
     opacity: 0;
   }
 

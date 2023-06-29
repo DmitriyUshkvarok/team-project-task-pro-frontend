@@ -40,10 +40,14 @@ export const InputEmail = styled(Field)`
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
+  outline: none;
 
   &:hover,
+  &:focus,
   &:active {
     opacity: 1;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 
 
@@ -59,7 +63,7 @@ export const InputComment = styled(Field)`
   background-color: inherit;
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderNeedHelpColor);
-  opacity: 0.4000000059604645;
+  // opacity: 0.4000000059604645;
 
   color: var(--textInputColor);
   line-height: 18px;
@@ -73,10 +77,10 @@ export const InputComment = styled(Field)`
 
   margin-top: 14px;
 
-  &:hover,
-  &:active {
-    opacity: 1;
-  }
+  // &:hover,
+  // &:active {
+  //   opacity: 1;
+  // }
 
   @media screen and (min-width: 768px) {
     width: 352px;

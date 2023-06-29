@@ -20,7 +20,7 @@
 
   --borderRadius8: 8px;
 
-  --fontSize10: 8px;
+  --fontSize8: 8px;
   --fontSize10: 10px;
   --fontSize12: 12px;
   --fontSize14: 14px;
@@ -93,7 +93,8 @@ body[data-theme='light'] {
 
   /**Modal Board*/
   --modalBackdropColor: rgba(0, 0, 0, 0.5);
-  --boardBgColor: #fcfcfc;
+  --modalBgColor: #fcfcfc;
+  --modalBoxShadow: rgba(22, 22, 22, 0.05);
   --titleBoardColor: #161616;
   --iconCloseColor: #161616;
   --textInputBoardColor: #161616;
@@ -112,6 +113,9 @@ body[data-theme='light'] {
   --labelHighColor: #bedbb0;
   --labelWithoutColor: #1616164d;
   --boardDateColor: #bedbb0;
+  --labelUserBg: #BEDBB0;
+  --iconPlusEditColor: #161616;
+  --iconBSEyeColor: #161616;
 
   /**after del*/
   --logoHeaderColor: red;
@@ -128,7 +132,7 @@ body[data-theme='light'] {
   --modalBGC: #fcfcfc;
   --IconCloseColor: #161616;
   --titleColor: #161616;
-  --iconBoardColor: #16161680;
+  /* --iconBoardColor: #16161680; */
 
   --accentColorSideBar: red;
   --accentColorForElementSideBar: #bedbb0;
@@ -187,7 +191,8 @@ body[data-theme='dark'] {
 
   /**Modal Board*/
   --modalBackdropColor: rgba(255, 255, 255, 0.2);
-  --boardBgColor: #151515;
+  --modalBgColor: #151515;
+  --modalBoxShadow: rgba(22, 22, 22, 0.05);
   --borderBoardColor: rgba(190, 219, 176, 0.5);
   --titleBoardColor: #ffffff;
   --iconCloseColor: #ffffff;
@@ -207,7 +212,9 @@ body[data-theme='dark'] {
   --labelHighColor: #bedbb0;
   --labelWithoutColor: #ffffff4d;
   --boardDateColor: #bedbb0;
-
+  --labelUserBg: #BEDBB0;
+  --iconPlusEditColor: #161616;
+  --iconBSEyeColor: #FFFFFF;
   /**after del*/
 
   --sidebarColor: #121212;
@@ -220,7 +227,7 @@ body[data-theme='dark'] {
   --modalBGC: #151515;
   --IconCloseColor: #ffffff;
   --titleColor: #ffffff;
-  --iconBoardColor: #ffffff80;
+  /* --iconBoardColor: #ffffff80; */
 
   --accentColorSideBar: #bedbb0;
   --accentColorForElementSideBar: #bedbb0;
@@ -280,7 +287,8 @@ body[data-theme='violet'] {
 
   /**Modal Board*/
   --modalBackdropColor: rgba(0, 0, 0, 0.5);
-  --boardBgColor: #fcfcfc;
+  --modalBgColor: #fcfcfc;
+  --modalBoxShadow: rgba(22, 22, 22, 0.05);
   --titleBoardColor: #161616;
   --iconCloseColor: #161616;
   --bgInputBoardColor: #fcfcfc;
@@ -299,6 +307,14 @@ body[data-theme='violet'] {
   --labelHighColor: #bedbb0;
   --labelWithoutColor: #1616164d;
   --boardDateColor: #5255bc;
+  --labelUserBg: #ECEDFD;
+  --iconPlusEditColor: #161616;
+  --iconBSEyeColor: #161616;
+
+
+
+ 
+
 
   /**Project office*/
 
@@ -313,7 +329,7 @@ body[data-theme='violet'] {
   --modalBGC: #fcfcfc;
   --IconCloseColor: #161616;
   --titleColor: #161616;
-  --iconBoardColor: #16161680;
+  /* --iconBoardColor: #16161680; */
 
   --accentColorSideBar: rgba(184, 188, 253, 1);
   --accentColorForElementSideBar: #ffffff;
