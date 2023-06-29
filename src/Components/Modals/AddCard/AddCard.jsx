@@ -37,6 +37,7 @@ import {
 } from './AddCard.styled.js';
 
 const ModalAddCard = ({ componentName }) => {
+  console.log(componentName);
   const { boardId, columnId } = componentName;
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
@@ -55,7 +56,7 @@ const ModalAddCard = ({ componentName }) => {
 
   const initialValues = {
     title: '',
-    description: '',
+    description: '44444',
     priority: '',
     deadline: date.toISOString(),
     column: columnId,

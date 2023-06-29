@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { parseISO } from 'date-fns';
 
 //===for calendar===/
 import { formattedDateForBtn } from '../../../services/formatingDate.js';
@@ -10,7 +11,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '../Calendar/calendar.css';
 
 //===for fetch===/
-import { useUpdateTaskMutation } from '../../../redux/tasksApi/tasksApi.js';
+import { useUpdateTaskMutation } from '../../../redux/boardApi/boardApi.js';
 
 //===components===/
 import CloseButton from '../CloseButton/CloseButton.jsx';
@@ -35,9 +36,15 @@ import {
   BtnName,
 } from './EditCard.styled.js';
 
-const ModalEditCard = ({ title, description, priority, columnId }) => {
-  const [date, setDate] = useState(new Date());
-  const [select, setSelect] = useState(null);
+const ModalEditCard = ({ componentName }) => {
+  const {
+    task: { title, description, priority, deadline, column, _id },
+  } = componentName;
+
+  const idTask = _id.toString();
+
+  const [date, setDate] = useState(new Date(deadline));
+  const [select, setSelect] = useState(priority);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [updateTask] = useUpdateTaskMutation();
@@ -55,8 +62,8 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
     title: title,
     description: description,
     priority: priority,
-    deadline: date,
-    column: columnId,
+    deadline: deadline,
+    column: column,
   };
 
   const schema = yup.object({
@@ -76,14 +83,12 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
     setSelect(value);
   };
 
-  const handleSubmit = async (values, boardId, columnId, id) => {
+  const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2));
     try {
-      await updateTask(values, id);
+      await updateTask({ values, idTask });
       dispatch(closeModal());
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const hendleSubmitCalendar = (selectedDate) => {
@@ -153,7 +158,7 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
                 </BtnName>
               </ButtonDate>
               <Calendar
-                prop={date}
+                prop={deadline}
                 click={hendleSubmitCalendar}
                 setFieldValue={setFieldValue}
               />

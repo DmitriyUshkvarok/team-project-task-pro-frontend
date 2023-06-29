@@ -81,8 +81,8 @@ export const boardsApi = createApi({
       invalidatesTags: ['Boards', 'BoardsId'],
     }),
     updateTask: builder.mutation({
-      query: ([values, id]) => ({
-        url: `/tasks/${id}`,
+      query: ({ values, idTask }) => ({
+        url: `/tasks/${idTask}`,
         method: 'PATCH',
         body: values,
       }),
