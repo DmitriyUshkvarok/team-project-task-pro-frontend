@@ -1,16 +1,20 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { parseISO } from 'date-fns';
 
 const Calendar = ({ prop, click, setFieldValue }) => {
+  console.log(prop);
   const handleDateChange = (selectedDate) => {
     click(selectedDate);
     setFieldValue('deadline', selectedDate);
   };
 
+  const date = new Date(prop);
+
   return (
     <DatePicker
-      selected={prop}
+      selected={date}
       minDate={new Date()}
       calendarStartDay={1}
       onChange={handleDateChange}

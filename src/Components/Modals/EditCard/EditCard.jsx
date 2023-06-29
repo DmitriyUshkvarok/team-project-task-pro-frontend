@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { parseISO } from 'date-fns';
 
 //===for calendar===/
 import { formattedDateForBtn } from '../../../services/formatingDate.js';
@@ -35,9 +36,15 @@ import {
   BtnName,
 } from './EditCard.styled.js';
 
-const ModalEditCard = ({ title, description, priority, columnId }) => {
-  const [date, setDate] = useState(new Date());
-  const [select, setSelect] = useState(null);
+const ModalEditCard = ({ componentName }) => {
+  console.log(componentName);
+  const {
+    task: { title, description, priority, deadline, column },
+  } = componentName;
+
+  console.log(`deadline`, deadline);
+  const [date, setDate] = useState(new Date(deadline));
+  const [select, setSelect] = useState(priority);
   const [formattedDate, setFormattedDate] = useState('');
 
   const [updateTask] = useUpdateTaskMutation();
@@ -55,8 +62,8 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
     title: title,
     description: description,
     priority: priority,
-    deadline: date,
-    column: columnId,
+    deadline: deadline,
+    column: column,
   };
 
   const schema = yup.object({
@@ -76,7 +83,7 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
     setSelect(value);
   };
 
-  const handleSubmit = async (values, boardId, columnId, id) => {
+  const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2));
     try {
       await updateTask(values, id);
@@ -114,6 +121,7 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
               id="description"
               name="description"
               type="text"
+              value={initialValues.description}
               onChange={(event) =>
                 setFieldValue('description', event.target.value)
               }
@@ -153,7 +161,7 @@ const ModalEditCard = ({ title, description, priority, columnId }) => {
                 </BtnName>
               </ButtonDate>
               <Calendar
-                prop={date}
+                prop={deadline}
                 click={hendleSubmitCalendar}
                 setFieldValue={setFieldValue}
               />

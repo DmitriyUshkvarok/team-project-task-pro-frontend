@@ -102,7 +102,17 @@ const TaskCard = ({ task, columns }) => {
                 <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
               </CardIcon>
             </CardBtn>
-            <CardBtn type="button">
+            <CardBtn
+              type="button"
+              onClick={() =>
+                dispatch(
+                  openModal({
+                    name: 'modalEditCard',
+                    task,
+                  })
+                )
+              }
+            >
               <CardIcon stroke="grey">
                 <use xlinkHref={`${url}#icon-pencil-01`} />
               </CardIcon>

@@ -27,7 +27,7 @@ const Modal = () => {
     craeteModalBoard: ModalCreateNewBoard,
     addColumn: ModalAddColumn,
     modalAddCard: AddCard,
-    ModalEditCard: ModalEditCard,
+    modalEditCard: ModalEditCard,
     editColumn: ModalEditColumn,
     editBoard: ModalEditBoard,
     progressDoneModal: ProgressDoneModal,
