@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -84,11 +84,12 @@ const ModalEditCard = ({ componentName }) => {
   };
 
   const handleSubmit = async (values) => {
-    alert(JSON.stringify(values, null, 2));
     try {
       await updateTask({ values, idTask });
       dispatch(closeModal());
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const hendleSubmitCalendar = (selectedDate) => {
@@ -105,7 +106,7 @@ const ModalEditCard = ({ componentName }) => {
         validationSchema={schema}
         autoComplete="off"
       >
-        {({ setFieldValue }) => (
+        {({ setFieldValue, values }) => (
           <Form>
             <InputTitle
               id="title"
@@ -119,6 +120,7 @@ const ModalEditCard = ({ componentName }) => {
               id="description"
               name="description"
               type="text"
+              value={values.description}
               onChange={(event) =>
                 setFieldValue('description', event.target.value)
               }
