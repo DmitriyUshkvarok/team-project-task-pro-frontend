@@ -1,5 +1,5 @@
 .react-datepicker__current-month {
-  color: var(--whiteColor);
+  color: var(--currentMonthColor);
   font-size: var(--fontSize16);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -9,7 +9,7 @@
 .react-datepicker {
   background: var(--calendarBackground);
   border-radius: var(--borderRadius8);
-  border: none;
+  border: 1px solid var(--calendarBorder);
   padding: 18px;
 }
 
@@ -19,13 +19,13 @@
 }
 
 .react-datepicker__navigation-icon--previous::before {
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: var(--navLeftBtnColor);
   width: 8px;
   height: 8px;
 }
 
 .react-datepicker__navigation-icon--next::before {
-  border-color: var(--accentColor);
+  border-color: var(--navRightBtnColor);
   width: 8px;
   height: 8px;
 }
@@ -42,14 +42,14 @@
   margin-top: 14px;
   padding-top: 14px;
   border-top: 1px;
-  border-top-color: rgba(255, 255, 255, 0.2);
+  border-top-color:  var(--calendarLineColor);
   border-top-style: solid;
   display: flex;
   gap: 11px;
 }
 
 .react-datepicker__day-name {
-  color: var(--opacityWhite2);
+  color: var(--calendarDayNameColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -61,7 +61,7 @@
 }
 
 .react-datepicker__day {
-  color: var(--sidebarColor);
+  color: var(--calendarCurrentMonthColor);
   font-size: var(--fontSize14);
   line-height: 18px;
   font-family: var(--poppinsFont);
@@ -78,8 +78,9 @@
 
 .react-datepicker__day:hover,
 .react-datepicker__day:focus {
+  color: var(--calendarCurrentDateColor);
   border-radius: 50%;
-  background-color: var(--accentColor);
+  background-color: var(--calendarBgDateColor);
 }
 
 .react-datepicker__month {
@@ -100,8 +101,8 @@
 }
 
 .react-datepicker__day--selected {
-  background-color: var(--accentColor);
-  color: var(--helpColor);
+  background-color: var(--calendarBgDateColor);
+  color: var(--calendarCurrentDateColor);
   border-radius: 50%;
 }
 
@@ -118,18 +119,20 @@
 
 .react-datepicker__day--selected:hover,
 .react-datepicker__day--selected:focus {
-  background-color: var(--accentColor);
-  color: var(--helpColor);
+  background-color: var(--calendarBgDateColor);
+  color: var(--calendarCurrentDateColor);
   border-radius: 50%;
 }
 
 .react-datepicker__day--disabled {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--calendarPreviousMonthColor);
 }
 
 .react-datepicker__day--disabled:hover,
 .react-datepicker__day--disabled:focus {
-  background-color: inherit;
+  background-color: var(--calendarBgDateColor);
+  color: var(--calendarCurrentDateColor);
+  border-radius: 50%;
 }
 
 .react-datepicker__input-container input {

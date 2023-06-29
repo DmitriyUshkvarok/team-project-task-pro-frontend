@@ -33,7 +33,7 @@ import {
   SpanErrorImg,
   LabelEditPhoto,
   InputEditPhoto,
-  BtnSaveFotoUser,
+  BtnSavePhotoUser,
   PhotoBox,
 } from './EditProfile.styled';
 
@@ -170,7 +170,7 @@ const EditProfile = () => {
             </LabelEditPhoto>
           )}
           {showSaveButton && (
-            <BtnSaveFotoUser onClick={handleUpdateAvatar}>
+            <BtnSavePhotoUser onClick={handleUpdateAvatar}>
               {isAvatarLoading ? (
                 <LoaderForAvatar />
               ) : (
@@ -178,7 +178,7 @@ const EditProfile = () => {
                   <GiSave size={20} color="rgba(22, 22, 22)" />
                 </>
               )}
-            </BtnSaveFotoUser>
+            </BtnSavePhotoUser>
           )}
         </PhotoBox>
         {errorFormat && (
@@ -239,10 +239,10 @@ const EditProfile = () => {
               />
               <ToggleShowPassword onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
+                  <BsEye color="var(--iconBSEyeColor)" opacity="0.4000000059604645" style={{ width: 18, height: 18 }} />
                 ) : (
                   <BsEyeSlash
-                    color="#ffffff4d"
+                    color="var(--iconBSEyeColor)" opacity="0.4000000059604645"
                     style={{ width: 18, height: 18 }}
                   />
                 )}

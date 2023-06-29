@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa';
 
 export const AddCardModal = styled.div`
   width: 335px;
-  background-color: var(--boardBgColor);
+  background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderBoardColor);
   padding: 24px;
@@ -30,7 +30,7 @@ export const InputTitle = styled(Field)`
   width: 287px;
   height: 49px;
   padding: 14px 18px;
-  background-color: var(--bgInputBoardColor);;
+  background-color: var(--bgInputBoardColor);
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderInputBoardColor);
   color: var(--textInputBoardColor);
@@ -54,7 +54,7 @@ export const InputDescription = styled(Field)`
   width: 287px;
   height: 154px;
   padding: 14px 18px;
-  background-color: var(--bgInputBoardColor);;
+  background-color: var(--bgInputBoardColor);
   border-radius: var(--borderRadius8);
   border: 1px solid var(--borderInputBoardColor);
   color: var(--textInputBoardColor);
@@ -149,7 +149,7 @@ export const Span = styled.span`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    border: 2px solid var(--boardBgColor);
+    border: 2px solid var(--modalBgColor);
     opacity: 0;
   }
 
@@ -198,7 +198,7 @@ export const ButtonDate = styled.button`
   font-family: var(--poppinsFont);
   letter-spacing: var(--letterSpacing28);
   font-weight: var(--fontWeight500);
-  background: inherit;
+  background-color: var(--bgInputBoardColor);
   border: none;
   padding: 0px;
   float: left;

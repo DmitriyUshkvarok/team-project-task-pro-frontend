@@ -15,16 +15,23 @@ export const InputForm = styled(Field)`
   padding: 14px 18px;
   width: 100%;
   height: 49px;
-  border: 1px solid var(--accentColor);
-  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
-  border-radius: 8px;
-  background-color: var(--headerColor);
-  color: var(--logoHeaderColor);
+  border: 1px solid var(--borderInputBoardColor);
+  // box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
+  border-radius: var(--borderRadius8);
+  background-color: var(--modalBgColor);
+  color: var(--textInputBoardColor);;
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
+  opacity: 0.4000000059604645;
 
   outline: none;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    outline: none;
+  }
 
   @media screen and (min-width: 375px) {
     width: 287px;
@@ -53,12 +60,13 @@ export const BtnWrapper = styled.div`
 export const BtnUpdate = styled.button`
   width: 100%;
   height: 49px;
-  background-color: var(--accentColor);
-  border-radius: 8px;
+  background-color:  var(--btnBoardColor);
+  border-radius: var(--borderRadius8);
   cursor: pointer;
-  color: var(--whiteColor);
+  color: var(--btnTextBoardColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
+  font-size: var(--fontSize14);
   border: none;
   transition: var(--transition);
 
@@ -94,8 +102,9 @@ export const Edit = styled.div`
   width: 100%;
   height: 440px;
   padding: 24px;
-  background-color: var(--headerColor);
+  background-color: var(--modalBgColor);
   border-radius: 8px;
+  box-shadow: 0px 4px 16px 0px var(--modalBoxShadow);
   z-index: 1200;
 
   @media screen and (min-width: 375px) {
@@ -109,7 +118,7 @@ export const Edit = styled.div`
   }
 `;
 export const EditTitle = styled.h3`
-  color: var(--logoHeaderColor);
+  color: var(--titleBoardColor);
 
   text-align: start;
 
@@ -127,6 +136,7 @@ export const BtnClose = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  stroke: var(--iconCloseColor);
 `;
 
 //===for avatar===/
@@ -140,6 +150,7 @@ export const PhotoUser = styled.img`
   border-radius: var(--borderRadius8);
   display: block;
   object-fit: cover;
+  
 `;
 
 export const PhotoBox = styled.div`
@@ -162,7 +173,8 @@ export const LabelEditPhoto = styled.label`
   transform: translate(-50%, -50%);
   width: 24px;
   height: 24px;
-  background-color: var(--accentColor);
+  background-color: var(--labelUserBg);
+  stroke: var(--iconPlusEditColor);
   justify-content: center;
   align-items: center;
   border-radius: var(--borderRadius8);
@@ -176,14 +188,14 @@ export const InputEditPhoto = styled.input`
   height: 0;
 `;
 
-export const BtnSaveFotoUser = styled.button`
+export const BtnSavePhotoUser = styled.button`
   display: flex;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 24px;
   height: 24px;
-  background-color: var(--accentColor);
+  background-color: var(--labelUserBg);
   justify-content: center;
   align-items: center;
   border-radius: var(--borderRadius8);

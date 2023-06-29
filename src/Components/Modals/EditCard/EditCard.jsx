@@ -92,7 +92,7 @@ const ModalEditCard = ({ componentName }) => {
     }
   };
 
-  const hendleSubmitCalendar = (selectedDate) => {
+  const handleSubmitCalendar = (selectedDate) => {
     setDate(selectedDate);
   };
 
@@ -160,8 +160,8 @@ const ModalEditCard = ({ componentName }) => {
                 </BtnName>
               </ButtonDate>
               <Calendar
-                prop={deadline}
-                click={hendleSubmitCalendar}
+                prop={date}
+                click={handleSubmitCalendar}
                 setFieldValue={setFieldValue}
               />
               <StyleErrorMessage name="deadline" component="div" />

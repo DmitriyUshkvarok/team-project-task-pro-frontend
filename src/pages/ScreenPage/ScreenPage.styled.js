@@ -39,7 +39,7 @@ export const BtnAdd = styled.button`
 
 // Sidebar
 
-//-----Sidebar
+//--Sidebar
 
 export const BoxColumns = styled.li``;
 

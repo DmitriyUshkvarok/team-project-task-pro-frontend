@@ -14,7 +14,7 @@ export const ModalContainer = styled.div`
   // box-shadow: var(--boxShadow);
   border-radius: 8px;
   border: 1px solid var(--borderBoardColor);
-  background-color: var(--boardBgColor);
+  background-color: var(--modalBgColor);
   position: relative;
 `;
 
