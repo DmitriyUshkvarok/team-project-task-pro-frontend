@@ -123,9 +123,15 @@ const ScreenPage = () => {
                 filteredTasks.map(
                   (task) =>
                     task.column === _id && (
-                      <TaskCard task={task} key={task._id} />
+                      (
+                    <TaskCard
+                      task={task}
+                      columns={data.columns}
+                      key={task._id}
+                    />
                     )
-                )}
+                    )
+              )}
             </ListTask>
             <AddCardBtn onClick={() => handlClickModal(_id)}>
               <svg width="28" height="28">

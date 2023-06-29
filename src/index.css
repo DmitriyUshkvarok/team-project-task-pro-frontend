@@ -8,11 +8,9 @@
   --bgInputColor: #1f1f1f;
   --errorColor: #ff0000;
 
-  --gradientFonColor: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
+  --gradientFonColor: linear-gradient(180deg,
+      rgba(196, 196, 196, 0) 25%,
+      #bedbb0 92.19%);
 
   --transition: 0.4s;
 
@@ -57,6 +55,7 @@ body.menu-open {
 
 body[data-theme='light'] {
   --accentColor: #bedbb0;
+  --modalInactiveTextColor: #161616;
 
   /**Header*/
   --headerColor: #fcfcfc;
@@ -148,6 +147,7 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
   --accentColor: #bedbb0;
+  --modalInactiveTextColor: rgba(255, 255, 255, 0.5);
 
   /**Header*/
   --headerColor: #161616;
@@ -240,6 +240,7 @@ body[data-theme='dark'] {
 
 body[data-theme='violet'] {
   --accentColor: #5255bc;
+  --modalInactiveTextColor: #161616;
 
   /**Header*/
   --headerColor: #ffffff;

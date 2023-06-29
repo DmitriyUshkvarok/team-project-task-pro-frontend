@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-export const ProgressDoneContainer = styled.div`
+export const ProgressDoneContainer = styled.ul`
   width: 135px;
   min-height: 86px;
-  background-color: var(--whiteColor);
+  background-color: var(--modalBGC);
   border-radius: var(--borderRadius8);
   padding: 18px;
+  box-shadow: 0px 4px 16px 0px #1111111a;
 `;
 
-export const ColumnStatus = styled.span`
+export const ColumnName = styled.span`
   height: 21px;
   font-size: 14px;
   font-family: var(--poppinsFont);
@@ -16,23 +17,23 @@ export const ColumnStatus = styled.span`
   letter-spacing: -0.36px;
 `;
 
-export const Button = styled.button`
+export const ColumnMoveTo = styled.li`
   width: 99px;
   padding: 0;
   display: flex;
   align-items: start;
   justify-content: space-between;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  stroke: rgba(255, 255, 255, 0.5);
+  color: var(--modalInactiveTextColor);
+  stroke: var(--modalInactiveTextColor);
+  fill: transparent;
   border: none;
   cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 8px;
   }
   &:hover {
-    color: #bedbb0;
-    stroke: #bedbb0;
-    // color: var(--accentColor);
+    color: var(--accentColor);
+    stroke: var(--accentColor);
   }
 `;
