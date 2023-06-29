@@ -5,6 +5,10 @@ export const Board = styled.div`
   padding-bottom: 24px;
   height: calc(100vh - 60px);
 
+  background-image: url(${(props) => props.boardBg?.desktop?.regular});
+  background-size: cover;
+  background-position: center;
+
   @media screen and (min-width: 375px) {
     width: 375px;
   }

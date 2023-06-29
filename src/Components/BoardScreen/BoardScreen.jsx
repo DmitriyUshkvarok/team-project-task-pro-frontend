@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
-  useGetFetchBoardByIdQuery,
+  useGetBoardBdByIdQuery,
 } from '../../redux/boardApi/boardApi';
+
 import {
   Board,
   Filter,
@@ -23,8 +24,6 @@ import {
 const BoardScreen = ({ closeSidebar }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
-  const { data: boards } = useGetFetchBoardsQuery();
-  // const { data } = useGetFetchBoardByIdQuery(boardId);
 
   const handleClickModal = () => {
     dispatch(
@@ -35,10 +34,16 @@ const BoardScreen = ({ closeSidebar }) => {
     );
   };
 
+  const { data: boards } = useGetFetchBoardsQuery();
+
+  const bgName = boards?.find(({ _id }) => _id === boardId);
+
+  const { data: boardBg } = useGetBoardBdByIdQuery(bgName?.backgroundId);
+
   return (
-    <Board onClick={closeSidebar}>
+    <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <SidebarBoard>
-        <Title>{title}</Title>
+        <Title>{bgName?.title}</Title>
         <Filter> Icon Filters</Filter>
       </SidebarBoard>
       {boards?.length === 0 && (

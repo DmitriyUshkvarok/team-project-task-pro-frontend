@@ -15,7 +15,7 @@ export const miniImgApi = createApi({
   tagTypes: ['MiniImg'],
   endpoints: (builder) => ({
     getMiniImg: builder.query({
-      query: () => '/background',
+      query: () => '/miniImages',
       providesTags: ['MiniImg'],
     }),
   }),

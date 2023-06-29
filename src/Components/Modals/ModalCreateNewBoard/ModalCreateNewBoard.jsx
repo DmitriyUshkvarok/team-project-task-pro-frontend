@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { useCreateBoardMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../../redux/modal/modalSlice';
+import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
-
-import images from '../../image.json';
+import { images } from '../../miniImgBg';
 
 import CloseButton from '../CloseButton/CloseButton';
 import {
@@ -35,11 +35,12 @@ const ModalCreateNewBoard = () => {
   // мини картинки
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { data } = useGetMiniImgQuery();
 
   const [createBoard] = useCreateBoardMutation();
   const handleSubmit = async (values) => {
     const { data } = await createBoard(values);
-    navigate(`/${data._id}/${data.title}`, { replace: true });
+    navigate(`/${data?._id}/${data?.title}`, { replace: true });
     dispatch(closeModal());
   };
 
@@ -85,14 +86,14 @@ const ModalCreateNewBoard = () => {
 
             <Text id="my-radio-groupImage">Background</Text>
             <ImageContainer role="group" aria-labelledby="my-radio-groupImage">
-              {images.map(({ id, path, value }) => (
-                <label key={id}>
+              {data?.map(({ _id, name, image }) => (
+                <label key={_id}>
                   <FormikFieldImage
                     type="radio"
                     name="backgroundId"
-                    value={value}
+                    value={name}
                   />
-                  <img src={path} alt="" />
+                  <img src={image.regular} alt={name} />
                 </label>
               ))}
             </ImageContainer>
