@@ -70,5 +70,6 @@ export const BtnIcon = styled.button`
 `;
 
 export const IconStyled = styled.svg`
+  fill: none;
   stroke: var(--secondarySidebarColor);
 `;
