@@ -48,7 +48,6 @@ body {
   background-repeat: no-repeat;
   margin: 0;
   width: 100%;
-  height: 100vh;
 }
 
 body.menu-open {
@@ -58,16 +57,16 @@ body.menu-open {
 body[data-theme='light'] {
   --accentColor: #bedbb0;
   --modalInactiveTextColor: #161616;
-  
+
   /**Header*/
   --headerColor: #fcfcfc;
   --primaryItemsColor: #161616;
   --secondaryItemsColor: #161616cc;
-  
+
   --themeBgColor: #fcfcfc;
   --themeBorderColor: #bedbb0;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
-  
+
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
   --logoIconColor: #ffffff;
@@ -81,7 +80,7 @@ body[data-theme='light'] {
   --secondarySidebarBgColor: #f6f6f7;
   --customerSupportBgColor: #f6f6f7;
   --iconLogOutColor: #bedbb0;
-  
+
   /**Need Help*/
   --needHelpBgColor: #fcfcfc;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
@@ -91,7 +90,7 @@ body[data-theme='light'] {
   --textInputColor: #161616;
   --btnNeedHelpColor: #bedbb0;
   --btnTextNeedHelpColor: #161616;
-  
+
   /**Modal Board*/
   --modalBackdropColor: rgba(0, 0, 0, 0.5);
   --boardBgColor: #fcfcfc;
@@ -151,7 +150,7 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
   --accentColor: #bedbb0;
   --modalInactiveTextColor: rgba(255, 255, 255, 0.5);
-  
+
   /**Header*/
   --headerColor: #161616;
   --primaryItemsColor: #ffffff;
@@ -174,7 +173,7 @@ body[data-theme='dark'] {
   --secondarySidebarBgColor: #1f1f1f;
   --customerSupportBgColor: #1f1f1f;
   --iconLogOutColor: #bedbb0;
-  
+
   /**Need Help*/
   --needHelpBgColor: #151515;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
@@ -185,7 +184,7 @@ body[data-theme='dark'] {
   --textInputColor: #ffffff;
   --btnNeedHelpColor: #bedbb0;
   --btnTextNeedHelpColor: #161616;
-  
+
   /**Modal Board*/
   --modalBackdropColor: rgba(255, 255, 255, 0.2);
   --boardBgColor: #151515;
@@ -245,16 +244,16 @@ body[data-theme='dark'] {
 body[data-theme='violet'] {
   --accentColor: #5255bc;
   --modalInactiveTextColor: #161616;
-  
+
   /**Header*/
   --headerColor: #ffffff;
   --primaryItemsColor: #161616;
   --secondaryItemsColor: #161616cc;
-  
+
   --themeBgColor: #fcfcfc;
   --themeBorderColor: #ecedfd;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
-  
+
   /**Sidebar*/
   --logoFonColor: #ecedfd;
   --logoIconColor: #ffffff;
@@ -268,7 +267,7 @@ body[data-theme='violet'] {
   --secondarySidebarBgColor: rgba(255, 255, 255, 0.5);
   --customerSupportBgColor: rgba(236, 237, 253, 0.4);
   --iconLogOutColor: #ffffff;
-  
+
   /**Need Help*/
   --needHelpBgColor: #fcfcfc;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
@@ -278,7 +277,7 @@ body[data-theme='violet'] {
   --textInputColor: #161616;
   --btnNeedHelpColor: #5255bc;
   --btnTextNeedHelpColor: #ffffff;
-  
+
   /**Modal Board*/
   --modalBackdropColor: rgba(0, 0, 0, 0.5);
   --boardBgColor: #fcfcfc;
