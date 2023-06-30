@@ -6,6 +6,7 @@ import CustomerSupport from './CustomerSupport/CustomerSupport';
 import LogOut from './LogOut/LogOut';
 import { Container } from './SideBar.styled';
 import { useGetMiniImgQuery } from '../../redux/miniImgApi/miniImgApi';
+import ContainerSidebar from '../Container/ContainerSidebar/ContainerSidebar';
 
 const Sidebar = ({ isSidebarOpen }) => {
   const [isClose, setClose] = useState(false);
@@ -46,11 +47,13 @@ const Sidebar = ({ isSidebarOpen }) => {
 
   return (
     <Container isClose={isClose} isOpen={isSidebarOpen} isSticky={isSticky}>
+      {/* <ContainerSidebar> */}
       <Logo />
       <CreateBoards />
       <Boards />
       <CustomerSupport />
       <LogOut />
+      {/* </ContainerSidebar> */}
     </Container>
   );
 };
