@@ -26,6 +26,7 @@ import {
   Button,
   ContainerIconButton,
   Icon,
+  ImgStyled,
 } from './ModalCreateNewBoard.styled';
 
 const ModalCreateNewBoard = () => {
@@ -100,7 +101,7 @@ const ModalCreateNewBoard = () => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img width={28} src={image.retina} alt={name} />
+                  <ImgStyled width={28} src={image.retina} alt={name} />
                 </label>
               ))}
               <ErrorMessage name="backgroundId" component="p" />

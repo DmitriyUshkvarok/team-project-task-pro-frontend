@@ -28,6 +28,7 @@ import {
   FormikFieldImage,
   Button,
   ContainerIconButton,
+  ImgStyled,
 } from './ModalEditBoard.styled';
 
 const ModalEditBoard = ({ componentName }) => {
@@ -102,7 +103,7 @@ const ModalEditBoard = ({ componentName }) => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img width={28} src={image.retina} alt={name} />
+                  <ImgStyled width={28} src={image.retina} alt={name} />
                 </label>
               ))}
               <ErrorMessage name="backgroundId" component="p" />
