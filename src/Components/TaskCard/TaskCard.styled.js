@@ -143,25 +143,13 @@ const glowAnimation = keyframes`
 `;
 
 export const CardIconBell = styled.svg`
-  // filter: blur(9.5px);
-  // box-shadow: 0 0 9.5px rgba(225, 225, 225, 0.5),
-  //   inset 0 0 9.5px rgba(225, 225, 225, 0.5);
-  position: relative;
   stroke: var(--accentBoardColor);
   fill: none;
   width: 16px;
   height: 16px;
   border-radius: 50%;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      filter: blur(9.5px);
-    }
+  filter: drop-shadow(0 0 6px var(--accentBoardColor));
 `;
 
 export const CardIcon = styled.svg`
@@ -169,7 +157,10 @@ export const CardIcon = styled.svg`
   width: 16px;
   height: 16px;
   fill: none;
-
 `;
 
-
+export const BellBox = styled.div`
+ display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+`;

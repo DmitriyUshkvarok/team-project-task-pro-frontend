@@ -16,6 +16,7 @@ import {
   CardBtn,
   CardIconBell,
   CardIcon,
+  BellBox,
 } from './TaskCard.styled';
 import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
@@ -92,9 +93,11 @@ const TaskCard = ({ task, columns }) => {
           </CardBottomGrop>
 
           {new Date() >= new Date(task.deadline) ? (
-            <CardIconBell>
-              <use xlinkHref={`${url}#icon-bell`} />
-            </CardIconBell>
+            <BellBox>
+              <CardIconBell>
+                <use xlinkHref={`${url}#icon-bell`} />
+              </CardIconBell>
+            </BellBox>
           ) : null}
 
           <CardBtnGrope>
