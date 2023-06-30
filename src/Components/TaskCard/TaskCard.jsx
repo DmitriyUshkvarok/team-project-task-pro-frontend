@@ -14,7 +14,9 @@ import {
   Deadline,
   CardBtnGrope,
   CardBtn,
+  CardIconBell,
   CardIcon,
+  BellBox,
 } from './TaskCard.styled';
 import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
@@ -28,6 +30,12 @@ const TaskCard = ({ task, columns }) => {
   const [deleteTask] = useDeleteTaskMutation();
   const dispatch = useDispatch();
   const maxLength = 97;
+
+  const date = new Date(task.deadline);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
 
   function colorSwitch(priority) {
     let color;
@@ -86,14 +94,25 @@ const TaskCard = ({ task, columns }) => {
                     borderRadius: '50%',
                   }}
                 ></div>
-                <Priority>{task.priority}</Priority>
+                <Priority>
+                  {task.priority.charAt(0).toUpperCase() +
+                    task.priority.slice(1)}
+                </Priority>
               </Circle>
             </CardPriority>
             <CardDeadline>
               <CardSubtitle>Deadline</CardSubtitle>
-              <Deadline>{task.deadline}</Deadline>
+              <Deadline>{formattedDate}</Deadline>
             </CardDeadline>
           </CardBottomGrop>
+
+          {new Date() >= new Date(task.deadline) ? (
+            <BellBox>
+              <CardIconBell>
+                <use xlinkHref={`${url}#icon-bell`} />
+              </CardIconBell>
+            </BellBox>
+          ) : null}
 
           <CardBtnGrope>
             <CardBtn
@@ -124,7 +143,7 @@ const TaskCard = ({ task, columns }) => {
                 )
               }
             >
-              <CardIcon stroke="grey">
+              <CardIcon>
                 <use xlinkHref={`${url}#icon-pencil-01`} />
               </CardIcon>
             </CardBtn>

@@ -35,6 +35,7 @@ import {
   InputEditPhoto,
   BtnSavePhotoUser,
   PhotoBox,
+  UserIconSvg,
 } from './EditProfile.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
@@ -153,14 +154,29 @@ const EditProfile = () => {
       <EditTitle>Edit profile</EditTitle>
       <ProfilePhotoBlock>
         <PhotoBox>
-          <PhotoUser
+          {selectedAvatar ? (
+            <PhotoUser
+              src={
+                selectedAvatar
+                  ? URL.createObjectURL(selectedAvatar)
+                  : currentUser?.avatarURL 
+              }
+              alt="user avatar"
+            ></PhotoUser>
+          ) : (
+            <UserIconSvg>
+              <use xlinkHref={`${url}#icon-user_default`} />
+            </UserIconSvg>
+          )}
+
+          {/* <PhotoUser
             src={
               selectedAvatar
                 ? URL.createObjectURL(selectedAvatar)
                 : currentUser?.avatarURL || userDefault
             }
             alt="user avatar"
-          ></PhotoUser>
+          ></PhotoUser> */}
 
           {!showSaveButton && (
             <LabelEditPhoto htmlFor="inputFile">

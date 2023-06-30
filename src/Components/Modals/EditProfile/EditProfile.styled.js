@@ -19,7 +19,7 @@ export const InputForm = styled(Field)`
   // box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: var(--borderRadius8);
   background-color: var(--modalBgColor);
-  color: var(--textInputBoardColor);;
+  color: var(--textInputBoardColor);
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
@@ -60,7 +60,7 @@ export const BtnWrapper = styled.div`
 export const BtnUpdate = styled.button`
   width: 100%;
   height: 49px;
-  background-color:  var(--btnBoardColor);
+  background-color: var(--btnBoardColor);
   border-radius: var(--borderRadius8);
   cursor: pointer;
   color: var(--btnTextBoardColor);
@@ -144,13 +144,13 @@ export const ProfilePhotoBlock = styled.div`
   margin-left: auto;
   margin-right: auto;
 `;
+
 export const PhotoUser = styled.img`
   width: 68px;
   height: 68px;
   border-radius: var(--borderRadius8);
   display: block;
   object-fit: cover;
-  
 `;
 
 export const PhotoBox = styled.div`
@@ -202,4 +202,13 @@ export const BtnSavePhotoUser = styled.button`
   border: none;
   padding: 0px;
   cursor: pointer;
+`;
+
+export const UserIconSvg = styled.svg`
+  fill: var(--userIconBgSvgColor); 
+  color: var(--userIconSvgColor); 
+
+  width: 68px;
+  height: 68px;
+  border-radius: var(--borderRadius8);
 `;
