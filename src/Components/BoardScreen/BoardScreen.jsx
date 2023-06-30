@@ -25,7 +25,7 @@ import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
 import ContainerBody from '../Container/ContainerBody/ContainerBody';
 
-const BoardScreen = ({ closeSidebar, handleOpenModal }) => {
+const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
   const { data: boards } = useGetFetchBoardsQuery();
@@ -48,6 +48,9 @@ const BoardScreen = ({ closeSidebar, handleOpenModal }) => {
 
   const { data: boardBg } = boardBgQuery;
 
+  if (boardBg) {
+    selectedBg(boardBg);
+  }
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <ContainerBody>
