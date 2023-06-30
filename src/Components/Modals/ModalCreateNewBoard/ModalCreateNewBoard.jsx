@@ -100,7 +100,7 @@ const ModalCreateNewBoard = () => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img width={28} src={image.regular} alt={name} />
+                  <img width={28} src={image.retina} alt={name} />
                 </label>
               ))}
               <ErrorMessage name="backgroundId" component="p" />
