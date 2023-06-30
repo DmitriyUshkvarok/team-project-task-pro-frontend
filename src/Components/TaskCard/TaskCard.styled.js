@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-export const CardBg = styled.li`
+export const CardBg = styled.div`
   width: 334px;
   border-radius: 8px;
   
