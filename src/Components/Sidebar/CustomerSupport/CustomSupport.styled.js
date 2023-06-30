@@ -68,7 +68,8 @@ export const DescContent = styled.p`
   letter-spacing: -0.24px;
 
   color: var(--primarySidebarColor);
-  :hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;
@@ -76,7 +77,8 @@ export const DescContent = styled.p`
 export const IconStyled = styled.svg`
   stroke: var(--primarySidebarColor);
   fill: transparent;
-  :hover {
+  &:hover,
+  &:focus {
     stroke: var(--accentColor);
   }
 `;

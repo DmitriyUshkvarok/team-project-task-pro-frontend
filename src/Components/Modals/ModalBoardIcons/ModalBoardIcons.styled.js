@@ -26,7 +26,8 @@ export const IconContainer = styled.div`
     stroke: var(--iconBoardColor);
     transition-duration: 250ms;
 
-    &:hover {
+    &:hover,
+    &:focus {
       stroke: black;
       transition-duration: 250ms;
     }
