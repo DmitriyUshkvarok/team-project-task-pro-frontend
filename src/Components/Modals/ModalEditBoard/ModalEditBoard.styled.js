@@ -94,8 +94,6 @@ export const IconContainer = styled.div`
 
     &:hover,
     &:focus {
-    &:hover,
-    &:focus {
       stroke: var(--iconBoardActiveColor);
       transition-duration: 250ms;
     }
