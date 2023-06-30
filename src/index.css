@@ -7,6 +7,7 @@
   --bgFormColor: #151515;
   --bgInputColor: #1f1f1f;
   --errorColor: #ff0000;
+  --transparentColor: #75beda00;
 
   --gradientFonColor: linear-gradient(
     180deg,
@@ -124,6 +125,8 @@ body[data-theme='light'] {
   --iconImageColor: #1616161A;
   --textPDBoxColor: #161616;
   --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalFilterBorderColor: #1616161A;
+
 
   /**Calendar*/
   --currentMonthColor: #161616;
@@ -241,6 +244,7 @@ body[data-theme='dark'] {
   --iconImageColor: #FFFFFF1A;
   --textPDBoxColor: #FFFFFF80;
   --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalFilterBorderColor: #FFFFFF1A;
 
 
   
@@ -357,6 +361,7 @@ body[data-theme='violet'] {
   --iconImageColor: #1616161A;
   --textPDBoxColor: #161616;
   --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalFilterBorderColor: #1616161A;
 
   /**Calendar*/
   --currentMonthColor: #161616;
