@@ -70,10 +70,6 @@ body[data-theme='light'] {
   --themeBorderColor: #bedbb0;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
-  /**UserIcon*/
-  --userIconBgSvgColor: #F6F6F7;
-  --userIconSvgColor: #ffffff;
-
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
   --logoIconColor: #ffffff;
@@ -124,10 +120,11 @@ body[data-theme='light'] {
   --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
-  --iconImageBGColor: #F6F6F7;
-  --iconImageColor: #1616161A;
+  --iconImageBGColor: #f6f6f7;
+  --iconImageColor: #1616161a;
   --textPDBoxColor: #161616;
-  --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
+  --modalFilterBorderColor: #1616161a;
 
   /**Calendar*/
   --currentMonthColor: #161616;
@@ -199,10 +196,6 @@ body[data-theme='dark'] {
   --themeBorderColor: #bedbb0;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
-  /**UserIcon*/
-  --userIconBgSvgColor: #1F1F1F;
-  --userIconSvgColor: #151515;
-
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
   --logoIconColor: #ffffff;
@@ -255,13 +248,12 @@ body[data-theme='dark'] {
   --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #ffffff;
-  --iconImageBGColor: #1F1F1F;
-  --iconImageColor: #FFFFFF1A;
-  --textPDBoxColor: #FFFFFF80;
-  --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --iconImageBGColor: #1f1f1f;
+  --iconImageColor: #ffffff1a;
+  --textPDBoxColor: #ffffff80;
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
+  --modalFilterBorderColor: #ffffff1a;
 
-
-  
   /**Calendar*/
   --currentMonthColor: #ffffff;
   --calendarBackground: #1f1f1f;
@@ -277,7 +269,6 @@ body[data-theme='dark'] {
 
   /**after del*/
 
-  --sidebarColor: #121212;
   --helpBlockColor: #1f1f1f;
   --whiteColor: #ffffff;
   --lowColor: #8fa1d0;
@@ -331,10 +322,6 @@ body[data-theme='violet'] {
   --themeBorderColor: #ecedfd;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
-  /**UserIcon*/
-  --userIconBgSvgColor: #ECEDFD;
-  --userIconSvgColor: #ffffff;
-
   /**Sidebar*/
   --logoFonColor: #ecedfd;
   --logoIconColor: #ffffff;
@@ -385,10 +372,11 @@ body[data-theme='violet'] {
   --labelUserBg: #ecedfd;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
-  --iconImageBGColor: #ECEDFD;
-  --iconImageColor: #1616161A;
+  --iconImageBGColor: #ecedfd;
+  --iconImageColor: #1616161a;
   --textPDBoxColor: #161616;
-  --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
+  --modalFilterBorderColor: #1616161a;
 
   /**Calendar*/
   --currentMonthColor: #161616;
