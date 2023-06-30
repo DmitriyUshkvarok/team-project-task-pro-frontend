@@ -6,38 +6,17 @@ export const FiltersContainer = styled.div`
   height: 367px;
   padding: 24px;
   margin-bottom: 50px;
-  background-color: var(--modalBGC);
+  background-color: var(--modalBgColor);
   border-radius: 8px;
-  border: var(--modalBorder);
-  box-shadow: var(--boxShadow);
+  border: 1px solid var(--borderBoardColor);
+  box-shadow: 0px 4px 16px 0px var(--modalBoxShadow);
   position: relative;
-
-  h4 {
-    text-align: start;
-    color: var(--whiteColor);
-    font-size: var(--fontSize14);
-    font-family: var(--poppinsFont);
-    font-weight: var(--fontWeight500);
-    letter-spacing: var(--letterSpacing28);
-    margin: 0px;
-  }
-`;
-
-export const ShowAll = styled.label`
-  color: var(--iconSideBarBoardColor);
-  font-size: var(--fontSize12);
-  font-family: var(--poppinsFont);
-  letter-spacing: var(--letterSpacing24);
-  text-decoration: underline;
-  background-color: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
 `;
 
 export const ModalTitle = styled.h2`
   text-align: start;
-  border-bottom: 1px solid var(--borderBottomColor);
+  color: var(--titleBoardColor);
+  border-bottom: 1px solid var(--modalFilterBorderColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize18);
@@ -47,13 +26,12 @@ export const ModalTitle = styled.h2`
 `;
 
 export const Text = styled.h3`
-  color: var(--whiteColor);
+  color: var(--titleBoardColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: var(--letterSpacing28);
   text-align: start;
-  margin-bottom: 14px;
 `;
 
 export const ImageContainer = styled.div`
@@ -62,9 +40,10 @@ export const ImageContainer = styled.div`
   flex-wrap: wrap;
   gap: 3px;
   padding-bottom: 14px;
+  margin-top: 14px;
   margin-bottom: 24px;
 
-  border-bottom: 1px solid var(--borderBottomColor);
+  border-bottom: 1px solid var(--modalFilterBorderColor);
 
   label {
     position: relative;
@@ -79,7 +58,7 @@ export const ImageContainer = styled.div`
     cursor: pointer;
   }
   label:first-of-type {
-    background-color: rgba(246, 246, 247, 1);
+    background-color: var(--iconImageBGColor);
   }
 `;
 
@@ -95,6 +74,18 @@ export const Container = styled.div`
   margin-bottom: 14px;
 `;
 
+export const ShowAll = styled.label`
+  color: var(--labelColor);
+  font-size: var(--fontSize12);
+  font-family: var(--poppinsFont);
+  letter-spacing: var(--letterSpacing24);
+  text-decoration: underline;
+  background-color: var(--modalBgColor);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
 export const Span = styled.span`
   display: inline-block;
   width: 14px;
@@ -103,15 +94,15 @@ export const Span = styled.span`
 
   background-color: ${(props) => {
     if (props.value === 'low') {
-      return '#8FA1D0';
+      return 'var(--labelLowColor)';
     } else if (props.value === 'medium') {
-      return '#E09CB5';
+      return 'var(--labelMediumColor)';
     } else if (props.value === 'high') {
-      return '#BEDBB0';
-    } else if (props.value === 'without') {
-      return '#ffffff55';
+      return 'var(--labelHighColor)';
+    } else if (props.value === 'priority') {
+      return 'var(--labelWithoutColor)';
     } else {
-      return '#1616164D';
+      return 'var(--transparentColor)';
     }
   }};
 
@@ -128,7 +119,7 @@ export const Span = styled.span`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    border: 2px solid var(--modalBGC);
+    border: 2px solid var(--modalBgColor);
 
     opacity: 0;
   }
@@ -141,12 +132,18 @@ export const LabelContainer = styled.div`
   gap: 12px;
 
   label {
-    color: var(--iconSideBarBoardColor);
+    display: flex;
+    color: var(--labelColor);
     font-size: var(--fontSize12);
     font-family: Poppins;
     letter-spacing: var(--letterSpacing24);
 
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: #161616;
+    }
   }
 
   input {

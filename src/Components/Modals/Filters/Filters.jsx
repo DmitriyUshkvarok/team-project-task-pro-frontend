@@ -64,7 +64,7 @@ const Filters = ({ componentName }) => {
                   value="default"
                   onChange={() => updateBackground('default')}
                 />
-                <svg width="16" height="16">
+                <svg width="16" height="16" stroke="var(--iconImageColor)">
                   <use xlinkHref={`${urlIcon}#icon-image-default`} />
                 </svg>
               </label>
@@ -82,7 +82,7 @@ const Filters = ({ componentName }) => {
             </ImageContainer>
 
             <Container>
-              <h4 id="filtersRadioButton">Label color</h4>
+              <Text id="filtersRadioButton">Label color</Text>
               <ShowAll>
                 <input
                   type="radio"
