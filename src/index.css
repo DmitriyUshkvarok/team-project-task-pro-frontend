@@ -123,6 +123,8 @@ body[data-theme='light'] {
   --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
+  --iconImageBGColor: #F6F6F7;
+  --iconImageColor: #1616161A;
 
   /**Calendar*/
   --currentMonthColor: #161616;
@@ -250,6 +252,8 @@ body[data-theme='dark'] {
   --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #ffffff;
+  --iconImageBGColor: #1F1F1F;
+  --iconImageColor: #FFFFFF1A;
 
   /**Calendar*/
   --currentMonthColor: #ffffff;
@@ -374,6 +378,8 @@ body[data-theme='violet'] {
   --labelUserBg: #ecedfd;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
+  --iconImageBGColor: #ECEDFD;
+  --iconImageColor: #1616161A;
 
   /**Calendar*/
   --currentMonthColor: #161616;
