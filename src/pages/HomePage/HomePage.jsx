@@ -31,13 +31,13 @@ const HomePage = () => {
   };
 
   return (
-    <ContainerHome>
+    // <ContainerHome>
+    <>
       <Sidebar isSidebarOpen={isSidebarOpen} />
-      <div>
-        <Header openSideBar={toggleSidebar} />
-        <BoardScreen closeSidebar={closeSidebar} />
-      </div>
-    </ContainerHome>
+      <Header openSideBar={toggleSidebar} />
+      <BoardScreen closeSidebar={closeSidebar} />
+      {/* </ContainerHome> */}
+    </>
   );
 };
 

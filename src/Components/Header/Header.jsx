@@ -16,6 +16,7 @@ import { useGetCurrentUserQuery } from '../../redux/profileApi/profileApi';
 import { openModal } from '../../redux/modal/modalSlice.js';
 
 import { useDispatch } from 'react-redux';
+import Container from '../Container/ContainerHeader';
 
 const Header = ({ openSideBar }) => {
   const { data: currentUser } = useGetCurrentUserQuery();
@@ -27,24 +28,26 @@ const Header = ({ openSideBar }) => {
 
   return (
     <Head>
-      <Navigation>
-        <BurgerMenu openSideBar={openSideBar} />
-        <BoxMenu>
-          <ThemeSelect />
+      <Container>
+        <Navigation>
+          <BurgerMenu openSideBar={openSideBar} />
+          <BoxMenu>
+            <ThemeSelect />
 
-          <UserInfo
-            onClick={() => dispatch(openModal({ name: 'editprofile' }))}
-          >
-            <UserText>{currentUser?.name || name}</UserText>
-            <UserIcon
-              src={currentUser?.avatarURL || avatarSrc}
-              alt="user_icon"
-              width={32}
-              height={32}
-            />
-          </UserInfo>
-        </BoxMenu>
-      </Navigation>
+            <UserInfo
+              onClick={() => dispatch(openModal({ name: 'editprofile' }))}
+            >
+              <UserText>{currentUser?.name || name}</UserText>
+              <UserIcon
+                src={currentUser?.avatarURL || avatarSrc}
+                alt="user_icon"
+                width={32}
+                height={32}
+              />
+            </UserInfo>
+          </BoxMenu>
+        </Navigation>
+      </Container>
     </Head>
   );
 };
