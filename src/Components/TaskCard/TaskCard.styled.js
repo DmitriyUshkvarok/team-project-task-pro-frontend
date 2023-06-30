@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 export const CardBg = styled.li`
   width: 334px;
   border-radius: 8px;
-  overflow: hidden;
+  
 
   @media screen and (min-width: 320px) {
     border-radius: 8px;
