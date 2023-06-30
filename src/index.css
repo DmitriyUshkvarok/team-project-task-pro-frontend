@@ -77,6 +77,13 @@ body[data-theme='light'] {
   --userIconSvgColor: #ffffff;
 
   /**Screen Page*/
+  --screenPageBgColor: #F6F6F7;
+  --addColumnBtnColor: #FFFFFF;
+  --addColumnBtnBG: #161616;
+  --screenPageTextColor: #161616B2;
+  --screenPageSpanColor: #BEDBB0;
+  --iconFilterColor: #161616CC;
+
   --screenPageTitleBgColor: #ffffff;
   --screenPageTitleColor: #161616;
   --screenPageIconColor: #16161680;
@@ -218,6 +225,13 @@ body[data-theme='dark'] {
   --userIconSvgColor: #151515;
 
   /**Screen Page*/
+  --screenPageBgColor: #1F1F1F;
+  --addColumnBtnColor: #121212;
+  --addColumnBtnBG: #FFFFFF;
+  --screenPageTextColor: #FFFFFF80;
+  --screenPageSpanColor: #BEDBB0;
+  --iconFilterColor: #FFFFFFCC;
+
   --screenPageTitleBgColor: #121212;
   --screenPageTitleColor: #ffffff;
   --screenPageIconColor: #ffffff80;
@@ -359,6 +373,13 @@ body[data-theme='violet'] {
   --userIconSvgColor: #ffffff;
 
   /**Screen Page*/
+  --screenPageBgColor: #ecedfd;
+  --addColumnBtnColor: #ffffff;
+  --addColumnBtnBG: #5255bc;
+  --screenPageTextColor: #161616b2;
+  --screenPageSpanColor: #5255BC;
+  --iconFilterColor: #161616CC;
+
   --screenPageTitleBgColor: #ffffff;
   --screenPageTitleColor: #161616;
   --screenPageIconColor: #16161680;

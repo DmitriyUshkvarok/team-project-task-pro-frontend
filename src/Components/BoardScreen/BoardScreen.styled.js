@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Board = styled.div`
-  background-color: var(--headerPageColor);
+  background-color: var(--screenPageBgColor);
   /* padding-bottom: 24px; */
   /* min-height: 812px; */
   height: calc(100vh - 60px);
@@ -117,13 +117,13 @@ export const BoardsContainer = styled.div`
 
   ::-webkit-scrollbar-thumb {
     border-radius: 12px;
-    background-color: var(--borderBottomColor);
+    background-color: var(--screenPageScrollColor);
   }
 
   ::-webkit-scrollbar-track {
     @media screen and (min-width: 320px) {
       border-radius: 12px;
-      background-color: var(--headerColor);
+      background-color: var(--screenPageBGScroll);
       margin-left: 20px;
       margin-right: 20px;
     }
@@ -159,8 +159,8 @@ export const ContainerColumns = styled.ul`
 
 export const AddColumnBtn = styled.button`
   @media screen and (min-width: 320px) {
-    background-color: var(--sidebarColor);
-    color: var(--titleColor);
+    background-color: var(--screenPageTitleBgColor);
+    color: var(--screenPageTitleColor);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,15 +191,15 @@ export const AddColumnIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  stroke: var(--IconCloseColor);
-  background-color: var(--iconBoardBgColor);
+  stroke: var(--addColumnBtnColor);
+  background-color: var(--addColumnBtnBG);
   border-radius: var(--borderRadius8);
 `;
 
 export const DescEmptyBoard = styled.p`
   margin: 292px auto;
 
-  color: var(--titleColor);
+  color: var(--screenPageTextColor);
   text-align: center;
   font-size: var(--fontSize12);
   font-family: var(--poppinsFont);
@@ -212,11 +212,11 @@ export const DescEmptyBoard = styled.p`
 `;
 
 export const AccentSpan = styled.span`
-  color: var(--accentColor);
+  color: var(--screenPageSpanColor);
 `;
 
 export const Title = styled.h2`
-  color: #fff;
+  color: var(--screenPageTitleColor);
   font-size: var(--fontSize18);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -224,7 +224,7 @@ export const Title = styled.h2`
 `;
 
 export const Filter = styled.p`
-  color: var(--borderTopColor);
+  color: var(--iconFilterColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
@@ -233,6 +233,7 @@ export const Filter = styled.p`
   align-items: center;
   gap: 0.5em;
   cursor: pointer;
+  
   :hover,
   :focus {
     color: var(--accentColor);

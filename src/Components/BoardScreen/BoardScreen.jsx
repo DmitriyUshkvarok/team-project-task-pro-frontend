@@ -90,7 +90,7 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
                     <use xlinkHref={`${url}#icon-plus`} />
                   </svg>
                 </AddColumnIcon>
-                Add Columns
+                Add another column
               </AddColumnBtn>
             </>
           )}
