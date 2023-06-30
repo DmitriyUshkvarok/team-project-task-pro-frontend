@@ -1,41 +1,41 @@
 import styled from 'styled-components';
 
-// export const Board = styled.div`
-//   @media screen and (min-width: 320px) {
-//     background-color: var(--helpBlockColor);
-//     width: 320px;
-//     padding-bottom: 24px;
-//   }
-//   @media screen and (min-width: 375px) {
-//     width: 375px;
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     padding-bottom: 32px;
-//     margin: 100px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     width: 1180px;
-//     padding-bottom: 8px;
-//   }
-// `;
+export const Board = styled.div`
+  @media screen and (min-width: 320px) {
+    background-color: var(--helpBlockColor);
+    width: 320px;
+    padding-bottom: 24px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-bottom: 32px;
+    margin: 100px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1180px;
+    padding-bottom: 8px;
+  }
+`;
 
-// export const BtnAdd = styled.button`
-//   display: flex;
-//   padding: 14px 78px 14px 79px;
-//   justify-content: center;
-//   align-items: center;
-//   border-radius: 8px;
-//   background-color: var(--sidebarColor);
-//   width: 177px;
-//   height: 53px;
-//   border: none;
-//   color: #fff;
-//   font-size: 14px;
-//   font-family: Poppins;
-//   font-weight: 500;
-//   letter-spacing: -0.28px;
-// `;
+export const BtnAdd = styled.button`
+  display: flex;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--sidebarColor);
+  width: 177px;
+  height: 53px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+`;
 
 
 
@@ -52,6 +52,7 @@ export const BoxColumnsTitle = styled.div`
     padding: 18px 20px 17px 20px;
     border-radius: 8px;
     background-color: var(--screenPageTitleBgColor);
+    background-color: var(--screenPageTitleBgColor);
     margin-bottom: 14px;
     width: 279px;
   }
@@ -62,17 +63,14 @@ export const BoxColumnsTitle = styled.div`
 export const Subject = styled.h3`
   margin-right: auto;
   color: var(--screenPageTitleColor);
+  color: var(--screenPageTitleColor);
   font-size: 14px;
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
 `;
-// export const Icon = styled.p`
-//   color: red;
-// `;
-
-export const IconStyled = styled.svg`
-  stroke: var(--screenPageIconColor);
+export const Icon = styled.p`
+  color: #ffffff80;
 `;
 
 export const ListTask = styled.ul`
@@ -108,6 +106,7 @@ export const ListTask = styled.ul`
 
     border-radius: 12px;
     background-color: var(--screenPageScrollColor);
+    background-color: var(--screenPageScrollColor);
   }
 
   ::-webkit-scrollbar-track {
@@ -117,28 +116,29 @@ export const ListTask = styled.ul`
 
     border-radius: 12px;
 
-    background: var(--borderBottomColor);
-    @media screen and (min-width: 768px) {
-      height: 640px;
-    }
-    @media screen and (min-width: 1280px) {
-      height: 478px;
-    }
+  //   background: var(--screenPageBGScroll);
+  //   @media screen and (min-width: 768px) {
+  //     height: 640px;
+  //   }
+  //   @media screen and (min-width: 1280px) {
+  //     height: 478px;
+  //   }
   }
 `;
 
-// export const Card = styled.li`
-//   @media screen and (min-width: 320px) {
-//     border-radius: 8px;
-//     background-color: red;
-//     width: 279px;
-//   }
-//   @media screen and (min-width: 375px) {
-//     width: 334px;
-//   }
-// `;
+export const Card = styled.li`
+  @media screen and (min-width: 320px) {
+    border-radius: 8px;
+    background-color: var(--sidebarColor);
+    width: 279px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 334px;
+  }
+`;
 
 export const AddCardBtn = styled.button`
+  background-color: var(--addBtnBgColor);
   background-color: var(--addBtnBgColor);
   display: flex;
   justify-content: center;
@@ -165,9 +165,14 @@ export const AddCardIcon = styled.span`
   justify-content: center;
   stroke: var(--iconBtnTextColor);
   background-color: var(--iconBtnBgColor);
+  stroke: var(--iconBtnTextColor);
+  background-color: var(--iconBtnBgColor);
   border-radius: var(--borderRadius8);
   
+  
 `;
+
+
 
 
 

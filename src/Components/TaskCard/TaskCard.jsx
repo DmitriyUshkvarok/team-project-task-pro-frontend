@@ -6,7 +6,6 @@ import {
   CardText,
   CardBottom,
   CardBottomGroup,
-  CardBottomGroup,
   CardPriority,
   CardSubtitle,
   Circle,

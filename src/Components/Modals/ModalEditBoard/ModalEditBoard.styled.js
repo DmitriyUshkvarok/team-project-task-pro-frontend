@@ -6,6 +6,7 @@ export const ModalCard = styled.div`
   height: 433px;
   background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
+  border-radius: var(--borderRadius8);
   border: 1px solid var(--borderBoardColor);
   position: relative;
   padding: 24px;
@@ -64,10 +65,8 @@ export const FieldTitle = styled(Field)`
 
   &:hover,
   &:focus,
-  &:active,
   &:active {
     opacity: 1;
-    outline: 1px solid var(--borderNeedHelpColor);
     outline: 1px solid var(--borderNeedHelpColor);
   }
 
@@ -94,8 +93,6 @@ export const IconContainer = styled.div`
   label {
     cursor: pointer;
 
-    &:hover,
-    &:focus {
     &:hover,
     &:focus {
       stroke: var(--iconBoardActiveColor);
@@ -140,6 +137,7 @@ export const ImageContainer = styled.div`
     cursor: pointer;
   }
   label:first-of-type {
+    background-color: var(--iconImageBGColor);
     background-color: var(--iconImageBGColor);
   }
 `;
