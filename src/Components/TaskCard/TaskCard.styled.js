@@ -30,14 +30,14 @@ export const Card = styled.div`
 
 export const CardTitle = styled.h4`
   font-size: var(--fontSize14);
-  color: var(--titleColor);
+  color: var(--cardTitleColor);
   letter-spacing: -0.28px;
   font-family: var(--poppinsFont);
   margin: 0px 0px 8px 0px;
 `;
 
 export const CardDescription = styled.div`
-  border-bottom: 1px solid var(--borderBottomColor);
+  border-bottom: 1px solid var(--cardBorderBottomColor);
   width: 290px;
   height: 52px;
   margin-bottom: 14px;
@@ -48,7 +48,7 @@ export const CardDescription = styled.div`
 
 export const CardText = styled.p`
   font-size: var(--fontSize12);
-  color: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
+  color: var(--cardDescriptionTextColor);
   position: relative;
   font-family: var(--poppinsFont);
   text-overflow: ellipsis;
@@ -73,7 +73,6 @@ export const CardBottomGrop = styled.div`
 `;
 
 export const CardPriority = styled.div`
-  // width: 56px;
   height: 31px;
   display: flex;
   flex-direction: column;
@@ -81,7 +80,7 @@ export const CardPriority = styled.div`
 `;
 
 export const CardSubtitle = styled.p`
-  color: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
+  color: var(--cardSubtitleColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
   font-size: var(--fontSize8);
   font-family: var(--poppinsFont);
   letter-spacing: -0.16px;
@@ -95,14 +94,13 @@ export const Circle = styled.div`
 
 export const Priority = styled.p`
   position: relative;
-  color: var(--titleColor);
+  color: var(--cardPriorityTextColor);
   font-size: var(--fontSize10);
   font-family: var(--poppinsFont);
   letter-spacing: -0.2px;
 `;
 
 export const CardDeadline = styled.div`
-  // width: 53px;
   height: 31px;
   display: flex;
   flex-direction: column;
@@ -111,7 +109,7 @@ export const CardDeadline = styled.div`
 
 export const Deadline = styled.p`
   position: relative;
-  color: var(--titleColor);
+  color: var(--cardPriorityTextColor);
   height: 12px;
   font-size: var(--fontSize10);
   font-family: var(--poppinsFont);
@@ -136,31 +134,30 @@ export const CardBtn = styled.button`
   cursor: pointer;
 `;
 
-const glowAnimation = keyframes`
-    0% { box-shadow: 0 0 0px 0px var(--glowColor); }
-    50% { box-shadow: 0 0 8px 2px var(--glowColor); }
-    100% { box-shadow: 0 0 0px 0px var(--glowColor); }
-`;
-
-export const CardIconBell = styled.svg`
-  stroke: var(--accentBoardColor);
-  fill: none;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-
-  filter: drop-shadow(0 0 6px var(--accentBoardColor));
-`;
-
 export const CardIcon = styled.svg`
-  stroke: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ!!!
+  stroke: var(--taskIconColor);
   width: 16px;
   height: 16px;
   fill: none;
 `;
 
 export const BellBox = styled.div`
- display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  margin-right: 12px;
+  margin-left:auto;
 `;
+
+export const CardIconBell = styled.svg`
+  stroke: var(--taskIconBellColor);
+  fill: none;
+  width: 16px;
+  height: 16px;
+
+  filter: drop-shadow(0 0 6px var(--taskIconBellColor));
+`;
+
+
+

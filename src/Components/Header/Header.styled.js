@@ -73,27 +73,10 @@ export const UserIcon = styled.img`
 `;
 
 export const UserIconSvg = styled.svg`
-  fill: var(--userIconBgSvgColor); /* Цвет фона */
   color: var(--userIconSvgColor); /* Цвет человечка */
-  color: #eff878; /* Цвет человечка */
-  fill: #009fff; /* Цвет фона */
+  fill: var(--userIconBgSvgColor); /* Цвет фона */
 
   width: 32px;
   height: 32px;
   border-radius: 8px;
 `;
-
-// body[data - theme= 'light'] {
-//   --userIconBgSvgColor: #F6F6F7;
-//   --userIconSvgColor: #ffffff;
-// }
-
-// body[data - theme= 'dark'] {
-//   --userIconBgSvgColor: #1F1F1F;
-//   --userIconSvgColor: #151515;
-// }
-
-// body[data - theme= 'violet'] {
-//   --userIconBgSvgColor: #ECEDFD;
-//   --userIconSvgColor: #ffffff;
-// }

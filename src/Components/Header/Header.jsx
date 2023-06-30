@@ -26,7 +26,6 @@ const Header = ({ openSideBar }) => {
 
   const name = useSelector(authSelector.getName);
   const userAvatar = useSelector(authSelector.getAvatar);
-  // console.log(currentUser.avatarURL);
   // const avatarSrc = userAvatar ? userAvatar : userDefault;
 
   return (

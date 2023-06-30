@@ -94,7 +94,10 @@ const TaskCard = ({ task, columns }) => {
                     borderRadius: '50%',
                   }}
                 ></div>
-                <Priority>{task.priority}</Priority>
+                <Priority>
+                  {task.priority.charAt(0).toUpperCase() +
+                    task.priority.slice(1)}
+                </Priority>
               </Circle>
             </CardPriority>
             <CardDeadline>
@@ -140,7 +143,7 @@ const TaskCard = ({ task, columns }) => {
                 )
               }
             >
-              <CardIcon stroke="grey">
+              <CardIcon>
                 <use xlinkHref={`${url}#icon-pencil-01`} />
               </CardIcon>
             </CardBtn>
