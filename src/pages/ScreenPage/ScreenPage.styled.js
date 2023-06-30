@@ -97,16 +97,12 @@ export const ListTask = styled.ul`
     /* height: 478px; */
   }
   ::-webkit-scrollbar {
-    background: red;
-    color: red;
     width: 8px;
     border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
     width: 8px;
-    background: red;
-    color: red;
 
     border-radius: 12px;
     background-color: var(--sidebarColor);
@@ -116,8 +112,6 @@ export const ListTask = styled.ul`
     width: 8px;
     height: 478px;
     flex-shrink: 0;
-    background: red;
-    color: red;
 
     border-radius: 12px;
 
