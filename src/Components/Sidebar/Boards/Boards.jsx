@@ -96,7 +96,7 @@ const Boards = ({ currentBg }) => {
   useScrollbar(boardWrapper, hasScroll);
 
   return (
-    <div style={{ marginTop: '40px', marginBottom: '40px' }} ref={boardWrapper}>
+    <div style={{ marginTop: '30px', marginBottom: '30px' }} ref={boardWrapper}>
       <ListBoard>
         {data?.map(({ _id, title, iconId }, index) => (
           <Link to={`/${_id}/${title}`} key={_id}>
