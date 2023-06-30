@@ -22,13 +22,16 @@ import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
 
 import { openModal } from '../../redux/modal/modalSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useDeleteTaskMutation } from '../../redux/boardApi/boardApi';
 
 const TaskCard = ({ task, columns }) => {
   const [deleteTask] = useDeleteTaskMutation();
   const dispatch = useDispatch();
+
+  const { themeColor } = useSelector((store) => store.theme);
+
   const maxLength = 97;
 
   const date = new Date(task.deadline);
@@ -45,7 +48,7 @@ const TaskCard = ({ task, columns }) => {
         break;
 
       case 'without':
-        color = '#1616164d';
+        color = (themeColor === 'dark') ? '#FFFFFF4D' : '#1616164d';
         break;
 
       case 'high':
