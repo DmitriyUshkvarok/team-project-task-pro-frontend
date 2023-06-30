@@ -50,7 +50,7 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
 
   useEffect(() => {
     selectedBg(boardBg);
-  }, []);
+  }, [boardBg]);
 
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
