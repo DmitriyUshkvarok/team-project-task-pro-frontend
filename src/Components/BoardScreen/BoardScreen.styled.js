@@ -92,6 +92,7 @@ export const SidebarBoard = styled.div`
 export const BoardsContainer = styled.div`
   @media screen and (min-width: 320px) {
     display: flex;
+    /* gap: 34px; */
 
     overflow-x: auto;
     /* padding: 40px 20px 24px 20px; */
