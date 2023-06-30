@@ -14,6 +14,7 @@ import {
   Deadline,
   CardBtnGrope,
   CardBtn,
+  CardIconBell,
   CardIcon,
 } from './TaskCard.styled';
 import url from '../../images/icons/sprite/icons.svg';
@@ -25,6 +26,12 @@ import { useDispatch } from 'react-redux';
 const TaskCard = ({ task, columns }) => {
   const dispatch = useDispatch();
   const maxLength = 97;
+
+  const date = new Date(task.deadline);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
 
   function colorSwitch(priority) {
     let color;
@@ -80,9 +87,15 @@ const TaskCard = ({ task, columns }) => {
             </CardPriority>
             <CardDeadline>
               <CardSubtitle>Deadline</CardSubtitle>
-              <Deadline>{task.deadline}</Deadline>
+              <Deadline>{formattedDate}</Deadline>
             </CardDeadline>
           </CardBottomGrop>
+
+          {new Date() >= new Date(task.deadline) ? (
+            <CardIconBell>
+              <use xlinkHref={`${url}#icon-bell`} />
+            </CardIconBell>
+          ) : null}
 
           <CardBtnGrope>
             <CardBtn

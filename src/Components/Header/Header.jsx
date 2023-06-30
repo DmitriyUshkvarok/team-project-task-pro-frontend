@@ -7,10 +7,12 @@ import {
   UserInfo,
   UserText,
   UserIcon,
+  UserIconSvg,
 } from './Header.styled';
 import { useSelector } from 'react-redux';
 import authSelector from '../../redux/auth/authSelector';
-import userDefault from '../../images/icons/iconsPng/user_default.png';
+// import userDefault from '../../images/icons/sprite/user_default.svg';
+import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
 import { useGetCurrentUserQuery } from '../../redux/profileApi/profileApi';
 import { openModal } from '../../redux/modal/modalSlice.js';
@@ -23,7 +25,8 @@ const Header = ({ openSideBar }) => {
 
   const name = useSelector(authSelector.getName);
   const userAvatar = useSelector(authSelector.getAvatar);
-  const avatarSrc = userAvatar ? userAvatar : userDefault;
+  // console.log(currentUser.avatarURL);
+  // const avatarSrc = userAvatar ? userAvatar : userDefault;
 
   return (
     <Head>
@@ -36,12 +39,25 @@ const Header = ({ openSideBar }) => {
             onClick={() => dispatch(openModal({ name: 'editprofile' }))}
           >
             <UserText>{currentUser?.name || name}</UserText>
-            <UserIcon
+            {currentUser?.avatarURL ? (
+              <UserIcon
+                src={currentUser?.avatarURL || userAvatar}
+                alt="user_icon"
+                width={32}
+                height={32}
+              />
+            ) : (
+              <UserIconSvg>
+                <use xlinkHref={`${url}#icon-user_default`} />
+              </UserIconSvg>
+            )}
+
+            {/* <UserIcon
               src={currentUser?.avatarURL || avatarSrc}
               alt="user_icon"
               width={32}
               height={32}
-            />
+            /> */}
           </UserInfo>
         </BoxMenu>
       </Navigation>

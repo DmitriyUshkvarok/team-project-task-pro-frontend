@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const CardBg = styled.li`
   /* width: 334px;
@@ -73,7 +73,7 @@ export const CardBottomGrop = styled.div`
 `;
 
 export const CardPriority = styled.div`
-  width: 56px;
+  // width: 56px;
   height: 31px;
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@ export const Priority = styled.p`
 `;
 
 export const CardDeadline = styled.div`
-  width: 53px;
+  // width: 53px;
   height: 31px;
   display: flex;
   flex-direction: column;
@@ -136,9 +136,40 @@ export const CardBtn = styled.button`
   cursor: pointer;
 `;
 
+const glowAnimation = keyframes`
+    0% { box-shadow: 0 0 0px 0px var(--glowColor); }
+    50% { box-shadow: 0 0 8px 2px var(--glowColor); }
+    100% { box-shadow: 0 0 0px 0px var(--glowColor); }
+`;
+
+export const CardIconBell = styled.svg`
+  // filter: blur(9.5px);
+  // box-shadow: 0 0 9.5px rgba(225, 225, 225, 0.5),
+  //   inset 0 0 9.5px rgba(225, 225, 225, 0.5);
+  position: relative;
+  stroke: var(--accentBoardColor);
+  fill: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(9.5px);
+    }
+`;
+
 export const CardIcon = styled.svg`
   stroke: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ!!!
   width: 16px;
   height: 16px;
   fill: none;
+
 `;
+
+
