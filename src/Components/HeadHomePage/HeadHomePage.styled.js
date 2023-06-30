@@ -11,7 +11,8 @@ export const HeadTitle = styled.h4`
   font-size: var(--fontSize18);
   font-weight: var(--fontWeight500);
   color: var(--logoHeaderColor);
-  :hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;
@@ -23,7 +24,8 @@ export const HeadBoxFilter = styled.div`
 export const IconFilter = styled.svg`
   stroke: var(--logoHeaderColor);
   opacity: 80%;
-  :hover {
+  &:hover,
+  &:focus {
     stroke: var(--accentColor);
   }
 `;
@@ -36,7 +38,8 @@ export const ButtonFilter = styled.button`
   opacity: 80%;
   border: none;
   cursor: pointer;
-  :hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;

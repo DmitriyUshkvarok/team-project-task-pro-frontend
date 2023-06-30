@@ -233,7 +233,8 @@ export const Filter = styled.p`
   align-items: center;
   gap: 0.5em;
   cursor: pointer;
-  :hover {
+  :hover,
+  :focus {
     color: var(--accentColor);
   }
 `;
