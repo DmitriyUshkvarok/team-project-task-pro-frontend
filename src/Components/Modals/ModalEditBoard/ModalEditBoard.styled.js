@@ -64,10 +64,8 @@ export const FieldTitle = styled(Field)`
 
   &:hover,
   &:focus,
-  &:active,
   &:active {
     opacity: 1;
-    outline: 1px solid var(--borderNeedHelpColor);
     outline: 1px solid var(--borderNeedHelpColor);
   }
 
