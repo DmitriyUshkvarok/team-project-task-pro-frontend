@@ -64,9 +64,11 @@ export const FieldTitle = styled(Field)`
   letter-spacing: -0.28px;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     opacity: 1;
-    outline: none;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 
   @media screen and (min-width: 768px) {

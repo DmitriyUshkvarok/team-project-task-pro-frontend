@@ -41,8 +41,11 @@ export const InputTitle = styled(Field)`
   opacity: 0.4000000059604645;
 
   &:hover,
+  &:focus,
   &:active {
     opacity: 1;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 
   @media screen and (min-width: 768px) {
@@ -67,8 +70,11 @@ export const InputDescription = styled(Field)`
   opacity: 0.4000000059604645;
 
   &:hover,
+  &:focus,
   &:active {
     opacity: 1;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 
   @media screen and (min-width: 768px) {

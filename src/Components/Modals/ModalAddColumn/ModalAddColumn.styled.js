@@ -64,8 +64,11 @@ export const FieldTitle = styled(FormikField)`
   letter-spacing: -0.28px;
 
   &:hover,
+  &:focus,
   &:active {
     opacity: 1;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 `;
 
