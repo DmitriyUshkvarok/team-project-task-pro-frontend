@@ -39,6 +39,12 @@ export const InputTitle = styled(Field)`
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
 
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 1px solid var(--borderNeedHelpColor);
+  }
+
   @media screen and (min-width: 768px) {
     width: 302px;
   }
@@ -58,6 +64,12 @@ export const InputDescription = styled(Field)`
   letter-spacing: -0.28px;
   resize: none;
   margin-top: 14px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 1px solid var(--borderNeedHelpColor);
+  }
 
   @media screen and (min-width: 768px) {
     width: 302px;

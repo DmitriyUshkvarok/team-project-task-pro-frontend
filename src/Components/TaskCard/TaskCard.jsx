@@ -5,14 +5,14 @@ import {
   CardDescription,
   CardText,
   CardBottom,
-  CardBottomGrop,
+  CardBottomGroup,
   CardPriority,
   CardSubtitle,
   Circle,
   Priority,
   CardDeadline,
   Deadline,
-  CardBtnGrope,
+  CardBtnGroup,
   CardBtn,
   CardIconBell,
   CardIcon,
@@ -97,7 +97,7 @@ const TaskCard = ({ task, columns }) => {
           </CardDescription>
 
           <CardBottom>
-            <CardBottomGrop>
+            <CardBottomGroup>
               <CardPriority>
                 <CardSubtitle>Priority</CardSubtitle>
                 <Circle>
@@ -119,7 +119,7 @@ const TaskCard = ({ task, columns }) => {
                 <CardSubtitle>Deadline</CardSubtitle>
                 <Deadline>{formattedDate}</Deadline>
               </CardDeadline>
-            </CardBottomGrop>
+            </CardBottomGroup>
 
             {new Date() >= new Date(task.deadline) ? (
               <BellBox>
@@ -129,7 +129,7 @@ const TaskCard = ({ task, columns }) => {
               </BellBox>
             ) : null}
 
-            <CardBtnGrope>
+            <CardBtnGroup>
               <CardBtn
                 type="button"
                 onClick={() =>
@@ -171,7 +171,7 @@ const TaskCard = ({ task, columns }) => {
                   </CardIcon>
                 )}
               </CardBtn>
-            </CardBtnGrope>
+            </CardBtnGroup>
           </CardBottom>
         </Card>
       </CardBg>
