@@ -4,7 +4,7 @@ import { OverlayScrollbars } from 'overlayscrollbars';
 const config = {
   scrollbars: {
     visibility: 'auto',
-    // autoHide: 'leave',
+    autoHide: 'leave',
   },
 };
 
