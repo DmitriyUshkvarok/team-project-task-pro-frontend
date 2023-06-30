@@ -71,12 +71,3 @@ export const UserIcon = styled.img`
   border-radius: 8px;
   cursor: pointer;
 `;
-
-export const UserIconSvg = styled.svg`
-  color: var(--userIconSvgColor); /* Цвет человечка */
-  fill: var(--userIconBgSvgColor); /* Цвет фона */
-
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-`;
