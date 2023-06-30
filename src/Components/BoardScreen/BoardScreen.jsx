@@ -1,5 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
@@ -24,7 +25,7 @@ import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
 import ContainerBody from '../Container/ContainerBody/ContainerBody';
 
-const BoardScreen = ({ closeSidebar }) => {
+const BoardScreen = ({ closeSidebar, handleOpenModal }) => {
   const dispatch = useDispatch();
   const { title, boardId } = useParams();
   const { data: boards } = useGetFetchBoardsQuery();
@@ -46,6 +47,7 @@ const BoardScreen = ({ closeSidebar }) => {
   });
 
   const { data: boardBg } = boardBgQuery;
+
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <ContainerBody>
@@ -60,7 +62,9 @@ const BoardScreen = ({ closeSidebar }) => {
           <Wrap>
             <DescEmptyBoard>
               Before starting your project, it is essential
-              <AccentSpan> to create a board </AccentSpan>
+              <AccentSpan onClick={handleOpenModal}>
+                to create a board{' '}
+              </AccentSpan>
               to visualize and track all the necessary tasks and milestones.
               This board serves as a powerful tool to organize the workflow and
               ensure effective collaboration among team members.

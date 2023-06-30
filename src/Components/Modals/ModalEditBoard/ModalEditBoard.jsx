@@ -36,6 +36,7 @@ const ModalEditBoard = ({ componentName }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useGetMiniImgQuery();
+  console.log(data);
 
   const handleSubmit = async (values) => {
     console.log(values);
