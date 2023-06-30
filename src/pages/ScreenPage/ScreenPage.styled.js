@@ -37,8 +37,6 @@ import styled from 'styled-components';
 //   letter-spacing: -0.28px;
 // `;
 
-
-
 export const BoxColumns = styled.li`
   &:last-child {
     margin-right: 34px;
@@ -68,7 +66,7 @@ export const Subject = styled.h3`
   letter-spacing: -0.28px;
 `;
 // export const Icon = styled.p`
-//   color: red;
+//   color: #ffffff80;
 // `;
 
 export const IconStyled = styled.svg`
@@ -129,13 +127,16 @@ export const ListTask = styled.ul`
     @media screen and (min-width: 1280px) {
       height: 478px;
     }
+
   }
 `;
 
 // export const Card = styled.li`
 //   @media screen and (min-width: 320px) {
 //     border-radius: 8px;
-//     background-color: red;
+
+//     background-color: var(--sidebarColor);
+
 //     width: 279px;
 //   }
 //   @media screen and (min-width: 375px) {
@@ -171,7 +172,6 @@ export const AddCardIcon = styled.span`
   stroke: var(--iconBtnTextColor);
   background-color: var(--iconBtnBgColor);
   border-radius: var(--borderRadius8);
-  
 `;
 
 
