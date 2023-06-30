@@ -378,6 +378,7 @@ body[data-theme='violet'] {
   --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
   --modalFilterBorderColor: #1616161a;
 
+
   /**Calendar*/
   --currentMonthColor: #161616;
   --calendarBackground: #ffffff;
