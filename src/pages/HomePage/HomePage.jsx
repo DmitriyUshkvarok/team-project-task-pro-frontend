@@ -42,10 +42,7 @@ const HomePage = () => {
   return (
     <>
       {/* <ContainerHome> */}
-      <Sidebar isSidebarOpen={isSidebarOpen} />
       {/* <BoxHome> */}
-      <Header openSideBar={toggleSidebar} />
-      <BoardScreen closeSidebar={closeSidebar} />
       {/* </BoxHome> */}
       <Sidebar
         handleOpenModal={handleOpenModal}
