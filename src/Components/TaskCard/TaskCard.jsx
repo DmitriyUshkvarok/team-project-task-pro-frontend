@@ -13,7 +13,6 @@ import {
   CardDeadline,
   Deadline,
   CardBtnGroup,
-  
   CardBtn,
   CardIconBell,
   CardIcon,
@@ -96,7 +95,6 @@ const TaskCard = ({ task, columns }) => {
               : task.description}
           </CardText>
         </CardDescription>
-
           <CardBottom>
             <CardBottomGroup>
               <CardPriority>
@@ -177,7 +175,6 @@ const TaskCard = ({ task, columns }) => {
         </Card>
       </CardBg>
     </li>
-
   );
 };
 
