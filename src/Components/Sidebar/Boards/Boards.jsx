@@ -83,7 +83,7 @@ const Boards = ({ currentBg }) => {
 
     navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
 
-    // navigate(-1, { replace: true });
+    navigate(-1, { replace: true });
   };
 
   useEffect(() => {
