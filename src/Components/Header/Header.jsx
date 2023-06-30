@@ -2,6 +2,7 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import {
   Head,
+  ContainerHead,
   Navigation,
   BoxMenu,
   UserInfo,
@@ -16,7 +17,6 @@ import { useGetCurrentUserQuery } from '../../redux/profileApi/profileApi';
 import { openModal } from '../../redux/modal/modalSlice.js';
 
 import { useDispatch } from 'react-redux';
-import Container from '../Container/ContainerHeader';
 
 const Header = ({ openSideBar }) => {
   const { data: currentUser } = useGetCurrentUserQuery();
@@ -28,7 +28,7 @@ const Header = ({ openSideBar }) => {
 
   return (
     <Head>
-      <Container>
+      <ContainerHead>
         <Navigation>
           <BurgerMenu openSideBar={openSideBar} />
           <BoxMenu>
@@ -47,7 +47,7 @@ const Header = ({ openSideBar }) => {
             </UserInfo>
           </BoxMenu>
         </Navigation>
-      </Container>
+      </ContainerHead>
     </Head>
   );
 };
