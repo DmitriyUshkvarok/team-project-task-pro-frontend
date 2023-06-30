@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ListBoard = styled.ul`
-  margin-top: 40px;
+  /* margin-top: 40px; */
   /* height: 130px; */
   /* overflow-y: auto; */
 `;

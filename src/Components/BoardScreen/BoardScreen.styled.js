@@ -47,6 +47,25 @@ export const Board = styled.div`
   }
 `;
 
+export const ContainerBoard = styled.div`
+  padding: 14px 20px 24px 20px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 22px 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+    /* width: 1180px; */
+    padding: 10px 24px 8px 284px;
+  }
+`;
+
 export const Wrap = styled.div`
   padding: 0 20px;
 `;
@@ -69,7 +88,7 @@ export const BoardsContainer = styled.div`
     /* padding: 40px 32px 24px 32px; */
   }
   @media screen and (min-width: 1280px) {
-    width: calc(100vw - 260px);
+    /* width: calc(100vw - 260px); */
     /* padding: 40px 24px 24px 24px; */
   }
   ::-webkit-scrollbar {

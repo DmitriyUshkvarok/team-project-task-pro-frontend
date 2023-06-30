@@ -10,6 +10,7 @@ import {
 
 import {
   Board,
+  ContainerBoard,
   Filter,
   SidebarBoard,
   Title,
@@ -23,7 +24,6 @@ import {
 } from './BoardScreen.styled';
 import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
-import ContainerBody from '../Container/ContainerBody/ContainerBody';
 
 const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
 
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
-      <ContainerBody>
+      <ContainerBoard>
         <SidebarBoard>
           <Title>{bgName?.title}</Title>
           <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
@@ -90,7 +90,7 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
             </AddColumnBtn>
           )}
         </BoardsContainer>
-      </ContainerBody>
+      </ContainerBoard>
     </Board>
   );
 };
