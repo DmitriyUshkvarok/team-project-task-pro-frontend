@@ -41,7 +41,11 @@ export const BtnAdd = styled.button`
 
 //--Sidebar
 
-export const BoxColumns = styled.li``;
+export const BoxColumns = styled.li`
+  &:last-child {
+    margin-right: 34px;
+  }
+`;
 
 export const BoxColumnsTitle = styled.div`
   @media screen and (min-width: 320px) {
