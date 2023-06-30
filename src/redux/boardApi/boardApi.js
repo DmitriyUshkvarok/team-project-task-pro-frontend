@@ -35,7 +35,7 @@ export const boardsApi = createApi({
         url: `/board/delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Boards', 'BoardsId'],
+      invalidatesTags: ['Boards', 'Columns'],
     }),
     createColumn: builder.mutation({
       query: ({ values, boardId }) => ({

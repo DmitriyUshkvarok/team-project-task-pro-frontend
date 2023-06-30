@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { useState } from 'react';
 import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -30,15 +31,15 @@ import {
 } from './ModalEditBoard.styled';
 
 const ModalEditBoard = ({ componentName }) => {
-  const { id, title } = componentName;
+  const { id, title, iconId } = componentName;
   const [editBoard, { isLoading: isEditLoading }] = useEditBoardMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useGetMiniImgQuery();
 
   const handleSubmit = async (values) => {
+    console.log(values);
     const { data } = await editBoard({ values, id });
-
     navigate(`/${data?._id}/${data?.title}`, { replace: true });
     dispatch(closeModal());
   };
@@ -52,7 +53,7 @@ const ModalEditBoard = ({ componentName }) => {
         <Formik
           initialValues={{
             title: title,
-            iconId: '',
+            iconId: iconId,
             backgroundId: '',
           }}
           validationSchema={schema}
@@ -129,8 +130,8 @@ const schema = yup.object({
     .min(2, 'To Short!')
     .max(10, 'To Long!')
     .required('Required!'),
-  iconId: yup.string().required('Required!'),
-  backgroundId: yup.string().required('Required!'),
+  iconId: yup.string(),
+  backgroundId: yup.string(),
 });
 
 export default ModalEditBoard;

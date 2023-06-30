@@ -50,8 +50,8 @@ const ModalCreateNewBoard = () => {
         <Formik
           initialValues={{
             title: '',
-            iconId: '',
-            backgroundId: '',
+            iconId: icons[0].id,
+            backgroundId: 'default',
           }}
           validationSchema={schema}
           onSubmit={handleSubmit}
