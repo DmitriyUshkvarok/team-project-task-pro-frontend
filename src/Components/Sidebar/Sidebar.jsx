@@ -8,7 +8,7 @@ import { Container } from './SideBar.styled';
 import { useGetMiniImgQuery } from '../../redux/miniImgApi/miniImgApi';
 import ContainerSidebar from '../Container/ContainerSidebar/ContainerSidebar';
 
-const Sidebar = ({ isSidebarOpen, handleOpenModal }) => {
+const Sidebar = ({ isSidebarOpen, handleOpenModal, currentBg }) => {
   const [isClose, setClose] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const { data } = useGetMiniImgQuery();
@@ -50,7 +50,7 @@ const Sidebar = ({ isSidebarOpen, handleOpenModal }) => {
       {/* <ContainerSidebar> */}
       <Logo />
       <CreateBoards handleOpenModal={handleOpenModal} />
-      <Boards />
+      <Boards currentBg={currentBg} />
       <CustomerSupport />
       <LogOut />
       {/* </ContainerSidebar> */}

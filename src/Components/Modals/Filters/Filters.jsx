@@ -64,7 +64,7 @@ const Filters = () => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img width={28} src={image.regular} alt={name} />
+                  <img width={28} src={image.retina} alt={name} />
                 </label>
               ))}
             </ImageContainer>

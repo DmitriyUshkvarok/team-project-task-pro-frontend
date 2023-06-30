@@ -19,6 +19,8 @@ const HomePage = () => {
 
   const dispatch = useDispatch();
 
+  const [currentBg, setCurrentBg] = useState('');
+
   useEffect(() => {
     if (!theme) {
       document.body.setAttribute('data-theme', 'light');
@@ -39,17 +41,23 @@ const HomePage = () => {
     dispatch(openModal({ name: 'craeteModalBoard' }));
   };
 
+  const selectedBg = (boardBg) => {
+    setCurrentBg(boardBg);
+  };
+
   return (
     <>
       {/* <ContainerHome> */}
       {/* <BoxHome> */}
       {/* </BoxHome> */}
       <Sidebar
+        currentBg={currentBg}
         handleOpenModal={handleOpenModal}
         isSidebarOpen={isSidebarOpen}
       />
       <Header openSideBar={toggleSidebar} />
       <BoardScreen
+        selectedBg={selectedBg}
         handleOpenModal={handleOpenModal}
         closeSidebar={closeSidebar}
       />
