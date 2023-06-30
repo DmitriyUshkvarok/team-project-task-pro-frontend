@@ -22,6 +22,7 @@ import {
 } from './BoardScreen.styled';
 import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
+import ContainerBody from '../Container/ContainerBody/ContainerBody';
 
 const BoardScreen = ({ closeSidebar }) => {
   const dispatch = useDispatch();
@@ -47,39 +48,41 @@ const BoardScreen = ({ closeSidebar }) => {
   const { data: boardBg } = boardBgQuery;
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
-      <SidebarBoard>
-        <Title>{bgName?.title}</Title>
-        <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
-          <FiFilter />
-          <span>Filters</span>
-        </Filter>
-      </SidebarBoard>
-      {boards?.length === 0 && (
-        <Wrap>
-          <DescEmptyBoard>
-            Before starting your project, it is essential
-            <AccentSpan> to create a board </AccentSpan>
-            to visualize and track all the necessary tasks and milestones. This
-            board serves as a powerful tool to organize the workflow and ensure
-            effective collaboration among team members.
-          </DescEmptyBoard>
-        </Wrap>
-      )}
-      <BoardsContainer>
-        <ContainerColumns>
-          <Outlet />
-        </ContainerColumns>
-        {boards?.length !== 0 && (
-          <AddColumnBtn onClick={handleClickModal}>
-            <AddColumnIcon>
-              <svg width="18" height="18">
-                <use xlinkHref={`${url}#icon-plus`} />
-              </svg>
-            </AddColumnIcon>
-            Add Columns
-          </AddColumnBtn>
+      <ContainerBody>
+        <SidebarBoard>
+          <Title>{bgName?.title}</Title>
+          <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
+            <FiFilter />
+            <span>Filters</span>
+          </Filter>
+        </SidebarBoard>
+        {boards?.length === 0 && (
+          <Wrap>
+            <DescEmptyBoard>
+              Before starting your project, it is essential
+              <AccentSpan> to create a board </AccentSpan>
+              to visualize and track all the necessary tasks and milestones.
+              This board serves as a powerful tool to organize the workflow and
+              ensure effective collaboration among team members.
+            </DescEmptyBoard>
+          </Wrap>
         )}
-      </BoardsContainer>
+        <BoardsContainer>
+          <ContainerColumns>
+            <Outlet />
+          </ContainerColumns>
+          {boards?.length !== 0 && (
+            <AddColumnBtn onClick={handleClickModal}>
+              <AddColumnIcon>
+                <svg width="18" height="18">
+                  <use xlinkHref={`${url}#icon-plus`} />
+                </svg>
+              </AddColumnIcon>
+              Add Columns
+            </AddColumnBtn>
+          )}
+        </BoardsContainer>
+      </ContainerBody>
     </Board>
   );
 };

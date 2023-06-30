@@ -113,25 +113,22 @@ body[data-theme='light'] {
   --labelHighColor: #bedbb0;
   --labelWithoutColor: #1616164d;
   --boardDateColor: #bedbb0;
-  --labelUserBg: #BEDBB0;
+  --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
 
   /**Calendar*/
---currentMonthColor: #161616;
---calendarBackground: #FFFFFF;
---calendarBorder: #BEDBB0;
---navLeftBtnColor: #161616CC;
---navRightBtnColor: #BEDBB0;
---calendarLineColor: #16161633;
---calendarDayNameColor: #16161680;
---calendarCurrentMonthColor: #161616;
---calendarCurrentDateColor: #161616;
---calendarBgDateColor: #BEDBB0;
---calendarPreviousMonthColor: #16161633;
-
-
-
+  --currentMonthColor: #161616;
+  --calendarBackground: #ffffff;
+  --calendarBorder: #bedbb0;
+  --navLeftBtnColor: #161616cc;
+  --navRightBtnColor: #bedbb0;
+  --calendarLineColor: #16161633;
+  --calendarDayNameColor: #16161680;
+  --calendarCurrentMonthColor: #161616;
+  --calendarCurrentDateColor: #161616;
+  --calendarBgDateColor: #bedbb0;
+  --calendarPreviousMonthColor: #16161633;
 
   /**after del*/
   --logoHeaderColor: red;
@@ -228,28 +225,22 @@ body[data-theme='dark'] {
   --labelHighColor: #bedbb0;
   --labelWithoutColor: #ffffff4d;
   --boardDateColor: #bedbb0;
-  --labelUserBg: #BEDBB0;
+  --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
-  --iconBSEyeColor: #FFFFFF;
+  --iconBSEyeColor: #ffffff;
 
-/**Calendar*/
---currentMonthColor: #FFFFFF;
---calendarBackground: #1F1F1F;
---calendarBorder: #BEDBB0;
---navLeftBtnColor: #FFFFFFCC;
---navRightBtnColor: #BEDBB0;
---calendarLineColor: #FFFFFF33;
---calendarDayNameColor: #FFFFFF80;
---calendarCurrentMonthColor: #FFFFFF;
---calendarCurrentDateColor: #1F1F1F;
---calendarBgDateColor: #BEDBB0;
---calendarPreviousMonthColor: #FFFFFF33;
-
-
-
-
-
-
+  /**Calendar*/
+  --currentMonthColor: #ffffff;
+  --calendarBackground: #1f1f1f;
+  --calendarBorder: #bedbb0;
+  --navLeftBtnColor: #ffffffcc;
+  --navRightBtnColor: #bedbb0;
+  --calendarLineColor: #ffffff33;
+  --calendarDayNameColor: #ffffff80;
+  --calendarCurrentMonthColor: #ffffff;
+  --calendarCurrentDateColor: #1f1f1f;
+  --calendarBgDateColor: #bedbb0;
+  --calendarPreviousMonthColor: #ffffff33;
 
   /**after del*/
 
@@ -259,7 +250,7 @@ body[data-theme='dark'] {
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --defaultScreenColor: #e6e6e6;
-  
+
   --modalBGC: #151515;
   --IconCloseColor: #ffffff;
   --titleColor: #ffffff;
@@ -343,24 +334,22 @@ body[data-theme='violet'] {
   --labelHighColor: #bedbb0;
   --labelWithoutColor: #1616164d;
   --boardDateColor: #5255bc;
-  --labelUserBg: #ECEDFD;
+  --labelUserBg: #ecedfd;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
 
-/**Calendar*/
---currentMonthColor: #161616;
---calendarBackground: #FFFFFF;
---calendarBorder: #5255BC;
---navLeftBtnColor: #161616CC;
---navRightBtnColor: #BEDBB0;
---calendarLineColor: #16161633;
---calendarDayNameColor: #16161680;
---calendarCurrentMonthColor: #161616;
---calendarCurrentDateColor: #FCFCFC;
---calendarBgDateColor: #5255BC;
---calendarPreviousMonthColor: #16161633;
- 
-
+  /**Calendar*/
+  --currentMonthColor: #161616;
+  --calendarBackground: #ffffff;
+  --calendarBorder: #5255bc;
+  --navLeftBtnColor: #161616cc;
+  --navRightBtnColor: #bedbb0;
+  --calendarLineColor: #16161633;
+  --calendarDayNameColor: #16161680;
+  --calendarCurrentMonthColor: #161616;
+  --calendarCurrentDateColor: #fcfcfc;
+  --calendarBgDateColor: #5255bc;
+  --calendarPreviousMonthColor: #16161633;
 
   /**Project office*/
 

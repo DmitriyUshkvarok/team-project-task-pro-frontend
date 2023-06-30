@@ -1,5 +1,5 @@
 import 'react-toastify/dist/ReactToastify.css';
-import Container from '../Container/Container';
+// import Container from '../Container/Container';
 import { ToastContainer } from 'react-toastify';
 import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -36,34 +36,31 @@ function App() {
         <LoaderForRefresh />
       ) : (
         <Suspense fallback={<LoaderForApp />}>
-          <Container>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PrivateRoute
-                    redirectTo="/welcome"
-                    component={<HomePage />}
-                  />
-                }
-              >
-                <Route path=":boardId/:title" element={<ScreenPage />} />
-              </Route>
-              <Route
-                path="/welcome"
-                element={
-                  <RestictedRoute redirectTo="/" component={<WelcomePage />} />
-                }
-              />
-              <Route
-                path="/auth/:id"
-                element={
-                  <RestictedRoute redirectTo="/" component={<AuthPage />} />
-                }
-              />
-              <Route path="*" element={<WelcomePage />} />
-            </Routes>
-          </Container>
+          {/* <Container> */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+              }
+            >
+              <Route path=":boardId/:title" element={<ScreenPage />} />
+            </Route>
+            <Route
+              path="/welcome"
+              element={
+                <RestictedRoute redirectTo="/" component={<WelcomePage />} />
+              }
+            />
+            <Route
+              path="/auth/:id"
+              element={
+                <RestictedRoute redirectTo="/" component={<AuthPage />} />
+              }
+            />
+            <Route path="*" element={<WelcomePage />} />
+          </Routes>
+          {/* </Container> */}
         </Suspense>
       )}
       <ToastContainer />

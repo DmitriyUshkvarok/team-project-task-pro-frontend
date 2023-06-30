@@ -12,13 +12,13 @@ const slideIn = keyframes`
 
 export const Head = styled.header`
   background-color: var(--headerColor);
-  width: 100%;
-  height: 60px;
-  padding: 18px 32px;
+  /* width: 100%; */
+  /* height: 60px; */
+  /* padding: 18px 32px; */
   animation: ${slideIn} 0.5s ease-out;
 
   @media screen and (min-width: 768px) {
-    height: 68px;
+    /* height: 68px; */
   }
 `;
 export const Navigation = styled.nav`

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Board = styled.div`
   background-color: var(--headerPageColor);
-  padding-bottom: 24px;
-  height: 100vh;
-  min-height: 812px;
-  height: calc(100vh - 60px);
+  /* padding-bottom: 24px; */
+  /* height: 100vh; */
+  /* min-height: 812px; */
+  /* height: calc(100vh - 60px); */
 
   background-image: url(${(props) => props.boardBg?.mobile?.regular});
   background-size: cover;
@@ -18,12 +18,12 @@ export const Board = styled.div`
   }
 
   @media screen and (min-width: 375px) {
-    width: 375px;
+    /* width: 375px; */
   }
   @media screen and (min-width: 768px) {
-    width: 768px;
-    min-height: 1024px;
-    padding-bottom: 32px;
+    /* width: 768px; */
+    /* min-height: 1024px; */
+    /* padding-bottom: 32px; */
     background-image: url(${(props) => props.boardBg?.tablet?.regular});
 
     @media (-webkit-min-device-pixel-ratio: 2),
@@ -33,9 +33,9 @@ export const Board = styled.div`
     }
   }
   @media screen and (min-width: 1280px) {
-    width: 100%;
-    padding-bottom: 8px;
-    min-height: 770px;
+    /* width: 100%; */
+    /* padding-bottom: 8px; */
+    /* min-height: 770px; */
     /* height: 100vh; */
     background-image: url(${(props) => props.boardBg?.desktop?.regular});
 
@@ -63,14 +63,14 @@ export const BoardsContainer = styled.div`
     display: flex;
 
     overflow-x: auto;
-    padding: 40px 20px 24px 20px;
+    /* padding: 40px 20px 24px 20px; */
   }
   @media screen and (min-width: 768px) {
-    padding: 40px 32px 24px 32px;
+    /* padding: 40px 32px 24px 32px; */
   }
   @media screen and (min-width: 1280px) {
     width: calc(100vw - 260px);
-    padding: 40px 24px 24px 24px;
+    /* padding: 40px 24px 24px 24px; */
   }
   ::-webkit-scrollbar {
     width: 12px;
