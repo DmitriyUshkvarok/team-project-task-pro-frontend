@@ -28,9 +28,11 @@ export const InputForm = styled(Field)`
   outline: none;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     opacity: 1;
-    outline: none;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 
   @media screen and (min-width: 375px) {
