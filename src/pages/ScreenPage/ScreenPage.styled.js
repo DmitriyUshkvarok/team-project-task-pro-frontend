@@ -99,12 +99,17 @@ export const ListTask = styled.ul`
     /* height: 478px; */
   }
   ::-webkit-scrollbar {
+    
+    background: var(--screenPageBGScroll);
+    // color: var(--screenPageScrollColor);
     width: 8px;
     border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
     width: 8px;
+    
+    // color: red;
 
     border-radius: 12px;
     background-color: var(--screenPageScrollColor);
@@ -117,7 +122,7 @@ export const ListTask = styled.ul`
 
     border-radius: 12px;
 
-    background: var(--borderBottomColor);
+    background: var(--screenPageBGScroll);
     @media screen and (min-width: 768px) {
       height: 640px;
     }

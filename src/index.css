@@ -70,6 +70,17 @@ body[data-theme='light'] {
   --themeBorderColor: #bedbb0;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
+  /**Screen Page*/
+  --screenPageTitleBgColor: #FFFFFF;
+  --screenPageTitleColor: #161616;
+  --screenPageIconColor: #16161680;
+  --screenPageBGScroll: #E8E8E8;
+  --screenPageScrollColor: #1616161A;
+  --addBtnBgColor: #BEDBB0;
+  --addBtnTextColor: #161616;
+  --iconBtnBgColor: #161616;
+  --iconBtnTextColor: #ffffff;
+
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
   --logoIconColor: #ffffff;
@@ -196,6 +207,17 @@ body[data-theme='dark'] {
   --themeBorderColor: #bedbb0;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
+  /**Screen Page*/
+  --screenPageTitleBgColor: #121212;
+  --screenPageTitleColor: #ffffff;
+  --screenPageIconColor: #ffffff80;
+  --screenPageBGScroll: rgba(255, 255, 255, 0.07999999821186066);
+  --screenPageScrollColor: #121212;
+  --addBtnBgColor: #bedbb0;
+  --addBtnTextColor: #161616;
+  --iconBtnBgColor: #161616;
+  --iconBtnTextColor: #ffffff;
+
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
   --logoIconColor: #ffffff;
@@ -253,7 +275,7 @@ body[data-theme='dark'] {
   --textPDBoxColor: #ffffff80;
   --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
   --modalFilterBorderColor: #ffffff1a;
-  
+
   /**Calendar*/
   --currentMonthColor: #ffffff;
   --calendarBackground: #1f1f1f;
@@ -322,6 +344,17 @@ body[data-theme='violet'] {
   --themeBorderColor: #ecedfd;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
+  /**Screen Page*/
+  --screenPageTitleBgColor: #ffffff;
+  --screenPageTitleColor: #161616;
+  --screenPageIconColor: #16161680;
+  --screenPageBGScroll: #ffffff;
+  --screenPageScrollColor: #b8bcfd;
+  --addBtnBgColor: #5255bc;
+  --addBtnTextColor: #ffffff;
+  --iconBtnBgColor: #ffffff;
+  --iconBtnTextColor: #161616;
+
   /**Sidebar*/
   --logoFonColor: #ecedfd;
   --logoIconColor: #ffffff;
@@ -375,9 +408,8 @@ body[data-theme='violet'] {
   --iconImageBGColor: #ecedfd;
   --iconImageColor: #1616161a;
   --textPDBoxColor: #161616;
-  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
-  --modalFilterBorderColor: #1616161a;
-
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalFilterBorderColor: #1616161A;
 
   /**Calendar*/
   --currentMonthColor: #161616;
