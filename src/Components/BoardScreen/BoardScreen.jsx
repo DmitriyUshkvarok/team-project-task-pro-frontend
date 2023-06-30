@@ -1,6 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
@@ -48,9 +48,10 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
 
   const { data: boardBg } = boardBgQuery;
 
-  if (boardBg) {
+  useEffect(() => {
     selectedBg(boardBg);
-  }
+  }, []);
+
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <ContainerBody>
