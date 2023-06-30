@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   padding: 0 14px;
-  margin-top: 116px;
+  margin-top: auto;
   @media screen and (min-width: 768px) {
-    margin-top: 290px;
+    /* margin-top: 290px; */
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 40px;
+    /* margin-top: 40px; */
     padding: 0 24px;
   }
 `;
