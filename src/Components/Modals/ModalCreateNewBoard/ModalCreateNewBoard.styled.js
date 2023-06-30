@@ -137,7 +137,7 @@ export const ImageContainer = styled.div`
     cursor: pointer;
   }
   label:first-of-type {
-    background-color: rgba(246, 246, 247, 1);
+    background-color: var(--iconImageBGColor);
   }
 `;
 

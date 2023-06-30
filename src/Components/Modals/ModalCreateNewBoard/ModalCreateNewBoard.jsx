@@ -90,7 +90,7 @@ const ModalCreateNewBoard = () => {
                   name="backgroundId"
                   value="default"
                 />
-                <svg width="16" height="16">
+                <svg width="16" height="16" stroke="var(--iconImageColor)">
                   <use xlinkHref={`${urlIcon}#icon-image-default`} />
                 </svg>
               </label>
