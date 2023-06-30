@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
 export const CardBg = styled.li`
-  /* width: 334px;
+  width: 334px;
   border-radius: 8px;
-  overflow: hidden; */
+  overflow: hidden;
 
   @media screen and (min-width: 320px) {
     border-radius: 8px;
@@ -22,7 +22,7 @@ export const Card = styled.div`
   background-color: var(--headerColor);
 
   height: 154px;
-  padding: 14px 24px;
+  padding: 14px 18px 14px 20px;
   @media screen and (min-width: 375px) {
     width: 330px;
   }
@@ -38,11 +38,11 @@ export const CardTitle = styled.h4`
 
 export const CardDescription = styled.div`
   border-bottom: 1px solid var(--cardBorderBottomColor);
-  width: 290px;
+  width: 227px;
   height: 52px;
   margin-bottom: 14px;
-  @media screen and (min-width: 320px) {
-    width: 227px;
+  @media screen and (min-width: 375px) {
+    width: 290px;
   }
 `;
 
@@ -55,10 +55,8 @@ export const CardText = styled.p`
   overflow: hidden;
   letter-spacing: -0.24px;
   line-height: 16px;
-  display: flex;
   width: 290;
   height: 38px;
-  flex-direction: column;
 `;
 
 export const CardBottom = styled.div`
@@ -80,6 +78,7 @@ export const CardPriority = styled.div`
 `;
 
 export const CardSubtitle = styled.p`
+  height: 12px;
   color: var(--cardSubtitleColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
   font-size: var(--fontSize8);
   font-family: var(--poppinsFont);
@@ -97,6 +96,7 @@ export const Priority = styled.p`
   color: var(--cardPriorityTextColor);
   font-size: var(--fontSize10);
   font-family: var(--poppinsFont);
+  font-weight: 400;
   letter-spacing: -0.2px;
 `;
 
@@ -108,6 +108,7 @@ export const CardDeadline = styled.div`
 `;
 
 export const Deadline = styled.p`
+  height: 15px;
   position: relative;
   color: var(--cardPriorityTextColor);
   height: 12px;
@@ -147,7 +148,7 @@ export const BellBox = styled.div`
   justify-content: flex-end;
 
   margin-right: 12px;
-  margin-left:auto;
+  margin-left: auto;
 `;
 
 export const CardIconBell = styled.svg`
@@ -158,6 +159,3 @@ export const CardIconBell = styled.svg`
 
   filter: drop-shadow(0 0 6px var(--taskIconBellColor));
 `;
-
-
-
