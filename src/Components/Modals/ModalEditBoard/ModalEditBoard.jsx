@@ -31,14 +31,13 @@ import {
 } from './ModalEditBoard.styled';
 
 const ModalEditBoard = ({ componentName }) => {
-  const { id, title, iconId } = componentName;
+  const { id, title, iconId, backgroundId } = componentName;
   const [editBoard, { isLoading: isEditLoading }] = useEditBoardMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useGetMiniImgQuery();
 
   const handleSubmit = async (values) => {
-    console.log(values);
     const { data } = await editBoard({ values, id });
     navigate(`/${data?._id}/${data?.title}`, { replace: true });
     dispatch(closeModal());
@@ -54,7 +53,7 @@ const ModalEditBoard = ({ componentName }) => {
           initialValues={{
             title: title,
             iconId: iconId,
-            backgroundId: '',
+            backgroundId: backgroundId.name,
           }}
           validationSchema={schema}
           onSubmit={handleSubmit}
@@ -103,7 +102,7 @@ const ModalEditBoard = ({ componentName }) => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img width={28} src={image.regular} alt={name} />
+                  <img width={28} src={image.retina} alt={name} />
                 </label>
               ))}
               <ErrorMessage name="backgroundId" component="p" />

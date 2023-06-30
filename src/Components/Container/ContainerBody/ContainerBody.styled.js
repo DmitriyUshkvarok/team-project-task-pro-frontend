@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyleContainer = styled.div`
-  margin: 0 auto;
   padding: 14px 20px 24px 20px;
+  margin: 0 auto;
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -13,7 +13,8 @@ export const StyleContainer = styled.div`
     padding: 22px 32px;
   }
   @media screen and (min-width: 1280px) {
-    width: 1180px;
-    padding: 10px 24px 8px 24px;
+    width: 100%;
+    /* width: 1180px; */
+    padding: 10px 24px 8px 284px;
   }
 `;

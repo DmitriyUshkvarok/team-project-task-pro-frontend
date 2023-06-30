@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { openModal } from '../../redux/modal/modalSlice';
 
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
 import BoardScreen from '../../Components/BoardScreen/BoardScreen';
 
-import { ContainerHome } from './HomePage.styled';
+// import { ContainerHome, BoxHome } from './HomePage.styled';
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const theme = useSelector(authSelector.getTheme);
+
+  const dispatch = useDispatch();
+
+  const [currentBg, setCurrentBg] = useState('');
 
   useEffect(() => {
     if (!theme) {
@@ -30,12 +37,30 @@ const HomePage = () => {
     setIsSidebarOpen(false);
   };
 
+  const handleOpenModal = () => {
+    dispatch(openModal({ name: 'craeteModalBoard' }));
+  };
+
+  const selectedBg = (boardBg) => {
+    setCurrentBg(boardBg);
+  };
+
   return (
-    // <ContainerHome>
     <>
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      {/* <ContainerHome> */}
+      {/* <BoxHome> */}
+      {/* </BoxHome> */}
+      <Sidebar
+        currentBg={currentBg}
+        handleOpenModal={handleOpenModal}
+        isSidebarOpen={isSidebarOpen}
+      />
       <Header openSideBar={toggleSidebar} />
-      <BoardScreen closeSidebar={closeSidebar} />
+      <BoardScreen
+        selectedBg={selectedBg}
+        handleOpenModal={handleOpenModal}
+        closeSidebar={closeSidebar}
+      />
       {/* </ContainerHome> */}
     </>
   );
