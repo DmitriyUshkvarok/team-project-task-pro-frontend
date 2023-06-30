@@ -5,8 +5,7 @@ export const ModalCard = styled.div`
   width: 335px;
   height: 433px;
   background-color: var(--modalBgColor);
-  border-radius: var(--borderRadius8);
-  border-radius: var(--borderRadius8);
+  border-radius: var(--borderRadius8);  
   border: 1px solid var(--borderBoardColor);
   position: relative;
   padding: 24px;
@@ -138,7 +137,7 @@ export const ImageContainer = styled.div`
   }
   label:first-of-type {
     background-color: var(--iconImageBGColor);
-    background-color: var(--iconImageBGColor);
+    
   }
 `;
 
