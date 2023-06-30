@@ -5,14 +5,14 @@ import {
   CardDescription,
   CardText,
   CardBottom,
-  CardBottomGrop,
+  CardBottomGroup,
   CardPriority,
   CardSubtitle,
   Circle,
   Priority,
   CardDeadline,
   Deadline,
-  CardBtnGrope,
+  CardBtnGroup,
   CardBtn,
   CardIcon,
 } from './TaskCard.styled';
@@ -74,7 +74,7 @@ const TaskCard = ({ task, columns }) => {
         </CardDescription>
 
         <CardBottom>
-          <CardBottomGrop>
+          <CardBottomGroup>
             <CardPriority>
               <CardSubtitle>Priority</CardSubtitle>
               <Circle>
@@ -93,9 +93,9 @@ const TaskCard = ({ task, columns }) => {
               <CardSubtitle>Deadline</CardSubtitle>
               <Deadline>{task.deadline}</Deadline>
             </CardDeadline>
-          </CardBottomGrop>
+          </CardBottomGroup>
 
-          <CardBtnGrope>
+          <CardBtnGroup>
             <CardBtn
               type="button"
               onClick={() =>
@@ -133,7 +133,7 @@ const TaskCard = ({ task, columns }) => {
                 <use xlinkHref={`${url}#icon-trash-04`} />
               </CardIcon>
             </CardBtn>
-          </CardBtnGrope>
+          </CardBtnGroup>
         </CardBottom>
       </Card>
     </CardBg>
