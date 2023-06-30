@@ -20,13 +20,16 @@ import {
 } from './TaskCard.styled';
 import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
+import { LoaderForDeleted } from '../Loader/LoaderDeleted/LoaderDeleted';
 
 import { openModal } from '../../redux/modal/modalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useDeleteTaskMutation } from '../../redux/boardApi/boardApi';
+import { useState } from 'react';
 
 const TaskCard = ({ task, columns }) => {
+  const [isLoading, setIsLoading] = useState({});
   const [deleteTask] = useDeleteTaskMutation();
   const dispatch = useDispatch();
 
@@ -48,7 +51,7 @@ const TaskCard = ({ task, columns }) => {
         break;
 
       case 'without':
-        color = (themeColor === 'dark') ? '#FFFFFF4D' : '#1616164d';
+        color = themeColor === 'dark' ? '#FFFFFF4D' : '#1616164d';
         break;
 
       case 'high':
@@ -65,7 +68,15 @@ const TaskCard = ({ task, columns }) => {
 
   const handleDeleteTask = async (id) => {
     try {
+      setIsLoading((prevDelete) => ({
+        ...prevDelete,
+        [id]: true,
+      }));
       await deleteTask(id);
+      setIsLoading((prevDelete) => ({
+        ...prevDelete,
+        [id]: false,
+      }));
     } catch (error) {
       console.log(error);
     }
@@ -151,10 +162,14 @@ const TaskCard = ({ task, columns }) => {
                   <use xlinkHref={`${url}#icon-pencil-01`} />
                 </CardIcon>
               </CardBtn>
-              <CardBtn type="button">
-                <CardIcon onClick={() => handleDeleteTask(task._id)}>
-                  <use xlinkHref={`${url}#icon-trash-04`} />
-                </CardIcon>
+              <CardBtn type="button" disabled={isLoading[task._id]}>
+                {isLoading[task._id] ? (
+                  <LoaderForDeleted />
+                ) : (
+                  <CardIcon onClick={() => handleDeleteTask(task._id)}>
+                    <use xlinkHref={`${url}#icon-trash-04`} />
+                  </CardIcon>
+                )}
               </CardBtn>
             </CardBtnGrope>
           </CardBottom>

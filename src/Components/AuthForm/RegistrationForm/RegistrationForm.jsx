@@ -26,7 +26,16 @@ const initialValues = {
 };
 
 const schema = yup.object().shape({
-  name: yup.string().min(4).max(20).required(),
+  name: yup
+    .string()
+    .required('Title is required')
+    .min(4, 'Title should be at least 4 characters')
+    .max(20, 'Title should not exceed 20 characters')
+    .matches(
+      /^[^\s!@#$%^&*()]+(\s[^\s!@#$%^&*()]+)?$/,
+      'Title should not contain special characters'
+    )
+    .required(),
   email: yup
     .string()
     .email('Invalid email')

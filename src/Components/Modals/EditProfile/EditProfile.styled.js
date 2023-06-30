@@ -93,6 +93,13 @@ export const Error = styled.p`
   font-size: 10px;
   margin-top: 1px;
 `;
+export const ErrorServer = styled.p`
+  position: absolute;
+  width: 100%;
+  color: var(--errorColor);
+  font-size: 10px;
+  margin-top: 1px;
+`;
 
 export const Edit = styled.div`
   position: relative;
@@ -205,8 +212,8 @@ export const BtnSavePhotoUser = styled.button`
 `;
 
 export const UserIconSvg = styled.svg`
-  fill: var(--userIconBgSvgColor); 
-  color: var(--userIconSvgColor); 
+  fill: var(--userIconBgSvgColor);
+  color: var(--userIconSvgColor);
 
   width: 68px;
   height: 68px;
