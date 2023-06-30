@@ -6,7 +6,6 @@ import {
   CardText,
   CardBottom,
   CardBottomGroup,
-  CardBottomGroup,
   CardPriority,
   CardSubtitle,
   Circle,
@@ -14,7 +13,7 @@ import {
   CardDeadline,
   Deadline,
   CardBtnGroup,
-  CardBtnGroup,
+  
   CardBtn,
   CardIconBell,
   CardIcon,
@@ -90,13 +89,13 @@ const TaskCard = ({ task, columns }) => {
         <Card>
           <CardTitle>{task.title}</CardTitle>
 
-          <CardDescription>
-            <CardText>
-              {task.description.length >= maxLength
-                ? `${task.description.substring(0, maxLength)}...`
-                : task.description}
-            </CardText>
-          </CardDescription>
+        <CardDescription>
+          <CardText>
+            {task.description.length >= maxLength
+              ? `${task.description.substring(0, maxLength)}...`
+              : task.description}
+          </CardText>
+        </CardDescription>
 
           <CardBottom>
             <CardBottomGroup>
@@ -178,6 +177,7 @@ const TaskCard = ({ task, columns }) => {
         </Card>
       </CardBg>
     </li>
+
   );
 };
 

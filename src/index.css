@@ -126,6 +126,7 @@ body[data-theme='light'] {
   --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
   --modalFilterBorderColor: #1616161a;
 
+
   /**Calendar*/
   --currentMonthColor: #161616;
   --calendarBackground: #ffffff;
@@ -253,7 +254,7 @@ body[data-theme='dark'] {
   --textPDBoxColor: #ffffff80;
   --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
   --modalFilterBorderColor: #ffffff1a;
-
+  
   /**Calendar*/
   --currentMonthColor: #ffffff;
   --calendarBackground: #1f1f1f;
@@ -378,6 +379,7 @@ body[data-theme='violet'] {
   --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
   --modalFilterBorderColor: #1616161a;
   
+
   /**Calendar*/
   --currentMonthColor: #161616;
   --calendarBackground: #ffffff;
