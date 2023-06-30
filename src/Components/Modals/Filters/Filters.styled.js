@@ -69,12 +69,17 @@ export const ImageContainer = styled.div`
   label {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 28px;
     height: 28px;
-    background-color: rgba(246, 246, 247, 1);
+
     border-radius: 8px;
     border: none;
     cursor: pointer;
+  }
+  label:first-of-type {
+    background-color: rgba(246, 246, 247, 1);
   }
 `;
 
@@ -154,4 +159,8 @@ export const LabelContainer = styled.div`
       opacity: 1;
     }
   }
+`;
+export const ImgStyled = styled.img`
+  object-fit: cover;
+  border-radius: 8px;
 `;

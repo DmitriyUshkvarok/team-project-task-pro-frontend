@@ -12,6 +12,7 @@ import {
   ImageContainer,
   FormikFieldImage,
   ShowAll,
+  ImgStyled,
 } from './Filters.styled';
 import CloseButton from '../CloseButton/CloseButton';
 import images from '../../image.json';
@@ -64,7 +65,7 @@ const Filters = () => {
                     name="backgroundId"
                     value={name}
                   />
-                  <img width={28} src={image.retina} alt={name} />
+                  <ImgStyled width={28} src={image.retina} alt={name} />
                 </label>
               ))}
             </ImageContainer>
