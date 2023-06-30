@@ -66,7 +66,7 @@ export const CardBottom = styled.div`
   justify-content: space-between;
 `;
 
-export const CardBottomGrop = styled.div`
+export const CardBottomGroup = styled.div`
   display: flex;
   gap: 14px;
   align-items: baseline;
@@ -118,7 +118,7 @@ export const Deadline = styled.p`
   letter-spacing: -0.2px;
 `;
 
-export const CardBtnGrope = styled.div`
+export const CardBtnGroup = styled.div`
   display: flex;
   gap: 8px;
   flex-direction: row;
