@@ -19,18 +19,27 @@ import images from '../../image.json';
 import { setFilter } from '../../../redux/filter/filterSlice';
 import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
+import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
 
-const Filters = () => {
+const Filters = ({ componentName }) => {
   // допилить:
   // валидацию чекбоксов
   // каптинки
-  // адаптивную верстку мобилка планшет
+  // адаптивную верстку мобилка планше
 
   const dispatch = useDispatch();
   const onFilterChange = (e) => {
     dispatch(setFilter(e.target.value));
   };
   const { data } = useGetMiniImgQuery();
+  const [editBoard, { isLoading: isEditLoading }] = useEditBoardMutation();
+
+  const updateBackground = async (name) => {
+    const { data } = await editBoard({
+      values: { backgroundId: name },
+      id: componentName.boardId,
+    });
+  };
 
   return (
     <>
@@ -53,6 +62,7 @@ const Filters = () => {
                   type="radio"
                   name="backgroundId"
                   value="default"
+                  onChange={() => updateBackground('default')}
                 />
                 <svg width="16" height="16">
                   <use xlinkHref={`${urlIcon}#icon-image-default`} />
@@ -64,6 +74,7 @@ const Filters = () => {
                     type="radio"
                     name="backgroundId"
                     value={name}
+                    onChange={() => updateBackground(name)}
                   />
                   <ImgStyled width={28} src={image.retina} alt={name} />
                 </label>

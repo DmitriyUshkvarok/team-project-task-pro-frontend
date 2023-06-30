@@ -57,7 +57,9 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
       <ContainerBoard>
         <SidebarBoard>
           <Title>{bgName?.title}</Title>
-          <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
+          <Filter
+            onClick={() => dispatch(openModal({ name: 'filter', boardId }))}
+          >
             <FiFilter />
             <span>Filters</span>
           </Filter>
