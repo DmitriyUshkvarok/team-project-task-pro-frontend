@@ -35,8 +35,7 @@ const Header = ({ openSideBar }) => {
         <Navigation>
           <BurgerMenu openSideBar={openSideBar} />
           <BoxMenu>
-            <ThemeSelect />
-
+            <ThemeSelect/>
             <UserInfo
               onClick={() => dispatch(openModal({ name: 'editprofile' }))}
             >
