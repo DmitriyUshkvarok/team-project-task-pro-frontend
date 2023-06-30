@@ -13,12 +13,7 @@ import {
 
 import url from '../../../images/icons/sprite/icons.svg';
 
-const CreateBoards = () => {
-  const dispatch = useDispatch();
-
-  const handleOpenModal = () => {
-    dispatch(openModal({ name: 'craeteModalBoard' }));
-  };
+const CreateBoards = ({ handleOpenModal }) => {
   return (
     <Container>
       <Desc>My boards</Desc>

@@ -7,7 +7,7 @@ import LogOut from './LogOut/LogOut';
 import { Container } from './SideBar.styled';
 import { useGetMiniImgQuery } from '../../redux/miniImgApi/miniImgApi';
 
-const Sidebar = ({ isSidebarOpen }) => {
+const Sidebar = ({ isSidebarOpen, handleOpenModal }) => {
   const [isClose, setClose] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const { data } = useGetMiniImgQuery();
@@ -47,7 +47,7 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <Container isClose={isClose} isOpen={isSidebarOpen} isSticky={isSticky}>
       <Logo />
-      <CreateBoards />
+      <CreateBoards handleOpenModal={handleOpenModal} />
       <Boards />
       <CustomerSupport />
       <LogOut />

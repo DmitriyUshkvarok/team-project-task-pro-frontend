@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { openModal } from '../../redux/modal/modalSlice';
 
 import authSelector from '../../redux/auth/authSelector';
 import Sidebar from '../../Components/Sidebar/Sidebar';
@@ -13,6 +16,8 @@ const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const theme = useSelector(authSelector.getTheme);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!theme) {
@@ -30,12 +35,22 @@ const HomePage = () => {
     setIsSidebarOpen(false);
   };
 
+  const handleOpenModal = () => {
+    dispatch(openModal({ name: 'craeteModalBoard' }));
+  };
+
   return (
     // <ContainerHome>
     <>
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar
+        handleOpenModal={handleOpenModal}
+        isSidebarOpen={isSidebarOpen}
+      />
       <Header openSideBar={toggleSidebar} />
-      <BoardScreen closeSidebar={closeSidebar} />
+      <BoardScreen
+        handleOpenModal={handleOpenModal}
+        closeSidebar={closeSidebar}
+      />
       {/* </ContainerHome> */}
     </>
   );
