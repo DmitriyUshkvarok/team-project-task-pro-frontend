@@ -78,18 +78,21 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
           </Wrap>
         )}
         <BoardsContainer>
-          <ContainerColumns>
-            <Outlet />
-          </ContainerColumns>
           {boards?.length !== 0 && (
-            <AddColumnBtn onClick={handleClickModal}>
-              <AddColumnIcon>
-                <svg width="18" height="18">
-                  <use xlinkHref={`${url}#icon-plus`} />
-                </svg>
-              </AddColumnIcon>
-              Add Columns
-            </AddColumnBtn>
+            <>
+              <ContainerColumns>
+                <Outlet />
+              </ContainerColumns>
+
+              <AddColumnBtn onClick={handleClickModal}>
+                <AddColumnIcon>
+                  <svg width="18" height="18">
+                    <use xlinkHref={`${url}#icon-plus`} />
+                  </svg>
+                </AddColumnIcon>
+                Add Columns
+              </AddColumnBtn>
+            </>
           )}
         </BoardsContainer>
       </ContainerBoard>
