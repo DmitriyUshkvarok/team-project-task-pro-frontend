@@ -72,93 +72,95 @@ const TaskCard = ({ task, columns }) => {
   };
 
   return (
-    <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
-      <Card>
-        <CardTitle>{task.title}</CardTitle>
+    <li>
+      <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
+        <Card>
+          <CardTitle>{task.title}</CardTitle>
 
-        <CardDescription>
-          <CardText>
-            {task.description.length >= maxLength
-              ? `${task.description.substring(0, maxLength)}...`
-              : task.description}
-          </CardText>
-        </CardDescription>
+          <CardDescription>
+            <CardText>
+              {task.description.length >= maxLength
+                ? `${task.description.substring(0, maxLength)}...`
+                : task.description}
+            </CardText>
+          </CardDescription>
 
-        <CardBottom>
-          <CardBottomGrop>
-            <CardPriority>
-              <CardSubtitle>Priority</CardSubtitle>
-              <Circle>
-                <div
-                  style={{
-                    backgroundColor: `${colorSwitch(task.priority)}`,
-                    height: '12px',
-                    width: '12px',
-                    borderRadius: '50%',
-                  }}
-                ></div>
-                <Priority>
-                  {task.priority.charAt(0).toUpperCase() +
-                    task.priority.slice(1)}
-                </Priority>
-              </Circle>
-            </CardPriority>
-            <CardDeadline>
-              <CardSubtitle>Deadline</CardSubtitle>
-              <Deadline>{formattedDate}</Deadline>
-            </CardDeadline>
-          </CardBottomGrop>
+          <CardBottom>
+            <CardBottomGrop>
+              <CardPriority>
+                <CardSubtitle>Priority</CardSubtitle>
+                <Circle>
+                  <div
+                    style={{
+                      backgroundColor: `${colorSwitch(task.priority)}`,
+                      height: '12px',
+                      width: '12px',
+                      borderRadius: '50%',
+                    }}
+                  ></div>
+                  <Priority>
+                    {task.priority.charAt(0).toUpperCase() +
+                      task.priority.slice(1)}
+                  </Priority>
+                </Circle>
+              </CardPriority>
+              <CardDeadline>
+                <CardSubtitle>Deadline</CardSubtitle>
+                <Deadline>{formattedDate}</Deadline>
+              </CardDeadline>
+            </CardBottomGrop>
 
-          {new Date() >= new Date(task.deadline) ? (
-            <BellBox>
-              <CardIconBell>
-                <use xlinkHref={`${url}#icon-bell`} />
-              </CardIconBell>
-            </BellBox>
-          ) : null}
+            {new Date() >= new Date(task.deadline) ? (
+              <BellBox>
+                <CardIconBell>
+                  <use xlinkHref={`${url}#icon-bell`} />
+                </CardIconBell>
+              </BellBox>
+            ) : null}
 
-          <CardBtnGrope>
-            <CardBtn
-              type="button"
-              onClick={() =>
-                dispatch(
-                  openModal({
-                    name: 'progressDoneModal',
-                    currentColumnId: task.column,
-                    currentTaskId: task._id,
-                    columns,
-                  })
-                )
-              }
-            >
-              <CardIcon>
-                <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
-              </CardIcon>
-            </CardBtn>
-            <CardBtn
-              type="button"
-              onClick={() =>
-                dispatch(
-                  openModal({
-                    name: 'modalEditCard',
-                    task,
-                  })
-                )
-              }
-            >
-              <CardIcon>
-                <use xlinkHref={`${url}#icon-pencil-01`} />
-              </CardIcon>
-            </CardBtn>
-            <CardBtn type="button">
-              <CardIcon onClick={() => handleDeleteTask(task._id)}>
-                <use xlinkHref={`${url}#icon-trash-04`} />
-              </CardIcon>
-            </CardBtn>
-          </CardBtnGrope>
-        </CardBottom>
-      </Card>
-    </CardBg>
+            <CardBtnGrope>
+              <CardBtn
+                type="button"
+                onClick={() =>
+                  dispatch(
+                    openModal({
+                      name: 'progressDoneModal',
+                      currentColumnId: task.column,
+                      currentTaskId: task._id,
+                      columns,
+                    })
+                  )
+                }
+              >
+                <CardIcon>
+                  <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
+                </CardIcon>
+              </CardBtn>
+              <CardBtn
+                type="button"
+                onClick={() =>
+                  dispatch(
+                    openModal({
+                      name: 'modalEditCard',
+                      task,
+                    })
+                  )
+                }
+              >
+                <CardIcon>
+                  <use xlinkHref={`${url}#icon-pencil-01`} />
+                </CardIcon>
+              </CardBtn>
+              <CardBtn type="button">
+                <CardIcon onClick={() => handleDeleteTask(task._id)}>
+                  <use xlinkHref={`${url}#icon-trash-04`} />
+                </CardIcon>
+              </CardBtn>
+            </CardBtnGrope>
+          </CardBottom>
+        </Card>
+      </CardBg>
+    </li>
   );
 };
 
