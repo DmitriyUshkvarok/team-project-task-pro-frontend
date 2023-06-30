@@ -62,7 +62,8 @@ export const UserText = styled.p`
   margin-left: 14px;
   cursor: pointer;
   color: var(--primaryItemsColor);
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;
