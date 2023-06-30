@@ -5,7 +5,8 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 
@@ -16,7 +17,8 @@ export const Button = styled.button`
 export const Svg = styled.svg`
   stroke: var(--primaryItemsColor);
 
-  &:hover {
+  &:hover,
+  &:focus {
     stroke: var(--accentColor);
   }
 `;

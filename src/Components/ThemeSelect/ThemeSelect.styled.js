@@ -20,7 +20,8 @@ export const ThemeTitle = styled.p`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
   color: var(--secondaryItemsColor);
-  :hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;
@@ -54,7 +55,8 @@ export const ItemThema = styled.li`
   color: var(--primaryItemsColor);
   opacity: 50%;
   transition: color var(--transition);
-  :hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
     opacity: 100%;
   }
