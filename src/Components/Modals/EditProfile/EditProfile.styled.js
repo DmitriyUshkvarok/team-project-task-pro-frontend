@@ -158,6 +158,9 @@ export const PhotoBox = styled.div`
   margin-bottom: 25px;
 `;
 
+
+
+
 export const SpanErrorImg = styled.span`
   position: absolute;
   top: 12%;
@@ -203,3 +206,16 @@ export const BtnSavePhotoUser = styled.button`
   padding: 0px;
   cursor: pointer;
 `;
+
+export const UserIconSvg = styled.svg`
+  fill: var(--userIconBgSvgColor); /* Цвет фона */
+  color: var(--userIconSvgColor); /* Цвет человечка */
+  color: #eff878; /* Цвет человечка */
+  fill: #009fff; /* Цвет фона */
+
+  width: 68px;
+  height: 68px;
+  border-radius: var(--borderRadius8);
+`;
+
+
