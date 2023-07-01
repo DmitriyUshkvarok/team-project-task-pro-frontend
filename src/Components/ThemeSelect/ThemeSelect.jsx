@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import authOperation from '../../redux/auth/authOperation';
@@ -26,6 +26,24 @@ const ThemeSelect = () => {
     document.body.setAttribute('data-theme', selectedTheme);
   }, [selectedTheme]);
 
+  const Close = (ref) => {
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsSelectOpen(false);
+        }
+      };
+      document.addEventListener('mousedown', handleClickOutside);
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  const wrapperRef = useRef(null);
+  Close(wrapperRef);
+
   const handleThemeToggle = (theme) => {
     dispatch(setTheme(theme));
     dispatch(authOperation.updateTheme(theme));
@@ -34,7 +52,7 @@ const ThemeSelect = () => {
   };
 
   return (
-    <MainContainer isOpen={isSelectOpen}>
+    <MainContainer isOpen={isSelectOpen} ref={wrapperRef}>
       <ThemeSelectWrapper onClick={() => setIsSelectOpen(!isSelectOpen)}>
         <ThemeTitle>Theme</ThemeTitle>
         <MdKeyboardArrowDown size={16} color="var(--secondaryItemsColor)" />
