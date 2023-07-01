@@ -31,7 +31,7 @@ import {
   ContainerIconButton,
   ImgStyled,
   Icon,
-  Img,
+  
   ImgBox,
 } from './ModalEditBoard.styled';
 
@@ -96,9 +96,11 @@ const ModalEditBoard = ({ componentName }) => {
                   name="backgroundId"
                   value="default"
                 />
-                <Img width="16" height="16" stroke="var(--iconImageColor)">
-                  <use xlinkHref={`${urlIcon}#icon-image-default`} />
-                </Img>
+                <ImgBox>
+                  <svg width="16" height="16" stroke="var(--iconImageColor)">
+                    <use xlinkHref={`${urlIcon}#icon-image-default`} />
+                  </svg>
+                </ImgBox>
               </label>
               {data?.map(({ _id, name, image }) => (
                 <label key={_id}>
