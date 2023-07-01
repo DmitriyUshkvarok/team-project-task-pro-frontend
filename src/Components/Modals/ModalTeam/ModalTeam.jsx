@@ -33,39 +33,33 @@ const ModalTeam = () => {
       <TeamTitle>TaskPro Team</TeamTitle>
       <FirstList>
         <User>
-          <Img
-            src={dm}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={dm} alt="user" />
           <p>Dmitriy Ushkvarok</p>
           <p>Team Lead</p>
           <ContainerIcons>
-            <a href="https://github.com/DmitriyUshkvarok">
+            <a href="https://github.com/DmitriyUshkvarok" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/dmitriy-ushkvarok/">
+            <a
+              href="https://www.linkedin.com/in/dmitriy-ushkvarok/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={vt}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={vt} alt="user" />
           <p>Vitalii Nozhenko</p>
           <p>Scrum Master</p>
           <ContainerIcons>
-            <a href="https://github.com/VitalikN">
+            <a href="https://github.com/VitalikN" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/vitalii-nozhenko/">
+            <a
+              href="https://www.linkedin.com/in/vitalii-nozhenko/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
@@ -73,96 +67,81 @@ const ModalTeam = () => {
       </FirstList>
       <SecondList>
         <User>
-          <Img
-            src={ig}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={ig} alt="user" />
           <p>Ihor Statsenko</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/statsenkoin">
+            <a href="https://github.com/statsenkoin" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/ihor-statsenko/">
+            <a
+              href="https://www.linkedin.com/in/ihor-statsenko/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={ag}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={ag} alt="user" />
           <p>Anastasiia Hudymenko</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/AnastasiiaHudymenko">
+            <a href="https://github.com/AnastasiiaHudymenko" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/anastasia-gudymenko/">
+            <a
+              href="https://www.linkedin.com/in/anastasia-gudymenko/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={al}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={al} alt="user" />
           <p>Oleksandr Usachov</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/alexxxusachev888">
+            <a href="https://github.com/alexxxusachev888" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/oleksandr-usachov/">
+            <a
+              href="https://www.linkedin.com/in/oleksandr-usachov/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={ev}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={ev} alt="user" />
           <p>Evgen Zaharevich</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/Evgen-Zaharevich">
+            <a href="https://github.com/Evgen-Zaharevich" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/evgen-zaharevich/">
+            <a
+              href="https://www.linkedin.com/in/evgen-zaharevich/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={sm}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={sm} alt="user" />
           <p>Serhii Mykhailevych</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/serheihimself">
+            <a href="https://github.com/serheihimself" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/serhii-mykhailevych/">
+            <a
+              href="https://www.linkedin.com/in/serhii-mykhailevych/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
@@ -170,115 +149,88 @@ const ModalTeam = () => {
       </SecondList>
       <ThirdList>
         <User>
-          <Img
-            src={ol}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={ol} alt="user" />
           <p>Oleh Paslavskiy</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/OPaslavskiy">
+            <a href="https://github.com/OPaslavskiy" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/oleh-paslavskyi/">
+            <a
+              href="https://www.linkedin.com/in/oleh-paslavskyi/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={an}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={an} alt="user" />
           <p>Anna Kornieieva</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/KornieievaAnna">
+            <a href="https://github.com/KornieievaAnna" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/anna-kornieieva-3a1599166/">
+            <a
+              href="https://www.linkedin.com/in/anna-kornieieva-3a1599166/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={dz}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={dz} alt="user" />
           <p>Ihor Diuzhev</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/IhorDiu">
+            <a href="https://github.com/IhorDiu" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/ihor-duizhev/">
+            <a href="https://www.linkedin.com/in/ihor-duizhev/" target="blank">
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={dr}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={dr} alt="user" />
           <p>Darya Viunyk</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/Darya-Viunyk">
+            <a href="https://github.com/Darya-Viunyk" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/daria-viunyk/">
+            <a href="https://www.linkedin.com/in/daria-viunyk/" target="blank">
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={os}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={os} alt="user" />
           <p>Oleh Scherbak</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/olehscherbak">
+            <a href="https://github.com/olehscherbak" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/olehscherbak/">
+            <a href="https://www.linkedin.com/in/olehscherbak/" target="blank">
               <AiFillLinkedin />
             </a>
           </ContainerIcons>
         </User>
         <User>
-          <Img
-            src={sa}
-            alt="user"
-            width={120}
-            height={120}
-            style={{ borderRadius: '8px' }}
-          />
+          <Img src={sa} alt="user" />
           <p>Serhii Opanasenko</p>
           <p>Developer</p>
           <ContainerIcons>
-            <a href="https://github.com/PanSerg">
+            <a href="https://github.com/PanSerg" target="blank">
               <AiOutlineGithub />
             </a>
-            <a href="https://www.linkedin.com/in/serhii-opanasenko-284160263/">
+            <a
+              href="https://www.linkedin.com/in/serhii-opanasenko-284160263/"
+              target="blank"
+            >
               <AiFillLinkedin />
             </a>
           </ContainerIcons>

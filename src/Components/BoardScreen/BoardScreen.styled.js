@@ -220,7 +220,7 @@ export const Filter = styled.p`
   align-items: center;
   gap: 0.5em;
   cursor: pointer;
-  
+
   :hover,
   :focus {
     color: var(--accentColor);
@@ -231,13 +231,13 @@ export const CreatedContainer = styled.div`
   justify-content: center;
 `;
 export const CreatedDescription = styled.p`
-  color: var(--borderTopColor);
+  color: var(--primaryItemsColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
 `;
 export const ModalTeamBtn = styled.button`
-  color: var(--borderTopColor);
+  color: var(--primaryItemsColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
