@@ -31,14 +31,18 @@ const authSlice = createSlice({
     builder
       .addCase(authOperation.register.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
+        state.user.email = action.payload.email;
         state.user.name = action.payload.name;
         state.user.id = action.payload.id;
+        state.user.boards = action.payload.boards;
+        state.user.currentBoard = action.payload.currentBoard;
         state.user.avatarURL = action.payload.avatarURL;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
       .addCase(authOperation.logIn.fulfilled, (state, action) => {
         state.user.theme = action.payload.theme;
+        state.user.email = action.payload.email;
         state.user.name = action.payload.name;
         state.user.id = action.payload.id;
         state.user.boards = action.payload.boards;
