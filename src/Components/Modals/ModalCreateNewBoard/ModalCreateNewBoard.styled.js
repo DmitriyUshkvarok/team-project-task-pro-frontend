@@ -74,7 +74,7 @@ export const FieldTitle = styled(Field)`
   &:focus,
   &:active {
     opacity: 1;
-    outline: 1px solid var(--borderNeedHelpColor);
+    outline: 1px solid var(--accentColor);
   }
 
   @media screen and (min-width: 768px) {
@@ -145,6 +145,14 @@ export const ImageContainer = styled.div`
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    transition-property: outline;
+    transition-duration: var(--transition);
+
+    &:hover,
+    &:focus,
+    &:active {      
+      outline: 2px solid var(--accentColor);
+    }  
   }
   label:first-of-type {
     background-color: var(--iconImageBGColor);
