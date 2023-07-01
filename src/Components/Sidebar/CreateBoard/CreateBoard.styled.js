@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 70px;
+  margin-top: 50px;
   padding: 0 14px;
 
   @media screen and (min-width: 768px) {
     padding: 0 24px;
-    margin-top: 60px;
+    margin-top: 40px;
   }
 `;
 

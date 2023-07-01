@@ -41,7 +41,11 @@ export const BtnAdd = styled.button`
 
 //--Sidebar
 
-export const BoxColumns = styled.li``;
+export const BoxColumns = styled.li`
+  &:last-child {
+    margin-right: 34px;
+  }
+`;
 
 export const BoxColumnsTitle = styled.div`
   @media screen and (min-width: 320px) {
@@ -73,7 +77,8 @@ export const ListTask = styled.ul`
   @media screen and (min-width: 320px) {
     position: relative;
     min-width: 292px;
-    height: 478px;
+    height: fit-content;
+    max-height: calc(100vh - 340px);
     overflow-y: auto;
     position: relative;
     display: flex;
@@ -85,13 +90,15 @@ export const ListTask = styled.ul`
     width: 346px;
   }
   @media screen and (min-width: 768px) {
-    height: 640px;
+    max-height: calc(100vh - 372px);
+    /* height: 640px; */
   }
   @media screen and (min-width: 1280px) {
-    height: 478px;
+    /* height: 478px; */
   }
   ::-webkit-scrollbar {
     width: 8px;
+    border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -135,7 +142,7 @@ export const AddCardBtn = styled.button`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  min-width: 100%;
+  min-width: 279px;
   height: 56px;
   border: none;
   color: var(--addCardIconColor);

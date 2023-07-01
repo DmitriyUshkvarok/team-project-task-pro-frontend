@@ -68,7 +68,9 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
       <ContainerBoard>
         <SidebarBoard>
           <Title>{bgName?.title}</Title>
-          <Filter onClick={() => dispatch(openModal({ name: 'filter' }))}>
+          <Filter
+            onClick={() => dispatch(openModal({ name: 'filter', boardId }))}
+          >
             <FiFilter />
             <span>Filters</span>
           </Filter>
@@ -94,18 +96,21 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
           </Wrap>
         )}
         <BoardsContainer>
-          <ContainerColumns>
-            <Outlet />
-          </ContainerColumns>
           {boards?.length !== 0 && (
-            <AddColumnBtn onClick={handleClickModal}>
-              <AddColumnIcon>
-                <svg width="18" height="18">
-                  <use xlinkHref={`${url}#icon-plus`} />
-                </svg>
-              </AddColumnIcon>
-              Add Columns
-            </AddColumnBtn>
+            <>
+              <ContainerColumns>
+                <Outlet />
+              </ContainerColumns>
+
+              <AddColumnBtn onClick={handleClickModal}>
+                <AddColumnIcon>
+                  <svg width="18" height="18">
+                    <use xlinkHref={`${url}#icon-plus`} />
+                  </svg>
+                </AddColumnIcon>
+                Add Columns
+              </AddColumnBtn>
+            </>
           )}
         </BoardsContainer>
       </ContainerBoard>

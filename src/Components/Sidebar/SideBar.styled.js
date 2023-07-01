@@ -24,7 +24,7 @@ export const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    max-height: 100%;
+    height: 100vh;
   }
 
   ${({ isSticky }) =>

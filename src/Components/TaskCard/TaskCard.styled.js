@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-export const CardBg = styled.li`
-  /* width: 334px;
+export const CardBg = styled.div`
+  width: 334px;
   border-radius: 8px;
-  overflow: hidden; */
+  
 
   @media screen and (min-width: 320px) {
     border-radius: 8px;
@@ -22,7 +22,7 @@ export const Card = styled.div`
   background-color: var(--headerColor);
 
   height: 154px;
-  padding: 14px 24px;
+  padding: 14px 18px 14px 20px;
   @media screen and (min-width: 375px) {
     width: 330px;
   }
@@ -30,35 +30,33 @@ export const Card = styled.div`
 
 export const CardTitle = styled.h4`
   font-size: var(--fontSize14);
-  color: var(--titleColor);
+  color: var(--cardTitleColor);
   letter-spacing: -0.28px;
   font-family: var(--poppinsFont);
   margin: 0px 0px 8px 0px;
 `;
 
 export const CardDescription = styled.div`
-  border-bottom: 1px solid var(--borderBottomColor);
-  width: 290px;
+  border-bottom: 1px solid var(--cardBorderBottomColor);
+  width: 227px;
   height: 52px;
   margin-bottom: 14px;
-  @media screen and (min-width: 320px) {
-    width: 227px;
+  @media screen and (min-width: 375px) {
+    width: 290px;
   }
 `;
 
 export const CardText = styled.p`
   font-size: var(--fontSize12);
-  color: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
+  color: var(--cardDescriptionTextColor);
   position: relative;
   font-family: var(--poppinsFont);
   text-overflow: ellipsis;
   overflow: hidden;
   letter-spacing: -0.24px;
   line-height: 16px;
-  display: flex;
   width: 290;
   height: 38px;
-  flex-direction: column;
 `;
 
 export const CardBottom = styled.div`
@@ -73,7 +71,6 @@ export const CardBottomGrop = styled.div`
 `;
 
 export const CardPriority = styled.div`
-  width: 56px;
   height: 31px;
   display: flex;
   flex-direction: column;
@@ -81,7 +78,8 @@ export const CardPriority = styled.div`
 `;
 
 export const CardSubtitle = styled.p`
-  color: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
+  height: 12px;
+  color: var(--cardSubtitleColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
   font-size: var(--fontSize8);
   font-family: var(--poppinsFont);
   letter-spacing: -0.16px;
@@ -95,14 +93,14 @@ export const Circle = styled.div`
 
 export const Priority = styled.p`
   position: relative;
-  color: var(--titleColor);
+  color: var(--cardPriorityTextColor);
   font-size: var(--fontSize10);
   font-family: var(--poppinsFont);
+  font-weight: 400;
   letter-spacing: -0.2px;
 `;
 
 export const CardDeadline = styled.div`
-  width: 53px;
   height: 31px;
   display: flex;
   flex-direction: column;
@@ -110,8 +108,9 @@ export const CardDeadline = styled.div`
 `;
 
 export const Deadline = styled.p`
+  height: 15px;
   position: relative;
-  color: var(--titleColor);
+  color: var(--cardPriorityTextColor);
   height: 12px;
   font-size: var(--fontSize10);
   font-family: var(--poppinsFont);
@@ -137,8 +136,26 @@ export const CardBtn = styled.button`
 `;
 
 export const CardIcon = styled.svg`
-  stroke: var(--borderTopColor); // ПОМЕНЯТЬ ЦВЕТ!!!
+  stroke: var(--taskIconColor);
   width: 16px;
   height: 16px;
   fill: none;
+`;
+
+export const BellBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  margin-right: 12px;
+  margin-left: auto;
+`;
+
+export const CardIconBell = styled.svg`
+  stroke: var(--taskIconBellColor);
+  fill: none;
+  width: 16px;
+  height: 16px;
+
+  filter: drop-shadow(0 0 6px var(--taskIconBellColor));
 `;

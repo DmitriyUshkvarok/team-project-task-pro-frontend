@@ -3,7 +3,6 @@ import * as yup from 'yup';
 import { toast } from 'react-toastify';
 
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import userDefault from '../../../images/icons/iconsPng/user_default.png';
 import { useState } from 'react';
 import {
   useUpdateUserMutation,
@@ -22,6 +21,7 @@ import {
   ToggleShowPassword,
   BtnWrapper,
   BtnUpdate,
+  ErrorServer,
   StyleErrorMessage,
   Error,
   Edit,
@@ -35,6 +35,7 @@ import {
   InputEditPhoto,
   BtnSavePhotoUser,
   PhotoBox,
+  UserIconSvg,
 } from './EditProfile.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
@@ -42,7 +43,14 @@ import { closeModal } from '../../../redux/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 
 const schema = yup.object().shape({
-  name: yup.string().min(4).max(32),
+  name: yup
+    .string()
+    .min(4, 'Name should be at least 4 characters')
+    .max(64, 'Name should not exceed 64 characters')
+    .matches(
+      /^[a-zA-Z0-9а-яА-ЯёЁ.\s_%+-]+$/,
+      'Name should not contain special characters, except for . _ % + - and one space'
+    ),
   email: yup
     .string()
     .email('Invalid email')
@@ -54,7 +62,11 @@ const schema = yup.object().shape({
     })
     .optional()
     .notRequired(),
-  password: yup.string().min(8).max(64),
+  password: yup
+    .string()
+    .min(8)
+    .max(64)
+    .matches(/^[^\s]+$/, 'Password should not contain spaces'),
 });
 
 const EditProfile = () => {
@@ -62,8 +74,14 @@ const EditProfile = () => {
   const [showPassword, setShowPassword] = useState(null);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [showSaveButton, setShowSaveButton] = useState(false);
+  const [showNameSuccessMessage, setShowNameSuccessMessage] = useState(false);
+  const [showEmailSuccessMessage, setShowEmailSuccessMessage] = useState(false);
+  const [showPasswordSuccessMessage, setShowPasswordSuccessMessage] =
+    useState(false);
 
-  const [updateUser, { isLoading: isInfoLoading }] = useUpdateUserMutation();
+  const [updateUser, { isLoading: isInfoLoading, error: erorUpdate }] =
+    useUpdateUserMutation();
+  console.log(erorUpdate);
   const [updateAvatar, { isLoading: isAvatarLoading, error: errorFormat }] =
     useChangeProfileAvatarMutation();
   const dispatch = useDispatch();
@@ -100,14 +118,22 @@ const EditProfile = () => {
     if (values.name) {
       updatedUser.name = values.name;
       await updateUser(updatedUser);
-      toast.success('Name field has been updated');
+      setShowNameSuccessMessage(true);
+
+      setTimeout(() => {
+        setShowNameSuccessMessage(false);
+      }, 4000);
     }
 
     if (values.email) {
       updatedUser.email = values.email;
       try {
         await updateUser(updatedUser);
-        toast.success('Email field has been updated');
+        setShowEmailSuccessMessage(true);
+
+        setTimeout(() => {
+          setShowEmailSuccessMessage(false);
+        }, 4000);
       } catch (error) {
         console.log(error);
       }
@@ -117,7 +143,11 @@ const EditProfile = () => {
       updatedUser.password = values.password;
       try {
         await updateUser(updatedUser);
-        toast.success('Password field has been updated');
+        setShowPasswordSuccessMessage(true);
+
+        setTimeout(() => {
+          setShowPasswordSuccessMessage(false);
+        }, 4000);
       } catch (error) {
         console.log(error);
       }
@@ -153,15 +183,20 @@ const EditProfile = () => {
       <EditTitle>Edit profile</EditTitle>
       <ProfilePhotoBlock>
         <PhotoBox>
-          <PhotoUser
-            src={
-              selectedAvatar
-                ? URL.createObjectURL(selectedAvatar)
-                : currentUser?.avatarURL || userDefault
-            }
-            alt="user avatar"
-          ></PhotoUser>
-
+          {selectedAvatar ? (
+            <PhotoUser
+              src={
+                selectedAvatar
+                  ? URL.createObjectURL(selectedAvatar)
+                  : currentUser?.avatarURL
+              }
+              alt="user avatar"
+            ></PhotoUser>
+          ) : (
+            <UserIconSvg>
+              <use xlinkHref={`${url}#icon-user_default`} />
+            </UserIconSvg>
+          )}
           {!showSaveButton && (
             <LabelEditPhoto htmlFor="inputFile">
               <svg width="10" height="10">
@@ -217,6 +252,11 @@ const EditProfile = () => {
             <StyleErrorMessage name="name">
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
+            {showNameSuccessMessage && (
+              <div style={{ marginTop: '5px', color: 'green' }}>
+                Field successfully updated
+              </div>
+            )}
           </FeedbackFormGroup>
           <FeedbackFormGroup>
             <InputForm
@@ -225,9 +265,15 @@ const EditProfile = () => {
               placeholder="Edit email"
               autoComplete="off"
             />
+            {erorUpdate && <ErrorServer>{erorUpdate.data.message}</ErrorServer>}
             <StyleErrorMessage name="email">
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
+            {showEmailSuccessMessage && (
+              <div style={{ marginTop: '5px', color: 'green' }}>
+                Field successfully updated
+              </div>
+            )}
           </FeedbackFormGroup>
           <FeedbackFormGroup>
             <PasswordWrapper>
@@ -239,10 +285,15 @@ const EditProfile = () => {
               />
               <ToggleShowPassword onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <BsEye color="var(--iconBSEyeColor)" opacity="0.4000000059604645" style={{ width: 18, height: 18 }} />
-                ) : (
                   <BsEyeSlash
-                    color="var(--iconBSEyeColor)" opacity="0.4000000059604645"
+                    color="var(--iconBSEyeColor)"
+                    opacity="0.4000000059604645"
+                    style={{ width: 18, height: 18 }}
+                  />
+                ) : (
+                  <BsEye
+                    color="var(--iconBSEyeColor)"
+                    opacity="0.4000000059604645"
                     style={{ width: 18, height: 18 }}
                   />
                 )}
@@ -251,6 +302,11 @@ const EditProfile = () => {
             <StyleErrorMessage name="password">
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
+            {showPasswordSuccessMessage && (
+              <div style={{ marginTop: '5px', color: 'green' }}>
+                Field successfully updated
+              </div>
+            )}
           </FeedbackFormGroup>
           <BtnWrapper>
             <BtnUpdate type="submit" disabled={isInfoLoading}>

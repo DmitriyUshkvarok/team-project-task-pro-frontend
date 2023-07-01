@@ -14,20 +14,34 @@ import {
   Deadline,
   CardBtnGrope,
   CardBtn,
+  CardIconBell,
   CardIcon,
+  BellBox,
 } from './TaskCard.styled';
 import url from '../../images/icons/sprite/icons.svg';
 import PropTypes from 'prop-types';
+import { LoaderForDeleted } from '../Loader/LoaderDeleted/LoaderDeleted';
 
 import { openModal } from '../../redux/modal/modalSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useDeleteTaskMutation } from '../../redux/boardApi/boardApi';
+import { useState } from 'react';
 
 const TaskCard = ({ task, columns }) => {
+  const [isLoading, setIsLoading] = useState({});
   const [deleteTask] = useDeleteTaskMutation();
   const dispatch = useDispatch();
+
+  const { themeColor } = useSelector((store) => store.theme);
+
   const maxLength = 97;
+
+  const date = new Date(task.deadline);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
 
   function colorSwitch(priority) {
     let color;
@@ -37,7 +51,7 @@ const TaskCard = ({ task, columns }) => {
         break;
 
       case 'without':
-        color = '#1616164d';
+        color = themeColor === 'dark' ? '#FFFFFF4D' : '#1616164d';
         break;
 
       case 'high':
@@ -54,89 +68,114 @@ const TaskCard = ({ task, columns }) => {
 
   const handleDeleteTask = async (id) => {
     try {
+      setIsLoading((prevDelete) => ({
+        ...prevDelete,
+        [id]: true,
+      }));
       await deleteTask(id);
+      setIsLoading((prevDelete) => ({
+        ...prevDelete,
+        [id]: false,
+      }));
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
-      <Card>
-        <CardTitle>{task.title}</CardTitle>
+    <li>
+      <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
+        <Card>
+          <CardTitle>{task.title}</CardTitle>
 
-        <CardDescription>
-          <CardText>
-            {task.description.length >= maxLength
-              ? `${task.description.substring(0, maxLength)}...`
-              : task.description}
-          </CardText>
-        </CardDescription>
+          <CardDescription>
+            <CardText>
+              {task.description.length >= maxLength
+                ? `${task.description.substring(0, maxLength)}...`
+                : task.description}
+            </CardText>
+          </CardDescription>
 
-        <CardBottom>
-          <CardBottomGrop>
-            <CardPriority>
-              <CardSubtitle>Priority</CardSubtitle>
-              <Circle>
-                <div
-                  style={{
-                    backgroundColor: `${colorSwitch(task.priority)}`,
-                    height: '12px',
-                    width: '12px',
-                    borderRadius: '50%',
-                  }}
-                ></div>
-                <Priority>{task.priority}</Priority>
-              </Circle>
-            </CardPriority>
-            <CardDeadline>
-              <CardSubtitle>Deadline</CardSubtitle>
-              <Deadline>{task.deadline}</Deadline>
-            </CardDeadline>
-          </CardBottomGrop>
+          <CardBottom>
+            <CardBottomGrop>
+              <CardPriority>
+                <CardSubtitle>Priority</CardSubtitle>
+                <Circle>
+                  <div
+                    style={{
+                      backgroundColor: `${colorSwitch(task.priority)}`,
+                      height: '12px',
+                      width: '12px',
+                      borderRadius: '50%',
+                    }}
+                  ></div>
+                  <Priority>
+                    {task.priority.charAt(0).toUpperCase() +
+                      task.priority.slice(1)}
+                  </Priority>
+                </Circle>
+              </CardPriority>
+              <CardDeadline>
+                <CardSubtitle>Deadline</CardSubtitle>
+                <Deadline>{formattedDate}</Deadline>
+              </CardDeadline>
+            </CardBottomGrop>
 
-          <CardBtnGrope>
-            <CardBtn
-              type="button"
-              onClick={() =>
-                dispatch(
-                  openModal({
-                    name: 'progressDoneModal',
-                    currentColumnId: task.column,
-                    currentTaskId: task._id,
-                    columns,
-                  })
-                )
-              }
-            >
-              <CardIcon>
-                <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
-              </CardIcon>
-            </CardBtn>
-            <CardBtn
-              type="button"
-              onClick={() =>
-                dispatch(
-                  openModal({
-                    name: 'modalEditCard',
-                    task,
-                  })
-                )
-              }
-            >
-              <CardIcon stroke="grey">
-                <use xlinkHref={`${url}#icon-pencil-01`} />
-              </CardIcon>
-            </CardBtn>
-            <CardBtn type="button">
-              <CardIcon onClick={() => handleDeleteTask(task._id)}>
-                <use xlinkHref={`${url}#icon-trash-04`} />
-              </CardIcon>
-            </CardBtn>
-          </CardBtnGrope>
-        </CardBottom>
-      </Card>
-    </CardBg>
+            {new Date() >= new Date(task.deadline) ? (
+              <BellBox>
+                <CardIconBell>
+                  <use xlinkHref={`${url}#icon-bell`} />
+                </CardIconBell>
+              </BellBox>
+            ) : null}
+
+            <CardBtnGrope>
+              <CardBtn
+                type="button"
+                onClick={() =>
+                  dispatch(
+                    openModal({
+                      name: 'progressDoneModal',
+                      currentColumnId: task.column,
+                      currentTaskId: task._id,
+                      columns,
+                    })
+                  )
+                }
+              >
+                <CardIcon>
+                  <use xlinkHref={`${url}#icon-arrow-circle-broken-right`} />
+                </CardIcon>
+              </CardBtn>
+              <CardBtn
+                type="button"
+                onClick={() =>
+                  dispatch(
+                    openModal({
+                      name: 'modalEditCard',
+                      task,
+                    })
+                  )
+                }
+              >
+                <CardIcon>
+                  <use xlinkHref={`${url}#icon-pencil-01`} />
+                </CardIcon>
+              </CardBtn>
+              <CardBtn type="button" disabled={isLoading[task._id]}>
+                {isLoading[task._id] ? (
+                  <LoaderForDeleted />
+                ) : (
+                  <CardIcon onClick={() => handleDeleteTask(task._id)}>
+                    <use xlinkHref={`${url}#icon-trash-04`} />
+                  </CardIcon>
+                )}
+              </CardBtn>
+            </CardBtnGrope>
+          </CardBottom>
+        </Card>
+      </CardBg>
+    </li>
   );
 };
 

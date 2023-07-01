@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
@@ -37,11 +37,11 @@ import {
 } from './AddCard.styled.js';
 
 const ModalAddCard = ({ componentName }) => {
-  console.log(componentName);
   const { boardId, columnId } = componentName;
   const [date, setDate] = useState(new Date());
   const [select, setSelect] = useState(null);
   const [formattedDate, setFormattedDate] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const [createTask] = useCreateTaskMutation();
 
@@ -80,12 +80,14 @@ const ModalAddCard = ({ componentName }) => {
   };
 
   const handleSubmit = async (values) => {
+    setIsLoading(true);
     try {
       await createTask({ values, boardId, columnId });
       dispatch(closeModal());
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   };
 
   const hendleSubmitCalendar = (selectedDate) => {
@@ -161,7 +163,7 @@ const ModalAddCard = ({ componentName }) => {
               />
               <StyleErrorMessage name="deadline" component="div" />
             </CalendarContainer>
-            <ButtonModal buttonName={'Add'} />
+            <ButtonModal buttonName={'Add'} isLoading={isLoading} />
           </Form>
         )}
       </Formik>
