@@ -150,12 +150,17 @@ export const ImageContainer = styled.div`
     background-color: var(--iconImageBGColor);
   }
 `;
-
 export const ImgBox = styled.div`
+  position: relative;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: 8px;
 `;
+
 
 export const FormikFieldImage = styled(Field)`
   display: none;

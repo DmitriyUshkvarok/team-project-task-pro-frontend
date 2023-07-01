@@ -90,9 +90,12 @@ const ModalCreateNewBoard = () => {
                   name="backgroundId"
                   value="default"
                 />
-                <ImgBox width="16" height="16" stroke="var(--iconImageColor)">
+                <ImgBox>
+                <svg width="16" height="16" stroke="var(--iconImageColor)">
                   <use xlinkHref={`${urlIcon}#icon-image-default`} />
-                </ImgBox>
+                </svg>
+                </ImgBox>               
+
               </label>
               {data?.map(({ _id, name, image }) => (
                 <label key={_id}>

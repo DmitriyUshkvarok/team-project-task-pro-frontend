@@ -160,6 +160,11 @@ export const ImageContainer = styled.div`
 `;
 
 export const ImgBox = styled.div`
+  position: relative;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: 8px;
@@ -167,12 +172,13 @@ export const ImgBox = styled.div`
 
 export const FormikFieldImage = styled(Field)`
   display: none;
-  
+   
   &:checked + ${ImgBox} {
     outline: 2px solid var(--accentColor);  
     transition-duration: 250ms;
     }
   `;
+
 
 export const Button = styled.button`
   display: flex;
