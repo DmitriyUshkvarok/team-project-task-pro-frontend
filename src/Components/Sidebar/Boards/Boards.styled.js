@@ -40,6 +40,7 @@ export const WrapTitle = styled.div`
 export const IconProject = styled.svg`
 fill: none;
 // stroke: var(--secondarySidebarColor);
+
   width: 18px;
   height: 18px;
   stroke: ${({ isSelected }) =>
@@ -63,6 +64,7 @@ export const TitleBoard = styled.p`
 export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
   gap: 8px;
+  
 `;
 
 export const BtnIcon = styled.button`
