@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
   position: relative;
-  background-color: var(--headerPageColor);
+  background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
   width: 375px;
   height: 100%;
@@ -52,14 +52,14 @@ export const ThirdList = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   row-gap: 18px;
-  column-gap: 16px;
+  column-gap: 12px;
 `;
 export const User = styled.li`
   width: 300px;
   height: 370px;
   border-radius: var(--borderRadius8);
   text-align: center;
-  background-color: var(--headerColor);
+  background-color: var(--screenPageBgColor);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight400);
   font-size: var(--fontSize20);
@@ -78,6 +78,7 @@ export const User = styled.li`
 export const Img = styled.img`
   width: 100%;
   height: 280px;
+  border-radius: var(--borderRadius8);
   @media screen and (min-width: 768px) {
     width: 120px;
     height: 120px;
