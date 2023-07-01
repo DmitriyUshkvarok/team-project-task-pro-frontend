@@ -32,7 +32,6 @@ import {
   ImgStyled,
   Icon,
   ImgBox,
-
 } from './ModalEditBoard.styled';
 
 const ModalEditBoard = ({ componentName }) => {
