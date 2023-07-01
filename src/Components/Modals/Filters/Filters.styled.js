@@ -42,8 +42,8 @@ export const ImageContainer = styled.div`
   padding-bottom: 14px;
   margin-top: 14px;
   margin-bottom: 24px;
-
-  border-bottom: 1px solid var(--modalFilterBorderColor);
+  // cursor: pointer;
+  border-bottom: 1px solid var(--modalFilterBorderColor); 
 
   label {
     position: relative;
@@ -56,16 +56,25 @@ export const ImageContainer = styled.div`
     border-radius: 8px;
     border: none;
     cursor: pointer;
-  }
+    transition-property: outline;
+    transition-duration: var(--transition);
+
+    &:hover,
+    &:focus,
+    &:active {      
+      outline: 2px solid var(--accentColor);
+    }
   label:first-of-type {
     background-color: var(--iconImageBGColor);
   }
+
 `;
 
 export const FormikFieldImage = styled(Field)`
   opacity: 0;
   position: absolute;
   /* display: none; */
+  cursor: pointer;
 `;
 
 export const Container = styled.div`
@@ -139,6 +148,8 @@ export const LabelContainer = styled.div`
     letter-spacing: var(--letterSpacing24);
 
     cursor: pointer;
+    transition-property: color;
+    transition-duration: var(--transition);
 
     &:hover,
     &:focus {
