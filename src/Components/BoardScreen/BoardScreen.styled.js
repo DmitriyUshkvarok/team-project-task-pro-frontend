@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const Board = styled.div`
   background-color: var(--screenPageBgColor);
-  /* padding-bottom: 24px; */
-  /* min-height: 812px; */
+  position: relative;
   height: calc(100vh - 60px);
 
   background-image: url(${(props) => props.boardBg?.mobile?.regular});
@@ -227,8 +226,17 @@ export const Filter = styled.p`
   }
 `;
 export const CreatedContainer = styled.div`
+  @media screen and (min-width: 1280px) {
+    padding-left: 260px;
+  }
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 10px;
   display: flex;
+
   justify-content: center;
+  align-items: center;
 `;
 export const CreatedDescription = styled.p`
   color: var(--primaryItemsColor);
