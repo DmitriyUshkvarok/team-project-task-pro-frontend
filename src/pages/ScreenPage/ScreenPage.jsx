@@ -44,7 +44,7 @@ const ScreenPage = () => {
     }
   }, [filter]);
 
-  const handlClickModal = (columnId) => {
+  const handleClickModal = (columnId) => {
     dispatch(
       openModal({
         name: 'modalAddCard',
@@ -130,7 +130,7 @@ const ScreenPage = () => {
                     )
                 )}
             </ListTask>
-            <AddCardBtn onClick={() => handlClickModal(_id)}>
+            <AddCardBtn onClick={() => handleClickModal(_id)}>
               <AddCardIcon width="28" height="28">
                 <svg width="18" height="18">
                   <use xlinkHref={`${url}#icon-plus`} />

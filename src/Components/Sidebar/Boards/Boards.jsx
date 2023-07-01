@@ -17,6 +17,7 @@ import {
   WrapIcons,
   BtnIcon,
   IconStyled,
+  IconProject
 } from './Boards.styled';
 import { LoaderForDeleted } from '../../Loader/LoaderDeleted/LoaderDeleted';
 import { useScrollbar } from './use-scrollbar';
@@ -105,10 +106,10 @@ const Boards = ({ currentBg }) => {
               onClick={() => handleItemClick(index, _id)}
             >
               <WrapTitle>
-                <IconStyled width="18" height="18">
+                <IconProject isSelected={selectedItem === index}>
                   <use xlinkHref={findIconsUser(iconId)} />
-                </IconStyled>
-                <TitleBoard>{title}</TitleBoard>
+                </IconProject>
+                <TitleBoard  isSelected={selectedItem === index}>{title}</TitleBoard>
               </WrapTitle>
 
               <WrapIcons isSelected={selectedItem === index}>

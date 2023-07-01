@@ -199,8 +199,8 @@ const EditProfile = () => {
           )}
           {!showSaveButton && (
             <LabelEditPhoto htmlFor="inputFile">
-              <svg width="10" height="10">
-                <use xlinkHref={`${url}#icon-plus`} />
+              <svg width="10" height="10" >
+                <use xlinkHref={`${url}#icon-plus+`} />
               </svg>
             </LabelEditPhoto>
           )}

@@ -86,11 +86,11 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
 
               <AddColumnBtn onClick={handleClickModal}>
                 <AddColumnIcon>
-                  <svg width="18" height="18">
+                  <svg width="14" height="14">
                     <use xlinkHref={`${url}#icon-plus`} />
                   </svg>
                 </AddColumnIcon>
-                Add Columns
+                Add another column
               </AddColumnBtn>
             </>
           )}

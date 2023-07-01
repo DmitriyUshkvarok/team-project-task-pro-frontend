@@ -125,7 +125,8 @@ export const Link = styled(NavLink)`
   transition-property: background, color;
   transition-duration: var(--transition);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: var(--bgActiveBtnColor);
 
     color: var(--activeTextColor);

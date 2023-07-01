@@ -29,6 +29,7 @@ import {
   Button,
   ContainerIconButton,
   ImgStyled,
+  Icon
 } from './ModalEditBoard.styled';
 
 const ModalEditBoard = ({ componentName }) => {
@@ -76,9 +77,9 @@ const ModalEditBoard = ({ componentName }) => {
               {icons.map(({ id, path }) => (
                 <label key={id}>
                   <FormikField type="radio" name="iconId" value={id} />
-                  <svg width="18" height="18">
+                  <Icon width="18" height="18">
                     <use xlinkHref={`${urlIcon}${path}`} />
-                  </svg>
+                  </Icon>
                 </label>
               ))}
               <ErrorMessage name="iconId" component="p" />
@@ -92,7 +93,7 @@ const ModalEditBoard = ({ componentName }) => {
                   name="backgroundId"
                   value="default"
                 />
-                <svg width="16" height="16">
+                <svg width="16" height="16" stroke="var(--iconImageColor)">
                   <use xlinkHref={`${urlIcon}#icon-image-default`} />
                 </svg>
               </label>

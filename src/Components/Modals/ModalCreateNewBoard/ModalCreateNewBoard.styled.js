@@ -4,10 +4,9 @@ import { Form, ErrorMessage as FormikError, Field } from 'formik';
 export const ModalCard = styled.div`
   width: 335px;
   height: 433px;
-  // box-shadow: var(--boxShadow);
-  border-radius: var(--borderRadius8);
-  border: 1px solid var(--borderBoardColor);
   background-color: var(--modalBgColor);
+  border-radius: var(--borderRadius8);
+  border: 1px solid var(--borderBoardColor); 
   position: relative;
   padding: 24px;
 
@@ -66,9 +65,10 @@ export const FieldTitle = styled(Field)`
   letter-spacing: -0.28px;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     opacity: 1;
-    outline: none;
+    outline: 1px solid var(--borderNeedHelpColor);
   }
 
   @media screen and (min-width: 768px) {
@@ -94,7 +94,8 @@ export const IconContainer = styled.div`
   label {
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:focus {
       stroke: var(--iconBoardActiveColor);
       transition-duration: 250ms;
     }
@@ -137,7 +138,7 @@ export const ImageContainer = styled.div`
     cursor: pointer;
   }
   label:first-of-type {
-    background-color: rgba(246, 246, 247, 1);
+    background-color: var(--iconImageBGColor);
   }
 `;
 

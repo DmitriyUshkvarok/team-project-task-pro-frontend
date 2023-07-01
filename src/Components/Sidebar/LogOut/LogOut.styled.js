@@ -25,7 +25,8 @@ export const BtnLogOut = styled.button`
   background-color: transparent;
 
   cursor: pointer;
-  :hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;

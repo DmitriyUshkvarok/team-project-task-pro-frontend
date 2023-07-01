@@ -13,7 +13,7 @@ export const Container = styled.div`
   border: var(--modalBorder);
   box-shadow: var(--boxShadow);
 
-  background-color: var(--headerColor);
+  background-color: red;
 
   padding: 24px;
 `;

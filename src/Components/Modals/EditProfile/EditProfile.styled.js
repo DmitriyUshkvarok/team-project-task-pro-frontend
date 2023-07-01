@@ -28,9 +28,11 @@ export const InputForm = styled(Field)`
   outline: none;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     opacity: 1;
-    outline: none;
+    outline: 1px solid var(--borderNeedHelpColor);
+
   }
 
   @media screen and (min-width: 375px) {
@@ -78,7 +80,8 @@ export const BtnUpdate = styled.button`
     width: 352px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const ProgressDoneContainer = styled.ul`
   min-width: 135px;
   min-height: 86px;
-  background-color: var(--modalBGC);
+  background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
   padding: 18px;
-  box-shadow: 0px 4px 16px 0px #1111111a;
+  box-shadow: 0px 4px 16px 0px var(--modalPDBoxShadow);
 `;
 
 export const ColumnName = styled.span`
@@ -15,6 +15,7 @@ export const ColumnName = styled.span`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
+  
 `;
 
 export const ColumnMoveTo = styled.li`
@@ -24,15 +25,16 @@ export const ColumnMoveTo = styled.li`
   align-items: start;
   justify-content: space-between;
   background-color: transparent;
-  color: var(--modalInactiveTextColor);
-  stroke: var(--modalInactiveTextColor);
+  color: var(--textPDBoxColor);
+  stroke: var(--textPDBoxColor);
   fill: transparent;
   border: none;
   cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 8px;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
     stroke: var(--accentColor);
   }

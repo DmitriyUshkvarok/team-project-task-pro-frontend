@@ -8,9 +8,11 @@
   --bgInputColor: #1f1f1f;
   --errorColor: #ff0000;
 
-  --gradientFonColor: linear-gradient(180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
@@ -70,8 +72,26 @@ body[data-theme='light'] {
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**UserIcon*/
-  --userIconBgSvgColor: #F6F6F7;
+  --userIconBgSvgColor: #f6f6f7;
   --userIconSvgColor: #ffffff;
+
+  /**Screen Page*/
+  --screenPageBgColor: #F6F6F7;
+  --addColumnBtnColor: #FFFFFF;
+  --addColumnBtnBG: #161616;
+  --screenPageTextColor: #161616B2;
+  --screenPageSpanColor: #BEDBB0;
+  --iconFilterColor: #161616CC;
+
+  --screenPageTitleBgColor: #ffffff;
+  --screenPageTitleColor: #161616;
+  --screenPageIconColor: #16161680;
+  --screenPageBGScroll: #e8e8e8;
+  --screenPageScrollColor: #1616161a;
+  --addBtnBgColor: #bedbb0;
+  --addBtnTextColor: #161616;
+  --iconBtnBgColor: #161616;
+  --iconBtnTextColor: #ffffff;
 
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
@@ -92,7 +112,6 @@ body[data-theme='light'] {
   --needHelpBgColor: #fcfcfc;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --titleNeedHelpColor: #161616;
-  --iconCloseColor: #161616;
   --borderNeedHelpColor: #bedbb0;
   --textInputColor: #161616;
   --btnNeedHelpColor: #bedbb0;
@@ -123,6 +142,11 @@ body[data-theme='light'] {
   --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
+  --iconImageBGColor: #f6f6f7;
+  --iconImageColor: #1616161a;
+  --textPDBoxColor: #161616;
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
+  --modalFilterBorderColor: #1616161a;
 
   /**Calendar*/
   --currentMonthColor: #161616;
@@ -137,45 +161,12 @@ body[data-theme='light'] {
   --calendarBgDateColor: #bedbb0;
   --calendarPreviousMonthColor: #16161633;
 
-  /**after del*/
-  --logoHeaderColor: red;
-
-  --sidebarColor: #ffffff;
-  /**-*/
-  --helpBlockColor: #f6f6f7;
-  /**-*/
-  --whiteColor: #161616;
-  /**-*/
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --defaultScreenColor: #e6e6e6;
-  --modalBGC: #fcfcfc;
-  --IconCloseColor: #161616;
-  --titleColor: #161616;
-  /* --iconBoardColor: #16161680; */
-
-  --accentColorSideBar: red;
-  --accentColorForElementSideBar: #bedbb0;
-
-  --iconSideBarColor: #151515;
-  --iconSideBarLogOutColor: #bedbb0;
-  --iconSideBarBoardColor: rgba(22, 22, 22, 0.5);
-  --headerPageColor: #f6f6f7;
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(246, 246, 247, 1);
-  --borderBottomColor: rgba(22, 22, 22, 0.1);
-  --boxShadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
-  --borderTopColor: rgba(22, 22, 22, 0.8);
-
   /**TaskCard*/
   --taskIconColor: rgba(22, 22, 22, 0.5);
   --taskIconBellColor: rgba(190, 219, 176, 1);
   --cardTitleColor: #161616;
-  --cardDescriptionTextColor: #161616B2;
-  --cardBorderBottomColor: #1616161A;
+  --cardDescriptionTextColor: #161616b2;
+  --cardBorderBottomColor: #1616161a;
   --cardSubtitleColor: #16161680;
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 5px rgba(190, 219, 176, 1));
@@ -198,6 +189,24 @@ body[data-theme='dark'] {
   --userIconBgSvgColor: #1F1F1F;
   --userIconSvgColor: #151515;
 
+  /**Screen Page*/
+  --screenPageBgColor: #1F1F1F;
+  --addColumnBtnColor: #121212;
+  --addColumnBtnBG: #FFFFFF;
+  --screenPageTextColor: #FFFFFF80;
+  --screenPageSpanColor: #BEDBB0;
+  --iconFilterColor: #FFFFFFCC;
+
+  --screenPageTitleBgColor: #121212;
+  --screenPageTitleColor: #ffffff;
+  --screenPageIconColor: #ffffff80;
+  --screenPageBGScroll: rgba(255, 255, 255, 0.07999999821186066);
+  --screenPageScrollColor: #121212;
+  --addBtnBgColor: #bedbb0;
+  --addBtnTextColor: #161616;
+  --iconBtnBgColor: #161616;
+  --iconBtnTextColor: #ffffff;
+
   /**Sidebar*/
   --logoFonColor: #1f1f1f;
   --logoIconColor: #ffffff;
@@ -218,7 +227,6 @@ body[data-theme='dark'] {
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --needHelBorderColor: rgba(190, 219, 176, 0.5);
   --titleNeedHelpColor: #ffffff;
-  --iconCloseColor: #ffffff;
   --borderNeedHelpColor: #bedbb0;
   --textInputColor: #ffffff;
   --btnNeedHelpColor: #bedbb0;
@@ -250,6 +258,11 @@ body[data-theme='dark'] {
   --labelUserBg: #bedbb0;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #ffffff;
+  --iconImageBGColor: #1f1f1f;
+  --iconImageColor: #ffffff1a;
+  --textPDBoxColor: #ffffff80;
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
+  --modalFilterBorderColor: #ffffff1a;
 
   /**Calendar*/
   --currentMonthColor: #ffffff;
@@ -264,47 +277,16 @@ body[data-theme='dark'] {
   --calendarBgDateColor: #bedbb0;
   --calendarPreviousMonthColor: #ffffff33;
 
-  /**after del*/
-
-  --sidebarColor: #121212;
-  --helpBlockColor: #1f1f1f;
-  --whiteColor: #ffffff;
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --defaultScreenColor: #e6e6e6;
-
-  --modalBGC: #151515;
-  --IconCloseColor: #ffffff;
-  --titleColor: #ffffff;
-  /* --iconBoardColor: #ffffff80; */
-
-  --accentColorSideBar: #bedbb0;
-  --accentColorForElementSideBar: #bedbb0;
-  --headerPageColor: #1f1f1f;
-  --logoHeaderColor: #fff;
-  --logoFonColor: rgba(31, 31, 31, 1);
-  --logoIconColor: #ffffff;
-  --iconSideBarColor: #ffffff;
-  --iconSideBarLogOutColor: #bedbb0;
-  --iconSideBarBoardColor: rgba(255, 255, 255, 0.5);
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(31, 31, 31, 1);
-  --borderBottomColor: rgba(255, 255, 255, 0.1);
-  --modalBorder: 1px solid rgba(190, 219, 176, 0.5);
-  --borderTopColor: rgba(255, 255, 255, 0.8);
-
   /**TaskCard*/
   --taskIconColor: rgba(255, 255, 255, 0.5);
   --taskIconBellColor: rgba(190, 219, 176, 1);
-  --cardTitleColor: #FFFFFF;
-  --cardDescriptionTextColor: #FFFFFF80;
-  --cardBorderBottomColor: #FFFFFF1A;
-  --cardSubtitleColor: #FFFFFF80;
-  --cardPriorityTextColor: #FFFFFF;
+  --cardTitleColor: #ffffff;
+  --cardDescriptionTextColor: #ffffff80;
+  --cardBorderBottomColor: #ffffff1a;
+  --cardSubtitleColor: #ffffff80;
+  --cardPriorityTextColor: #ffffff;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(190, 219, 176, 1));
+  
 }
 
 body[data-theme='violet'] {
@@ -321,8 +303,26 @@ body[data-theme='violet'] {
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**UserIcon*/
-  --userIconBgSvgColor: #ECEDFD;
+  --userIconBgSvgColor: #ecedfd;
   --userIconSvgColor: #ffffff;
+
+  /**Screen Page*/
+  --screenPageBgColor: #ecedfd;
+  --addColumnBtnColor: #ffffff;
+  --addColumnBtnBG: #5255bc;
+  --screenPageTextColor: #161616b2;
+  --screenPageSpanColor: #5255BC;
+  --iconFilterColor: #161616CC;
+
+  --screenPageTitleBgColor: #ffffff;
+  --screenPageTitleColor: #161616;
+  --screenPageIconColor: #16161680;
+  --screenPageBGScroll: #ffffff;
+  --screenPageScrollColor: #b8bcfd;
+  --addBtnBgColor: #5255bc;
+  --addBtnTextColor: #ffffff;
+  --iconBtnBgColor: #ffffff;
+  --iconBtnTextColor: #161616;
 
   /**Sidebar*/
   --logoFonColor: #ecedfd;
@@ -343,7 +343,6 @@ body[data-theme='violet'] {
   --needHelpBgColor: #fcfcfc;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --titleNeedHelpColor: #161616;
-  --iconCloseColor: #161616;
   --borderNeedHelpColor: #5255bc;
   --textInputColor: #161616;
   --btnNeedHelpColor: #5255bc;
@@ -374,6 +373,11 @@ body[data-theme='violet'] {
   --labelUserBg: #ecedfd;
   --iconPlusEditColor: #161616;
   --iconBSEyeColor: #161616;
+  --iconImageBGColor: #ecedfd;
+  --iconImageColor: #1616161a;
+  --textPDBoxColor: #161616;
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
+  --modalFilterBorderColor: #1616161A;
 
   /**Calendar*/
   --currentMonthColor: #161616;
@@ -388,49 +392,17 @@ body[data-theme='violet'] {
   --calendarBgDateColor: #5255bc;
   --calendarPreviousMonthColor: #16161633;
 
-  /**Project office*/
-
-  /**after del*/
-
-  --sidebarColor: #5255bc;
-  --helpBlockColor: rgba(236, 237, 253, 0.4);
-  --whiteColor: #ffffff;
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --defaultScreenColor: #e6e6e6;
-  --modalBGC: #fcfcfc;
-  --IconCloseColor: #161616;
-  --titleColor: #161616;
-  /* --iconBoardColor: #16161680; */
-
-  --accentColorSideBar: rgba(184, 188, 253, 1);
-  --accentColorForElementSideBar: #ffffff;
-  --headerPageColor: #ecedfd;
-  --logoHeaderColor: #161616;
-  --logoFonColor: rgba(236, 237, 253, 1);
-  --logoIconColor: #5255bc;
-  --iconSideBarColor: #ffffff;
-  --iconSideBarLogOutColor: #ffffff;
-  --iconSideBarBoardColor: rgba(255, 255, 255, 0.5);
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(255, 255, 255, 0.5);
-  --borderBottomColor: rgba(255, 255, 255, 0.1);
-  --boxShadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
-  --borderTopColor: rgba(22, 22, 22, 0.8);
-
   /**TaskCard*/
   --taskIconColor: rgba(22, 22, 22, 0.5);
   --taskIconBellColor: rgba(82, 85, 188, 1);
   --cardTitleColor: #161616;
-  --cardDescriptionTextColor: #161616B2;
-  --cardBorderBottomColor: #1616161A;
+  --cardDescriptionTextColor: #161616b2;
+  --cardBorderBottomColor: #1616161a;
   --cardSubtitleColor: #16161680;
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(82, 85, 188, 1));
-}
+
+ }
 
 h1,
 h2,

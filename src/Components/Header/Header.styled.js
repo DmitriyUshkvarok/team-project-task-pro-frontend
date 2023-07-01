@@ -62,7 +62,8 @@ export const UserText = styled.p`
   margin-left: 14px;
   cursor: pointer;
   color: var(--primaryItemsColor);
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--accentColor);
   }
 `;
@@ -70,4 +71,15 @@ export const UserIcon = styled.img`
   background-color: var(--headerPageColor);
   border-radius: 8px;
   cursor: pointer;
+`;
+
+
+export const UserIconSvg = styled.svg`
+  fill: var(--userIconBgSvgColor); 
+  color: var(--userIconSvgColor); 
+  cursor: pointer;
+
+  width: 32px;
+  height: 32px;
+  border-radius: var(--borderRadius8);
 `;
