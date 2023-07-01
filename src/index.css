@@ -107,6 +107,8 @@ body[data-theme='light'] {
   --customerSupportBgColor: #f6f6f7;
   --iconLogOutColor: #bedbb0;
   --scrollbarColor: rgba(0, 0, 0, 0.44);
+  --logOutHoverColor: #bedbb0;
+  
 
   /**Need Help*/
   --needHelpBgColor: #fcfcfc;
@@ -221,6 +223,7 @@ body[data-theme='dark'] {
   --customerSupportBgColor: #1f1f1f;
   --iconLogOutColor: #bedbb0;
   --scrollbarColor: rgba(255, 255, 255, 0.44);
+  --logOutHoverColor: #bedbb0;
 
   /**Need Help*/
   --needHelpBgColor: #151515;
@@ -338,6 +341,7 @@ body[data-theme='violet'] {
   --customerSupportBgColor: rgba(236, 237, 253, 0.4);
   --iconLogOutColor: #ffffff;
   --scrollbarColor: rgba(255, 255, 255, 0.44);
+  --logOutHoverColor: #b8bcfd;
 
   /**Need Help*/
   --needHelpBgColor: #fcfcfc;
