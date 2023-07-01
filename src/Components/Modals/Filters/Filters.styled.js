@@ -142,7 +142,7 @@ export const LabelContainer = styled.div`
 
     &:hover,
     &:focus {
-      color: #161616;
+      color: var(--titleBoardColor);
     }
   }
 
