@@ -94,12 +94,20 @@ export const Error = styled.p`
   font-size: 10px;
   margin-top: 1px;
 `;
+
 export const ErrorServer = styled.p`
   position: absolute;
   width: 100%;
   color: var(--errorColor);
   font-size: 10px;
   margin-top: 1px;
+`;
+
+export const Seccess = styled.p`
+  position: absolute;
+  width: 100%;
+  color: green;
+  font-size: 8px;
 `;
 
 export const Edit = styled.div`

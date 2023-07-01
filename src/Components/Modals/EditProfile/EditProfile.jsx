@@ -24,6 +24,7 @@ import {
   ErrorServer,
   StyleErrorMessage,
   Error,
+  Seccess,
   Edit,
   EditTitle,
   BtnClose,
@@ -78,6 +79,7 @@ const EditProfile = () => {
   const [showEmailSuccessMessage, setShowEmailSuccessMessage] = useState(false);
   const [showPasswordSuccessMessage, setShowPasswordSuccessMessage] =
     useState(false);
+  const [isAvatarOnly, setIsAvatarOnly] = useState(false);
 
   const [updateUser, { isLoading: isInfoLoading, error: erorUpdate }] =
     useUpdateUserMutation();
@@ -96,6 +98,7 @@ const EditProfile = () => {
     const file = event.target.files[0];
     setSelectedAvatar(file);
     setShowSaveButton(true);
+    setIsAvatarOnly(true);
   };
 
   const handleUpdateAvatar = async () => {
@@ -115,6 +118,12 @@ const EditProfile = () => {
 
   const handleUpdateUser = async (values, { resetForm }) => {
     const updatedUser = {};
+    if (isAvatarOnly) {
+      await handleUpdateAvatar();
+      setIsAvatarOnly(false);
+      return;
+    }
+
     if (values.name) {
       updatedUser.name = values.name;
       await updateUser(updatedUser);
@@ -160,6 +169,10 @@ const EditProfile = () => {
 
     try {
       await updateUser(updatedUser);
+
+      if (selectedAvatar) {
+        await handleUpdateAvatar();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -183,7 +196,7 @@ const EditProfile = () => {
       <EditTitle>Edit profile</EditTitle>
       <ProfilePhotoBlock>
         <PhotoBox>
-          {selectedAvatar ? (
+          {selectedAvatar || currentUser?.avatarURL ? (
             <PhotoUser
               src={
                 selectedAvatar
@@ -199,7 +212,7 @@ const EditProfile = () => {
           )}
           {!showSaveButton && (
             <LabelEditPhoto htmlFor="inputFile">
-              <svg width="10" height="10" >
+              <svg width="10" height="10">
                 <use xlinkHref={`${url}#icon-plus+`} />
               </svg>
             </LabelEditPhoto>
@@ -253,9 +266,9 @@ const EditProfile = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
             {showNameSuccessMessage && (
-              <div style={{ marginTop: '5px', color: 'green' }}>
+              <Seccess style={{ marginTop: '5px', color: 'green' }}>
                 Field successfully updated
-              </div>
+              </Seccess>
             )}
           </FeedbackFormGroup>
           <FeedbackFormGroup>
@@ -270,9 +283,9 @@ const EditProfile = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
             {showEmailSuccessMessage && (
-              <div style={{ marginTop: '5px', color: 'green' }}>
+              <Seccess style={{ marginTop: '5px', color: 'green' }}>
                 Field successfully updated
-              </div>
+              </Seccess>
             )}
           </FeedbackFormGroup>
           <FeedbackFormGroup>
@@ -303,14 +316,14 @@ const EditProfile = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
             {showPasswordSuccessMessage && (
-              <div style={{ marginTop: '5px', color: 'green' }}>
+              <Seccess style={{ marginTop: '5px', color: 'green' }}>
                 Field successfully updated
-              </div>
+              </Seccess>
             )}
           </FeedbackFormGroup>
           <BtnWrapper>
-            <BtnUpdate type="submit" disabled={isInfoLoading}>
-              {isInfoLoading ? <LoaderForButton /> : 'Send'}
+            <BtnUpdate type="submit" disabled={isInfoLoading && !isAvatarOnly}>
+              {isInfoLoading && !isAvatarOnly ? <LoaderForButton /> : 'Send'}
             </BtnUpdate>
           </BtnWrapper>
         </FormUpdateUser>
