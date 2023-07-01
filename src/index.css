@@ -113,7 +113,6 @@ body[data-theme='light'] {
   --needHelpBgColor: #fcfcfc;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --titleNeedHelpColor: #161616;
-  --iconCloseColor: #161616;
   --borderNeedHelpColor: #bedbb0;
   --textInputColor: #161616;
   --btnNeedHelpColor: #bedbb0;
@@ -172,39 +171,6 @@ body[data-theme='light'] {
   --cardSubtitleColor: #16161680;
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 5px rgba(190, 219, 176, 1));
-
-  /**after del*/
-  --logoHeaderColor: red;
-
-  --sidebarColor: #ffffff;
-  /**-*/
-  --helpBlockColor: #f6f6f7;
-  /**-*/
-  --whiteColor: #161616;
-  /**-*/
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --defaultScreenColor: #e6e6e6;
-  --modalBGC: #fcfcfc;
-  --IconCloseColor: #161616;
-  --titleColor: #161616;
-  /* --iconBoardColor: #16161680; */
-
-  --accentColorSideBar: red;
-  --accentColorForElementSideBar: #bedbb0;
-
-  --iconSideBarColor: #151515;
-  --iconSideBarLogOutColor: #bedbb0;
-  --iconSideBarBoardColor: rgba(22, 22, 22, 0.5);
-  --headerPageColor: #f6f6f7;
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(246, 246, 247, 1);
-  --borderBottomColor: rgba(22, 22, 22, 0.1);
-  --boxShadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
-  --borderTopColor: rgba(22, 22, 22, 0.8);
 }
 
 body[data-theme='dark'] {
@@ -262,7 +228,6 @@ body[data-theme='dark'] {
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --needHelBorderColor: rgba(190, 219, 176, 0.5);
   --titleNeedHelpColor: #ffffff;
-  --iconCloseColor: #ffffff;
   --borderNeedHelpColor: #bedbb0;
   --textInputColor: #ffffff;
   --btnNeedHelpColor: #bedbb0;
@@ -322,37 +287,7 @@ body[data-theme='dark'] {
   --cardSubtitleColor: #ffffff80;
   --cardPriorityTextColor: #ffffff;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(190, 219, 176, 1));
-
-  /**after del*/
-
-  --helpBlockColor: #1f1f1f;
-  --whiteColor: #ffffff;
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --defaultScreenColor: #e6e6e6;
-
-  --modalBGC: #151515;
-  --IconCloseColor: #ffffff;
-  --titleColor: #ffffff;
-  /* --iconBoardColor: #ffffff80; */
-
-  --accentColorSideBar: #bedbb0;
-  --accentColorForElementSideBar: #bedbb0;
-  --headerPageColor: #1f1f1f;
-  --logoHeaderColor: #fff;
-  --logoFonColor: rgba(31, 31, 31, 1);
-  --logoIconColor: #ffffff;
-  --iconSideBarColor: #ffffff;
-  --iconSideBarLogOutColor: #bedbb0;
-  --iconSideBarBoardColor: rgba(255, 255, 255, 0.5);
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(31, 31, 31, 1);
-  --borderBottomColor: rgba(255, 255, 255, 0.1);
-  --modalBorder: 1px solid rgba(190, 219, 176, 0.5);
-  --borderTopColor: rgba(255, 255, 255, 0.8);
+  
 }
 
 body[data-theme='violet'] {
@@ -409,7 +344,6 @@ body[data-theme='violet'] {
   --needHelpBgColor: #fcfcfc;
   --needHelpBoxShadow: rgba(22, 22, 22, 0.05);
   --titleNeedHelpColor: #161616;
-  --iconCloseColor: #161616;
   --borderNeedHelpColor: #5255bc;
   --textInputColor: #161616;
   --btnNeedHelpColor: #5255bc;
@@ -469,37 +403,7 @@ body[data-theme='violet'] {
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(82, 85, 188, 1));
 
-  /**after del*/
-
-  --sidebarColor: #5255bc;
-  --helpBlockColor: rgba(236, 237, 253, 0.4);
-  --whiteColor: #ffffff;
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --defaultScreenColor: #e6e6e6;
-  --modalBGC: #fcfcfc;
-  --IconCloseColor: #161616;
-  --titleColor: #161616;
-  /* --iconBoardColor: #16161680; */
-
-  --accentColorSideBar: rgba(184, 188, 253, 1);
-  --accentColorForElementSideBar: #ffffff;
-  --headerPageColor: #ecedfd;
-  --logoHeaderColor: #161616;
-  --logoFonColor: rgba(236, 237, 253, 1);
-  --logoIconColor: #5255bc;
-  --iconSideBarColor: #ffffff;
-  --iconSideBarLogOutColor: #ffffff;
-  --iconSideBarBoardColor: rgba(255, 255, 255, 0.5);
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(255, 255, 255, 0.5);
-  --borderBottomColor: rgba(255, 255, 255, 0.1);
-  --boxShadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
-  --borderTopColor: rgba(22, 22, 22, 0.8);
-}
+ }
 
 h1,
 h2,

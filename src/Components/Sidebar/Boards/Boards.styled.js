@@ -37,11 +37,12 @@ export const WrapTitle = styled.div`
   align-items: center;
 `;
 
-export const IconProject = styled.span`
-  display: block;
+export const IconProject = styled.svg`
+fill: none;
+// stroke: var(--secondarySidebarColor);
   width: 18px;
   height: 18px;
-  background-color: ${({ isSelected }) =>
+  stroke: ${({ isSelected }) =>
     isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
 `;
 
