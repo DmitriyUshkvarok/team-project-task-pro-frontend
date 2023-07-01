@@ -1,46 +1,5 @@
 import styled from 'styled-components';
 
-export const Board = styled.div`
-  @media screen and (min-width: 320px) {
-    background-color: var(--helpBlockColor);
-    width: 320px;
-    padding-bottom: 24px;
-  }
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-bottom: 32px;
-    margin: 100px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 1180px;
-    padding-bottom: 8px;
-  }
-`;
-
-export const BtnAdd = styled.button`
-  display: flex;
-  padding: 14px 78px 14px 79px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: var(--sidebarColor);
-  width: 177px;
-  height: 53px;
-  border: none;
-  color: #fff;
-  font-size: 14px;
-  font-family: Poppins;
-  font-weight: 500;
-  letter-spacing: -0.28px;
-`;
-
-// Sidebar
-
-//--Sidebar
-
 export const BoxColumns = styled.li`
   &:last-child {
     margin-right: 34px;
@@ -90,11 +49,10 @@ export const ListTask = styled.ul`
     width: 346px;
   }
   @media screen and (min-width: 768px) {
-    max-height: calc(100vh - 372px);
-    /* height: 640px; */
+    max-height: calc(100vh - 360px);
   }
   @media screen and (min-width: 1280px) {
-    /* height: 478px; */
+    max-height: calc(100vh - 305px);
   }
   ::-webkit-scrollbar {
     width: 8px;
