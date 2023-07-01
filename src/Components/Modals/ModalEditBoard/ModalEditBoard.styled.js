@@ -134,6 +134,14 @@ export const ImageContainer = styled.div`
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    transition-property: outline;
+    transition-duration: var(--transition);
+
+    &:hover,
+    &:focus,
+    &:active {      
+      outline: 2px solid var(--accentColor);
+    }  
   }
   label:first-of-type {
     background-color: var(--iconImageBGColor);
@@ -159,6 +167,8 @@ export const Button = styled.button`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+  
+  
 
   @media screen and (min-width: 768px) {
     width: 302px;
