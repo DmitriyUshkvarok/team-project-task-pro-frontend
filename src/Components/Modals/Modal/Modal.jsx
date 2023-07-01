@@ -17,6 +17,7 @@ import AddCard from '../AddCard/AddCard.jsx';
 import Filters from '../Filters/Filters.jsx';
 import ModalEditCard from '../EditCard/EditCard.jsx';
 import ProgressDoneModal from '../ProgressDone/ProgressDone.jsx';
+import ModalTeam from '../ModalTeam/ModalTeam.jsx';
 
 const Modal = () => {
   const { componentName } = useSelector((store) => store.modal);
@@ -32,6 +33,7 @@ const Modal = () => {
     editBoard: ModalEditBoard,
     progressDoneModal: ProgressDoneModal,
     filter: Filters,
+    team: ModalTeam,
   };
   let renderComponent;
 
