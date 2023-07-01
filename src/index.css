@@ -221,7 +221,7 @@ body[data-theme='dark'] {
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**UserIcon*/
-  --userIconBgSvgColor: #1f1f1f;
+  --userIconBgSvgColor: #1F1F1F;
   --userIconSvgColor: #151515;
 
   /**Screen Page*/
