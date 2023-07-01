@@ -8,7 +8,6 @@ import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
-import { images } from '../../miniImgBg';
 
 import CloseButton from '../CloseButton/CloseButton';
 import {
@@ -125,9 +124,13 @@ const ModalCreateNewBoard = () => {
 const schema = yup.object({
   title: yup
     .string()
-    .min(2, 'To Short!')
-    .max(10, 'To Long!')
-    .required('Required!'),
+    .min(2, 'Too Short!')
+    .max(30, 'Maximum 30 characters')
+    .matches(
+      /^[a-zA-Zа-яА-ЯёЁ][a-zA-Zа-яА-ЯёЁ0-9.%+\-_]*( [a-zA-Zа-яА-ЯёЁ0-9.%+\-_]+)*$/,
+      'Invalid name format'
+    )
+    .required('title is required!'),
   iconId: yup.string().required('Required!'),
   backgroundId: yup.string().required('Required!'),
 });

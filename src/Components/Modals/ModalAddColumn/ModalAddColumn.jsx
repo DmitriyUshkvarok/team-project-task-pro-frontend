@@ -70,8 +70,12 @@ const ModalAddColumn = ({ componentName }) => {
 const schema = yup.object().shape({
   title: yup
     .string()
-    .min(2, 'To Short!')
-    .max(10, 'To Long!')
+    .min(2, 'Too Short!')
+    .max(30, 'Maximum 30 characters')
+    .matches(
+      /^[a-zA-Zа-яА-ЯёЁ][a-zA-Zа-яА-ЯёЁ0-9.%+\-_]*( [a-zA-Zа-яА-ЯёЁ0-9.%+\-_]+)*$/,
+      'Invalid name format'
+    )
     .required('Required!'),
 });
 

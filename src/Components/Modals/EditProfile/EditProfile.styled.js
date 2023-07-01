@@ -182,6 +182,16 @@ export const SpanErrorImg = styled.span`
   width: 100%;
 `;
 
+export const SeccessUpdateAvatar = styled.span`
+  position: absolute;
+  top: 11%;
+  font-size: 10px;
+  width: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+`;
+
 export const LabelEditPhoto = styled.label`
   display: flex;
   position: absolute;

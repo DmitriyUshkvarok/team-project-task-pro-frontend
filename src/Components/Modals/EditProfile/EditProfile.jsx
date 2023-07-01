@@ -24,6 +24,7 @@ import {
   ErrorServer,
   StyleErrorMessage,
   Error,
+  SeccessUpdateAvatar,
   Seccess,
   Edit,
   EditTitle,
@@ -49,8 +50,8 @@ const schema = yup.object().shape({
     .min(4, 'Name should be at least 4 characters')
     .max(64, 'Name should not exceed 64 characters')
     .matches(
-      /^[a-zA-Z0-9а-яА-ЯёЁ.\s_%+-]+$/,
-      'Name should not contain special characters, except for . _ % + - and one space'
+      /^[a-zA-Zа-яА-ЯёЁ][a-zA-Zа-яА-ЯёЁ0-9.%+\-_]*( [a-zA-Zа-яА-ЯёЁ0-9.%+\-_]+)?$/,
+      'Invalid name format'
     ),
   email: yup
     .string()
@@ -75,6 +76,8 @@ const EditProfile = () => {
   const [showPassword, setShowPassword] = useState(null);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [showSaveButton, setShowSaveButton] = useState(false);
+  const [showAvatarSuccessMessage, setShowAvatarSuccessMessage] =
+    useState(false);
   const [showNameSuccessMessage, setShowNameSuccessMessage] = useState(false);
   const [showEmailSuccessMessage, setShowEmailSuccessMessage] = useState(false);
   const [showPasswordSuccessMessage, setShowPasswordSuccessMessage] =
@@ -118,11 +121,6 @@ const EditProfile = () => {
 
   const handleUpdateUser = async (values, { resetForm }) => {
     const updatedUser = {};
-    if (isAvatarOnly) {
-      await handleUpdateAvatar();
-      setIsAvatarOnly(false);
-      return;
-    }
 
     if (values.name) {
       updatedUser.name = values.name;
@@ -162,6 +160,17 @@ const EditProfile = () => {
       }
     }
 
+    if (isAvatarOnly) {
+      await handleUpdateAvatar();
+      setShowAvatarSuccessMessage(true);
+
+      setTimeout(() => {
+        setShowAvatarSuccessMessage(false);
+      }, 4000);
+      setIsAvatarOnly(false);
+      return;
+    }
+
     if (Object.keys(updatedUser).length === 0) {
       toast.warning('To save changes, at least one field must be filled');
       return;
@@ -194,7 +203,13 @@ const EditProfile = () => {
         </svg>
       </BtnClose>
       <EditTitle>Edit profile</EditTitle>
+
       <ProfilePhotoBlock>
+        {showAvatarSuccessMessage && (
+          <SeccessUpdateAvatar style={{ color: 'green' }}>
+            Field successfully updated
+          </SeccessUpdateAvatar>
+        )}
         <PhotoBox>
           {selectedAvatar || currentUser?.avatarURL ? (
             <PhotoUser
