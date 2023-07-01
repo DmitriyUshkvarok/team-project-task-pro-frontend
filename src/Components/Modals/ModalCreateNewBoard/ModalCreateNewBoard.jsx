@@ -27,6 +27,8 @@ import {
   ContainerIconButton,
   Icon,
   ImgStyled,
+  Img,
+  ImgBox,
 } from './ModalCreateNewBoard.styled';
 
 const ModalCreateNewBoard = () => {
@@ -90,9 +92,9 @@ const ModalCreateNewBoard = () => {
                   name="backgroundId"
                   value="default"
                 />
-                <svg width="16" height="16" stroke="var(--iconImageColor)">
+                <Img width="16" height="16" stroke="var(--iconImageColor)">
                   <use xlinkHref={`${urlIcon}#icon-image-default`} />
-                </svg>
+                </Img>
               </label>
               {data?.map(({ _id, name, image }) => (
                 <label key={_id}>
@@ -101,7 +103,9 @@ const ModalCreateNewBoard = () => {
                     name="backgroundId"
                     value={name}
                   />
-                  <ImgStyled width={28} src={image.retina} alt={name} />
+                  <ImgBox>
+                    <ImgStyled width={28} src={image.retina} alt={name} />
+                  </ImgBox>
                 </label>
               ))}
               <ErrorMessage name="backgroundId" component="p" />

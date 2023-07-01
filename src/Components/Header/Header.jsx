@@ -40,7 +40,7 @@ const Header = ({ openSideBar }) => {
               onClick={() => dispatch(openModal({ name: 'editprofile' }))}
             >
               <UserText>{currentUser?.name || name}</UserText>
-              {userAvatar ? (
+              {currentUser?.avatarURL ? (
                 <UserIcon
                   src={currentUser?.avatarURL || userAvatar}
                   alt="user_icon"
