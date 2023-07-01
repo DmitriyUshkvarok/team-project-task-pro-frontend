@@ -17,13 +17,10 @@ export const Board = styled.div`
   }
 
   @media screen and (min-width: 375px) {
-    /* width: 375px; */
   }
   @media screen and (min-width: 768px) {
     height: calc(100vh - 68px);
-    /* width: 768px; */
-    /* min-height: 1024px; */
-    /* padding-bottom: 32px; */
+
     background-image: url(${(props) => props.boardBg?.tablet?.regular});
 
     @media (-webkit-min-device-pixel-ratio: 2),
@@ -33,10 +30,6 @@ export const Board = styled.div`
     }
   }
   @media screen and (min-width: 1280px) {
-    /* width: 100%; */
-    /* padding-bottom: 8px; */
-    /* min-height: 770px; */
-    /* height: 100vh; */
     background-image: url(${(props) => props.boardBg?.desktop?.regular});
 
     @media (-webkit-min-device-pixel-ratio: 2),
@@ -61,7 +54,6 @@ export const ContainerBoard = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 100%;
-    /* width: 1180px; */
     padding: 10px 0px 8px 260px;
   }
 `;
@@ -92,10 +84,8 @@ export const SidebarBoard = styled.div`
 export const BoardsContainer = styled.div`
   @media screen and (min-width: 320px) {
     display: flex;
-    /* gap: 34px; */
 
     overflow-x: auto;
-    /* padding: 40px 20px 24px 20px; */
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -104,7 +94,6 @@ export const BoardsContainer = styled.div`
     padding-right: 32px;
   }
   @media screen and (min-width: 1280px) {
-    /* width: calc(100vw - 260px); */
     padding-left: 24px;
     padding-right: 24px;
   }
@@ -175,8 +164,6 @@ export const AddColumnBtn = styled.button`
     min-width: 100%;
     height: 56px;
     padding: 14px 70px 14px 75px;
-
-    /* margin-left: 34px; */
   }
   @media screen and (min-width: 375px) {
     min-width: 334px;
