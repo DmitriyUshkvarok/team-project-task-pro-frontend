@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import { Field } from 'formik';
 
 export const FiltersContainer = styled.div`
-  width: 300px;
+  @media screen and (min-width: 320px) {
+    width: 80vw;
+  }
+  @media screen and (min-width: 375px) {
+    width: 300px;
+  }
   height: 367px;
   padding: 24px;
   margin-bottom: 50px;

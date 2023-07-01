@@ -2,13 +2,18 @@ import styled from 'styled-components';
 import { Form, ErrorMessage as FormikError, Field } from 'formik';
 
 export const ModalCard = styled.div`
-  width: 335px;
   height: 433px;
   background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
-  border: 1px solid var(--borderBoardColor); 
+  border: 1px solid var(--borderBoardColor);
   position: relative;
   padding: 24px;
+  @media screen and (min-width: 320px) {
+    width: 90vw;
+  }
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 350px;
@@ -47,7 +52,8 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const FieldTitle = styled(Field)`
-  width: 287px;
+  width: 100%;
+
   height: 49px;
   padding: 14px 18px 14px 18px;
   margin-bottom: 24px;
@@ -119,6 +125,9 @@ export const FormikField = styled(Field)`
 `;
 
 export const ImageContainer = styled.div`
+  @media screen and (max-width: 333px) {
+    margin-bottom: 20px;
+  }
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -149,7 +158,6 @@ export const FormikFieldImage = styled(Field)`
 export const Button = styled.button`
   display: flex;
   justify-content: center;
-  width: 287px;
   height: 49px;
   padding: 10px 0px 11px 0px;
   align-items: center;

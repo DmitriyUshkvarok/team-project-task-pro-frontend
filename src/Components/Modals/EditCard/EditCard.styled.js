@@ -3,6 +3,9 @@ import { ErrorMessage, Field } from 'formik';
 import { FaChevronDown } from 'react-icons/fa';
 
 export const EditCardModal = styled.div`
+  @media screen and (max-width: 374px) {
+    width: 90vw;
+  }
   width: 335px;
   background-color: var(--modalBgColor);
   border-radius: var(--borderRadius8);
@@ -27,7 +30,7 @@ export const Title = styled.h2`
 `;
 
 export const InputTitle = styled(Field)`
-  width: 287px;
+  width: 100%;
   height: 49px;
   padding: 14px 18px;
   background-color: var(--bgInputBoardColor);
@@ -44,14 +47,10 @@ export const InputTitle = styled(Field)`
   &:active {
     outline: 1px solid var(--borderNeedHelpColor);
   }
-
-  @media screen and (min-width: 768px) {
-    width: 302px;
-  }
 `;
 
 export const InputDescription = styled(Field)`
-  width: 287px;
+  width: 100%;
   height: 154px;
   padding: 14px 18px;
   background-color: var(--bgInputBoardColor);
@@ -69,10 +68,6 @@ export const InputDescription = styled(Field)`
   &:focus,
   &:active {
     outline: 1px solid var(--borderNeedHelpColor);
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 302px;
   }
 `;
 
@@ -97,7 +92,7 @@ export const StyledLabelDeadline = styled.p`
 `;
 
 export const Button = styled.button`
-  width: 287px;
+  width: 100%;
   height: 49px;
   padding: 10px 0px;
   border-radius: var(--borderRadius8);
@@ -107,10 +102,6 @@ export const Button = styled.button`
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
   margin-top: 40px;
-
-  @media screen and (min-width: 768px) {
-    width: 302px;
-  }
 `;
 
 export const StyleErrorMessage = styled(ErrorMessage)`
