@@ -2,15 +2,21 @@ import styled from 'styled-components';
 import { ErrorMessage, Field } from 'formik';
 
 export const NeedHelpContainer = styled.div`
-  position: relative;
-  width: 335px;
-  height: 355px;
-  background-color: var(--needHelpBgColor);
-  border-radius: var(--borderRadius8);
-  padding: 24px;
-  font-family: var(--poppinsFont);
-  margin: 0 auto;
-  margin-top: 50px;
+  @media screen and (min-width: 320px) {
+    position: relative;
+
+    width: 90vw;
+    height: 355px;
+    background-color: var(--needHelpBgColor);
+    border-radius: var(--borderRadius8);
+    padding: 24px;
+    font-family: var(--poppinsFont);
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 400px;
@@ -41,15 +47,16 @@ export const InputEmail = styled(Field)`
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
   outline: none;
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
 
   &:hover,
   &:focus,
   &:active {
     opacity: 1;
     outline: 1px solid var(--borderNeedHelpColor);
-
   }
-
 
   @media screen and (min-width: 768px) {
     width: 352px;
@@ -67,7 +74,6 @@ export const InputComment = styled(Field)`
 
   color: var(--textInputColor);
   line-height: 18px;
-  
 
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
@@ -77,14 +83,16 @@ export const InputComment = styled(Field)`
 
   margin-top: 14px;
 
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+
   &:hover,
   &:focus,
   &:active {
     opacity: 1;
     outline: 1px solid var(--borderNeedHelpColor);
-
   }
-
 
   @media screen and (min-width: 768px) {
     width: 352px;
@@ -96,7 +104,7 @@ export const Button = styled.button`
   height: 49px;
   border-radius: var(--borderRadius8);
   background-color: var(--btnNeedHelpColor);
-  
+
   color: var(--btnTextNeedHelpColor);
   border: 0px;
   font-size: var(--fontSize14);
@@ -104,6 +112,11 @@ export const Button = styled.button`
   letter-spacing: -0.28px;
   margin-top: 24px;
   cursor: pointer;
+
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    /* min-width: 223px; */
+  }
 
   @media screen and (min-width: 768px) {
     width: 352px;

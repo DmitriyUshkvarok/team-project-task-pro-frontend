@@ -6,12 +6,17 @@ import {
 } from 'formik';
 
 export const ModalContainer = styled.div`
-  width: 350px;
+  @media screen and (min-width: 320px) {
+    width: 90vw;
+  }
+  @media screen and (min-width: 375px) {
+    width: 350px;
+  }
+
   height: 221px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  // box-shadow: var(--boxShadow);
   border-radius: 8px;
   border: 1px solid var(--borderBoardColor);
   background-color: var(--modalBgColor);
@@ -31,9 +36,8 @@ export const Title = styled.div`
 export const Form = styled(FormikForm)``;
 
 export const FormFieldTitle = styled.label`
-width: 100%;
-position: relative;
-
+  width: 100%;
+  position: relative;
 `;
 
 export const ErrorMessage = styled(FormikError)`
@@ -46,7 +50,7 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const FieldTitle = styled(FormikField)`
-  width: 302px;
+  width: 100%;
   height: 49px;
   padding: 14px 18px 14px 18px;
   margin-bottom: 24px;
@@ -56,7 +60,6 @@ export const FieldTitle = styled(FormikField)`
   opacity: 0.4000000059604645;
   background-color: var(--bgInputBoardColor);
   box-shadow: 0px 4px 16px 0px rgba(var(--boxShadowInputBoardColor));
-
 
   color: var(--textInputBoardColor);
   font-size: var(--fontSize14);
@@ -68,14 +71,13 @@ export const FieldTitle = styled(FormikField)`
   &:active {
     opacity: 1;
     outline: 1px solid var(--borderNeedHelpColor);
-
   }
 `;
 
 export const Button = styled.button`
   display: flex;
   justify-content: center;
-  width: 287px;
+  width: 100%;
   height: 49px;
   padding: 10px 0px 11px 0px;
   align-items: center;

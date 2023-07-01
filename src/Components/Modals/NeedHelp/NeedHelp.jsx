@@ -14,10 +14,10 @@ import {
   InputComment,
   InputEmail,
 } from './NeedHelp.styled';
-import { MiniLoaderBall } from '../../Loader/MiniLoader/MiniLoader';
 import CloseButton from '../CloseButton/CloseButton';
 import { closeModal } from '../../../redux/modal/modalSlice.js';
 import { useDispatch } from 'react-redux';
+import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 
 const schema = yup.object().shape({
   email: yup
@@ -45,14 +45,6 @@ const NeedHelpModal = () => {
       console.error('Error posting comment:', error);
     }
   };
-
-  if (isLoading) {
-    return (
-      <div>
-        <MiniLoaderBall />
-      </div>
-    );
-  }
 
   if (error) {
     return Notify.failure(`Error: ${error.message}`);
@@ -88,7 +80,9 @@ const NeedHelpModal = () => {
               </StyleErrorMessage>
             </Wrapper>
 
-            <Button type="submit">Send</Button>
+            <Button type="submit">
+              {isLoading ? <LoaderForButton /> : 'Send'}
+            </Button>
           </Form>
         </Formik>
       </NeedHelpContainer>
