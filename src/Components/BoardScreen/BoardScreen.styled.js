@@ -199,6 +199,14 @@ export const DescEmptyBoard = styled.p`
 
 export const AccentSpan = styled.span`
   color: var(--screenPageSpanColor);
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    font-weight: bold;
+    transition: 0.5s ease;
+    border-top: 1px solid var(--accentColor);
+    border-bottom: 1px solid var(--accentColor);
+  }
 `;
 
 export const Title = styled.h2`
