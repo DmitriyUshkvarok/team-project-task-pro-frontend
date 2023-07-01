@@ -21,6 +21,9 @@ import {
   ContainerColumns,
   AddColumnBtn,
   AddColumnIcon,
+  CreatedContainer,
+  CreatedDescription,
+  ModalTeamBtn,
 } from './BoardScreen.styled';
 import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
@@ -52,6 +55,14 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
     selectedBg(boardBg);
   }, [boardBg]);
 
+  const handleClickTeamButton = () => {
+    dispatch(
+      openModal({
+        name: 'team',
+      })
+    );
+  };
+
   return (
     <Board boardBg={bgName ? boardBg : ''} onClick={closeSidebar}>
       <ContainerBoard>
@@ -67,12 +78,19 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
             <DescEmptyBoard>
               Before starting your project, it is essential
               <AccentSpan onClick={handleOpenModal}>
+                {' '}
                 to create a board{' '}
               </AccentSpan>
               to visualize and track all the necessary tasks and milestones.
               This board serves as a powerful tool to organize the workflow and
               ensure effective collaboration among team members.
             </DescEmptyBoard>
+            <CreatedContainer>
+              <CreatedDescription>© 2023 - TaskPro.</CreatedDescription>
+              <ModalTeamBtn onClick={handleClickTeamButton}>
+                Created by TaskProTeam
+              </ModalTeamBtn>
+            </CreatedContainer>
           </Wrap>
         )}
         <BoardsContainer>

@@ -204,3 +204,26 @@ export const Filter = styled.p`
     color: var(--accentColor);
   }
 `;
+export const CreatedContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const CreatedDescription = styled.p`
+  color: var(--borderTopColor);
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+`;
+export const ModalTeamBtn = styled.button`
+  color: var(--borderTopColor);
+  font-size: var(--fontSize14);
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  :hover {
+    color: var(--accentColor);
+  }
+`;
