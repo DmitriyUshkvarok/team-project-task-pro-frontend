@@ -143,6 +143,7 @@ export const ImageContainer = styled.div`
     &:focus,
     &:active {
       outline: 2px solid var(--accentColor);
+      transition-duration: 250ms;
     }
   }
   label:first-of-type {
@@ -150,10 +151,21 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const FormikFieldImage = styled(Field)`
-  display: none;
+export const ImgBox = styled.div`
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
 `;
 
+export const FormikFieldImage = styled(Field)`
+  display: none;
+
+  &:checked + ${ImgBox} {
+    outline: 2px solid var(--accentColor);
+    transition-duration: 250ms;
+  }
+
+`;
 export const Button = styled.button`
   display: flex;
   justify-content: center;

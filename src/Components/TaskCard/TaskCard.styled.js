@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 export const CardBg = styled.div`
   width: 334px;
   border-radius: 8px;
-  
+  overflow: hidden;
 
   @media screen and (min-width: 320px) {
     border-radius: 8px;
@@ -79,7 +79,7 @@ export const CardPriority = styled.div`
 
 export const CardSubtitle = styled.p`
   height: 12px;
-  color: var(--cardSubtitleColor); // ПОМЕНЯТЬ ЦВЕТ ТЕКСТА!!!!
+  color: var(--cardSubtitleColor);
   font-size: var(--fontSize8);
   font-family: var(--poppinsFont);
   letter-spacing: -0.16px;
