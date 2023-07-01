@@ -31,7 +31,6 @@ export const InputForm = styled(Field)`
   &:active {
     opacity: 1;
     outline: 1px solid var(--borderNeedHelpColor);
-
   }
 
   @media screen and (min-width: 375px) {
@@ -108,7 +107,7 @@ export const Edit = styled.div`
 
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90vw;
   height: 440px;
   padding: 24px;
   background-color: var(--modalBgColor);

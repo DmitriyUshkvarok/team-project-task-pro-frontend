@@ -15,7 +15,7 @@ export const helpApi = createApi({
   endpoints: (builder) => ({
     postComment: builder.mutation({
       query: ({ comment, email }) => ({
-        url: 'help/',
+        url: '/help/',
         method: 'POST',
         body: { comment, email },
       }),
