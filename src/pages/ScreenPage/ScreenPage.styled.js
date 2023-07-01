@@ -90,11 +90,10 @@ export const ListTask = styled.ul`
     width: 346px;
   }
   @media screen and (min-width: 768px) {
-    max-height: calc(100vh - 372px);
-    /* height: 640px; */
+    max-height: calc(100vh - 360px);
   }
   @media screen and (min-width: 1280px) {
-    /* height: 478px; */
+    max-height: calc(100vh - 305px);
   }
   ::-webkit-scrollbar {
     
