@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { Form, ErrorMessage as FormikError, Field } from 'formik';
 
 export const ModalCard = styled.div`
+  @media screen and (max-width: 374px) {
+    width: 90vw;
+  }
   width: 335px;
   height: 433px;
   background-color: var(--modalBgColor);
@@ -46,7 +49,7 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const FieldTitle = styled(Field)`
-  width: 287px;
+  width: 100%;
   height: 49px;
   padding: 14px 18px 14px 18px;
   margin-bottom: 24px;
@@ -67,10 +70,6 @@ export const FieldTitle = styled(Field)`
   &:active {
     opacity: 1;
     outline: 1px solid var(--borderNeedHelpColor);
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 302px;
   }
 `;
 
@@ -117,6 +116,9 @@ export const FormikField = styled(Field)`
 `;
 
 export const ImageContainer = styled.div`
+  @media screen and (max-width: 333px) {
+    margin-bottom: 20px;
+  }
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -139,9 +141,9 @@ export const ImageContainer = styled.div`
 
     &:hover,
     &:focus,
-    &:active {      
+    &:active {
       outline: 2px solid var(--accentColor);
-    }  
+    }
   }
   label:first-of-type {
     background-color: var(--iconImageBGColor);
@@ -155,7 +157,7 @@ export const FormikFieldImage = styled(Field)`
 export const Button = styled.button`
   display: flex;
   justify-content: center;
-  width: 287px;
+  width: 100%;
   height: 49px;
   padding: 10px 0px 11px 0px;
   align-items: center;
@@ -167,12 +169,6 @@ export const Button = styled.button`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
-  
-  
-
-  @media screen and (min-width: 768px) {
-    width: 302px;
-  }
 `;
 
 export const ContainerIconButton = styled.span`
