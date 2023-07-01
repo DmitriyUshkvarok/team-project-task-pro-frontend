@@ -1,5 +1,4 @@
 import 'react-toastify/dist/ReactToastify.css';
-// import Container from '../Container/Container';
 import { ToastContainer } from 'react-toastify';
 import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -36,7 +35,6 @@ function App() {
         <LoaderForRefresh />
       ) : (
         <Suspense fallback={<LoaderForApp />}>
-          {/* <Container> */}
           <Routes>
             <Route
               path="/"
@@ -60,7 +58,6 @@ function App() {
             />
             <Route path="*" element={<WelcomePage />} />
           </Routes>
-          {/* </Container> */}
         </Suspense>
       )}
       <ToastContainer />

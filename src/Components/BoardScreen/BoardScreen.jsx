@@ -1,10 +1,9 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
-  // useGetFetchBoardByIdQuery,
   useGetBoardBdByIdQuery,
 } from '../../redux/boardApi/boardApi';
 

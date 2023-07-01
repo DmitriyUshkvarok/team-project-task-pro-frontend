@@ -35,7 +35,5 @@ export const ImageContainer = styled.div`
 `;
 
 export const Field = styled(FormikField)`
-  /* opacity: 0;
-  position: absolute; */
   display: none;
 `;

@@ -16,7 +16,6 @@ export const InputForm = styled(Field)`
   width: 100%;
   height: 49px;
   border: 1px solid var(--borderInputBoardColor);
-  // box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: var(--borderRadius8);
   background-color: var(--modalBgColor);
   color: var(--textInputBoardColor);
