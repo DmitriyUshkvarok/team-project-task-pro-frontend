@@ -119,7 +119,6 @@ export const ListTask = styled.ul`
     flex-shrink: 0;
 
     border-radius: 12px;
-
     background: var(--screenPageBGScroll);
     @media screen and (min-width: 768px) {
       height: 640px;
@@ -127,14 +126,12 @@ export const ListTask = styled.ul`
     @media screen and (min-width: 1280px) {
       height: 478px;
     }
-
   }
 `;
 
 // export const Card = styled.li`
 //   @media screen and (min-width: 320px) {
 //     border-radius: 8px;
-
 //     background-color: var(--sidebarColor);
 
 //     width: 279px;
@@ -173,8 +170,6 @@ export const AddCardIcon = styled.span`
   background-color: var(--iconBtnBgColor);
   border-radius: var(--borderRadius8);
 `;
-
-
 
 export const BtnIcon = styled.button`
   border: none;
