@@ -42,6 +42,7 @@ const TaskCard = ({ task, columns }) => {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
   const formattedDate = `${day}/${month}/${year}`;
+  const theme = themeColor === 'dark';
 
   function colorSwitch(priority) {
     let color;
@@ -51,7 +52,7 @@ const TaskCard = ({ task, columns }) => {
         break;
 
       case 'without':
-        color = themeColor === 'dark' ? '#FFFFFF4D' : '#1616164d';
+        color = theme ? '#FFFFFF4D' : '#1616164d';
         break;
 
       case 'high':
