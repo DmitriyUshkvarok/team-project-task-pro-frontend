@@ -47,9 +47,6 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <ContainerHome> */}
-      {/* <BoxHome> */}
-      {/* </BoxHome> */}
       <Sidebar
         currentBg={currentBg}
         handleOpenModal={handleOpenModal}
@@ -61,7 +58,6 @@ const HomePage = () => {
         handleOpenModal={handleOpenModal}
         closeSidebar={closeSidebar}
       />
-      {/* </ContainerHome> */}
     </>
   );
 };

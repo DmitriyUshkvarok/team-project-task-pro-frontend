@@ -1,21 +1,31 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+export const BoxBoard = styled.div`
+  @media screen and (min-width: 320px) {
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 30px;
+
+    margin-bottom: 30px;
+  }
+`;
+
 export const StyledLink = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-export const ListBoard = styled.ul`
-  /* margin-top: 40px; */
-  /* height: 130px; */
-  /* overflow-y: auto; */
-`;
+export const ListBoard = styled.ul``;
 
 export const ItemBoard = styled.li`
   position: relative;
-  padding: 20px;
+  padding: 20px 14px;
+
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
   ::after {
@@ -43,7 +53,6 @@ export const WrapTitle = styled.div`
 
 export const IconProject = styled.svg`
   fill: none;
-  // stroke: var(--secondarySidebarColor);
 
   width: 18px;
   height: 18px;
@@ -60,7 +69,6 @@ export const TitleBoard = styled.p`
 
   letter-spacing: -0.02em;
 
-  // color: var(--primarySidebarColor);
   color: ${({ isSelected }) =>
     isSelected ? 'var(--primarySidebarColor)' : 'var(--secondarySidebarColor)'};
 `;
@@ -85,4 +93,5 @@ export const BtnIcon = styled.button`
     ${IconStyled} {
       stroke: currentColor;
     }
+  }
 `;

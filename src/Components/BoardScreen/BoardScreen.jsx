@@ -16,6 +16,7 @@ import {
   Title,
   DescEmptyBoard,
   Wrap,
+  BoxDescEmptyBoard,
   AccentSpan,
   BoardsContainer,
   ContainerColumns,
@@ -77,16 +78,18 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
         </SidebarBoard>
         {boards?.length === 0 && (
           <Wrap>
-            <DescEmptyBoard>
-              Before starting your project, it is essential
-              <AccentSpan onClick={handleOpenModal}>
-                {' '}
-                to create a board{' '}
-              </AccentSpan>
-              to visualize and track all the necessary tasks and milestones.
-              This board serves as a powerful tool to organize the workflow and
-              ensure effective collaboration among team members.
-            </DescEmptyBoard>
+            <BoxDescEmptyBoard>
+              <DescEmptyBoard>
+                Before starting your project, it is essential
+                <AccentSpan onClick={handleOpenModal}>
+                  {' '}
+                  to create a board{' '}
+                </AccentSpan>
+                to visualize and track all the necessary tasks and milestones.
+                This board serves as a powerful tool to organize the workflow
+                and ensure effective collaboration among team members.
+              </DescEmptyBoard>
+            </BoxDescEmptyBoard>
             <CreatedContainer>
               <CreatedDescription>© 2023 - TaskPro.</CreatedDescription>
               <ModalTeamBtn onClick={handleClickTeamButton}>
