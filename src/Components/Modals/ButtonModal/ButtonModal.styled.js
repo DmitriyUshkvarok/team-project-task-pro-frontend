@@ -21,6 +21,7 @@ export const Button = styled.button`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+  cursor: pointer;
 `;
 
 export const ContainerIconButton = styled.span`

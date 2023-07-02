@@ -96,7 +96,6 @@ export const ListTask = styled.ul`
     max-height: calc(100vh - 305px);
   }
   ::-webkit-scrollbar {
-    
     background: var(--screenPageBGScroll);
     // color: var(--screenPageScrollColor);
     width: 8px;
@@ -105,7 +104,7 @@ export const ListTask = styled.ul`
 
   ::-webkit-scrollbar-thumb {
     width: 8px;
-    
+
     // color: red;
 
     border-radius: 12px;
@@ -174,4 +173,10 @@ export const BtnIcon = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    color: var(--accentColor);
+    ${IconStyled} {
+      stroke: currentColor;
+    }
 `;
