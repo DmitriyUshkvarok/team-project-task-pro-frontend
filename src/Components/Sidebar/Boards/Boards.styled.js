@@ -24,8 +24,8 @@ export const ListBoard = styled.ul``;
 
 export const ItemBoard = styled.li`
   position: relative;
-
   padding: 20px 14px;
+
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
   ::after {
@@ -77,14 +77,21 @@ export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
   gap: 8px;
 `;
-
-export const BtnIcon = styled.button`
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
 export const IconStyled = styled.svg`
   fill: none;
   stroke: var(--secondarySidebarColor);
+`;
+
+export const BtnIcon = styled.button`
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: var(--accentColor);
+    ${IconStyled} {
+      stroke: currentColor;
+    }
+  }
 `;

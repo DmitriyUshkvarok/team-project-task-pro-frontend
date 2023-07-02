@@ -4,7 +4,6 @@ import {
   Desc,
   AccentSpan,
   WrapContent,
-  DescContent,
   BtnNeedHelp,
   IconStyled,
 } from './CustomSupport.styled';
@@ -33,7 +32,7 @@ const CustomerSupport = () => {
             <IconStyled width="20" height="20">
               <use xlinkHref={`${url}#icon-help-circle`} />
             </IconStyled>
-            <DescContent>Need help?</DescContent>
+            Need help?
           </BtnNeedHelp>
         </WrapContent>
       </Container>

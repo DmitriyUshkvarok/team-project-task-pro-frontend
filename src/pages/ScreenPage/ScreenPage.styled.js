@@ -64,7 +64,6 @@ export const ListTask = styled.ul`
 
   ::-webkit-scrollbar-thumb {
     width: 8px;
-
     border-radius: 12px;
     background-color: var(--screenPageScrollColor);
   }
@@ -119,4 +118,11 @@ export const BtnIcon = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    color: var(--accentColor);
+    ${IconStyled} {
+      stroke: currentColor;
+    }
+  }
 `;
