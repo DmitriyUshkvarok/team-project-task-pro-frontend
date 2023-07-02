@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../../redux/modal/modalSlice';
 import authSelector from '../../../redux/auth/authSelector';
@@ -17,7 +17,7 @@ import {
   WrapIcons,
   BtnIcon,
   IconStyled,
-  IconProject
+  IconProject,
 } from './Boards.styled';
 import { LoaderForDeleted } from '../../Loader/LoaderDeleted/LoaderDeleted';
 import { useScrollbar } from './use-scrollbar';
@@ -29,13 +29,36 @@ const Boards = ({ currentBg }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { title, boardId } = useParams();
 
   const boards = useSelector(authSelector.getBoards);
+  const currentBoard = useSelector(authSelector.getCurrentBoard);
 
   const { data } = useGetFetchBoardsQuery();
   const [deleteBoard] = useDeleteBoardMutation();
 
   const boardWrapper = useRef(null);
+
+  useEffect(() => {
+    if (boards?.length > 0) {
+      const currentUserBoard = boards.find(
+        (board) => board._id === currentBoard
+      );
+      const currentIndex = boards.findIndex(
+        (item) => item._id === currentUserBoard._id
+      );
+      setSelectedItem(currentIndex);
+      navigate(`/${currentUserBoard._id}/${currentUserBoard.title}`, {
+        replace: true,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const currentIndex = data?.findIndex((item) => item._id === boardId);
+
+    setSelectedItem(currentIndex);
+  }, [title, boardId, data]);
 
   const findIconsUser = (iconId) => {
     const findIcon = icons.find((icon) => icon.id === iconId);
@@ -82,14 +105,10 @@ const Boards = ({ currentBg }) => {
       return navigate(`/`, { replace: true });
     }
 
-    navigate(`/${data[0]._id}/${data[0].title}`, { replace: true });
-  };
+    const currentBoard = data.find((board) => board._id !== id);
 
-  useEffect(() => {
-    if (boards?.length > 0) {
-      navigate(`/${boards[0]._id}/${boards[0].title}`, { replace: true });
-    }
-  }, []);
+    navigate(`/${currentBoard._id}/${currentBoard.title}`, { replace: true });
+  };
 
   const hasScroll = window.setTimeout(function () {
     data > 2;
@@ -109,7 +128,9 @@ const Boards = ({ currentBg }) => {
                 <IconProject isSelected={selectedItem === index}>
                   <use xlinkHref={findIconsUser(iconId)} />
                 </IconProject>
-                <TitleBoard  isSelected={selectedItem === index}>{title}</TitleBoard>
+                <TitleBoard isSelected={selectedItem === index}>
+                  {title}
+                </TitleBoard>
               </WrapTitle>
 
               <WrapIcons isSelected={selectedItem === index}>
