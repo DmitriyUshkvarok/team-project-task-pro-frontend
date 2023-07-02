@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const CardBg = styled.div`
   width: 334px;
@@ -56,7 +56,10 @@ export const CardText = styled.p`
   letter-spacing: -0.24px;
   line-height: 16px;
   width: 290;
-  height: 38px;
+  height: 30px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const CardBottom = styled.div`

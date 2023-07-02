@@ -35,8 +35,6 @@ const TaskCard = ({ task, columns }) => {
 
   const { themeColor } = useSelector((store) => store.theme);
 
-  const maxLength = 97;
-
   const date = new Date(task.deadline);
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -89,13 +87,9 @@ const TaskCard = ({ task, columns }) => {
         <Card>
           <CardTitle>{task.title}</CardTitle>
 
-        <CardDescription>
-          <CardText>
-            {task.description.length >= maxLength
-              ? `${task.description.substring(0, maxLength)}...`
-              : task.description}
-          </CardText>
-        </CardDescription>
+          <CardDescription>
+            <CardText>{task.description}</CardText>
+          </CardDescription>
           <CardBottom>
             <CardBottomGroup>
               <CardPriority>
