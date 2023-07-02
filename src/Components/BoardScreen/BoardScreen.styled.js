@@ -181,9 +181,24 @@ export const AddColumnIcon = styled.span`
   background-color: var(--addColumnBtnBG);
   border-radius: var(--borderRadius8);
 `;
+export const BoxDescEmptyBoard = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (min-width: 1280px) {
+    padding-left: 260px;
+  }
+`;
 
 export const DescEmptyBoard = styled.p`
-  margin: 292px auto;
+  @media screen and (max-width: 374px) {
+    width: 90vw;
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
 
   color: var(--screenPageTextColor);
   text-align: center;
@@ -247,12 +262,18 @@ export const CreatedContainer = styled.div`
   align-items: center;
 `;
 export const CreatedDescription = styled.p`
+  @media screen and (max-width: 640px) {
+    font-size: var(--fontSize10);
+  }
   color: var(--primaryItemsColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
 `;
 export const ModalTeamBtn = styled.button`
+  @media screen and (max-width: 640px) {
+    font-size: var(--fontSize10);
+  }
   color: var(--primaryItemsColor);
   font-size: var(--fontSize14);
   font-family: var(--poppinsFont);

@@ -10,6 +10,7 @@ import {
 import url from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import {
+  BoxBoard,
   StyledLink,
   ListBoard,
   ItemBoard,
@@ -111,7 +112,7 @@ const Boards = ({ currentBg }) => {
   useScrollbar(boardWrapper, hasScroll);
 
   return (
-    <div style={{ marginTop: '30px', marginBottom: '30px' }} ref={boardWrapper}>
+    <BoxBoard ref={boardWrapper}>
       <ListBoard>
         {data?.map(({ _id, title, iconId }, index) => (
           <ItemBoard isSelected={selectedItem === index} key={_id}>
@@ -153,7 +154,7 @@ const Boards = ({ currentBg }) => {
           </ItemBoard>
         ))}
       </ListBoard>
-    </div>
+    </BoxBoard>
   );
 };
 

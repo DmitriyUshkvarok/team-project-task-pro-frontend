@@ -25,7 +25,6 @@ export const NeedHelpContainer = styled.div`
 
 export const Title = styled.h2`
   font-size: var(--fontSize18);
-  // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
   margin-bottom: 24px;
@@ -115,7 +114,6 @@ export const Button = styled.button`
 
   @media screen and (min-width: 320px) {
     width: 100%;
-    /* min-width: 223px; */
   }
 
   @media screen and (min-width: 768px) {

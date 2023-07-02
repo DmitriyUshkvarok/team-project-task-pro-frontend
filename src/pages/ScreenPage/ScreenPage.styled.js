@@ -1,42 +1,5 @@
 import styled from 'styled-components';
 
-// export const Board = styled.div`
-//   @media screen and (min-width: 320px) {
-//     background-color: var(--helpBlockColor);
-//     width: 320px;
-//     padding-bottom: 24px;
-//   }
-//   @media screen and (min-width: 375px) {
-//     width: 375px;
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     padding-bottom: 32px;
-//     margin: 100px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     width: 1180px;
-//     padding-bottom: 8px;
-//   }
-// `;
-
-// export const BtnAdd = styled.button`
-//   display: flex;
-//   padding: 14px 78px 14px 79px;
-//   justify-content: center;
-//   align-items: center;
-//   border-radius: 8px;
-//   background-color: var(--sidebarColor);
-//   width: 177px;
-//   height: 53px;
-//   border: none;
-//   color: #fff;
-//   font-size: 14px;
-//   font-family: Poppins;
-//   font-weight: 500;
-//   letter-spacing: -0.28px;
-// `;
-
 export const BoxColumns = styled.li`
   &:last-child {
     margin-right: 34px;
@@ -65,9 +28,6 @@ export const Subject = styled.h3`
   font-weight: 500;
   letter-spacing: -0.28px;
 `;
-// export const Icon = styled.p`
-//   color: #ffffff80;
-// `;
 
 export const IconStyled = styled.svg`
   stroke: var(--screenPageIconColor);
@@ -96,7 +56,6 @@ export const ListTask = styled.ul`
     max-height: calc(100vh - 305px);
   }
   ::-webkit-scrollbar {
-    
     background: var(--screenPageBGScroll);
     // color: var(--screenPageScrollColor);
     width: 8px;
@@ -105,8 +64,6 @@ export const ListTask = styled.ul`
 
   ::-webkit-scrollbar-thumb {
     width: 8px;
-    
-    // color: red;
 
     border-radius: 12px;
     background-color: var(--screenPageScrollColor);
@@ -127,18 +84,6 @@ export const ListTask = styled.ul`
     }
   }
 `;
-
-// export const Card = styled.li`
-//   @media screen and (min-width: 320px) {
-//     border-radius: 8px;
-//     background-color: var(--sidebarColor);
-
-//     width: 279px;
-//   }
-//   @media screen and (min-width: 375px) {
-//     width: 334px;
-//   }
-// `;
 
 export const AddCardBtn = styled.button`
   background-color: var(--addBtnBgColor);
