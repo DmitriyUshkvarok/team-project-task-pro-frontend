@@ -32,7 +32,7 @@ export const CardTitle = styled.h4`
   font-size: var(--fontSize14);
   color: var(--cardTitleColor);
   letter-spacing: -0.28px;
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   margin: 0px 0px 8px 0px;
 `;
 
@@ -50,7 +50,7 @@ export const CardText = styled.p`
   font-size: var(--fontSize12);
   color: var(--cardDescriptionTextColor);
   position: relative;
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   text-overflow: ellipsis;
   overflow: hidden;
   letter-spacing: -0.24px;

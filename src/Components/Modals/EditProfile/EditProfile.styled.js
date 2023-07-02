@@ -19,7 +19,7 @@ export const InputForm = styled(Field)`
   border-radius: var(--borderRadius8);
   background-color: var(--modalBgColor);
   color: var(--textInputBoardColor);
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
   opacity: 0.4000000059604645;

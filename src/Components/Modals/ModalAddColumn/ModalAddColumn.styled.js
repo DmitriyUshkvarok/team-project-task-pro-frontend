@@ -63,7 +63,7 @@ export const FieldTitle = styled(FormikField)`
 
   color: var(--textInputBoardColor);
   font-size: var(--fontSize14);
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   letter-spacing: -0.28px;
 
   &:hover,

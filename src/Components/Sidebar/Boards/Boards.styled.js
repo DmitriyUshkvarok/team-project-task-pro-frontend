@@ -61,7 +61,7 @@ export const IconProject = styled.svg`
 `;
 
 export const TitleBoard = styled.p`
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
 
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize14);

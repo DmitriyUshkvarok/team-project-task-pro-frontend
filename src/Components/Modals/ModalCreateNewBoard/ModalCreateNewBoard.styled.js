@@ -67,7 +67,7 @@ export const FieldTitle = styled(Field)`
   color: var(--textInputBoardColor);
 
   font-size: var(--fontSize14);
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   letter-spacing: -0.28px;
 
   &:hover,
@@ -172,14 +172,12 @@ export const ImgBox = styled.div`
 
 export const FormikFieldImage = styled(Field)`
   display: none;
-   
+
   &:checked + ${ImgBox} {
-    outline: 2px solid var(--accentColor);  
+    outline: 2px solid var(--accentColor);
     transition-duration: 250ms;
-    }
-  `;
-
-
+  }
+`;
 
 export const Button = styled.button`
   display: flex;

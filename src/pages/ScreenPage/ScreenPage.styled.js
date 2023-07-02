@@ -24,7 +24,7 @@ export const Subject = styled.h3`
   margin-right: auto;
   color: var(--screenPageTitleColor);
   font-size: 14px;
-  font-family: Poppins;
+  font-family: var(--poppinsFont), var(--roboto);
   font-weight: 500;
   letter-spacing: -0.28px;
 `;
@@ -57,7 +57,6 @@ export const ListTask = styled.ul`
   }
   ::-webkit-scrollbar {
     background: var(--screenPageBGScroll);
-    // color: var(--screenPageScrollColor);
     width: 8px;
     border-radius: 12px;
   }

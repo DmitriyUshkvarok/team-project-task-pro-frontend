@@ -38,7 +38,7 @@ export const InputTitle = styled(Field)`
   border: 1px solid var(--borderInputBoardColor);
   color: var(--textInputBoardColor);
   line-height: 18px;
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
   opacity: 0.4000000059604645;
@@ -60,7 +60,7 @@ export const InputDescription = styled(Field)`
   border: 1px solid var(--borderInputBoardColor);
   color: var(--textInputBoardColor);
   line-height: 18px;
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   font-size: var(--fontSize14);
   letter-spacing: -0.28px;
   resize: none;

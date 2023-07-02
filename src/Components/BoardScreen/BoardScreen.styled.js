@@ -232,7 +232,7 @@ export const AccentSpan = styled.span`
 export const Title = styled.h2`
   color: var(--screenPageTitleColor);
   font-size: var(--fontSize18);
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
 `;

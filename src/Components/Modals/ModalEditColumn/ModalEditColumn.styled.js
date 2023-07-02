@@ -14,7 +14,6 @@ export const ModalContainer = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  // box-shadow: var(--boxShadow);
   border-radius: 8px;
   border: 1px solid var(--borderBoardColor);
   background-color: var(--modalBgColor);
@@ -61,7 +60,7 @@ export const FieldTitle = styled(FormikField)`
 
   color: var(--textInputBoardColor);
   font-size: var(--fontSize14);
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   letter-spacing: -0.28px;
 
   &:hover,

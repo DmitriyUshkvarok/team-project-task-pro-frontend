@@ -12,7 +12,7 @@ const slideIn = keyframes`
 
 export const Head = styled.header`
   background-color: var(--headerColor);
-  
+
   animation: ${slideIn} 0.5s ease-out;
 
   @media screen and (min-width: 768px) {
@@ -52,7 +52,7 @@ export const UserInfo = styled.div`
   column-gap: 8px;
 `;
 export const UserText = styled.p`
-  font-family: var(--poppinsFont);
+  font-family: var(--poppinsFont), var(--roboto);
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize14);
   margin-left: 14px;
@@ -69,10 +69,9 @@ export const UserIcon = styled.img`
   cursor: pointer;
 `;
 
-
 export const UserIconSvg = styled.svg`
-  fill: var(--userIconBgSvgColor); 
-  color: var(--userIconSvgColor); 
+  fill: var(--userIconBgSvgColor);
+  color: var(--userIconSvgColor);
   cursor: pointer;
 
   width: 32px;

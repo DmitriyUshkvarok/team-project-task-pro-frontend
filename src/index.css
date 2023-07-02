@@ -7,12 +7,11 @@
   --bgFormColor: #151515;
   --bgInputColor: #1f1f1f;
   --errorColor: #ff0000;
+  --roboto: 'Roboto';
 
-  --gradientFonColor: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
+  --gradientFonColor: linear-gradient(180deg,
+      rgba(196, 196, 196, 0) 25%,
+      #bedbb0 92.19%);
 
   --transition: 0.4s;
 
@@ -108,7 +107,7 @@ body[data-theme='light'] {
   --iconLogOutColor: #bedbb0;
   --scrollbarColor: rgba(0, 0, 0, 0.44);
   --logOutHoverColor: #bedbb0;
-  
+
 
   /**Need Help*/
   --needHelpBgColor: #fcfcfc;
@@ -289,7 +288,7 @@ body[data-theme='dark'] {
   --cardSubtitleColor: #ffffff80;
   --cardPriorityTextColor: #ffffff;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(190, 219, 176, 1));
-  
+
 }
 
 body[data-theme='violet'] {
@@ -406,7 +405,7 @@ body[data-theme='violet'] {
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(82, 85, 188, 1));
 
- }
+}
 
 h1,
 h2,
