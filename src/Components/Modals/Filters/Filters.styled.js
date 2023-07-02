@@ -47,8 +47,8 @@ export const ImageContainer = styled.div`
   padding-bottom: 14px;
   margin-top: 14px;
   margin-bottom: 24px;
-  // cursor: pointer;
-  border-bottom: 1px solid var(--modalFilterBorderColor); 
+
+  border-bottom: 1px solid var(--modalFilterBorderColor);
 
   label {
     position: relative;
@@ -66,13 +66,13 @@ export const ImageContainer = styled.div`
 
     &:hover,
     &:focus,
-    &:active {      
+    &:active {
       outline: 2px solid var(--accentColor);
     }
+  }
   label:first-of-type {
     background-color: var(--iconImageBGColor);
   }
-
 `;
 
 export const FormikFieldImage = styled(Field)`

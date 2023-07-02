@@ -189,7 +189,7 @@ export const ButtonDate = styled.button`
   font-family: var(--poppinsFont);
   letter-spacing: var(--letterSpacing28);
   font-weight: var(--fontWeight500);
-  background-color: var(--bgInputBoardColor);
+  background-color: transparent;
   border: none;
   padding: 0px;
   float: left;

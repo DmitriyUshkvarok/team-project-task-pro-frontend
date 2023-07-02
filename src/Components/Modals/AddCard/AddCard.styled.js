@@ -93,6 +93,7 @@ export const StyledLabelDeadline = styled.p`
   margin-top: 14px;
   margin-bottom: 4px;
   text-align: left;
+  background: transparent;
 `;
 
 export const Button = styled.button`
@@ -182,6 +183,7 @@ export const LabelContainer = styled.div`
 
 export const CalendarContainer = styled.div`
   text-align: left;
+  
 `;
 export const LabelDiv = styled.div`
   text-align: left;
@@ -193,7 +195,7 @@ export const ButtonDate = styled.button`
   font-family: var(--poppinsFont);
   letter-spacing: var(--letterSpacing28);
   font-weight: var(--fontWeight500);
-  background-color: var(--bgInputBoardColor);
+  background-color: transparent;
   border: none;
   padding: 0px;
   float: left;
