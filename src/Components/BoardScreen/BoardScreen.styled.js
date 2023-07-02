@@ -150,8 +150,12 @@ export const AddColumnBtn = styled.button`
     background-color: var(--screenPageTitleBgColor);
     color: var(--screenPageTitleColor);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: auto;
+    padding-right: auto;
 
     font-family: var(--poppinsFont);
     font-weight: var(--fontWeight500);
@@ -163,12 +167,12 @@ export const AddColumnBtn = styled.button`
 
     min-width: 100%;
     height: 56px;
-    padding: 14px 70px 14px 75px;
   }
   @media screen and (min-width: 375px) {
     min-width: 334px;
 
-    padding: 14px 78px 14px 79px;
+    padding-left: 79px;
+    padding-right: 78px;
   }
 `;
 export const AddColumnIcon = styled.span`
