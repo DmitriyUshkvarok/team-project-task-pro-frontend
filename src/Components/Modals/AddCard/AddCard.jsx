@@ -39,7 +39,7 @@ import {
 const ModalAddCard = ({ componentName }) => {
   const { boardId, columnId } = componentName;
   const [date, setDate] = useState(new Date());
-  const [select, setSelect] = useState(null);
+  const [select, setSelect] = useState('without');
   const [formattedDate, setFormattedDate] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -57,7 +57,7 @@ const ModalAddCard = ({ componentName }) => {
   const initialValues = {
     title: '',
     description: '44444',
-    priority: '',
+    priority: 'without',
     deadline: date.toISOString(),
     column: columnId,
   };
