@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export const ListBoard = styled.ul`
   /* margin-top: 40px; */
