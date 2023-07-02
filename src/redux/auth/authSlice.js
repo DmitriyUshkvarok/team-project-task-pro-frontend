@@ -79,6 +79,11 @@ const authSlice = createSlice({
         state.user.theme = action.payload.theme;
         state.token = action.payload.token;
       });
+    // .addCase(authOperation.refreshToken.fulfilled, (state, action) => {
+    //   state.token = action.payload.token;
+    //   state.isLoggedIn = true;
+    //   state.isRefreshing = false;
+    // });
   },
 });
 

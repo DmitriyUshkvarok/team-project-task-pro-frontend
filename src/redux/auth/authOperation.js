@@ -74,11 +74,25 @@ const updateTheme = createAsyncThunk('user/setTheme', async (newTheme) => {
   }
 });
 
+// const refreshToken = createAsyncThunk(
+//   'auth/refreshToken',
+//   async (_, thunkAPI) => {
+//     try {
+//       const { data } = await axios.get('/auth/refreshToken');
+//       setAuth(data.token);
+//       return data;
+//     } catch (error) {
+//       thunkAPI.dispatch(logOut());
+//     }
+//   }
+// );
+
 const authOperation = {
   register,
   logIn,
   logOut,
   refreshCurrentUser,
   updateTheme,
+  // refreshToken,
 };
 export default authOperation;

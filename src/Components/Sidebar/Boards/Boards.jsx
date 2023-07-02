@@ -44,7 +44,7 @@ const Boards = ({ currentBg }) => {
   useEffect(() => {
     if (boards?.length > 0) {
       const currentUserBoard = boards.find(
-        (board) => board._id === currentBoard
+        (board) => board?._id === currentBoard
       );
       const currentIndex = boards.findIndex(
         (item) => item._id === currentUserBoard._id
@@ -101,9 +101,9 @@ const Boards = ({ currentBg }) => {
       return navigate(`/`, { replace: true });
     }
 
-    const currentBoard = data.find((board) => board._id !== id);
+    const currentBoard = data.find((board) => board?._id !== id);
 
-    navigate(`/${currentBoard._id}/${currentBoard.title}`, { replace: true });
+    navigate(`/${currentBoard?._id}/${currentBoard.title}`, { replace: true });
   };
 
   const hasScroll = window.setTimeout(function () {
