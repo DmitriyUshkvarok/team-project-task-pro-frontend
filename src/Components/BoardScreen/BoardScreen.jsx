@@ -1,6 +1,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+
+import { useEffect, Suspense } from 'react';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
