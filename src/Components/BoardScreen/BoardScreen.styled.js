@@ -150,7 +150,7 @@ export const AddColumnBtn = styled.button`
     background-color: var(--screenPageTitleBgColor);
     color: var(--screenPageTitleColor);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     font-family: var(--poppinsFont);
@@ -159,6 +159,7 @@ export const AddColumnBtn = styled.button`
     border-radius: var(--borderRadius8);
     cursor: pointer;
     border: none;
+    letter-spacing: -0.28px;
 
     min-width: 100%;
     height: 56px;
