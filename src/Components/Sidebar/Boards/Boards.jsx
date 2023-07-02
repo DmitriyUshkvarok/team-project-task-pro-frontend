@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../../redux/modal/modalSlice';
 import authSelector from '../../../redux/auth/authSelector';
@@ -10,6 +10,7 @@ import {
 import url from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
 import {
+  StyledLink,
   ListBoard,
   ItemBoard,
   WrapTitle,
@@ -113,8 +114,8 @@ const Boards = ({ currentBg }) => {
     <div style={{ marginTop: '30px', marginBottom: '30px' }} ref={boardWrapper}>
       <ListBoard>
         {data?.map(({ _id, title, iconId }, index) => (
-          <Link to={`/${_id}/${title}`} key={_id}>
-            <ItemBoard isSelected={selectedItem === index}>
+          <ItemBoard isSelected={selectedItem === index} key={_id}>
+            <StyledLink to={`/${_id}/${title}`}>
               <WrapTitle>
                 <IconProject isSelected={selectedItem === index}>
                   <use xlinkHref={findIconsUser(iconId)} />
@@ -148,8 +149,8 @@ const Boards = ({ currentBg }) => {
                   )}
                 </BtnIcon>
               </WrapIcons>
-            </ItemBoard>
-          </Link>
+            </StyledLink>
+          </ItemBoard>
         ))}
       </ListBoard>
     </div>

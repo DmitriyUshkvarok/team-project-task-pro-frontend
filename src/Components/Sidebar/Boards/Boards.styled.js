@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export const ListBoard = styled.ul`
   /* margin-top: 40px; */
@@ -8,9 +15,9 @@ export const ListBoard = styled.ul`
 
 export const ItemBoard = styled.li`
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
   padding: 20px 14px;
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
@@ -38,8 +45,8 @@ export const WrapTitle = styled.div`
 `;
 
 export const IconProject = styled.svg`
-fill: none;
-// stroke: var(--secondarySidebarColor);
+  fill: none;
+  // stroke: var(--secondarySidebarColor);
 
   width: 18px;
   height: 18px;
@@ -64,7 +71,6 @@ export const TitleBoard = styled.p`
 export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
   gap: 8px;
-  
 `;
 
 export const BtnIcon = styled.button`
