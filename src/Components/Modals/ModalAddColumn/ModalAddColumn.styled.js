@@ -89,6 +89,7 @@ export const Button = styled.button`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.28px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 302px;

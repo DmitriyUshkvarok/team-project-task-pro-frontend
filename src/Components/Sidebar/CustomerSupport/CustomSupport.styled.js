@@ -46,39 +46,29 @@ export const WrapContent = styled.div`
   display: flex;
   margin-top: 19px;
 `;
-
+export const IconStyled = styled.svg`
+  stroke: var(--primarySidebarColor);
+`;
 export const BtnNeedHelp = styled.button`
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  padding: 0;
   justify-content: center;
   align-items: center;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: var(--primarySidebarColor);
-`;
-
-export const DescContent = styled.p`
   font-family: var(--poppinsFont);
-
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize12);
   line-height: 1.5em;
-
   letter-spacing: -0.24px;
-
   color: var(--primarySidebarColor);
   &:hover,
   &:focus {
     color: var(--accentColor);
-  }
-`;
-
-export const IconStyled = styled.svg`
-  stroke: var(--primarySidebarColor);
-  fill: transparent;
-  &:hover,
-  &:focus {
-    stroke: var(--accentColor);
+    ${IconStyled} {
+      stroke: currentColor;
+    }
   }
 `;

@@ -11,7 +11,7 @@ export const ItemBoard = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 14px;
+  padding: 20px;
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
   ::after {
@@ -38,8 +38,8 @@ export const WrapTitle = styled.div`
 `;
 
 export const IconProject = styled.svg`
-fill: none;
-// stroke: var(--secondarySidebarColor);
+  fill: none;
+  // stroke: var(--secondarySidebarColor);
 
   width: 18px;
   height: 18px;
@@ -64,16 +64,21 @@ export const TitleBoard = styled.p`
 export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
   gap: 8px;
-  
 `;
-
-export const BtnIcon = styled.button`
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
 export const IconStyled = styled.svg`
   fill: none;
   stroke: var(--secondarySidebarColor);
+`;
+
+export const BtnIcon = styled.button`
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: var(--accentColor);
+    ${IconStyled} {
+      stroke: currentColor;
+    }
 `;

@@ -183,7 +183,6 @@ export const LabelContainer = styled.div`
 
 export const CalendarContainer = styled.div`
   text-align: left;
-  
 `;
 export const LabelDiv = styled.div`
   text-align: left;
