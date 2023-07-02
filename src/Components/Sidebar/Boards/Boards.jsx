@@ -68,9 +68,9 @@ const Boards = ({ currentBg }) => {
   };
 
   const handleItemClick = async (index) => {
-    setSelectedItem((prevSelectedItem) =>
-      prevSelectedItem === index ? null : index
-    );
+    // setSelectedItem((prevSelectedItem) =>
+    //   prevSelectedItem === index ? null : index
+    // );
   };
 
   const handleEditBoard = (id, title, iconId) => {
