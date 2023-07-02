@@ -109,7 +109,13 @@ const EditProfile = () => {
       const formData = new FormData();
       formData.append('avatarImage', selectedAvatar);
       await updateAvatar(formData);
+      setShowAvatarSuccessMessage(true);
       setShowSaveButton(false);
+
+      setTimeout(() => {
+        setShowAvatarSuccessMessage(false);
+      }, 4000);
+      setIsAvatarOnly(false);
     } catch (error) {
       console.log(error);
     }
@@ -164,10 +170,6 @@ const EditProfile = () => {
       await handleUpdateAvatar();
       setShowAvatarSuccessMessage(true);
 
-      setTimeout(() => {
-        setShowAvatarSuccessMessage(false);
-      }, 4000);
-      setIsAvatarOnly(false);
       return;
     }
 
@@ -205,7 +207,7 @@ const EditProfile = () => {
       <EditTitle>Edit profile</EditTitle>
 
       <ProfilePhotoBlock>
-        {showAvatarSuccessMessage && (
+        {showAvatarSuccessMessage && !errorFormat && (
           <SeccessUpdateAvatar style={{ color: 'green' }}>
             Field successfully updated
           </SeccessUpdateAvatar>
@@ -244,6 +246,7 @@ const EditProfile = () => {
             </BtnSavePhotoUser>
           )}
         </PhotoBox>
+
         {errorFormat && (
           <>
             {errorFormat.status === 500 && (
