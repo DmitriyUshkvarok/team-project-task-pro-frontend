@@ -1,7 +1,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { useEffect, Suspense } from 'react';
+import { useEffect } from 'react';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
   useGetFetchBoardsQuery,
@@ -30,7 +30,7 @@ import url from '../../images/icons/sprite/icons.svg';
 
 const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
   const dispatch = useDispatch();
-  const { title, boardId } = useParams();
+  const { boardId } = useParams();
   const { data: boards } = useGetFetchBoardsQuery();
 
   const handleClickModal = () => {
