@@ -15,9 +15,6 @@ export const ListBoard = styled.ul`
 
 export const ItemBoard = styled.li`
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px;
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
