@@ -10,7 +10,6 @@ import { useGetMiniImgQuery } from '../../redux/miniImgApi/miniImgApi';
 const Sidebar = ({ isSidebarOpen, handleOpenModal, currentBg }) => {
   const [isClose, setClose] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const { data } = useGetMiniImgQuery();
 
   const handleKeyDown = (event) => {
     if (event.key === 'Escape') {

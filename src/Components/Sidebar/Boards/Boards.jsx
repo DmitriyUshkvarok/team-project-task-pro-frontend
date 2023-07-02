@@ -67,12 +67,6 @@ const Boards = ({ currentBg }) => {
     }
   };
 
-  const handleItemClick = async (index) => {
-    // setSelectedItem((prevSelectedItem) =>
-    //   prevSelectedItem === index ? null : index
-    // );
-  };
-
   const handleEditBoard = (id, title, iconId) => {
     dispatch(
       openModal({
@@ -120,10 +114,7 @@ const Boards = ({ currentBg }) => {
       <ListBoard>
         {data?.map(({ _id, title, iconId }, index) => (
           <Link to={`/${_id}/${title}`} key={_id}>
-            <ItemBoard
-              isSelected={selectedItem === index}
-              onClick={() => handleItemClick(index, _id)}
-            >
+            <ItemBoard isSelected={selectedItem === index}>
               <WrapTitle>
                 <IconProject isSelected={selectedItem === index}>
                   <use xlinkHref={findIconsUser(iconId)} />
