@@ -1,14 +1,12 @@
-import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
-import authOperation from '../../../redux/auth/authOperation';
+import { useLogoutMutation } from '../../../redux/auth/authApi/authApiOperation';
 
 import { Container, BtnLogOut, IconLogOut } from './LogOut.styled';
 
 import url from '../../../images/icons/sprite/icons.svg';
 
 const LogOut = () => {
-  const dispatch = useDispatch();
-
+  const [logOut] = useLogoutMutation();
   const handleClickLogOut = () => {
     Notiflix.Confirm.init({
       width: '260px',
@@ -24,7 +22,7 @@ const LogOut = () => {
       'No',
       async () => {
         try {
-          await dispatch(authOperation.logOut());
+          await logOut();
           location.reload();
         } catch (error) {
           console.log(error);

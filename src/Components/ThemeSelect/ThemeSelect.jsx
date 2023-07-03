@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import authOperation from '../../redux/auth/authOperation';
 import { setTheme } from '../../redux/theme/themeSlice';
+import { useUpdateThemeMutation } from '../../redux/auth/authApi/authApiOperation';
 import {
   ThemeSelectWrapper,
   ThemeTitle,
@@ -21,6 +21,7 @@ const ThemeSelect = () => {
   const dispatch = useDispatch();
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState('dark');
+  const [updateTheme] = useUpdateThemeMutation();
 
   useEffect(() => {
     document.body.setAttribute('data-theme', selectedTheme);
@@ -46,7 +47,7 @@ const ThemeSelect = () => {
 
   const handleThemeToggle = (theme) => {
     dispatch(setTheme(theme));
-    dispatch(authOperation.updateTheme(theme));
+    updateTheme(theme);
     setSelectedTheme(theme);
     setIsSelectOpen(false);
   };

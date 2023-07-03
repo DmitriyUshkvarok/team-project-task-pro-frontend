@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  @media screen and (max-width: 374px) {
-    margin-top: 20px;
-  }
   margin-top: 24px;
   padding-left: 14px;
 

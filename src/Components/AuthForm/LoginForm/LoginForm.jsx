@@ -13,12 +13,12 @@ import {
   Link,
 } from './LoginForm.Styled';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
-import authOperation from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
+import { useLoginMutation } from '../../../redux/auth/authApi/authApiOperation';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   email: '',
@@ -43,21 +43,27 @@ const schema = yup.object().shape({
 });
 
 function LogInForm() {
-  const dispatch = useDispatch();
+  const [loginMutation] = useLoginMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
   const handleSubmit = async (values, { resetForm }) => {
     setIsLoading(true);
     try {
-      await dispatch(authOperation.logIn(values));
-      await dispatch(authOperation.refreshCurrentUser(values));
-      resetForm();
+      const response = await loginMutation(values);
+
+      if (response.error) {
+        if (response.error.status === 401) {
+          toast.error(response.error.data.message);
+        } else {
+          toast.error('An error occurred. Please try again.');
+        }
+      }
     } catch (error) {
-      console.log(error);
+      toast.error('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
+    resetForm();
   };
 
   const togglePasswordVisibility = () => {

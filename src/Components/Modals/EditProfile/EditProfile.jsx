@@ -86,7 +86,7 @@ const EditProfile = () => {
 
   const [updateUser, { isLoading: isInfoLoading, error: erorUpdate }] =
     useUpdateUserMutation();
-  console.log(erorUpdate);
+
   const [updateAvatar, { isLoading: isAvatarLoading, error: errorFormat }] =
     useChangeProfileAvatarMutation();
   const dispatch = useDispatch();

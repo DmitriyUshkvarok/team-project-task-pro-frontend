@@ -1,7 +1,5 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
-import authOperation from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
 import {
@@ -18,6 +16,8 @@ import {
 } from './RegistrationForm.styled';
 import { LoaderForButton } from '../../Loader/LoaderForButton/LoaderForButton';
 import { NavLink } from 'react-router-dom';
+import { useRegisterMutation } from '../../../redux/auth/authApi/authApiOperation';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -52,10 +52,9 @@ const schema = yup.object().shape({
 });
 
 const RegistrationForm = () => {
-  const dispatch = useDispatch();
+  const [registration] = useRegisterMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
@@ -63,9 +62,17 @@ const RegistrationForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     setIsLoading(true);
     try {
-      await dispatch(authOperation.register(values));
+      const response = await registration(values);
+
+      if (response.error) {
+        if (response.error.status === 409) {
+          toast.error(response.error.data.message);
+        } else {
+          toast.error('An error occurred. Please try again.');
+        }
+      }
     } catch (error) {
-      console.log(error);
+      toast.error('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }

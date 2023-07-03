@@ -1,13 +1,13 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import authOperation from '../../redux/auth/authOperation';
+import { useSelector } from 'react-redux';
 import authSelector from '../../redux/auth/authSelector';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import { LoaderForApp } from '../Loader/LoaderForApp/LoaderForApp';
 import { LoaderForRefresh } from '../Loader/LoaderForRefresh/LoaderForRefresh';
+import { useRefreshCurrentUserQuery } from '../../redux/auth/authApi/authApiOperation';
 
 import Modal from '../Modals/Modal/Modal';
 
@@ -20,13 +20,13 @@ const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 
 function App() {
-  const dispatch = useDispatch();
   const isRefreshing = useSelector(authSelector.getIsRefreshing);
+  const token = useSelector(authSelector.selectToken);
   const { isOpen } = useSelector((store) => store.modal);
 
-  useEffect(() => {
-    dispatch(authOperation.refreshCurrentUser());
-  }, [dispatch]);
+  useRefreshCurrentUserQuery({
+    skip: !token,
+  });
 
   return (
     <>

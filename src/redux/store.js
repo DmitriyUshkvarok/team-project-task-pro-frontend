@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { persisteAuthReducer } from './auth/authSlice';
+import persisteAuthReducer from './auth/authApi/authApiSlice';
 import { profileApi } from './profileApi/profileApi';
 import { tasksApi } from './tasksApi/tasksApi';
 import { helpApi } from './helpApi/helpApi';
 import { boardsApi } from './boardApi/boardApi';
 import { miniImgApi } from './miniImgApi/miniImgApi';
+import { authApi } from './auth/authApi/authApiOperation';
 import {
   persistStore,
   FLUSH,
@@ -25,6 +26,7 @@ const store = configureStore({
     theme: themeReducer,
     modal: modalReducer,
     filter: filterReducer,
+    [authApi.reducerPath]: authApi.reducer,
     [profileApi.reducerPath]: profileApi.reducer,
     [tasksApi.reducerPath]: tasksApi.reducer,
     [helpApi.reducerPath]: helpApi.reducer,
@@ -37,6 +39,7 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(
+      authApi.middleware,
       profileApi.middleware,
       tasksApi.middleware,
       helpApi.middleware,
