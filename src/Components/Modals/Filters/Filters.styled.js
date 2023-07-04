@@ -61,13 +61,14 @@ export const ImageContainer = styled.div`
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    transition-property: outline;
+    transition-property: outline-color;
     transition-duration: var(--transition);
+    outline: 2.5px solid rgba(0, 0, 0, 0);
 
     &:hover,
     &:focus,
     &:active {
-      outline: 2px solid var(--accentColor);
+      outline-color: var(--accentColor);
     }
   }
   label:first-of-type {
@@ -98,6 +99,12 @@ export const ShowAll = styled.label`
   cursor: pointer;
   display: flex;
   align-items: center;
+
+  
+  &:hover,
+  &:focus {
+    color: var(--titleBoardColor);
+  }
 `;
 
 export const Span = styled.span`

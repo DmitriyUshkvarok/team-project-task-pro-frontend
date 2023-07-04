@@ -127,6 +127,13 @@ export const CardBtnGroup = styled.div`
   align-items: flex-end;
 `;
 
+export const CardIcon = styled.svg`
+  stroke: var(--taskIconColor);
+  width: 16px;
+  height: 16px;
+  fill: none;
+`;
+
 export const CardBtn = styled.button`
   width: 16px;
   height: 16px;
@@ -136,14 +143,16 @@ export const CardBtn = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--accentColor);
+    ${CardIcon} {
+      stroke: currentColor;
+    }
+  }
 `;
 
-export const CardIcon = styled.svg`
-  stroke: var(--taskIconColor);
-  width: 16px;
-  height: 16px;
-  fill: none;
-`;
 
 export const BellBox = styled.div`
   display: flex;
