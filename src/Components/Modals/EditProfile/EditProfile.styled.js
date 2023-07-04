@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
+
 
 export const FormUpdateUser = styled(Form)``;
 
@@ -57,6 +58,18 @@ export const BtnWrapper = styled.div`
   margin-top: 24px;
 `;
 
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+`;
+
 export const BtnUpdate = styled.button`
   width: 100%;
   height: 49px;
@@ -68,7 +81,11 @@ export const BtnUpdate = styled.button`
   font-weight: var(--fontWeight500);
   font-size: var(--fontSize14);
   border: none;
-  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
   @media screen and (min-width: 375px) {
     width: 287px;
@@ -78,12 +95,49 @@ export const BtnUpdate = styled.button`
     width: 352px;
   }
 
+
+
+  
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+    top: 0;
+    left: -100%;
+    transform: rotate(45deg);
+    transition: all 0.3s;
+    opacity: 0;
+  }
+
   &:hover,
   &:focus {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    animation: ${pulseAnimation} 1s ease-in-out infinite;
+  }
+
+  &:hover:before,
+  &:focus:before {
+    left: 100%;
+    opacity: 1;
+    transition: left 2s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
+
+
 
 export const StyleErrorMessage = styled(ErrorMessage)``;
 
@@ -103,7 +157,7 @@ export const ErrorServer = styled.p`
   margin-top: 1px;
 `;
 
-export const Seccess = styled.p`
+export const Success = styled.p`
   position: absolute;
   width: 100%;
   color: green;
@@ -112,7 +166,6 @@ export const Seccess = styled.p`
 
 export const Edit = styled.div`
   position: relative;
-
   display: flex;
   flex-direction: column;
   width: 90vw;
@@ -133,29 +186,31 @@ export const Edit = styled.div`
     padding: 24px;
   }
 `;
+
 export const EditTitle = styled.h3`
   color: var(--titleBoardColor);
-
   text-align: start;
-
   width: 100%;
   height: 26px;
-
   font-family: var(--poppinsFont);
   font-size: var(--fontSize18);
   font-weight: var(--fontWeight500);
   letter-spacing: -0.36px;
-
   margin-bottom: 24px;
 `;
+
 export const BtnClose = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
   stroke: var(--iconCloseColor);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
-//===for avatar===/
 export const ProfilePhotoBlock = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -182,9 +237,9 @@ export const SpanErrorImg = styled.span`
   width: 100%;
 `;
 
-export const SeccessUpdateAvatar = styled.span`
+export const SuccessUpdateAvatar = styled.span`
   position: absolute;
-  top: 11%;
+  top: 8%;
   font-size: 10px;
   width: 70px;
   margin-left: auto;
@@ -205,6 +260,11 @@ export const LabelEditPhoto = styled.label`
   align-items: center;
   border-radius: var(--borderRadius8);
   cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
 `;
 
 export const InputEditPhoto = styled.input`
@@ -233,7 +293,6 @@ export const BtnSavePhotoUser = styled.button`
 export const UserIconSvg = styled.svg`
   fill: var(--userIconBgSvgColor);
   color: var(--userIconSvgColor);
-
   width: 68px;
   height: 68px;
   border-radius: var(--borderRadius8);

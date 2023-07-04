@@ -24,8 +24,8 @@ import {
   ErrorServer,
   StyleErrorMessage,
   Error,
-  SeccessUpdateAvatar,
-  Seccess,
+  SuccessUpdateAvatar,
+  Success,
   Edit,
   EditTitle,
   BtnClose,
@@ -208,9 +208,9 @@ const EditProfile = () => {
 
       <ProfilePhotoBlock>
         {showAvatarSuccessMessage && !errorFormat && (
-          <SeccessUpdateAvatar style={{ color: 'green' }}>
+          <SuccessUpdateAvatar style={{ color: 'green' }}>
             Field successfully updated
-          </SeccessUpdateAvatar>
+          </SuccessUpdateAvatar>
         )}
         <PhotoBox>
           {selectedAvatar || currentUser?.avatarURL ? (
@@ -284,9 +284,9 @@ const EditProfile = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
             {showNameSuccessMessage && (
-              <Seccess style={{ marginTop: '5px', color: 'green' }}>
+              <Success style={{ marginTop: '5px', color: 'green' }}>
                 Field successfully updated
-              </Seccess>
+              </Success>
             )}
           </FeedbackFormGroup>
           <FeedbackFormGroup>
@@ -301,9 +301,9 @@ const EditProfile = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
             {showEmailSuccessMessage && (
-              <Seccess style={{ marginTop: '5px', color: 'green' }}>
+              <Success style={{ marginTop: '5px', color: 'green' }}>
                 Field successfully updated
-              </Seccess>
+              </Success>
             )}
           </FeedbackFormGroup>
           <FeedbackFormGroup>
@@ -334,9 +334,9 @@ const EditProfile = () => {
               {(msg) => <Error>{msg}</Error>}
             </StyleErrorMessage>
             {showPasswordSuccessMessage && (
-              <Seccess style={{ marginTop: '5px', color: 'green' }}>
+              <Success style={{ marginTop: '5px', color: 'green' }}>
                 Field successfully updated
-              </Seccess>
+              </Success>
             )}
           </FeedbackFormGroup>
           <BtnWrapper>
