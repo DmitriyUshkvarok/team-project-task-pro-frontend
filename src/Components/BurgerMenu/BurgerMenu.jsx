@@ -1,5 +1,6 @@
 import url from '../../images/icons/sprite/icons.svg';
 import { Button, Svg } from './BurgerMenu.styled';
+import PropTypes from 'prop-types';
 
 const BurgerMenu = ({ openSideBar }) => {
   return (
@@ -11,6 +12,10 @@ const BurgerMenu = ({ openSideBar }) => {
       </Button>
     </div>
   );
+};
+
+BurgerMenu.propTypes = {
+  openSideBar: PropTypes.func.isRequired,
 };
 
 export default BurgerMenu;

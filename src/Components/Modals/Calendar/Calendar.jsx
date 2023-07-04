@@ -1,7 +1,5 @@
-import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { parseISO } from 'date-fns';
 
 const Calendar = ({ prop, click, setFieldValue }) => {
   const handleDateChange = (selectedDate) => {

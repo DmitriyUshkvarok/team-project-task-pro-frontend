@@ -51,9 +51,11 @@ export const WrapContent = styled.div`
   display: flex;
   margin-top: 19px;
 `;
+
 export const IconStyled = styled.svg`
   stroke: var(--primarySidebarColor);
 `;
+
 export const BtnNeedHelp = styled.button`
   display: flex;
   gap: 8px;

@@ -28,6 +28,7 @@ import {
 } from './BoardScreen.styled';
 import { FiFilter } from 'react-icons/fi';
 import url from '../../images/icons/sprite/icons.svg';
+import PropTypes from 'prop-types';
 
 const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
   const dispatch = useDispatch();
@@ -119,6 +120,12 @@ const BoardScreen = ({ closeSidebar, handleOpenModal, selectedBg }) => {
       </ContainerBoard>
     </Board>
   );
+};
+
+BoardScreen.propTypes = {
+  closeSidebar: PropTypes.func.isRequired,
+  handleOpenModal: PropTypes.func.isRequired,
+  selectedBg: PropTypes.func.isRequired,
 };
 
 export default BoardScreen;

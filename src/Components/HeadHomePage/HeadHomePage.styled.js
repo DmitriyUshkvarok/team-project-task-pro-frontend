@@ -6,6 +6,7 @@ export const HeadHomeBox = styled.div`
   padding: 0 32px;
   background-color: var(--headerPageColor);
 `;
+
 export const HeadTitle = styled.h4`
   font-family: var(--poppinsFont);
   font-size: var(--fontSize18);
@@ -16,11 +17,13 @@ export const HeadTitle = styled.h4`
     color: var(--accentColor);
   }
 `;
+
 export const HeadBoxFilter = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
 `;
+
 export const IconFilter = styled.svg`
   stroke: var(--logoHeaderColor);
   opacity: 80%;
@@ -29,6 +32,7 @@ export const IconFilter = styled.svg`
     stroke: var(--accentColor);
   }
 `;
+
 export const ButtonFilter = styled.button`
   background-color: transparent;
   margin-left: 8px;

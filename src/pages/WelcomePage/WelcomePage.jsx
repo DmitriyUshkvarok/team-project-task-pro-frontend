@@ -6,7 +6,7 @@ import {
   Content,
   Link,
   ImgLogo,
-  ImgIcon
+  ImgIcon,
 } from './WelcomePage.styled';
 
 import imageUrl from '../../images/icons/iconsPng/menLaptopBig.png';

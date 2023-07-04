@@ -1,6 +1,5 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { useState } from 'react';
 import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +9,6 @@ import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
 
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import icons from '../../icons.json';
-
-import images from '../../image.json';
-
 import CloseButton from '../CloseButton/CloseButton';
 
 import {

@@ -114,6 +114,5 @@ export const {
   useDeleteColumnMutation,
   useUpdateTaskMutation,
   useGetBoardBdByIdQuery,
-  useGetAllBoardBdQuery,
   useDeleteTaskMutation,
 } = boardsApi;

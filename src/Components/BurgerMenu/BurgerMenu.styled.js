@@ -14,6 +14,7 @@ export const Button = styled.button`
     display: none;
   }
 `;
+
 export const Svg = styled.svg`
   stroke: var(--primaryItemsColor);
 

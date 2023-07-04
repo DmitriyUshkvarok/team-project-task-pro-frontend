@@ -21,11 +21,13 @@ export const ModalContainer = styled.div`
     width: 1200px;
   }
 `;
+
 export const TeamTitle = styled.h1`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight600);
   color: var(--primaryItemsColor);
 `;
+
 export const FirstList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -35,6 +37,7 @@ export const FirstList = styled.ul`
     flex-direction: row;
   }
 `;
+
 export const SecondList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -47,6 +50,7 @@ export const SecondList = styled.ul`
     flex-direction: row;
   }
 `;
+
 export const ThirdList = styled.ul`
   display: flex;
   justify-content: center;
@@ -54,6 +58,7 @@ export const ThirdList = styled.ul`
   row-gap: 18px;
   column-gap: 12px;
 `;
+
 export const User = styled.li`
   width: 300px;
   height: 370px;
@@ -75,6 +80,7 @@ export const User = styled.li`
     font-size: var(--fontSize14);
   }
 `;
+
 export const Img = styled.img`
   width: 100%;
   height: 280px;
@@ -84,6 +90,7 @@ export const Img = styled.img`
     height: 120px;
   }
 `;
+
 export const ContainerIcons = styled.div`
   display: flex;
   column-gap: 20px;

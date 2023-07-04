@@ -37,7 +37,6 @@ export const authApi = createApi({
       }),
       invalidatesTags: ['auth'],
     }),
-
     refreshCurrentUser: builder.query({
       query: () => 'users/current',
       providesTags: ['auth'],
@@ -49,7 +48,6 @@ export const authApi = createApi({
         }
       },
     }),
-
     updateTheme: builder.mutation({
       query: (newTheme) => ({
         url: 'users',

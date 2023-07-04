@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Form } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {
   FiltersContainer,
   LabelContainer,
@@ -15,24 +15,18 @@ import {
   ImgStyled,
 } from './Filters.styled';
 import CloseButton from '../CloseButton/CloseButton';
-import images from '../../image.json';
 import { setFilter } from '../../../redux/filter/filterSlice';
 import { useGetMiniImgQuery } from '../../../redux/miniImgApi/miniImgApi';
 import urlIcon from '../../../images/icons/sprite/icons.svg';
 import { useEditBoardMutation } from '../../../redux/boardApi/boardApi';
 
 const Filters = ({ componentName }) => {
-  // допилить:
-  // валидацию чекбоксов
-  // каптинки
-  // адаптивную верстку мобилка планше
-
   const dispatch = useDispatch();
   const onFilterChange = (e) => {
     dispatch(setFilter(e.target.value));
   };
   const { data } = useGetMiniImgQuery();
-  const [editBoard, { isLoading: isEditLoading }] = useEditBoardMutation();
+  const [editBoard] = useEditBoardMutation();
 
   const updateBackground = async (name) => {
     const { data } = await editBoard({

@@ -14,14 +14,6 @@ export const tasksApi = createApi({
   }),
   tagTypes: ['Profile'],
   endpoints: (build) => ({
-    // createTask: build.mutation({
-    //   query: ({ values, boardId, columnId }) => ({
-    //     url: `/tasks/${boardId}/${columnId}`,
-    //     method: 'POST',
-    //     body: values,
-    //   }),
-    //   invalidatesTags: ['Profile'],
-    // }),
     updateTask: build.mutation({
       query: (formData, id) => ({
         url: `/tasks/${id}`,
@@ -33,4 +25,4 @@ export const tasksApi = createApi({
   }),
 });
 
-export const { useCreateTaskMutation, useUpdateTaskMutation } = tasksApi;
+export const { useUpdateTaskMutation } = tasksApi;

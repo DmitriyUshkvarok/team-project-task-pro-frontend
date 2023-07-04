@@ -17,6 +17,7 @@ export const Board = styled.div`
 
   @media screen and (min-width: 375px) {
   }
+
   @media screen and (min-width: 768px) {
     height: calc(100vh - 68px);
 
@@ -28,6 +29,7 @@ export const Board = styled.div`
       background-image: url(${(props) => props.boardBg?.tablet?.retina});
     }
   }
+
   @media screen and (min-width: 1280px) {
     background-image: url(${(props) => props.boardBg?.desktop?.regular});
 
@@ -51,6 +53,7 @@ export const ContainerBoard = styled.div`
     width: 768px;
     padding: 22px 0;
   }
+
   @media screen and (min-width: 1280px) {
     width: 100%;
     padding: 10px 0px 8px 260px;
@@ -68,11 +71,13 @@ export const SidebarBoard = styled.div`
   margin-bottom: 39px;
   padding-left: 20px;
   padding-right: 20px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 26px;
     padding-left: 32px;
     padding-right: 32px;
   }
+
   @media screen and (min-width: 1280px) {
     margin-bottom: 10px;
     padding-left: 24px;
@@ -88,10 +93,12 @@ export const BoardsContainer = styled.div`
     padding-left: 20px;
     padding-right: 20px;
   }
+
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
   }
+
   @media screen and (min-width: 1280px) {
     padding-left: 24px;
     padding-right: 24px;
@@ -115,10 +122,12 @@ export const BoardsContainer = styled.div`
       margin-left: 20px;
       margin-right: 20px;
     }
+
     @media screen and (min-width: 768px) {
       margin-left: 32px;
       margin-right: 32px;
     }
+
     @media screen and (min-width: 1280px) {
       margin-left: 24px;
       margin-right: 24px;
@@ -135,10 +144,12 @@ export const ContainerColumns = styled.ul`
   @media screen and (min-width: 320px) {
     margin-bottom: 94px;
   }
+
   @media screen and (min-width: 768px) {
     margin-bottom: 122px;
     height: calc(100vh - 297px);
   }
+
   @media screen and (min-width: 1280px) {
     margin-bottom: 86px;
     height: calc(100vh - 228px);
@@ -168,6 +179,7 @@ export const AddColumnBtn = styled.button`
     min-width: 100%;
     height: 56px;
   }
+
   @media screen and (min-width: 375px) {
     min-width: 334px;
 
@@ -175,6 +187,7 @@ export const AddColumnBtn = styled.button`
     padding-right: 78px;
   }
 `;
+
 export const AddColumnIcon = styled.span`
   margin-right: 8px;
   width: 28px;
@@ -186,6 +199,7 @@ export const AddColumnIcon = styled.span`
   background-color: var(--addColumnBtnBG);
   border-radius: var(--borderRadius8);
 `;
+
 export const BoxDescEmptyBoard = styled.div`
   position: absolute;
   top: 50%;
@@ -253,6 +267,7 @@ export const Filter = styled.p`
     color: var(--accentColor);
   }
 `;
+
 export const CreatedContainer = styled.div`
   @media screen and (min-width: 1280px) {
     padding-left: 260px;
@@ -266,6 +281,7 @@ export const CreatedContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export const CreatedDescription = styled.p`
   @media screen and (max-width: 640px) {
     font-size: var(--fontSize10);
@@ -275,6 +291,7 @@ export const CreatedDescription = styled.p`
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
 `;
+
 export const ModalTeamBtn = styled.button`
   @media screen and (max-width: 640px) {
     font-size: var(--fontSize10);

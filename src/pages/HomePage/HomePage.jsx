@@ -10,8 +10,6 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 import Header from '../../Components/Header/Header';
 import BoardScreen from '../../Components/BoardScreen/BoardScreen';
 
-// import { ContainerHome, BoxHome } from './HomePage.styled';
-
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 

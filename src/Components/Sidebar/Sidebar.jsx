@@ -5,7 +5,6 @@ import Boards from './Boards/Boards';
 import CustomerSupport from './CustomerSupport/CustomerSupport';
 import LogOut from './LogOut/LogOut';
 import { Container } from './SideBar.styled';
-import { useGetMiniImgQuery } from '../../redux/miniImgApi/miniImgApi';
 
 const Sidebar = ({ isSidebarOpen, handleOpenModal, currentBg }) => {
   const [isClose, setClose] = useState(false);

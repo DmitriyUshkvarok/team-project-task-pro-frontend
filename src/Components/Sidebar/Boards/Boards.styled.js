@@ -77,6 +77,7 @@ export const WrapIcons = styled.div`
   display: ${({ isSelected }) => (isSelected ? 'flex' : 'none')};
   gap: 8px;
 `;
+
 export const IconStyled = styled.svg`
   fill: none;
   stroke: var(--secondarySidebarColor);

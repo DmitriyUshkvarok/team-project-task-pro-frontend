@@ -31,6 +31,7 @@ export const ContainerHead = styled.div`
     width: 768px;
     padding: 18px 32px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 100%;
     padding: 18px 24px;
@@ -42,15 +43,18 @@ export const Navigation = styled.nav`
   align-items: center;
   justify-content: space-between;
 `;
+
 export const BoxMenu = styled.div`
   display: flex;
   align-items: baseline;
 `;
+
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
   column-gap: 8px;
 `;
+
 export const UserText = styled.p`
   font-family: var(--poppinsFont), var(--roboto);
   font-weight: var(--fontWeight500);
@@ -63,6 +67,7 @@ export const UserText = styled.p`
     color: var(--accentColor);
   }
 `;
+
 export const UserIcon = styled.img`
   background-color: var(--headerPageColor);
   border-radius: 8px;
