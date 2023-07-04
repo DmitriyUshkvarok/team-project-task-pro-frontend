@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Form, ErrorMessage as FormikError, Field } from 'formik';
 
 export const ModalCard = styled.div`
@@ -96,27 +96,26 @@ export const IconContainer = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-
-  label {
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      stroke: var(--iconBoardActiveColor);
-      transition-duration: 250ms;
-    }
-  }
 `;
 
 export const Icon = styled.svg`
   fill: none;
   stroke: var(--iconBoardColor);
   transition-duration: 250ms;
+  cursor: pointer;
 `;
 
 export const FormikField = styled(Field)`
   opacity: 0;
   position: absolute;
+  cursor: pointer;
+  transition-duration: 250ms;
+
+  &:hover + ${Icon},
+  &:focus + ${Icon} {
+    stroke: var(--iconBoardActiveColor);
+    transition-duration: 250ms;
+ 
 
   &:checked + ${Icon} {
     stroke: var(--iconBoardActiveColor);
@@ -145,13 +144,14 @@ export const ImageContainer = styled.div`
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    transition-property: outline;
+    transition-property: outline-color;
     transition-duration: var(--transition);
+    outline: 2.5px solid rgba(0, 0, 0, 0);
 
     &:hover,
     &:focus,
     &:active {
-      outline: 2px solid var(--accentColor);
+      outline-color: var(--accentColor);
     }
   }
   label:first-of-type {
@@ -168,14 +168,28 @@ export const ImgBox = styled.div`
   width: 28px;
   height: 28px;
   border-radius: 8px;
+  outline: 2.5px solid transparent;
 `;
 
 export const FormikFieldImage = styled(Field)`
   display: none;
 
   &:checked + ${ImgBox} {
-    outline: 2px solid var(--accentColor);
+    outline-color: var(--accentColor);
+    outline-offset: 0;
     transition-duration: 250ms;
+  }
+`;
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
   }
 `;
 
@@ -197,6 +211,48 @@ export const Button = styled.button`
 
   @media screen and (min-width: 768px) {
     width: 302px;
+  }
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+    top: 0;
+    left: -100%;
+    transform: rotate(45deg);
+    transition: all 0.3s;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    animation: ${pulseAnimation} 1s ease-in-out infinite;
+  }
+
+  &:hover:before,
+  &:focus:before {
+    left: 100%;
+    opacity: 1;
+    transition: left 2s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
 

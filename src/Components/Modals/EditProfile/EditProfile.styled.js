@@ -95,11 +95,6 @@ export const BtnUpdate = styled.button`
     width: 352px;
   }
 
-
-
-  
-
-
   &:before {
     content: '';
     position: absolute;
@@ -261,7 +256,8 @@ export const LabelEditPhoto = styled.label`
   border-radius: var(--borderRadius8);
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
   
