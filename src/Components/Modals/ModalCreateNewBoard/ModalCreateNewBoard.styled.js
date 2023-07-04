@@ -168,13 +168,14 @@ export const ImgBox = styled.div`
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  outline: 2.5px solid transparent;
+  outline: 2px solid transparent;
 `;
 
 export const FormikFieldImage = styled(Field)`
   display: none;
+  
 
-  &:checked + ${ImgBox} {
+  &:checked+${ImgBox} {
     outline-color: var(--accentColor);
     outline-offset: 0;
     transition-duration: 250ms;
