@@ -24,7 +24,7 @@ export const ListBoard = styled.ul``;
 
 export const ItemBoard = styled.li`
   position: relative;
-  padding: 20px 14px;
+  padding: 20px;
 
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--secondarySidebarBgColor)' : 'transparent'};
