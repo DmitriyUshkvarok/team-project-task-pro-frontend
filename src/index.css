@@ -9,9 +9,11 @@
   --errorColor: #ff0000;
   --roboto: 'Roboto';
 
-  --gradientFonColor: linear-gradient(180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%);
+  --gradientFonColor: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
 
   --transition: 0.4s;
 
@@ -59,6 +61,7 @@ body.menu-open {
 
 body[data-theme='light'] {
   --accentColor: #bedbb0;
+
   --modalInactiveTextColor: #161616;
 
   /**Header*/
@@ -75,12 +78,12 @@ body[data-theme='light'] {
   --userIconSvgColor: #ffffff;
 
   /**Screen Page*/
-  --screenPageBgColor: #F6F6F7;
-  --addColumnBtnColor: #FFFFFF;
+  --screenPageBgColor: #f6f6f7;
+  --addColumnBtnColor: #ffffff;
   --addColumnBtnBG: #161616;
-  --screenPageTextColor: #161616B2;
-  --screenPageSpanColor: #BEDBB0;
-  --iconFilterColor: #161616CC;
+  --screenPageTextColor: #161616b2;
+  --screenPageSpanColor: #bedbb0;
+  --iconFilterColor: #161616cc;
 
   --screenPageTitleBgColor: #ffffff;
   --screenPageTitleColor: #161616;
@@ -107,7 +110,6 @@ body[data-theme='light'] {
   --iconLogOutColor: #bedbb0;
   --scrollbarColor: rgba(0, 0, 0, 0.44);
   --logOutHoverColor: #bedbb0;
-
 
   /**Need Help*/
   --needHelpBgColor: #fcfcfc;
@@ -171,6 +173,12 @@ body[data-theme='light'] {
   --cardSubtitleColor: #16161680;
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 5px rgba(190, 219, 176, 1));
+
+  /**LogOutModal*/
+  --titleTextLOMColor: #bedbb0;
+  --bgLOMColor: #fcfcfc;
+  --backOverlayLOMColor: #bedbb0;
+  --messageLOMColor: #161616;
 }
 
 body[data-theme='dark'] {
@@ -187,16 +195,16 @@ body[data-theme='dark'] {
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
 
   /**UserIcon*/
-  --userIconBgSvgColor: #1F1F1F;
+  --userIconBgSvgColor: #1f1f1f;
   --userIconSvgColor: #151515;
 
   /**Screen Page*/
-  --screenPageBgColor: #1F1F1F;
+  --screenPageBgColor: #1f1f1f;
   --addColumnBtnColor: #121212;
-  --addColumnBtnBG: #FFFFFF;
-  --screenPageTextColor: #FFFFFF80;
-  --screenPageSpanColor: #BEDBB0;
-  --iconFilterColor: #FFFFFFCC;
+  --addColumnBtnBG: #ffffff;
+  --screenPageTextColor: #ffffff80;
+  --screenPageSpanColor: #bedbb0;
+  --iconFilterColor: #ffffffcc;
 
   --screenPageTitleBgColor: #121212;
   --screenPageTitleColor: #ffffff;
@@ -289,6 +297,11 @@ body[data-theme='dark'] {
   --cardPriorityTextColor: #ffffff;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(190, 219, 176, 1));
 
+  /**LogOutModal*/
+  --titleTextLOMColor: #bedbb0;
+  --bgLOMColor: #1f1f1f;
+  --backOverlayLOMColor: #bedbb0;
+  --messageLOMColor: #ffffff;
 }
 
 body[data-theme='violet'] {
@@ -313,8 +326,8 @@ body[data-theme='violet'] {
   --addColumnBtnColor: #ffffff;
   --addColumnBtnBG: #5255bc;
   --screenPageTextColor: #161616b2;
-  --screenPageSpanColor: #5255BC;
-  --iconFilterColor: #161616CC;
+  --screenPageSpanColor: #5255bc;
+  --iconFilterColor: #161616cc;
 
   --screenPageTitleBgColor: #ffffff;
   --screenPageTitleColor: #161616;
@@ -328,7 +341,7 @@ body[data-theme='violet'] {
 
   /**Sidebar*/
   --logoFonColor: #ecedfd;
-  --logoIconColor: #5255BC;
+  --logoIconColor: #5255bc;
   --accentBoardColor: #ffffff;
   --primarySidebarColor: #ffffff;
   --secondarySidebarColor: #ffffff80;
@@ -379,8 +392,8 @@ body[data-theme='violet'] {
   --iconImageBGColor: #ecedfd;
   --iconImageColor: #1616161a;
   --textPDBoxColor: #161616;
-  --modalPDBoxShadow: rgba(17, 17, 17, 0.10);
-  --modalFilterBorderColor: #1616161A;
+  --modalPDBoxShadow: rgba(17, 17, 17, 0.1);
+  --modalFilterBorderColor: #1616161a;
 
   /**Calendar*/
   --currentMonthColor: #161616;
@@ -405,6 +418,10 @@ body[data-theme='violet'] {
   --cardPriorityTextColor: #161616;
   --cardIconBellShadow: drop-shadow(0 0 6px rgba(82, 85, 188, 1));
 
+  /**LogOutModal*/
+  --titleTextLOMColor: #5255bc;
+  --bgLOMColor: #fcfcfc;
+  --messageLOMColor: #161616;
 }
 
 h1,
@@ -412,6 +429,13 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+[id^='NotiflixConfirmWrap']
+  > div[class*='-content']
+  > div[class*='-head']
+  > h5 {
+  border-bottom: 1px solid var(--accentColor) !important;
 }
 
 ul {
