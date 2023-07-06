@@ -12,9 +12,16 @@ const LogOut = () => {
       width: '260px',
       position: 'center-top',
       fontFamily: 'Poppins',
-      titleColor: '#bedbb0',
-      okButtonBackground: '#bedbb0',
+      titleColor: 'var(--titleTextLOMColor)',
+      backgroundColor: 'var(--bgLOMColor)',
+      // titleBorderBottom: '1px solid var(--accentColor)',
+      
+      okButtonBackground: 'var(--accentColor)',
+
+      messageColor: 'var(--messageLOMColor)',      
     });
+    
+
     Notiflix.Confirm.show(
       'Confirmation',
       'Are you sure you want to log out?',

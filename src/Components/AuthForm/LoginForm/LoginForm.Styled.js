@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 export const FormikStyle = styled(Formik)``;
@@ -106,6 +106,21 @@ export const BtnWrapper = styled.div`
   margin-top: 24px;
 `;
 
+
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1.03);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+`;
+
+
 export const BtnLogIn = styled.button`
   width: 100%;
   height: 49px;
@@ -126,10 +141,46 @@ export const BtnLogIn = styled.button`
     width: 342px;
   }
 
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+    top: 0;
+    left: -100%;
+    transform: rotate(45deg);
+    transition: all 0.3s;
+    opacity: 0;
+  }
+
   &:hover,
   &:focus {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    animation: ${pulseAnimation} 1s ease-in-out infinite;
+  }
+
+  &:hover:before,
+  &:focus:before {
+    left: 100%;
+    opacity: 1;
+    transition: left 2s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
 
