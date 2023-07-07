@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { useUpdateTaskMutation } from '../../../redux/boardApi/boardApi';
+import { useMoveTaskMutation } from '../../../redux/boardApi/boardApi';
 import { closeModal } from '../../../redux/modal/modalSlice';
 
 import url from '../../../images/icons/sprite/icons.svg';
@@ -14,7 +14,7 @@ import {
 } from './ProgressDone.styled';
 
 const ProgressDoneModal = ({ componentName }) => {
-  const [updateTask] = useUpdateTaskMutation();
+  const [moveTask] = useMoveTaskMutation();
   const dispatch = useDispatch();
 
   const currentColumnId = componentName.currentColumnId;
@@ -23,9 +23,12 @@ const ProgressDoneModal = ({ componentName }) => {
 
   const handleClick = async (columnIdMoveTo) => {
     if (columnIdMoveTo === currentColumnId) return;
-    const value = { column: columnIdMoveTo };
+    const value = {
+      columnStart: currentColumnId,
+      columnFinish: columnIdMoveTo,
+    };
     try {
-      await updateTask({ values: value, idTask: currentTaskId });
+      await moveTask({ values: value, idTask: currentTaskId });
       dispatch(closeModal());
     } catch (error) {
       console.log(error);

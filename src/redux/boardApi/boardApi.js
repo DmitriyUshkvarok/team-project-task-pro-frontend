@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import baseUrl from '../../assets/config';
 
 export const boardsApi = createApi({
   reducerPath: 'boardsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://task-pro-app.onrender.com/api/',
+    baseUrl: baseUrl,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -88,6 +89,14 @@ export const boardsApi = createApi({
       }),
       invalidatesTags: ['BoardsId', 'Columns'],
     }),
+    moveTask: builder.mutation({
+      query: ({ values, idTask }) => ({
+        url: `/tasks/move/${idTask}`,
+        method: 'PATCH',
+        body: values,
+      }),
+      invalidatesTags: ['BoardsId', 'Columns'],
+    }),
     deleteTask: builder.mutation({
       query: (id) => ({
         url: `/tasks/${id}`,
@@ -113,6 +122,7 @@ export const {
   useEditBoardMutation,
   useDeleteColumnMutation,
   useUpdateTaskMutation,
+  useMoveTaskMutation,
   useGetBoardBdByIdQuery,
   useDeleteTaskMutation,
 } = boardsApi;

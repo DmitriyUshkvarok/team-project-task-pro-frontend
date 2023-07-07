@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import baseUrl from '../../assets/config';
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://task-pro-app.onrender.com/api/',
+    baseUrl: baseUrl,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
