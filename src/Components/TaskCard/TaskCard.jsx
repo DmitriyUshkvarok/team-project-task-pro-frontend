@@ -28,7 +28,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useDeleteTaskMutation } from '../../redux/boardApi/boardApi';
 import { useState } from 'react';
 
-const TaskCard = ({ task, columns }) => {
+const TaskCard = ({ task, columnsIdsTitles, currentColumnId }) => {
   const [isLoading, setIsLoading] = useState({});
   const [deleteTask] = useDeleteTaskMutation();
   const dispatch = useDispatch();
@@ -130,9 +130,9 @@ const TaskCard = ({ task, columns }) => {
                   dispatch(
                     openModal({
                       name: 'progressDoneModal',
-                      currentColumnId: task.column,
+                      currentColumnId,
                       currentTaskId: task._id,
-                      columns,
+                      columnsIdsTitles,
                     })
                   )
                 }
@@ -182,13 +182,12 @@ TaskCard.propTypes = {
     description: PropTypes.string.isRequired,
     priority: PropTypes.oneOf(['medium', 'without', 'high', 'low']).isRequired,
     deadline: PropTypes.string.isRequired,
-    column: PropTypes.string.isRequired,
   }).isRequired,
-  columns: PropTypes.arrayOf(
+  currentColumnId: PropTypes.string.isRequired,
+  columnsIdsTitles: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      board: PropTypes.string.isRequired,
-    }).isRequired
+    })
   ),
 };

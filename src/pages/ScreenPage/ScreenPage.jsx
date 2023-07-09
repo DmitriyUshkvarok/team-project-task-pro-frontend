@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../redux/modal/modalSlice';
 import {
@@ -27,22 +27,23 @@ const ScreenPage = () => {
   const dispatch = useDispatch();
   const { data } = useGetFetchBoardByIdQuery(boardId);
   const [deleteColumn] = useDeleteColumnMutation();
-  const [value, setValue] = useState();
-  const [filteredTasks, setFilteredTasks] = useState();
+  // const [value, setValue] = useState();
+  // const [filteredTasks, setFilteredTasks] = useState();
   const filter = useSelector(selectFilterValue);
 
-  useEffect(() => {
-    if (data) {
-      setValue(data.tasks);
-      setFilteredTasks(data.tasks);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setValue(data.tasks);
+  //     setFilteredTasks(data.tasks);
+  //     // console.log(data);
+  //   }
+  // }, [data]);
 
-  useEffect(() => {
-    if (filter && data) {
-      handleFilteredPriority();
-    }
-  }, [filter]);
+  // useEffect(() => {
+  //   if (filter && data) {
+  //     handleFilteredPriority();
+  //   }
+  // }, [filter]);
 
   const handleClickModal = (columnId) => {
     dispatch(
@@ -81,16 +82,16 @@ const ScreenPage = () => {
     }
   };
 
-  const handleFilteredPriority = () => {
-    if (filter !== 'all') {
-      setFilteredTasks(value?.filter((task) => task.priority === filter));
-    } else setFilteredTasks(value);
-  };
+  // const handleFilteredPriority = () => {
+  //   if (filter !== 'all') {
+  //     setFilteredTasks(value?.filter((task) => task.priority === filter));
+  //   } else setFilteredTasks(value);
+  // };
 
   return (
     <>
-      {data?.columns &&
-        data.columns.map(({ _id, title }) => (
+      {data?.columns.length > 0 &&
+        data.columns.map(({ _id, title, tasksList }) => (
           <BoxColumns key={_id}>
             <BoxColumnsTitle>
               <Subject>{title}</Subject>
@@ -118,17 +119,32 @@ const ScreenPage = () => {
             </BoxColumnsTitle>
 
             <ListTask>
-              {filteredTasks &&
-                filteredTasks.map(
-                  (task) =>
-                    task.column === _id && (
+              {/* {filteredTasks &&
+                filteredTasks.map( */}
+              {tasksList &&
+                tasksList.map((task) => {
+                  if (filter !== 'all') {
+                    return (
+                      filter === task.priority && (
+                        <TaskCard
+                          task={task}
+                          columnsIdsTitles={data.columnsIds}
+                          currentColumnId={_id}
+                          key={task._id}
+                        />
+                      )
+                    );
+                  } else {
+                    return (
                       <TaskCard
                         task={task}
-                        columns={data.columns}
+                        columnsIdsTitles={data.columnsIds}
+                        currentColumnId={_id}
                         key={task._id}
                       />
-                    )
-                )}
+                    );
+                  }
+                })}
             </ListTask>
             <AddCardBtn onClick={() => handleClickModal(_id)}>
               <AddCardIcon width="28" height="28">

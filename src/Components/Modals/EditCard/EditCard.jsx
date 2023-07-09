@@ -37,7 +37,7 @@ import {
 
 const ModalEditCard = ({ componentName }) => {
   const {
-    task: { title, description, priority, deadline, column, _id },
+    task: { title, description, priority, deadline, _id },
   } = componentName;
 
   const idTask = _id.toString();
@@ -62,7 +62,6 @@ const ModalEditCard = ({ componentName }) => {
     description: description,
     priority: priority,
     deadline: deadline,
-    column: column,
   };
 
   const schema = yup.object({
@@ -81,7 +80,6 @@ const ModalEditCard = ({ componentName }) => {
       .required('Priority is required')
       .oneOf(['low', 'medium', 'high', 'without']),
     deadline: yup.date().required('Deadline is required'),
-    column: yup.string().required(),
   });
 
   //===for props (need for the custom radio btn)===/

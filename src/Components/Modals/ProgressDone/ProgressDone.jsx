@@ -19,7 +19,7 @@ const ProgressDoneModal = ({ componentName }) => {
 
   const currentColumnId = componentName.currentColumnId;
   const currentTaskId = componentName.currentTaskId;
-  const allColumns = componentName.columns;
+  const allColumns = componentName.columnsIdsTitles;
 
   const handleClick = async (columnIdMoveTo) => {
     if (columnIdMoveTo === currentColumnId) return;
@@ -75,11 +75,10 @@ ProgressDoneModal.propTypes = {
   componentName: PropTypes.shape({
     currentColumnId: PropTypes.string.isRequired,
     currentTaskId: PropTypes.string.isRequired,
-    columns: PropTypes.arrayOf(
+    columnsIdsTitles: PropTypes.arrayOf(
       PropTypes.shape({
         _id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        board: PropTypes.string.isRequired,
       }).isRequired
     ),
   }),
