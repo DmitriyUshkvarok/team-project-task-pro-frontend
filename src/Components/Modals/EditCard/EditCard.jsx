@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
 //===for calendar===/
@@ -180,3 +181,17 @@ const ModalEditCard = ({ componentName }) => {
 };
 
 export default ModalEditCard;
+
+ModalEditCard.propTypes = {
+  componentName: PropTypes.shape({
+    task: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      priority: PropTypes.oneOf(['medium', 'without', 'high', 'low'])
+        .isRequired,
+      deadline: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  currentColumnId: PropTypes.string.isRequired,
+};
