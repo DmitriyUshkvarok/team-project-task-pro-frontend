@@ -193,5 +193,4 @@ ModalEditCard.propTypes = {
       deadline: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-  currentColumnId: PropTypes.string.isRequired,
 };
