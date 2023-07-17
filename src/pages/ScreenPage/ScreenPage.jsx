@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useGetFetchBoardByIdQuery } from '../../redux/boardApi/boardApi';
 import Column from './Colunm';
 
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { StrictModeDroppable } from '../../services/StrictModeDroppable';
 
-const ScreenPage = ({ id }) => {
+const ScreenPage = () => {
   const { boardId } = useParams();
   const { data } = useGetFetchBoardByIdQuery(boardId);
 
@@ -12,7 +13,11 @@ const ScreenPage = ({ id }) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="all-columns" direction="horizontal" type="column">
+      <StrictModeDroppable
+        droppableId="all-columns"
+        direction="horizontal"
+        type="column"
+      >
         {(provided) => (
           <div
             style={{ display: 'flex' }}
@@ -33,7 +38,7 @@ const ScreenPage = ({ id }) => {
             {provided.placeholder}
           </div>
         )}
-      </Droppable>
+      </StrictModeDroppable>
     </DragDropContext>
   );
 };
