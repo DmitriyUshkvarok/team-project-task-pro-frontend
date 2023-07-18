@@ -1,5 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { useGetFetchBoardByIdQuery } from '../../redux/boardApi/boardApi';
+import {
+  useGetFetchBoardByIdQuery,
+  useMoveColumnMutation,
+} from '../../redux/boardApi/boardApi';
 import Column from './Colunm';
 
 import { DragDropContext } from 'react-beautiful-dnd';
@@ -8,8 +11,23 @@ import { StrictModeDroppable } from '../../services/StrictModeDroppable';
 const ScreenPage = () => {
   const { boardId } = useParams();
   const { data } = useGetFetchBoardByIdQuery(boardId);
+  const [moveColumn] = useMoveColumnMutation();
 
-  const onDragEnd = () => {};
+  const onDragEnd = async (result) => {
+    const { destination, source, draggableId, type } = result;
+    if (type === 'column') {
+      const value = {
+        indexStart: source.index,
+        indexFinish: destination.index,
+      };
+
+      try {
+        await moveColumn({ values: value, idColumn: draggableId });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
