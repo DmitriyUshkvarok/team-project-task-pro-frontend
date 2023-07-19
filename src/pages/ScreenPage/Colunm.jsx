@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
+
 import { openModal } from '../../redux/modal/modalSlice';
 import { useDeleteColumnMutation } from '../../redux/boardApi/boardApi';
 import TaskCard from '../../Components/TaskCard/TaskCard';
@@ -19,7 +21,6 @@ import {
 
 import url from '../../images/icons/sprite/icons.svg';
 import { LoaderForDeleted } from '../../Components/Loader/LoaderDeleted/LoaderDeleted';
-import { Draggable } from 'react-beautiful-dnd';
 
 const Column = ({ _id, title, tasksList, columnsIds, index }) => {
   const [isDeletedLoad, setIsDeletedLoad] = useState({});
@@ -90,32 +91,40 @@ const Column = ({ _id, title, tasksList, columnsIds, index }) => {
             </BtnIcon>
           </BoxColumnsTitle>
 
-          <ListTask>
-            {tasksList &&
-              tasksList.map((task) => {
-                if (filter !== 'all') {
-                  return (
-                    filter === task.priority && (
-                      <TaskCard
-                        task={task}
-                        columnsIdsTitles={columnsIds}
-                        currentColumnId={_id}
-                        key={task._id}
-                      />
-                    )
-                  );
-                } else {
-                  return (
-                    <TaskCard
-                      task={task}
-                      columnsIdsTitles={columnsIds}
-                      currentColumnId={_id}
-                      key={task._id}
-                    />
-                  );
-                }
-              })}
-          </ListTask>
+          <Droppable droppableId={_id} type="task">
+            {(provided) => (
+              <ListTask ref={provided.innerRef} {...provided.droppableProps}>
+                {tasksList &&
+                  tasksList.map((task, index) => {
+                    if (filter !== 'all') {
+                      return (
+                        filter === task.priority && (
+                          <TaskCard
+                            task={task}
+                            columnsIdsTitles={columnsIds}
+                            currentColumnId={_id}
+                            key={task._id}
+                            index={index}
+                          />
+                        )
+                      );
+                    } else {
+                      return (
+                        <TaskCard
+                          task={task}
+                          columnsIdsTitles={columnsIds}
+                          currentColumnId={_id}
+                          key={task._id}
+                          index={index}
+                        />
+                      );
+                    }
+                  })}
+                {provided.placeholder}
+              </ListTask>
+            )}
+          </Droppable>
+
           <AddCardBtn onClick={() => handleClickModal(_id)}>
             <AddCardIcon width="28" height="28">
               <svg width="18" height="18">
