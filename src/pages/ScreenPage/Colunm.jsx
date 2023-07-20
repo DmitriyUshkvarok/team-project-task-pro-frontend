@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import PropTypes from 'prop-types';
 
 import { openModal } from '../../redux/modal/modalSlice';
 import { useDeleteColumnMutation } from '../../redux/boardApi/boardApi';
@@ -22,7 +23,7 @@ import {
 import url from '../../images/icons/sprite/icons.svg';
 import { LoaderForDeleted } from '../../Components/Loader/LoaderDeleted/LoaderDeleted';
 
-const Column = ({ _id, title, tasksList, columnsIds, index }) => {
+const Column = ({ _id, title, tasksList, columnsIds, index, boardId }) => {
   const [isDeletedLoad, setIsDeletedLoad] = useState({});
   const dispatch = useDispatch();
   const [deleteColumn] = useDeleteColumnMutation();
@@ -140,3 +141,27 @@ const Column = ({ _id, title, tasksList, columnsIds, index }) => {
 };
 
 export default Column;
+
+Column.propTypes = {
+  _id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+
+  tasksList: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      priority: PropTypes.oneOf(['medium', 'without', 'high', 'low'])
+        .isRequired,
+      deadline: PropTypes.string.isRequired,
+    })
+  ),
+  columnsIds: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
+  index: PropTypes.number.isRequired,
+  boardId: PropTypes.string.isRequired,
+};

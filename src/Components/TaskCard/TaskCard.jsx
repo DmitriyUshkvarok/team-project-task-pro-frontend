@@ -202,4 +202,5 @@ TaskCard.propTypes = {
       title: PropTypes.string.isRequired,
     })
   ),
+  index: PropTypes.number.isRequired,
 };

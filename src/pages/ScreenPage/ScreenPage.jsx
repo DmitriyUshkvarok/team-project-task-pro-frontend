@@ -78,6 +78,7 @@ const ScreenPage = () => {
                   tasksList={tasksList}
                   columnsIds={data.columnsIds}
                   index={index}
+                  boardId={boardId}
                 />
               ))}
             {provided.placeholder}
