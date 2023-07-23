@@ -93,8 +93,17 @@ const Column = ({ _id, title, tasksList, columnsIds, index, boardId }) => {
           </BoxColumnsTitle>
 
           <Droppable droppableId={_id} type="task">
-            {(provided) => (
-              <ListTask ref={provided.innerRef} {...provided.droppableProps}>
+            {(provided, snapshot) => (
+              <ListTask
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                // style={{
+                //   backgroundColor: snapshot.isDraggingOver
+                //     ? 'var(--secondarySidebarBgColor)'
+                //     : // ? 'var(--primarySidebarBgColor)'
+                //       'inherit',
+                // }}
+              >
                 {tasksList &&
                   tasksList.map((task, index) => {
                     if (filter !== 'all') {

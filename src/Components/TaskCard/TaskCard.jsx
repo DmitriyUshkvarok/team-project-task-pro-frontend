@@ -85,14 +85,20 @@ const TaskCard = ({ task, columnsIdsTitles, currentColumnId, index }) => {
 
   return (
     <Draggable draggableId={task._id} index={index}>
-      {(provided) => (
+      {(provided, snapshot) => (
         <li
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
           <CardBg style={{ backgroundColor: `${colorSwitch(task.priority)}` }}>
-            <Card>
+            <Card
+            // style={{
+            //   backgroundColor: snapshot.isDragging
+            //     ? 'var(--addBtnBgColor)'
+            //     : 'var(--headerColor)',
+            // }}
+            >
               <CardTitle>{task.title}</CardTitle>
 
               <CardDescription>
